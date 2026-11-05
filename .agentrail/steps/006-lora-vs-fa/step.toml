@@ -1,0 +1,10 @@
+number = 6
+slug = "lora-vs-fa"
+status = "pending"
+description = """
+Step lora-vs-fa (docs/plan.md, Saga 1 row 6, principle 5;
+docs/research.txt s..."""
+role = "production"
+context_files = []
+created_at = "2026-11-05T07:28:20"
+commits = []

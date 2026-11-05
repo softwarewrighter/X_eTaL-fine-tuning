@@ -1,0 +1,11 @@
+number = 1
+slug = "foundation"
+status = "pending"
+description = """
+Step foundation (docs/plan.md, Saga 1 row 1; decisions F1, F2, F4, F9).
+
+Buil..."""
+role = "production"
+context_files = []
+created_at = "2026-11-05T07:28:20"
+commits = []

@@ -1,0 +1,38 @@
+# cargo (every workspace shares ./target via .cargo/config.toml)
+/target/
+**/target/
+**/*.rs.bk
+
+# reg-rs: .rgt + .out/.err baselines are committed; .tdb* files are caches
+*.tdb*
+
+# trunk serve output (just serve SLUG); the published copy is pages/
+demos/*/web/dist/
+
+# agentrail raw session transcripts (large, local only)
+.agentrail/sessions/*.jsonl
+.agentrail-archive/*/sessions/*.jsonl
+
+# Claude Code local state (shared slash commands may live in .claude/commands/)
+.claude/*
+!.claude/commands/
+
+# editors and OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# the X_eTaL-ML clone, with the X_eTaL and X_eTaL-libraries it pins
+# (scripts/xetal-ml.sh; XETAL_ML_COMMIT is tracked), the binary's symlink, local
+# scratch, datasets and demo output
+/tmp/
+work/
+bin/xetal
+
+# the built site: published as the gh-pages branch (just publish), never tracked on main
+/pages/
+
+# the scripts' Python: a uv-managed virtual environment (scripts/py makes it)
+/.venv/
