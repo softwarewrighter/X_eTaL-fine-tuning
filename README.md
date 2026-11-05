@@ -90,7 +90,7 @@ Three stages, in this order ([`docs/plan.md`](docs/plan.md)):
 | ----- | ------- | ------------ |
 | 1. LoRA | a frozen layer and a low-rank adapter, its training, rank and scale, LoRA-FA | how can a model learn something new while its weights stay as they are? |
 | 1. LoRA variations | QLoRA, DoRA, VeRA and others; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
-| 2. Alternatives | full and selective fine-tuning, other parameter-efficient methods, weight-space methods that use no back-propagation, methods that change no weight | what else is there, and when is it the better choice? |
+| 2. Alternatives | weight-space methods that use no back-propagation (zeroth-order optimization and evolution strategies: MeZO, DART-ES, AGZO, StructZO, Dust), beside back-propagation itself; then the other alternatives briefly | can a model learn from forward passes alone, at what cost, and when is that the better choice? |
 | 3. Bleeding edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing a model's weights directly | can a model be changed without training at all, and can a model do that to a model? |
 | Later: applied | a coding model taught a team's engineering standards, measured by an executable grader, on real open-weight models | does any of this make a real model better at a real job, and how is that proved? |
 
@@ -132,7 +132,7 @@ in [`docs/plan.md`](docs/plan.md):
 | ------- | ----- | ---- |
 | FineTune | `ft:` | the learning task with its train and held-out split, train, validation and retention losses, the harness every method is compared on, full fine-tuning of a layer |
 | PEFT | `pe:` | the LoRA variations X_eTaL-ML's library lacks: rsLoRA's scale, DoRA, and others as needed |
-| WeightSpace | `ws:` | learning without back-propagation: seeded perturbations and forward passes only |
+| WeightSpace | `ws:` | learning without back-propagation: seeded perturbations, forward passes only, zeroth-order estimates and evolution strategies |
 | Edit | `ed:` | a layer as a key-value memory, rank-one and batch edits in closed form, locality and retention |
 
 ## Status
@@ -207,8 +207,10 @@ just new-lib Name alias: "what it is"   # start a library from templates/Library
 - [`docs/plan.md`](docs/plan.md) -- principles, decisions, the
   curriculum and the roadmap
 - [`docs/research.txt`](docs/research.txt),
-  [`docs/research2.txt`](docs/research2.txt) -- the design review this
-  repository came from, and the wider discussion of fine-tuning
+  [`docs/research2.txt`](docs/research2.txt),
+  [`docs/research3.txt`](docs/research3.txt) -- the design review this
+  repository came from, the wider discussion of fine-tuning, and a
+  review of weight-space fine-tuning without back-propagation
   (archival)
 - [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md),
   [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md) --

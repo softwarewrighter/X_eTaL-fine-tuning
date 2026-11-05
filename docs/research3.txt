@@ -1,0 +1,801 @@
+
+As an alternative to LoRA and similar historic approaches to fine tuning, there are very recent discussions about weight-space (no back-propagation) alternatives.  What are the latest papers and or announcements related to this.  Some possibilities are DUST and ES, but there may be even newer approaches.  Research and document these very new alternatives to LoRA.
+Weight-space fine-tuning without backpropagation: emerging alternatives to LoRA
+Research review • November 5, 2026
+
+The interesting question is no longer simply whether we can fine-tune an LLM with fewer trainable parameters, as LoRA, QLoRA, VeRA, and DoRA attempt to do. It is whether we can improve a pretrained model by directly searching, editing, or composing its weights without computing gradients through the model.
+
+That opens several distinct research directions:
+
+Weight-space optimization: Search for useful changes to model parameters using fitness evaluations rather than backpropagation.
+
+Evolution strategies (ES): Estimate useful update directions from populations of perturbed models and their measured performance.
+
+Direct weight editing: Modify specific parameters, neurons, or representations to introduce or correct behavior.
+
+Model merging and task vectors: Combine previously learned capabilities through weight arithmetic, often without additional training.
+
+Agent-directed optimization: Let an agent propose, evaluate, and retain model modifications using external feedback such as compiler diagnostics, test results, or benchmark scores.
+
+These approaches are not necessarily interchangeable. Some eliminate backpropagation entirely, some move it to an earlier offline stage, and others use gradients only to discover a small editable subspace.
+
+For your X_eTaL fine-tuning work, I would treat them as a broader family of weight-space adaptation techniques, with LoRA as one baseline rather than the central architecture.
+
+A particularly important distinction is whether a technique can improve a model using only inference access and measurable outcomes. That is where evolution strategies, black-box optimization, and agent-guided weight editing become especially interesting.
+
+1. Most important papers and announcements
+The search surfaced several particularly relevant 2026 papers, including an October 2026 technique that reports performance close to Adam without backpropagation, and a very recent replication challenge to the idea that random weight perturbations reliably uncover task specialists.
+
+Research comparison
+Paper / approach
+
+Date
+
+Mechanism
+
+Main significance
+
+StructZO
+
+Oct 12, 2026
+
+Structured zeroth-order optimization
+
+Reports performance within 1.5% of Adam on average
+
+DART-ES
+
+Oct 2026
+
+Difficulty-aware evolution strategies
+
+Improves ES using problem difficulty and targeted replay
+
+Dust
+
+Oct 2026
+
+Token-level activation perturbations
+
+Competitive with backprop in small-scale transformer pretraining experiments
+
+Revisiting Neural Thickets
+
+Oct 31, 2026
+
+Independent replication / critique
+
+Challenges claims about random weight-space task experts
+
+AGZO
+
+Jul 2026
+
+Activation-guided weight perturbations
+
+Searches informative subspaces rather than random full-dimensional directions
+
+ES at Scale
+
+Jul 2026
+
+Full-parameter evolutionary optimization
+
+Demonstrates billion-parameter LLM adaptation without backprop
+
+Neural Thickets
+
+Mar 2026
+
+Random perturbations and selection
+
+Proposes that useful task experts exist near pretrained weights
+
+KronZO
+
+2026
+
+Kronecker-structured perturbations
+
+Reduces search dimensionality and memory requirements
+
+EGGROLL
+
+Nov 2025
+
+Efficient, low-rank evolutionary perturbations
+
+Makes large ES populations more practical on accelerators
+
+MeZO
+
+2023
+
+Memory-efficient zeroth-order updates
+
+Foundational forward-pass-only fine-tuning baseline
+
+The key distinction is that StructZO, AGZO, DART-ES, and ES at Scale are directly relevant to fine-tuning pretrained LLMs, whereas Dust primarily demonstrates an alternative training mechanism during pretraining.
+
+1.1 StructZO — October 12, 2026
+Highest priority for practical fine-tuning research
+
+Paper: Structured Zeroth-Order Optimization for Memory-Efficient LLM Fine-Tuning
+
+StructZO addresses a fundamental weakness of traditional zeroth-order optimization: random directions in enormous weight spaces often provide poor information about how to improve a model.
+
+Instead, it uses the model's activations to construct an informative, reduced-dimensional search space, estimates updates within that space, and applies spectral conditioning.
+
+For a weight matrix 
+W
+∈
+R
+m
+×
+n
+W∈R 
+m×n
+ , the authors describe reducing the effective estimation dimension from 
+m
+n
+mn to 
+m
+r
+mr, where 
+r
+r is the chosen subspace rank.
+
+Reported results:
+
+Within 1.5% of first-order Adam on average across the reported tasks.
+
+Up to 8.7% relative average improvement over strong zeroth-order baselines.
+
+Up to 26.9% relative improvement on individual tasks.
+
+Experiments include Llama 3.1 8B and OPT-family models.
+
+These are author-reported benchmark results, not proof of equal performance for every model or coding task. 
+
+arXiv
++1
+
+Why it matters: StructZO is a compelling candidate for a backprop-free fine-tuning engine that uses a pretrained model's existing structure to guide weight updates.
+
+1.2 DART-ES — October 2026
+Paper: Difficulty-Aware Reweighting and Targeted Replay for Fine-Tuning LLMs with Evolution Strategies
+
+DART-ES improves evolution strategies by changing how individual training problems contribute to the optimization signal.
+
+Instead of treating all tasks equally, it estimates their difficulty from population success rates and historical observations, then adjusts rewards and replays selected problems.
+
+This is particularly interesting for coding models because tasks have measurable outcomes: compilation success, unit tests, complexity scores, and performance.
+
+The authors report:
+
+GSM8K average accuracy of 73.53%, versus 72.07% for standard ES and 73.26% for GRPO in their comparisons.
+
+Improvements across mathematical reasoning, instruction tuning, and code generation experiments.
+
+Lower runtime and peak GPU memory than the compared GRPO implementations.
+
+The paper also reports experiments with a 14B model. 
+
+arXiv
+
+Why it matters: DART-ES offers a direct conceptual bridge between weight-space optimization and your proposed automated coding-feedback system. It can learn from externally measured success without differentiating through a compiler, test runner, or complexity grader.
+
+1.3 Dust — October 2026
+Research announcement: Dust: Pretraining Transformers Without Backpropagation
+
+Dust is especially interesting because it challenges the assumption that useful credit assignment must be calculated using backpropagation.
+
+However, Dust is not strictly a weight-space search algorithm.
+
+Traditional ES perturbs weights. Dust perturbs intermediate activations independently across tokens, treating each token as a virtual population member.
+
+Two ways of searching for improvements
+
+
+Dust's central advantage is that it obtains many perturbation evaluations in parallel without materializing a separate weight-modified model for every population member.
+
+The authors report that:
+
+Large populations can approach or occasionally exceed backpropagation results in their experiments.
+
+Larger tested models can be more population-efficient than smaller models.
+
+Estimated gradients become better aligned with backpropagation gradients as population size grows.
+
+Their extrapolated compute-efficiency comparison favors Dust over transformer EGGROLL by several orders of magnitude in the studied regime.
+
+Crucially, the authors explicitly acknowledge that Dust still needs substantial compute-efficiency improvements before becoming a practical replacement for backpropagation at contemporary training scales. 
+
+qlabs.sh
+
+Why it matters: Dust suggests a different architecture for learning systems: use activations as the exploration space, but still produce persistent improvements to model weights.
+
+1.4 Evolution Strategies at Scale — ICML 2026
+Paper: Evolution Strategies at Scale: LLM Fine-Tuning Beyond Reinforcement Learning
+
+This is among the strongest direct demonstrations that full-parameter LLM fine-tuning without backpropagation is feasible.
+
+The researchers report successful evolutionary optimization of billion-parameter language models without first compressing the optimization into a reduced parameter space.
+
+They also report advantages over their reinforcement-learning baselines in long-horizon rewards, stability, and robustness.
+
+This matters because evolution strategies do not need a differentiable training objective. A model can be rewarded for completing a long sequence of actions, even if those actions involve tools and external systems. 
+
+Proceedings of Machine Learning Research
+
+For a coding agent, that could mean rewarding a model only after it has produced an implementation that compiles, passes tests, satisfies architectural constraints, and meets performance requirements.
+
+1.5 AGZO — ICML 2026
+Paper: Activation-Guided Zeroth-Order Optimization for LLM Fine-Tuning
+
+AGZO exploits the fact that the gradient of a linear layer lies in the span of its input activations.
+
+Rather than perturbing weights uniformly, it builds a compact subspace from forward-pass activations and restricts perturbations to that subspace.
+
+The researchers evaluate the method on Qwen3 and Pangu models and report improvements over prior zeroth-order baselines while retaining similar peak memory consumption. 
+
+Proceedings of Machine Learning Research
+
+AGZO and StructZO are especially worth studying together. Both suggest that the solution to high-dimensional black-box optimization may be better geometry rather than simply larger random populations.
+
+1.6 Neural Thickets — March 2026, with an important November challenge
+Original: Neural Thickets: Diverse Task Experts Are Dense Around Pretrained Weights
+
+The original paper proposes that sufficiently large pretrained models may already have nearby weight configurations that perform substantially better on particular tasks.
+
+Its simple procedure samples perturbed models, selects high-performing candidates, and ensembles their predictions.
+
+This is attractive because it avoids iterative backpropagation entirely.
+
+But there is an important new development.
+
+Replication challenge: Does Random Search Discover Task Experts? Revisiting Neural Thickets
+
+Published at the end of October 2026, this follow-up finds that much of the apparent improvement may result from selection noise and overfitting to the examples used to choose the perturbations.
+
+The authors report that, for 10 of 12 model-task combinations, a simple selection-noise model predicts more than 75% of the selected candidate's apparent reward improvement. Advantages often disappear on held-out questions, and ensembles of selected perturbations are frequently matched by repeated sampling from the unmodified base model. 
+
+arXiv
++1
+
+This is an important warning for your experiments: selecting the best-performing weight perturbation is not evidence of genuine learning unless the improvement survives independent evaluation.
+
+2. The mathematical relationship between the approaches
+These techniques become easier to compare when expressed using a common mathematical vocabulary.
+
+Let:
+
+θ
+θ represent the original model weights.
+
+J
+(
+θ
+)
+J(θ) represent an objective to maximize.
+
+ϵ
+ϵ represent a perturbation.
+
+σ
+σ represent the perturbation scale.
+
+K
+K represent the number of candidate evaluations.
+
+LoRA: learn a low-rank update using backpropagation
+W
+′
+=
+W
++
+α
+r
+B
+A
+W 
+′
+ =W+ 
+r
+α
+​
+ BA
+LoRA reduces the number of trainable parameters, but conventional LoRA still computes gradients through the model.
+
+Zeroth-order optimization: estimate a useful direction
+A standard antithetic two-point estimator is:
+
+g
+^
+=
+1
+K
+∑
+i
+=
+1
+K
+J
+(
+θ
++
+σ
+ϵ
+i
+)
+−
+J
+(
+θ
+−
+σ
+ϵ
+i
+)
+2
+σ
+ϵ
+i
+g
+^
+​
+ = 
+K
+1
+​
+  
+i=1
+∑
+K
+​
+  
+2σ
+J(θ+σϵ 
+i
+​
+ )−J(θ−σϵ 
+i
+​
+ )
+​
+ ϵ 
+i
+​
+ 
+Then update:
+
+θ
+t
++
+1
+=
+θ
+t
++
+η
+g
+^
+θ 
+t+1
+​
+ =θ 
+t
+​
+ +η 
+g
+^
+​
+ 
+No backward pass is needed. Each candidate requires forward evaluations, and the estimator approximates the gradient of a smoothed objective.
+
+Structured zeroth-order optimization
+Instead of exploring all parameter dimensions, introduce a structured mapping 
+P
+P:
+
+θ
+′
+=
+θ
++
+σ
+P
+z
+θ 
+′
+ =θ+σPz
+where 
+z
+z is a lower-dimensional search vector.
+
+Now optimization searches over 
+z
+z rather than arbitrary perturbations to every weight.
+
+This is the common conceptual foundation of activation-guided and structured zeroth-order methods, although their specific subspace construction and update rules differ.
+
+Evolution strategies: optimize through measured fitness
+For a population of perturbed models:
+
+θ
+i
+=
+θ
++
+σ
+ϵ
+i
+θ 
+i
+​
+ =θ+σϵ 
+i
+​
+ 
+Evaluate each candidate:
+
+R
+i
+=
+Evaluate
+⁡
+(
+θ
+i
+)
+R 
+i
+​
+ =Evaluate(θ 
+i
+​
+ )
+Then estimate an update direction using normalized or centered rewards:
+
+Δ
+θ
+∝
+∑
+i
+(
+R
+i
+−
+R
+ˉ
+)
+ϵ
+i
+Δθ∝ 
+i
+∑
+​
+ (R 
+i
+​
+ − 
+R
+ˉ
+ )ϵ 
+i
+​
+ 
+The reward may come from any measurable outcome, including non-differentiable ones.
+
+Dust: perturb activations instead of parameters
+For an intermediate activation 
+h
+h:
+
+h
+~
+=
+h
++
+σ
+ϵ
+h
+~
+ =h+σϵ
+Perturbation-dependent loss changes supply the learning signal. Dust uses token-level virtual populations and layer-specific credit assignment rather than the simple global estimator above.
+
+The distinction is where exploration occurs:
+
+Approach
+
+Exploration space
+
+Requires backward pass?
+
+Main cost
+
+LoRA
+
+Low-rank parameter factors
+
+Yes
+
+Gradient computation and activations
+
+MeZO
+
+Parameter space
+
+No
+
+Multiple forward evaluations
+
+EGGROLL / ES
+
+Parameter perturbations
+
+No
+
+Population evaluation
+
+AGZO / StructZO
+
+Structured parameter subspace
+
+No
+
+Subspace construction and evaluations
+
+DART-ES
+
+Parameter perturbations
+
+No
+
+Population evaluation and difficulty tracking
+
+Dust
+
+Intermediate activations
+
+No
+
+Perturbation population and forward computation
+
+Random weight selection
+
+Nearby parameter configurations
+
+No
+
+Candidate evaluation and selection
+
+An important nuance: zeroth-order methods can still estimate gradients numerically. The meaningful distinction is not necessarily gradient-free versus gradient-based; it is whether they require reverse-mode automatic differentiation and backpropagation.
+
+3. Additional research worth including
+These are useful supporting papers, even though not all are equally recent or directly comparable to LoRA.
+
+Research
+
+Year
+
+Why it belongs in the review
+
+EGGROLL — Evolution Strategies at the Hyperscale
+
+2025
+
+Efficient low-rank population perturbations; an important ES implementation baseline
+
+KronZO — Zeroth-Order Kronecker Optimization
+
+2026
+
+Structured Kronecker perturbations for language-model pretraining
+
+MeZO — Fine-Tuning Language Models with Just Forward Passes
+
+2023
+
+Essential memory-efficient ZO baseline
+
+Zoop It! Efficient Zero-Order Optimization with Output Perturbation
+
+2025
+
+Output perturbation with local derivative-based parameter updates
+
+PC-ALM — Augmented Lagrangian Predictive Coding
+
+2026
+
+Alternative credit assignment through local dynamics; not purely zeroth-order
+
+Decoupling Search and Learning in Neural Net Training
+
+2025
+
+Conceptual foundation for separating exploration from persistent weight learning
+
+These papers appear in the related-work discussion of Dust, which is itself a useful starting point for building a more complete research bibliography. 
+
+qlabs.sh
+
+Another category deserves separate treatment: model merging, task arithmetic, and model editing. They can modify weights without running a new backpropagation training process, but they are not necessarily backprop-free end to end. For example, merging previously fine-tuned checkpoints inherits the training costs of those checkpoints. Likewise, some model-editing techniques calculate gradients to identify what should change.
+
+I would not classify all such methods as equivalent to ES or Dust.
+
+4. What the newest results actually establish
+There are three increasingly ambitious claims in this research.
+
+Claim 1: Backpropagation is not required to improve pretrained LLM weights.
+
+Strongly supported by MeZO, ES at Scale, AGZO, and StructZO. The remaining questions are efficiency, task generalization, and model scale.
+
+Claim 2: Structured search can dramatically improve zeroth-order optimization.
+
+Supported by AGZO and StructZO results. Their experiments suggest that informative search directions can be much more valuable than unstructured perturbations.
+
+Claim 3: Weight-space search can generally replace backpropagation at comparable cost and quality.
+
+Not established. Dust reports encouraging pretraining results but acknowledges substantial compute overhead. Neural Thickets has already attracted a significant negative replication result.
+
+The field is moving quickly, but the evidence supports a narrower conclusion than some announcements imply: backprop-free adaptation is increasingly credible, while universal superiority over conventional fine-tuning remains unproven.
+
+5. Recommended experiments for X_eTaL-fine-tuning
+For your goal of improving a coding LLM's Rust output using compiler feedback, tests, complexity grading, and architectural constraints, I would organize the work around a common evaluation system and interchangeable optimization algorithms.
+
+Proposed architecture
+
+Conceptual experimental architecture. Dust would need a separate activation-level training implementation rather than simply sharing the weight-perturbation interface.
+Suggested implementation order
+Phase
+
+Implementation
+
+What it establishes
+
+1
+
+MeZO and basic ES
+
+Reproducible forward-only baselines
+
+2
+
+DART-ES
+
+Learning from compiler/test outcomes and changing task difficulty
+
+3
+
+AGZO and StructZO
+
+Benefits of activation-informed search geometry
+
+4
+
+EGGROLL
+
+Efficient populations and larger models
+
+5
+
+Dust
+
+Activation perturbation and alternative credit assignment
+
+6
+
+Hybrid experiments
+
+Whether combinations outperform their individual components
+
+I would begin with a 135M–1B dense model for algorithm validation before progressing to larger coding models and MoE architectures.
+
+Evaluation design
+For each experiment, measure more than final accuracy.
+
+Dimension
+
+Metrics
+
+Correctness
+
+Compilation success, hidden test pass rate
+
+Code quality
+
+Cyclomatic complexity, linter warnings, modularity violations
+
+Generalization
+
+Improvement on unseen Rust tasks and repositories
+
+Learning efficiency
+
+Forward evaluations, total GPU-hours, time to target score
+
+Memory
+
+Peak VRAM, RAM, optimizer state
+
+Stability
+
+Reward variance, failed updates, regression rate
+
+Retention
+
+Performance on unrelated tasks before and after tuning
+
+Reproducibility
+
+Seeds, checkpoints, perturbation definitions, dataset versions
+
+For fair comparisons, I would run both equal-compute and equal-memory experiments. A method that requires ten times more forward evaluations may still be attractive on a memory-constrained GPU, but that tradeoff needs to be visible.
+
+Also keep separate training, model-selection, and final held-out evaluation sets. The Neural Thickets replication makes this especially important.
+
+6. Three research questions I would prioritize
+First: Can ES improve Rust coding using outcomes that backpropagation cannot directly differentiate?
+
+This is the most immediate practical opportunity. A compiler, test suite, and complexity grader form a measurable reward system. DART-ES and ES at Scale are natural starting points.
+
+Second: Can activation-informed zeroth-order methods make full-parameter adaptation practical on 12–24GB GPUs?
+
+StructZO and AGZO are promising because they attempt to reduce the effective search dimensionality without relying on conventional LoRA backpropagation. Their actual runtime, memory, and quality should be benchmarked on your hardware.
+
+Third: Can we combine weight-space evolution with activation-space learning?
+
+A speculative hybrid could use ES to optimize external outcomes, structured ZO to refine selected parameter regions, and Dust-like activation perturbations for local learning.
+
+That is a research hypothesis, not an established algorithm. It would require carefully separating update mechanisms and evaluating whether the added complexity provides measurable benefits.
+
+7. Overall assessment
+My priority ranking for your research is:
+
+1
+
+StructZO
+
+Best recent candidate for closing the quality gap with conventional fine-tuning
+
+2
+
+DART-ES
+
+Most directly aligned with agent-generated code and external quality feedback
+
+3
+
+ES at Scale
+
+Strong evidence that full-parameter, backprop-free LLM adaptation is viable
+
+4
+
+AGZO
+
+Useful complementary approach to structured search geometry
+
+5
+
+Dust
+
+Most interesting longer-term alternative learning architecture
+
+The major change in the 2026 research landscape is that backprop-free LLM fine-tuning is no longer merely a theoretical curiosity. There are now published demonstrations of billion-parameter evolution strategies and structured zeroth-order methods that approach first-order performance on selected benchmarks.
+
+However, I would distinguish that from the stronger claim that these methods are already preferable to LoRA in cost, quality, or scalability. That remains highly dependent on the model, hardware, and objective.
+
+For X_eTaL, the opportunity is to make all of these methods understandable through executable mathematics, interactive perturbation visualizations, and reproducible experiments. In particular, showing how changing the search space changes learning efficiency could be more educational than simply comparing final benchmark scores.
+
+A useful next deliverable would be a research and implementation specification for X_eTaL-fine-tuning, with one module per algorithm, the corresponding mathematical derivation, forward-only versus backprop execution traces, and a shared Rust coding-quality benchmark. That would provide both an educational system and a platform for investigating genuinely new hybrid approaches.
+
+
+
+
+
+0%
+
+

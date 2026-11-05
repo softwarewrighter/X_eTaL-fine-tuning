@@ -324,6 +324,10 @@ Read before working:
   (adapters on mixture-of-experts models, a coder taught engineering
   standards and proved by a grader, the mathematics in X_eTaL;
   archival, NOT normative)
+- `docs/research3.txt` -- a review of weight-space fine-tuning
+  without back-propagation (zeroth-order optimization, evolution
+  strategies); its claims about papers are the review's, to be read
+  from the papers before being built on (archival, NOT normative)
 - `docs/xetal-ML-asks.md`, `docs/xetal-libraries-asks.md` (and
   `docs/xetal-asks.md` once one exists) -- what this repo needs from
   the others

@@ -32,7 +32,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # A change here affects everything.
 EVERYTHING = ("shared/", "scripts/", "justfile", "XETAL_ML_COMMIT", ".cargo/", "templates/", ".python-version")
 # Documentation and records: the cheap checks only.
-DOCS_ONLY = (".md", ".agentrail/", ".gitignore", "LICENSE", ".github/")
+DOCS_ONLY = (".md", ".agentrail/", ".gitignore", "LICENSE", ".github/", "docs/")
 
 
 def demos():
@@ -111,6 +111,7 @@ def self_test():
     cases = [
         ([], []),
         (["README.md", "docs/plan.md", "CHANGES.md"], []),
+        (["docs/research3.txt"], []),  # the research notes are documents too
         (["demos/diffusion/diffusion.xtl"], ["demo diffusion", "pages"]),
         (["libs/Flow/src/Flow.xtlm", "libs/Flow/docs/README.md"], ["lib Flow", "pages"]),
         (["libs/Conv/src/Conv.xtl"], ["demo cnn-digits", "demo diffusion", "lib Conv", "pages"]),

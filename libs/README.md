@@ -8,7 +8,7 @@ plan ([`docs/plan.md`](../docs/plan.md)) has four:
 | ------- | ----- | ---- |
 | FineTune | `ft:` | the learning task with its train and held-out split, train, validation and retention losses, the harness every method is compared on, full fine-tuning of a layer |
 | PEFT | `pe:` | the LoRA variations X_eTaL-ML's library lacks: rsLoRA's scale, DoRA, and others as needed |
-| WeightSpace | `ws:` | learning without back-propagation: seeded perturbations and forward passes only |
+| WeightSpace | `ws:` | learning without back-propagation: seeded perturbations, forward passes only, zeroth-order estimates and evolution strategies |
 | Edit | `ed:` | a layer as a key-value memory, rank-one and batch edits in closed form, locality and retention |
 
 Most of the mathematics is not here: it is X_eTaL-ML's (LoRA, Optim,

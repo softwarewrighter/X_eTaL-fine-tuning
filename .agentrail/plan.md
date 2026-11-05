@@ -17,8 +17,13 @@ mixture-of-experts models (where adapters attach, what is stored,
 what it costs), how to make a coding model follow a team's
 engineering standards and prove it with an executable grader, and how
 to express the mathematics in X_eTaL (largely the text of X_eTaL-ML's
-`docs/fine-tune-moe-research.txt`, which goes on to VeRA). This plan
-turns them, and the user's direction since, into sagas and steps.
+`docs/fine-tune-moe-research.txt`, which goes on to VeRA).; and
+`docs/research3.txt`, a review of weight-space fine-tuning without
+back-propagation (zeroth-order optimization and evolution strategies:
+MeZO, ES at Scale, DART-ES, AGZO, StructZO, EGGROLL, Dust, and the
+Neural Thickets claim with its replication), with a priority order
+and an evaluation design. This plan turns them, and the user's
+direction since, into sagas and steps.
 
 Development is driven by agentrail sagas (one active saga in
 `.agentrail/`, finished sagas archived to `.agentrail-archive/`), as
@@ -85,6 +90,10 @@ laboratory beside it.
    beside a baseline that changes no weight. What a model does at its
    first attempt is kept apart from what a repair loop gets out of it.
    A figure that is an illustration, not a measurement, says so.
+   From `docs/research3.txt`: methods are compared at equal compute
+   and at equal memory, forward passes are counted, and the examples
+   used to train, to select and to test are kept apart (the best of
+   many random tries always looks like learning).
 
 ## Architecture decisions
 
@@ -123,18 +132,19 @@ Three stages, in this order:
 1. **LoRA and its variations**: LoRA itself, then the variations from
    QLoRA to DoRA (rsLoRA, LoRA-FA, QLoRA, DoRA, VeRA, and others
    chosen when that saga is planned).
-2. **Alternatives**: the other ways to change a model: full and
-   selective fine-tuning by back-propagation, other parameter-efficient
-   methods, and **weight-space methods that use no back-propagation**
-   (the user: "another alternative to LoRA we want to eventually
-   demo").
+2. **Alternatives**: above all **weight-space methods that use no
+   back-propagation** (the user: "another alternative to LoRA we want
+   to eventually demo"; `docs/research3.txt`: zeroth-order
+   optimization and evolution strategies, from MeZO to StructZO,
+   DART-ES and Dust), set beside back-propagation itself (full and
+   selective fine-tuning), then the other alternatives briefly.
 3. **Bleeding-edge alternatives**: direct edits of a model's weights,
    and **an AI editing a model's weights directly** (the user: "a new
    focus", approach and demo to be decided).
 
 Stages 2 and 3 are planned to be planned: each saga opens with a
 planning step that settles its methods and demos with the user and
-writes them down (`docs/alternatives-plan.md`, `docs/edge-plan.md`)
+writes them down (`docs/weight-space-plan.md`, `docs/edge-plan.md`)
 before anything is built. What is known now is in "Open questions".
 
 ## Tracks
@@ -145,7 +155,7 @@ A demo's `track` in its `demo.toml` is one of these.
 | ----- | ------- | ----------------------- |
 | lora | LoRA: a frozen layer, a low-rank adapter, its training, rank and scale, LoRA-FA | how can a model learn something new while its weights stay as they are? |
 | variants | QLoRA, DoRA, VeRA and the others chosen; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
-| alternatives | full and selective fine-tuning, other parameter-efficient methods, weight-space methods without back-propagation, methods that change no weight (in-context examples, retrieval) | what else is there, and when is it the better choice? |
+| alternatives | weight-space methods without back-propagation (zeroth-order optimization, evolution strategies, activation perturbation), beside back-propagation itself (full and selective fine-tuning); weight arithmetic, other parameter-efficient methods, methods that change no weight | can a model learn from forward passes alone, at what cost, and when is that the better choice? |
 | edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing weights directly | can a model be changed without training at all, and can a model do that to a model? |
 | applied | a coding model taught a team's engineering standards, measured by an executable grader; real open-weight models | does any of this make a real model better at a real job, and how is that proved? |
 
@@ -167,10 +177,12 @@ them in it. A lesson not yet settled has no number.
 | 9 | vera | shared frozen random projections, trained scaling vectors | the trainable count against LoRA's; what the sharing costs | 2 |
 | 10 | variants-compared | which variation when | every variation on the same task, equal ranks and equal budgets | 2 |
 | 11 | adapters-in-moe | where adapters attach in a mixture of experts; a frozen router decides who learns | shared, every expert, selected experts; routing before and after | 2 |
-| | how-learning-works | what back-propagation is and what it costs | one weight, then one layer: the loss, the gradient, what must be kept for the backward pass | 3 |
-| | full-ft | full and selective fine-tuning; forgetting measured | every weight moving on a shifted task; the old task's loss | 3 |
-| | weight-space (one or more, to be settled) | learning with forward passes only | the same task without a backward pass: passes, memory and result against back-propagation | 3 |
-| | alternatives-compared | when each alternative is the better choice | every family on the same task and budget, a method that changes no weight among them | 3 |
+| | how-learning-works, full-ft | what back-propagation is and what it costs; every weight moving, forgetting measured | one weight, then one layer: the loss, the gradient, what the backward pass keeps; a shifted task and the old task's loss | 3 |
+| | forward-only | learning from forward passes alone (MeZO, evolution strategies) | the estimate beside the true gradient as passes grow; passes, memory and loss against back-propagation | 3 |
+| | reward-not-loss | learning from an outcome that cannot be differentiated (DART-ES) | a toy grader as the reward; problems of unequal difficulty | 3 |
+| | better-directions | where to search: a layer's input span, a structured subspace, low rank (AGZO, StructZO, EGGROLL) | each against random directions at equal forward passes | 3 |
+| | selection-noise | the best of many random tries looks like learning | selected gain against held-out gain | 3 |
+| | weight-space-compared | when learning without back-propagation is the better choice | every method at equal compute and at equal memory | 3 |
 | | editing-a-fact | a layer as a key-value memory; a rank-one edit in closed form | one association changed; what else moved | 4 |
 | | ai-edits-weights (to be settled) | a model proposing and testing changes to a model's weights | to be decided with the user | 4 |
 
@@ -189,7 +201,7 @@ X_eTaL-ML's (`lo:` `op:` `flow:` `nn:` `qz:` and the rest).
 | ------- | ----- | ---- | ---- |
 | FineTune | `ft:` | the learning-from-examples task (inputs, targets, a shifted target, a seed), a train and held-out split, train, validation and retention losses, a run's record, the comparison harness (a method as its start, its step and its counts, every method on the same task and seeds); a matrix's singular values and the Eckart-Young optimum (ask FL2's workaround); full fine-tuning of a layer | 1 (task, split, losses, spectrum), 2 (harness), 3 (full fine-tuning) |
 | PEFT | `pe:` | the variations X_eTaL-ML's LoRA lacks at the pin: rsLoRA's scale, DoRA, and QLoRA or VeRA where X_eTaL-ML has not landed them (its Saga 6), each offered upstream | 1 (rsLoRA), 2 |
-| WeightSpace | `ws:` | learning without back-propagation: the method or methods settled in Saga 3's planning step (seeded perturbations, an update from loss differences, the passes and memory counted) | 3 |
+| WeightSpace | `ws:` | learning without back-propagation (`docs/research3.txt`): a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | 3 |
 | Edit | `ed:` | a layer as a linear associative memory, a rank-one edit in closed form (through X_eTaL-libraries' Matrix), many edits by least squares, the update projected off preserved keys, locality and retention | 4 |
 
 ## Saga 1 -- lora-lab  [ACTIVE]
@@ -240,22 +252,35 @@ pin is moved, what has landed is used, and what has not is written in
 | 7 | variants-compared | lesson 10: every variation on the same task at equal ranks and at equal budgets: new-task loss, validation, retention, numbers trained, bytes stored, numbers held while training; what the measurements support saying about which to use when |
 | 8 | adapters-in-moe | lesson 11, on X_eTaL-ML's MoE library once it has landed (its Saga 6, steps 7 to 9; otherwise this step waits there): adapters on the shared layer, on every expert, on selected experts, the router frozen; which experts get trained at all; an all-expert adapter is not small (the research's 108 MiB a layer); routing before and after |
 
-## Saga 3 -- alternatives  [PLANNED, to be planned]
+## Saga 3 -- weight-space  [PLANNED, to be planned]
 
-The other ways to change a model, set beside LoRA on the same task.
-The no-back-propagation, weight-space approach is the one the user
-named; which method or methods that means is settled in step 1.
+Learning without back-propagation: the alternative to LoRA the user
+named. Source: `docs/research3.txt` (a review dated 2026-11-05), which
+settles what the family is and the order to build it in: MeZO and
+basic evolution strategies first, then DART-ES, then AGZO and
+StructZO, then EGGROLL, then Dust, then hybrids. Its claims about
+these papers are the review's, not yet checked here: step 1 reads each
+paper before anything is built on it, and a page repeats a paper's
+reported result only as reported, beside what this repository itself
+measured at toy scale.
+
+What a toy can show that a benchmark table cannot: this repository
+has every exact gradient (X_eTaL-ML's `lo:g_rads`, FineTune's `dW`),
+so an estimate made from forward passes alone can be set beside the
+true gradient, its direction compared as the number of passes grows,
+and the effect of choosing a better search space seen directly.
 
 | # | Step slug | Delivers |
 | - | --------- | -------- |
-| 1 | alternatives-plan | a planning step, with the user: which weight-space, no-back-propagation method or methods are meant (the candidates under "Open questions"), each read from its paper and cited; which other alternatives get a lesson and which a row in a table; `docs/alternatives-plan.md`; this saga's steps below confirmed or replaced |
-| 2 | how-learning-works | what every alternative is an alternative to: a loss, a gradient by the chain rule, checked by finite differences; what a backward pass must keep (every layer's input) and what the optimizer keeps; on one weight, then one layer |
-| 3 | full-ft | FineTune's full and selective fine-tuning (every weight, or chosen rows or layers); a trained layer adapted to a shifted task; the old task's loss before and after (forgetting, measured); against LoRA at the same budget |
-| 4 | weight-space | `ws:` and its lesson or lessons: the method or methods chosen in step 1, on the full weights and on LoRA's factors; forward passes only, the perturbation regenerated from a seed; passes, numbers held and result against back-propagation, said honestly (what is cheaper, what is slower) |
-| 5 | other-peft | parameter-efficient methods that are not low-rank updates, briefly: training the biases alone (BitFit), learned scaling vectors ((IA)^3), a small bottleneck layer |
-| 6 | no-weight-change | the baseline that changes nothing: examples in the context, a lookup; when the weights need not change at all |
-| 7 | alternatives-compared | every family on the same task and budget; when each is the better choice, from the measurements |
-
+| 1 | weight-space-plan | a planning step, with the user: each paper of `docs/research3.txt` read from its source and cited (MeZO; evolution strategies and ES at Scale; DART-ES; AGZO; StructZO; EGGROLL; KronZO; Dust; Neural Thickets and its replication), what each needs that a toy layer lacks (a sequence of tokens for Dust, a population on an accelerator for EGGROLL), which get a lesson, which a panel, which a paragraph; `docs/weight-space-plan.md`; this saga's steps below confirmed or replaced |
+| 2 | backprop-baseline | what the alternatives are alternatives to: a loss, a gradient by the chain rule, checked by finite differences, what a backward pass must keep (every layer's input) and what the optimizer keeps; then FineTune's full and selective fine-tuning of a layer and the old task's loss before and after (forgetting, measured). The lessons how-learning-works and full-ft |
+| 3 | forward-only | libs/WeightSpace (`ws:`) and the lesson: a perturbation regenerated from its seed; the two-point estimate (the loss at the weights moved one way and the other, MeZO's step); a population of them (basic evolution strategies, antithetic pairs, centered ranks). Beside back-propagation on the same task: forward passes used, numbers held in memory, the loss reached, and the estimate's direction against the true gradient as passes grow |
+| 4 | reward-not-loss | what back-propagation cannot do directly: learning from an outcome that is not differentiable (a count of checks passed, a threshold, a toy grader), by evolution strategies; DART-ES's difficulty-aware reweighting and targeted replay on problems of unequal difficulty. The toy form of the applied goal's reward |
+| 5 | better-directions | search geometry: perturbing inside the span of a layer's inputs, where its gradient lies (AGZO), and a structured, conditioned subspace (StructZO), against random full-dimensional directions at equal forward passes; low-rank perturbations for a population (EGGROLL), which is LoRA's idea again |
+| 6 | selection-noise | the warning (Neural Thickets and its replication): pick the best of many random perturbations and it looks like learning; held-out examples say how much was noise. Training, selection and final test sets kept apart, shown mattering |
+| 7 | dust | perturbing activations, a token a population member, instead of weights: as step 1 decides (it needs a model over a sequence, so a tiny one from X_eTaL-ML, or an explanation without a run) |
+| 8 | weight-space-compared | every method of this saga, back-propagation and LoRA on the same task, at equal compute and at equal memory: learned, lost, cost; what the measurements support and what remains the papers' claim |
+| 9 | other-alternatives | the alternatives that are neither: weight arithmetic (task vectors, merging: no training at the merge, but the merged models were trained), other parameter-efficient methods briefly (biases alone, scaling vectors), and the baseline that changes no weight |
 ## Saga 4 -- bleeding-edge  [PLANNED, to be planned]
 
 Changing a model without training it, and a model changing a model.
@@ -268,7 +293,7 @@ directly; its approach and demo are to be decided, in step 1.
 | 2 | edit-lib | libs/Edit: a layer as a linear associative memory (keys to values); the rank-one closed-form edit with a key covariance (ROME), through Matrix's solve; tests that the edited key gives the new value and that the update has rank one |
 | 3 | editing-a-fact | the lesson: one association changed without training; what else moved (locality on unrelated keys, retention) |
 | 4 | many-edits | many edits at once by least squares (MEMIT); the update projected off preserved keys (AlphaEdit); sequential edits degrading a model, measured |
-| 5 | experiment-loop | the loop an AI would drive, first driven by a fixed policy written in X_eTaL so it can be tested: diagnose a failure, propose an intervention (an adapter, selective fine-tuning, a closed-form edit), apply it to a copy, evaluate (the task, regression, retention, cost), accept, reject or revise, record the evidence |
+| 5 | experiment-loop | the loop an AI would drive, first driven by a fixed policy written in X_eTaL so it can be tested: diagnose a failure, propose an intervention (an adapter, selective fine-tuning, a weight-space search of Saga 3, a closed-form edit), apply it to a copy, evaluate (the task, regression, retention, cost), accept, reject or revise, record the evidence |
 | 6 | ai-edits-weights | the demo settled in step 1 |
 
 Research methods are reimplemented from their papers and cited
@@ -291,32 +316,39 @@ own when its time comes.
 
 ## Open questions (for the user)
 
-1. **Which weight-space, no-back-propagation method?** Candidates,
-   each to be verified from its paper in Saga 3's planning step:
-   evolution strategies (perturb the weights with seeded noise, run
-   forward only, move toward the perturbations that lowered the loss;
-   Salimans and others, 2017, and its recent use for fine-tuning
-   language models); zeroth-order optimization (two forward passes a
-   step, the perturbation regenerated from its seed, the memory of
-   inference; MeZO, Malladi and others, 2023); weight arithmetic (task
-   vectors and merging: fine-tuned minus base, added, subtracted or
-   averaged, no training at the merge; Ilharco and others, 2023); an
-   update generated by another network in one forward pass (a
-   hypernetwork, as Text-to-LoRA). If a particular paper or discussion
-   is meant, it should be added to `docs/` as `research3.txt`.
-2. **What is "an AI editing weights directly" to be?** Candidates: an
-   agent that chooses among interventions and tests them on a copy
-   (`docs/research.txt`'s loop); an agent that locates where a
-   behavior lives and writes a closed-form edit there; a model that
-   writes its own training data and update (self-adapting models); a
-   network that outputs an edit (a learned editor). To be decided in
-   Saga 4's planning step.
-3. **Who builds QLoRA's and VeRA's mathematics first**: X_eTaL-ML
+Settled by `docs/research3.txt`: which weight-space,
+no-back-propagation methods are meant and in what order (Saga 3).
+
+1. **What is "an AI editing weights directly" to be?**
+   `docs/research3.txt` names two neighbors without choosing:
+   *agent-directed optimization* (an agent proposes, evaluates and
+   keeps changes to a model's weights from external feedback such as a
+   compiler, tests or a grader) and *direct weight editing* (specific
+   parameters changed to add or correct a behavior). Which is the
+   focus: (a) an agent steering a weight-space search (it chooses
+   where to search, what to reward and what to keep, on Saga 3's
+   methods); (b) an agent that locates a behavior and writes the edit
+   itself (on Saga 4's closed-form edits); (c) a particular recent
+   paper or announcement, to be added as `docs/research4.txt`?
+2. **Where do experiments on real models live?** `docs/research3.txt`
+   recommends validating on a dense model of 135M to 1B parameters,
+   then coding models and mixtures of experts, with a Rust
+   coding-quality benchmark. This repository is at toy scale by
+   decision F10 (X_eTaL in the browser). Do those experiments belong
+   in another repository (with X_eTaL-gpu), or is F10 to change?
+3. **Dust at toy scale?** It perturbs activations token by token, so
+   it needs a model over a sequence. A lesson on a tiny transformer
+   (X_eTaL-ML's micro-gpt is one), or an explanation without a run?
+4. **Who builds QLoRA's and VeRA's mathematics first**: X_eTaL-ML
    (its Saga 6 has them planned) or this repository (in `pe:`, offered
    upstream)? The plan assumes: whichever is ready at Saga 2's start.
-4. **Which variations beyond QLoRA, DoRA and VeRA**: LoRA+, AdaLoRA,
-   PiSSA, others?
-
+5. **Which variations beyond QLoRA, DoRA and VeRA**: LoRA+, AdaLoRA,
+   PiSSA, others, or none?
+6. **Reading the papers.** Several papers in `docs/research3.txt` are
+   from July to October 2026 and are known here only through that
+   review. The planning steps are written to read each from its
+   source on the web before building on it. Is that the wanted way,
+   or will the papers (or notes on them) be added to `docs/`?
 ## Cross-cutting
 
 - Move the X_eTaL-ML pin (`just ml-pin`) at the start of a saga, or
@@ -336,6 +368,9 @@ own when its time comes.
   left unchanged.
 - One pin, X_eTaL-ML (F1), to start with (the user, 2026-11-05).
 - The ML asks file is `docs/xetal-ML-asks.md`; port 8212.
+- The weight-space family and its order (`docs/research3.txt`,
+  2026-11-05): MeZO and basic evolution strategies, DART-ES, AGZO and
+  StructZO, EGGROLL, Dust, hybrids; Saga 3 follows it at toy scale.
 - The order (the user, 2026-11-05, after `docs/research2.txt`): LoRA
   and its variations first (QLoRA to DoRA), then alternatives (the
   weight-space, no-back-propagation approach among them), then
