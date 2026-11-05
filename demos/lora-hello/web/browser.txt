@@ -9,6 +9,6 @@ Output 2 did not: the number of B for it is 0
 on this layer the adapter would train 8 numbers beside 16
 # From the library's own source, read at the pin (lesson::explain).
 See the code behind this: the function forward of the LoRA library
-exactly as the library has it (line 54 of its file)
+exactly as the library has it (line
 # The ideas, each closed until opened (lesson::eli5).
 catastrophic forgetting

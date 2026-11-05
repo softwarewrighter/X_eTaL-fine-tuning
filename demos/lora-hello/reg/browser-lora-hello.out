@@ -15,6 +15,6 @@ found: 8 beside 16
 found: 131,072 beside 16,777,216 (0.78%)
 found: on this layer the adapter would train 8 numbers beside 16
 found: See the code behind this: the function forward of the LoRA library
-found: exactly as the library has it (line 54 of its file)
+found: exactly as the library has it (line
 found: catastrophic forgetting
 cross-reference links: 23, dead: none
