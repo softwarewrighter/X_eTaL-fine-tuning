@@ -1,6 +1,6 @@
 Step lora-vs-fa (docs/plan.md, Saga 1 row 6, principle 5;
 docs/research.txt section 7, "training versus fitting a known
-matrix"). Track "peft", lesson 8.
+matrix"). Track "lora", lesson 5.
 
 Experiment A, approximating a known matrix, named as that on the page,
 then compared with Experiment B.

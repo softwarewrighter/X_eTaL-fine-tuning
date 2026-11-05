@@ -2,7 +2,7 @@ Step lora-training (docs/plan.md, Saga 1 row 4, principle 5;
 docs/research.txt section 7; CLAUDE.md rule 8).
 
 Experiment B, learning from examples, kept apart from approximating a
-matrix. Track "peft", lesson 6.
+matrix. Track "lora", lesson 3.
 
 1. libs/FineTune (`ft:`), its first functions, with tests, types.rgt
    and a reference page: a learning task from a seed (N inputs of 8

@@ -13,9 +13,10 @@ can read.
 
 Fine-tuning changes what a trained model does by changing some of its
 numbers. This repository teaches how, from the first idea (a weight, a
-prediction, an error) to low-rank adapters (LoRA and its relatives),
-direct edits of a model's weights, and agents that run such
-experiments, and it measures the methods against each other on the
+prediction, an error) to low-rank adapters (LoRA and its variations),
+the alternatives to them (among them learning without
+back-propagation), direct edits of a model's weights and an AI doing
+the editing, and it measures the methods against each other on the
 same small tasks.
 
 It starts from the
@@ -81,18 +82,21 @@ made.
 | [X_eTaL-gpu](https://github.com/softwarewrighter/X_eTaL-gpu) | X_eTaL programs on GPUs, old ones included (OpenCL) |
 | [X_eTaL-fpga](https://github.com/hardwarewrighter/X_eTaL-fpga) | X_eTaL programs as hardware (FPGA circuits) |
 
-## Tracks
+## The road
 
-| Track | Methods | The question |
+Three stages, in this order ([`docs/plan.md`](docs/plan.md)):
+
+| Stage | Methods | The question |
 | ----- | ------- | ------------ |
-| Basics | weights, predictions, loss, gradients, optimizers | how does a model learn? |
-| Full fine-tuning | every weight, or chosen layers | how does changing weights change behavior, and at what cost? |
-| Parameter-efficient | LoRA, LoRA-FA, rsLoRA, DoRA, VeRA, QLoRA | how can a model adapt while training few numbers? |
-| Model editing | rank-one edits (ROME), many at once (MEMIT), edits kept off what must not change (AlphaEdit) | can one fact be changed without training, and what else moves? |
-| Agent-directed | an agent that diagnoses, proposes, applies to a copy, evaluates, keeps or rolls back | can an agent improve a model by controlled experiments? |
+| 1. LoRA | a frozen layer and a low-rank adapter, its training, rank and scale, LoRA-FA | how can a model learn something new while its weights stay as they are? |
+| 1. LoRA variations | QLoRA, DoRA, VeRA and others; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
+| 2. Alternatives | full and selective fine-tuning, other parameter-efficient methods, weight-space methods that use no back-propagation, methods that change no weight | what else is there, and when is it the better choice? |
+| 3. Bleeding edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing a model's weights directly | can a model be changed without training at all, and can a model do that to a model? |
+| Later: applied | a coding model taught a team's engineering standards, measured by an executable grader, on real open-weight models | does any of this make a real model better at a real job, and how is that proved? |
 
-Methods that change no weights (in-context examples, retrieval) appear
-as baselines to compare against.
+Every method is held to the same account: what was learned, what was
+lost, and what it cost, on the same task, beside a baseline that
+changes no weight.
 
 ## Demos
 
@@ -112,9 +116,10 @@ The lessons to come, in order ([`docs/plan.md`](docs/plan.md)):
 | LoRA training | one training step narrated in six stages, then training on examples with a held-out set; presets for a learning rate too large and for overfitting |
 | Rank and scaling | rank and alpha swept, the measured cost and effect explained; alpha / r beside rsLoRA's alpha / sqrt r |
 | LoRA against LoRA-FA | both fitting a known matrix against the best any rank-r update can do (the truncated SVD), and why a frozen A limits what B can learn |
+| The map | where LoRA sits among the ways to change a model, each set against forgetting, time and cost, and what the later lessons compare |
 
-Then the basics and full fine-tuning, DoRA, VeRA and QLoRA, model
-editing, and the agent laboratory.
+Then a map of where LoRA sits; the variations (QLoRA, DoRA, VeRA);
+the alternatives; and the bleeding edge.
 
 ## Libraries
 
@@ -125,8 +130,9 @@ in [`docs/plan.md`](docs/plan.md):
 
 | Library | Alias | What |
 | ------- | ----- | ---- |
-| FineTune | `ft:` | full fine-tuning of a layer, the learning task with its train and held-out split, train, validation and retention losses |
-| PEFT | `pe:` | adapter variants beyond X_eTaL-ML's LoRA: rsLoRA's scale, DoRA |
+| FineTune | `ft:` | the learning task with its train and held-out split, train, validation and retention losses, the harness every method is compared on, full fine-tuning of a layer |
+| PEFT | `pe:` | the LoRA variations X_eTaL-ML's library lacks: rsLoRA's scale, DoRA, and others as needed |
+| WeightSpace | `ws:` | learning without back-propagation: seeded perturbations and forward passes only |
 | Edit | `ed:` | a layer as a key-value memory, rank-one and batch edits in closed form, locality and retention |
 
 ## Status
@@ -200,8 +206,10 @@ just new-lib Name alias: "what it is"   # start a library from templates/Library
 
 - [`docs/plan.md`](docs/plan.md) -- principles, decisions, the
   curriculum and the roadmap
-- [`docs/research.txt`](docs/research.txt) -- the design review this
-  repository came from (archival)
+- [`docs/research.txt`](docs/research.txt),
+  [`docs/research2.txt`](docs/research2.txt) -- the design review this
+  repository came from, and the wider discussion of fine-tuning
+  (archival)
 - [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md),
   [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md) --
   what is asked of the sibling repositories

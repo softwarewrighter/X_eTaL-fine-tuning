@@ -4,8 +4,9 @@ milestone"; CLAUDE.md rule 8).
 
 Build demos/lora-lab, live: one complete five-minute journey, "How
 does a tiny adapter change a frozen neural network?", for a reader who
-knows arithmetic and has never trained a network. Track "peft",
-lessons 4 and 5.
+knows arithmetic and has never trained a network. Track "lora",
+lesson 2. It follows lesson 1, demos/lora-hello, which has already
+framed the question for a newcomer: build on it, do not repeat it.
 
 The program, demos/lora-lab/lora-lab.xtl (short, with xetal doc
 comments): the 8 x 8 layer of X_eTaL-ML's LoRA explorer (read

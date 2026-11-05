@@ -16,9 +16,11 @@ docs/research.txt "Acceptance criteria"). The last step of the saga.
 5. README: the demos table with the live links and a screenshot per
    lesson; Status; the catalog's order as the curriculum's.
 6. docs/plan.md: Saga 1 marked done with what was built; Saga 2
-   (basics-and-full) reviewed against what was learned, its steps
-   ready to become the next saga. The asks files brought up to date.
+   (lora-variants: QLoRA, DoRA, VeRA and the others) reviewed against
+   what was learned, its steps ready to become the next saga, its
+   first a planning step (variants-plan). The open questions of the
+   plan put to the user again. The asks files brought up to date.
 7. `just gate --full`, publish, check-live.
 
 Complete with --done. Report to the user: what is live, the asks to
-take to the other repositories, and the proposal for Saga 2.
+take to the other repositories, and the proposal for Saga 2 (lora-variants).

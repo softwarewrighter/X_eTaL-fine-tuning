@@ -29,8 +29,8 @@ REPO = "https://github.com/softwarewrighter/X_eTaL-fine-tuning"
 XETAL = "https://github.com/softwarewrighter/X_eTaL"
 ML = "https://github.com/softwarewrighter/X_eTaL-ML"
 STATUS = {"live": "Live", "draft": "In progress", "deferred": "Waiting on an ask"}
-TRACK = {"basics": "Basics", "full": "Full fine-tuning", "peft": "Parameter-efficient",
-         "editing": "Model editing", "agents": "Agent-directed"}
+TRACK = {"lora": "LoRA", "variants": "LoRA variations", "alternatives": "Alternatives",
+         "edge": "Bleeding edge", "applied": "Applied"}
 
 PAGE = """<!doctype html>
 <html lang="en">

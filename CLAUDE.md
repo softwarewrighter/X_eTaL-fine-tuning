@@ -320,6 +320,10 @@ Read before working:
   the tracks, the curriculum, the saga roadmap
 - `docs/research.txt` -- why this repo exists and what the lessons
   must do (archival, NOT normative)
+- `docs/research2.txt` -- the wider discussion of fine-tuning so far
+  (adapters on mixture-of-experts models, a coder taught engineering
+  standards and proved by a grader, the mathematics in X_eTaL;
+  archival, NOT normative)
 - `docs/xetal-ML-asks.md`, `docs/xetal-libraries-asks.md` (and
   `docs/xetal-asks.md` once one exists) -- what this repo needs from
   the others

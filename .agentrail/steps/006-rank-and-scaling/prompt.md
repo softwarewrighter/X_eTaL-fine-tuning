@@ -1,5 +1,5 @@
 Step rank-and-scaling (docs/plan.md, Saga 1 row 5, principle 4,
-decision F8; docs/research.txt section 6). Track "peft", lesson 7.
+decision F8; docs/research.txt section 6). Track "lora", lesson 4.
 
 1. libs/PEFT (`pe:`), its first function with tests and a reference
    page: rsLoRA's scale alpha / sqrt r (`pe:s_calingRs`, cited: Kalajdzievski
