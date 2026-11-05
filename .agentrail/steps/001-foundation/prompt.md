@@ -24,7 +24,7 @@ Deliver:
    demos' and libraries' reg-rs baselines, the pages built and checked
    in headless Chrome. Also `just new-demo`, `just new-lib`, `just
    run`, `just show`, `just test`, `just test-demo`, `just bless`,
-   `just pages`, `just serve` and `just serve-pages` (port 8447),
+   `just pages`, `just serve` and `just serve-pages` (port 8212),
    `just publish`, `just check-live`, the catalog page from every
    demos/*/demo.toml (with the new `track` and `lesson` fields).
    demos/_template and templates/Library.

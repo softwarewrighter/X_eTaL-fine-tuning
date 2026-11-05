@@ -406,7 +406,7 @@ Read before working:
     pip`. Never the system `python3`, not even for a one-line edit.
 12. The live site is built locally into `pages/` (`just pages`), NOT
     tracked on main: `just publish` makes it the single commit of the
-    `gh-pages` branch. Port 8447 is this repo's.
+    `gh-pages` branch. Port 8212 is this repo's.
 13. American spellings only, everywhere. Docs are ASCII-only markdown
     (`sw-markdown-checker`). User-facing docs (README, demo and
     library pages) say what and how; saga and step talk lives only in

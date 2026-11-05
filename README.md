@@ -148,7 +148,7 @@ just xetal          # fetch X_eTaL-ML at the pinned commit, and build the X_eTaL
 just xetal-version  # the commits pinned, and the binary's own report
 just eval "'+ r_/ 1 2 3"
 just run SLUG       # run a demo's program at the command line
-just serve SLUG     # its page at http://127.0.0.1:8447/
+just serve SLUG     # its page at http://127.0.0.1:8212/
 just gate           # the pre-commit gate: what the change touches; just gate --full for everything
 ```
 
