@@ -177,3 +177,16 @@ fn the_pages_run_the_libraries_of_this_repositorys_own_pin() {
     // And a program still imports one microscope also embeds.
     assert_eq!(output("\"e:\" u_se< \"Equations\"\nx := 1.0 2.0 3.0\n\"s[] | \" e:e_q< \"sum i:=0..2 | x[i]\"\n", 1).unwrap(), ["6.0"]);
 }
+
+#[test]
+fn a_library_delivery_taken_by_the_pin_reaches_the_pages() {
+    // Ask FL1: X_eTaL-libraries' e:t_exSymbols< (its Saga 26), taken by
+    // moving XETAL_LIBRARIES_COMMIT alone. X_eTaL-ML's microscope still
+    // embeds Equations at its own, older libraries pin, where the macro
+    // does not exist: that it is found here shows the pages run this
+    // repository's pinned copy. The expected LaTeX is that repository's
+    // own golden for the call.
+    let src = "\"e:\" u_se< \"Equations\"\n\"y[i] | N\" e:t_exSymbols< \"(sum j:=0..M-1 | W[i,j] * x[j]) + b[i]\"\n";
+    let want = r"\htmlClass{sym sym-y}{y_{i}} = \left(\sum_{j=0}^{\htmlClass{sym sym-M}{M} - 1} \htmlClass{sym sym-W}{W_{i,j}} \, \htmlClass{sym sym-x}{x_{j}}\right) + \htmlClass{sym sym-b}{b_{i}}";
+    assert_eq!(output(src, 1).unwrap(), [want]);
+}

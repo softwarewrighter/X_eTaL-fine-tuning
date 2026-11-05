@@ -233,6 +233,7 @@ signature wanted and the workaround meanwhile.
 | ---- | -------- | --- | ---- | ------------ |
 | the learning task | X_eTaL-ML | FM7 | a task made from a seed (inputs, targets from a hidden shifted layer, optional noise), a train and held-out split, train, validation and retention losses, a run's record; the comparison harness (a method as its start, its step and its counts, every method on the same task and seeds); full and selective fine-tuning of a layer (its gradient and steps) | Saga 1, lora-training |
 | rsLoRA's scale | X_eTaL-ML | FM3 | alpha / sqrt r beside alpha / r | Saga 1, rank-and-scaling |
+| marked symbols in LaTeX | X_eTaL-libraries | FL1 | `e:t_exSymbols<`: landed and pinned (bf9e200); through a Flow pipeline it needs FM11 | Saga 1, lora-lab |
 | a spectrum | X_eTaL-libraries | FL2 | singular values and the best rank-k approximation of a matrix | Saga 1, lora-vs-fa |
 | subspace geometry | X_eTaL-libraries | FL3 | projection onto a subspace, an orthonormal basis of some vectors, the angles between two subspaces, a change of basis (with FL2's singular values) | Saga 1, lora-vs-fa (the projection onto A's row space); Saga 3 |
 | the variations | X_eTaL-ML | FM4 | QLoRA (4-bit and NF4 quantization, an adapter on a quantized base), VeRA, DoRA, and the others chosen | Saga 2 |
