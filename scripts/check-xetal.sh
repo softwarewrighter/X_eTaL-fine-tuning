@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Check the pinned toolchain (docs/plan.md, F1, F2): the X_eTaL-ML
-# clone is at XETAL_ML_COMMIT and unchanged; the X_eTaL it pins builds,
+# clone is at XETAL_ML_COMMIT and the X_eTaL-libraries clone at
+# XETAL_LIBRARIES_COMMIT, both unchanged; the X_eTaL it pins builds,
 # answers and reports that commit; a standard library imports; and the
 # libraries on XETAL_PATH load from all three places: X_eTaL-ML's
 # (LoRA), one X_eTaL-libraries library X_eTaL-ML links (Check) and one
@@ -31,4 +32,8 @@ got="$("$root/scripts/xt" eval -e '"k:" u_se< "Check"
 got="$("$root/scripts/xt" eval -e '"mx:" u_se< "Matrix"
 mx:t_race mx:i_dentity 3')"
 [ "$got" = "3" ] || fail "Matrix (X_eTaL-libraries)" "$got" 3
-echo "check-xetal: ok (X_eTaL-ML ${ml:0:7}, X_eTaL $short, libraries $(cut -c1-7 "$clone/XETAL_LIBRARIES_COMMIT"))"
+# X_eTaL-libraries at this repository's own pin, unchanged.
+libs="$(tr -d '[:space:]' < "$root/XETAL_LIBRARIES_COMMIT")"
+[ "$(git -C "$root/work/xetal-libraries" rev-parse HEAD)" = "$libs" ] || { echo "check-xetal: work/xetal-libraries is not at $libs" >&2; exit 1; }
+[ -z "$(git -C "$root/work/xetal-libraries" status --porcelain)" ] || { echo "check-xetal: work/xetal-libraries has local changes" >&2; exit 1; }
+echo "check-xetal: ok (X_eTaL-ML ${ml:0:7}, X_eTaL $short, X_eTaL-libraries ${libs:0:7}; X_eTaL-ML's own libraries pin $(cut -c1-7 "$clone/XETAL_LIBRARIES_COMMIT"))"

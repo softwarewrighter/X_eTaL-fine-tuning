@@ -115,8 +115,8 @@ laboratory beside it.
 
 | # | Decision | Why |
 | - | -------- | --- |
-| F1 | **One pin: X_eTaL-ML.** `XETAL_ML_COMMIT` holds the known-good commit of X_eTaL-ML; `just xetal` clones it into the gitignored `work/xetal-ml/` and runs that clone's own `scripts/xetal.sh`, which fetches and builds the X_eTaL and X_eTaL-libraries commits X_eTaL-ML pins. `bin/xetal` links to that binary. `just ml-pin [REF]` moves the pin to a committed ref of `../X_eTaL-ML`. Nothing under `work/` is ever edited. | X_eTaL-ML's pins are already tested together; taking them transitively means this repo can never combine an X_eTaL with libraries or ML code it was not tested against. The sibling vendoring rule (`../X_eTaL/docs/vendoring.md`) applied one level up. |
-| F2 | **Reuse, do not copy.** `XETAL_PATH` is X_eTaL-ML's `libs/*/src`, then the X_eTaL-libraries it pins (`work/xetal-ml/work/xetal-libraries/libs/*/src`, so Matrix is reachable though X_eTaL-ML links only some), with this repository's `libs/*/src` first should it ever have one. The pages depend on `work/xetal-ml/shared/microscope` by path, as X_eTaL-ML's own pages do. | The ML mathematics has one home; the research: "reuse the X_eTaL-ML LoRA implementation" and "extend those rather than introduce another framework". |
+| F1 | **A pin for each repository asked of, taken one at a time** (the user, 2026-11-05; at first one pin, X_eTaL-ML). `XETAL_ML_COMMIT` holds the known-good commit of X_eTaL-ML: `just xetal` clones it into the gitignored `work/xetal-ml/` and runs that clone's own `scripts/xetal.sh`, which builds the X_eTaL commit X_eTaL-ML pins; `bin/xetal` links to that binary. `XETAL_LIBRARIES_COMMIT` holds this repository's own known-good commit of X_eTaL-libraries, cloned into `work/xetal-libraries/`: the search path and the pages' store take the general libraries from it, not from the copy X_eTaL-ML holds at its own libraries pin. `just ml-pin [REF]` and `just libs-pin [REF]` move one pin each; one pin moves at a time, `just gate --full` runs, and it is committed alone. X_eTaL itself has no pin here: it is X_eTaL-ML's. Nothing under `work/` is ever edited. | Changes asked of several repositories arrive separately, not all at once: each is taken and tested alone, so a failure names the change that caused it, and a library fix does not wait for X_eTaL-ML to move its own libraries pin. The price: this repository can run a library version X_eTaL-ML has not itself run; the full gate here is the test of what the lessons use. X_eTaL stays X_eTaL-ML's because the page shell (microscope) is compiled against X_eTaL-ML's copy: a pin of its own would let the command line and the browser run different languages. |
+| F2 | **Reuse, do not copy.** `XETAL_PATH` is X_eTaL-ML's `libs/*/src`, then X_eTaL-libraries' at this repository's pin (`work/xetal-libraries/libs/*/src`: every library, so Matrix is reachable though X_eTaL-ML links only some), with this repository's `libs/*/src` first should it ever have one. The pages depend on `work/xetal-ml/shared/microscope` by path, as X_eTaL-ML's own pages do. | The ML mathematics has one home; the research: "reuse the X_eTaL-ML LoRA implementation" and "extend those rather than introduce another framework". |
 | F3 | **Compose, do not define; ask; language last** (the user, 2026-11-05). A demo's program calls library functions and built-in words; it defines no `u:` function, and this repository writes no `l:` library export and no `m:` macro, as a rule. A function the libraries lack is asked for: of X_eTaL-ML when it is machine learning (`docs/xetal-ML-asks.md`; that is where ML `.xtl` and `.xtlm` belong), of X_eTaL-libraries when it is general, a function or an `.xtlm` macro (`docs/xetal-libraries-asks.md`), of X_eTaL-extensions when it needs native code (`docs/xetal-extensions-asks.md`), and of X_eTaL itself last (`docs/xetal-asks.md`, created when the first is needed, justified against keeping the language small). Meanwhile the expression is written out in the program where it is used, named in the ask and on the page; if that would make the program unreadable the step waits and the ask is a blocker. Rust is for the pages' presentation only (the WebAssembly host), never for an algorithm. | The user: this is an X_eTaL demo, to be made from the X_eTaL ecosystem; the asks exist so that what is missing is added where it belongs. X_eTaL-ML is therefore on this repository's path. |
 | F4 | **Layout as in X_eTaL-ML** (its A3, A4): each demo (a lesson or an experiment) is `demos/<slug>/` with `demo.toml`, `README.md`, `*.xtl`, `reg/` reg-rs baselines, optional `train/` and `web/`; each library is `libs/<Name>/` with `src/`, `tests/` (`types.rgt`), `docs/README.md`, `demos/`. `demo.toml` gains `track` (lora, variants, subspaces, alternatives, edge, applied: the Tracks below) and `lesson` (its place in the curriculum, or none for an experiment). | One structure across the X_eTaL repos; the research's lessons/experiments/evaluations split is carried by the catalog's fields instead of three trees. |
 | F5 | **The teaching shell is shared**: `shared/lesson/`, a Yew crate on top of X_eTaL-ML's `microscope`, gives every page the same parts: the glossary and its tooltips (`shared/lesson/glossary.tsv`, one row per term: short definition, why it matters, a worked example, the lesson that teaches it), the four depths (hover: definition; click: short explanation; expand: worked example; learn more: the lesson), a stepper (play, pause, next, previous, reset) over a recorded trace, the mode switch, heat maps with a legend and a cell inspector (matrix, row, column, value, meaning, whether the color scale is shared), a cell's arithmetic expanded with its numbers, the equation with selectable symbols, the change narrator, and prediction questions. Everything reachable by keyboard and touch, never by hover alone. | The research's last point: the same educational components reused across every lesson; written once, tested once. |
@@ -241,7 +241,6 @@ signature wanted and the workaround meanwhile.
 | learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 4 |
 | closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |## Saga 1 -- lora-lab  [ACTIVE]
 | marked mathematics in a pipeline | X_eTaL-ML | FM11 | Flow's `m_ath<` drawn through Equations' `e:t_exSymbols<` (FL1) | Saga 1, lora-lab |
-| the libraries' pin moved | X_eTaL-ML | FM12 | X_eTaL-ML's pin of X_eTaL-libraries moved once FL1 to FL3 have landed there: a landed library ask reaches this repository only through it (F1) | Saga 1, as each lands |
 
 The research's recommended first milestone: one complete, polished
 learning journey, "How does a tiny adapter change a frozen neural
@@ -429,8 +428,20 @@ no-back-propagation methods are meant and in what order (Saga 4).
    fixed policy. At 8 x 8 a language model can read all 64 numbers. Is
    a recorded (or live) run of one ever wanted on a page where every
    other number is computed by X_eTaL, and how would it be kept
-   reproducible? And: build the first demo now on a days-old,
-   unreplicated blog post, with a dated caveat, or wait for a paper?
+   reproducible? Recommended, to be confirmed in Saga 5's planning
+   step: "the AI" is what the videos mean by it, a language model
+   driving a coding agent that has tools to inspect and modify a
+   weights file. A page then has two things, kept apart: a fixed
+   procedure in X_eTaL (testable; called a fixed procedure, never "the
+   AI"), and a recorded run of such an agent on the same layer, whose
+   64 numbers live in a data file: the agent may read the file, run a
+   counted number of forward passes and save an edit, with the
+   source's refusals and no training. The transcript and the edit it
+   wrote are committed as a recording (model, date, prompt, budget);
+   the page applies that edit again and checks it in X_eTaL, so every
+   number shown is still X_eTaL's. The edit can be reproduced; the
+   agent's reasoning cannot, and the page says so. The agent is also
+   run on a layer with nothing to fix.
 2. **Where do experiments on real models live?** `docs/research3.txt`
    recommends validating on a dense model of 135M to 1B parameters,
    then coding models and mixtures of experts, with a Rust
@@ -454,19 +465,12 @@ no-back-propagation methods are meant and in what order (Saga 4).
    those reviews. The planning steps are written to read each from its
    source on the web before building on it. Is that the wanted way,
    or will the papers (or notes on them) be added to `docs/`?
-7. **A second pin?** With one pin (F1) an ask landed in
-   X_eTaL-libraries reaches this repository only after X_eTaL-ML moves
-   its libraries pin (ask FM12) and this repository moves its
-   X_eTaL-ML pin. That keeps every combination tested, and couples
-   this repository's pace to X_eTaL-ML's. The alternative is a
-   libraries pin of its own here, for its own programs and pages. One
-   pin stays unless the user says otherwise.
 ## Cross-cutting
 
-- Move the X_eTaL-ML pin (`just ml-pin`) at the start of a saga, or
-  when an ask has landed upstream; never in the middle of a step.
-  `XETAL_ML_COMMIT` changes in its own commit, with every baseline
-  re-run.
+- Move a pin (`just ml-pin`, `just libs-pin`) when an ask has landed
+  upstream, or at the start of a saga; never in the middle of a step,
+  and one pin at a time. The pin file changes in its own commit, after
+  `just gate --full`. A delivery in parts is taken in parts.
 - When an ask lands, the step that moves the pin removes its
   workaround and marks it landed.
 - Every page: the research's tooltip inventory, the color legend and
@@ -481,6 +485,12 @@ no-back-propagation methods are meant and in what order (Saga 4).
 - One pin, X_eTaL-ML (F1), to start with (the user, 2026-11-05).
 - The ML asks file is `docs/xetal-ML-asks.md`; port 8212.
 - Shared subspaces are a saga of their own (the user, 2026-11-05).
+- A pin for each repository asked of, moved and tested one at a time
+  (the user, 2026-11-05): F1. X_eTaL stays X_eTaL-ML's.
+- Whether to build the direction-removal demo on a days-old source or
+  wait for a paper is decided when Saga 5 is reached (the user,
+  2026-11-05): there is much to build before it, and a paper, more
+  examples or repositories may exist by then.
 - What an AI editing weights means here: `docs/research5.txt`'s three
   demos in its order (Saga 5); the topic is called agent-directed
   weight editing.

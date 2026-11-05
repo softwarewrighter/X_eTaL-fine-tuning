@@ -13,7 +13,8 @@ summary, concepts, status, a link to its live page (pages/<slug>/, when
 it has a web app) and to its README. The footer is the sibling
 repositories': copyright, license, the repository on GitHub, and the build's provenance,
 compact and without labels (host, this repo's short sha, yyyymmddThhmm), plus the pinned X_eTaL-ML commit
-(XETAL_ML_COMMIT) and the X_eTaL commit it pins.
+(XETAL_ML_COMMIT), the X_eTaL commit it pins, and the pinned
+X_eTaL-libraries commit (XETAL_LIBRARIES_COMMIT).
 """
 import datetime
 import html
@@ -28,6 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 REPO = "https://github.com/softwarewrighter/X_eTaL-fine-tuning"
 XETAL = "https://github.com/softwarewrighter/X_eTaL"
 ML = "https://github.com/softwarewrighter/X_eTaL-ML"
+LIBS = "https://github.com/softwarewrighter/X_eTaL-libraries"
 STATUS = {"live": "Live", "draft": "In progress", "deferred": "Waiting on an ask"}
 TRACK = {"lora": "LoRA", "variants": "LoRA variations", "subspaces": "Shared subspaces", "alternatives": "Alternatives",
          "edge": "Bleeding edge", "applied": "Applied"}
@@ -121,6 +123,7 @@ nav.toc a:hover {{ text-decoration: underline; }}
 <a href="{repo}" target="_blank">GitHub</a><span class="sep">&middot;</span>
 <a href="{up}doc/">Cross-reference</a><span class="sep">&middot;</span>
 <span>X_eTaL-ML <a href="{ml}/commit/{mlsha}" target="_blank">{mlshort}</a></span><span class="sep">&middot;</span>
+<span>X_eTaL-libraries <a href="{libs}/commit/{libsha}" target="_blank">{libshort}</a></span><span class="sep">&middot;</span>
 <span>X_eTaL <a href="{xetal}/commit/{xsha}" target="_blank">{xshort}</a></span><span class="sep">&middot;</span>
 <span class="build" data-sha="{commit}">{host} {commit} {stamp}</span>
 </footer>
@@ -254,6 +257,7 @@ def main():
     demos = json.loads(subprocess.run([sys.executable, str(ROOT / "scripts" / "demos.py"), "json"],
                                       capture_output=True, text=True, check=True).stdout)
     mlsha = (ROOT / "XETAL_ML_COMMIT").read_text().strip()
+    libsha = (ROOT / "XETAL_LIBRARIES_COMMIT").read_text().strip()
     pinned = ROOT / "work" / "xetal-ml" / "XETAL_COMMIT"
     xsha = pinned.read_text().strip() if pinned.is_file() else "unknown"
     if demos:
@@ -261,7 +265,7 @@ def main():
     else:
         body = '<p class="empty">The first lesson is on its way.</p>'
     out.parent.mkdir(parents=True, exist_ok=True)
-    common = dict(repo=REPO, xetal=XETAL, ml=ML, mlsha=mlsha, mlshort=mlsha[:7], commit=git("rev-parse", "--short", "HEAD"),
+    common = dict(repo=REPO, xetal=XETAL, ml=ML, mlsha=mlsha, mlshort=mlsha[:7], libs=LIBS, libsha=libsha, libshort=libsha[:7], commit=git("rev-parse", "--short", "HEAD"),
                   xsha=xsha, xshort=xsha[:7], host=socket.gethostname().split(".")[0],
                   stamp=datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M"))
     out.write_text(PAGE.format(body=body, title="X_eTaL fine-tuning", up="", layout="with-toc" if demos else "plain",

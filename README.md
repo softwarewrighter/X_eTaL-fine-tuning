@@ -160,7 +160,7 @@ first `just xetal` needs the network.
 
 ```bash
 just                   # list the recipes
-just xetal             # fetch X_eTaL-ML at the pinned commit, and build the X_eTaL it pins (bin/xetal)
+just xetal             # fetch X_eTaL-ML and X_eTaL-libraries at the pinned commits, and build X_eTaL (bin/xetal)
 just xetal-version     # the commits pinned, and the binary's own report
 just eval "'+ r_/ 1 2 3"
 just demos             # the demos, in catalog order
@@ -170,13 +170,16 @@ just test              # every demo and library baseline
 just gate              # the pre-commit gate: what the change touches; just gate --full for everything
 ```
 
-This repository tracks no copy of X_eTaL or of X_eTaL-ML:
-`XETAL_ML_COMMIT` holds the X_eTaL-ML commit it is known to work
-with, and `just xetal` clones that into the gitignored
+This repository tracks no copy of X_eTaL, X_eTaL-ML or
+X_eTaL-libraries. `XETAL_ML_COMMIT` holds the X_eTaL-ML commit it is
+known to work with: `just xetal` clones that into the gitignored
 `work/xetal-ml/`, where X_eTaL-ML's own script fetches and builds the
-X_eTaL and X_eTaL-libraries commits it was tested with. Every recipe
-runs that binary, so results do not depend on whatever `xetal` is on
-your PATH. `just ml-pin [REF]` moves to a newer X_eTaL-ML.
+X_eTaL commit it was tested with. `XETAL_LIBRARIES_COMMIT` holds the
+X_eTaL-libraries commit, cloned into `work/xetal-libraries/`. Every
+recipe runs that binary with those libraries, so results do not
+depend on whatever `xetal` is on your PATH. `just ml-pin [REF]` and
+`just libs-pin [REF]` each move one pin; they are moved one at a
+time, with the full gate run after each.
 
 The libraries are found on one search path: this repository's, then
 X_eTaL-ML's, then X_eTaL-libraries'.

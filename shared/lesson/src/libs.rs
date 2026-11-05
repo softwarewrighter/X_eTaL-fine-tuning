@@ -1,10 +1,11 @@
-//! The libraries a page here imports that microscope's store lacks:
-//! this repository's own (libs/<Name>/src) and the general ones named
-//! in build.rs (Matrix), embedded at build time and put in
-//! microscope's in-memory store, where `u_se<` finds them as the
-//! command line does through XETAL_PATH. Ask FM1 (docs/xetal-ML-asks.md):
-//! microscope embeds X_eTaL-ML's libraries and the seven of
-//! X_eTaL-libraries it links only.
+//! The libraries a page here runs with beyond X_eTaL-ML's own: this
+//! repository's (libs/<Name>/src) and every library of
+//! X_eTaL-libraries at this repository's pin (XETAL_LIBRARIES_COMMIT),
+//! embedded at build time and put in microscope's in-memory store,
+//! where `u_se<` finds them as the command line does through
+//! XETAL_PATH. They replace the seven microscope embeds at X_eTaL-ML's
+//! libraries pin and add the rest (ask FM1, docs/xetal-ML-asks.md), so
+//! the browser and the command line run the same libraries.
 
 use std::sync::Once;
 

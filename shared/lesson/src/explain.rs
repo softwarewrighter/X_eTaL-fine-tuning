@@ -119,7 +119,7 @@ pub fn xref_page(library: &str) -> Option<String> {
     let (kind, path) = ORIGINS.iter().find(|(f, _, _)| *f == file).map(|(_, k, p)| (*k, *p))?;
     let prefix = match kind {
         "ml" => "work-xetal-ml-",
-        "libraries" => "work-xetal-ml-work-xetal-libraries-",
+        "libraries" => "work-xetal-libraries-",
         _ => "",
     };
     Some(format!("../doc/{prefix}{}.html", path.replace('/', "-")))

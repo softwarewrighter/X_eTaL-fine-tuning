@@ -29,7 +29,7 @@ ROOT = Path(os.environ.get("XETAL_LIBS_ROOT", REPO))
 STANDARD = {p.stem for p in (REPO / "work/xetal-ml/work/xetal/lib").glob("*.xtl")}
 # The libraries reached through the pin (docs/plan.md, F2): a library
 # here named like one of them would hide it on XETAL_PATH.
-UPSTREAM = {d.name for pattern in ("work/xetal-ml/libs/*/", "work/xetal-ml/work/xetal-libraries/libs/*/")
+UPSTREAM = {d.name for pattern in ("work/xetal-ml/libs/*/", "work/xetal-libraries/libs/*/")
             for d in REPO.glob(pattern) if d.is_dir()}
 
 
@@ -115,7 +115,7 @@ def main():
         sys.exit(check())
     elif cmd == "path":
         ml = REPO / "work" / "xetal-ml"
-        used = sorted(str(d) for d in ml.glob("libs/*/src")) + sorted(str(d) for d in ml.glob("work/xetal-libraries/libs/*/src"))
+        used = sorted(str(d) for d in ml.glob("libs/*/src")) + sorted(str(d) for d in (REPO / "work" / "xetal-libraries").glob("libs/*/src"))
         print(":".join([str(ROOT / "libs" / n / "src") for n in names()] + used))
     else:
         sys.exit(f"libs.py: unknown command {cmd!r} (list, table, check, path)")

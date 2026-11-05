@@ -1,17 +1,20 @@
 //! Build provenance for the footer (this repository's commit, the
 //! pinned X_eTaL-ML commit and the X_eTaL commit it pins, the build
-//! host and time), and the libraries the pages' store lacks: this
-//! repository's own (libs/<Name>/src) and the general ones named in
-//! GENERAL, which X_eTaL-ML's microscope does not embed (ask FM1 in
-//! docs/xetal-ML-asks.md). Adapted from microscope's build.rs.
+//! host and time), and the libraries the pages' store is to hold beyond
+//! what X_eTaL-ML's microscope embeds: this repository's own
+//! (libs/<Name>/src), and every library of X_eTaL-libraries at this
+//! repository's own pin (work/xetal-libraries, XETAL_LIBRARIES_COMMIT).
+//! Those replace the seven microscope embeds at X_eTaL-ML's libraries
+//! pin and add the rest (Matrix among them; ask FM1 in
+//! docs/xetal-ML-asks.md), so a page runs the same libraries as the
+//! command line. Adapted from microscope's build.rs.
 
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
-/// Libraries of X_eTaL-libraries the pages here import that X_eTaL-ML
-/// does not link (it embeds Check, Plot, Strings, Format, Lists,
-/// Equations and Parsing).
-const GENERAL: &[&str] = &["Matrix"];
+/// Libraries of X_eTaL-libraries that must be there: a missing clone
+/// (just xetal not run) is an error, not a page without its libraries.
+const GENERAL: &[&str] = &["Matrix", "Equations", "Check"];
 
 fn run(cmd: &str, args: &[&str]) -> String {
     Command::new(cmd)
@@ -51,8 +54,14 @@ fn libraries(root: &Path) {
     let mut dirs: Vec<PathBuf> = std::fs::read_dir(&own)
         .map(|d| d.filter_map(Result::ok).map(|e| e.path()).filter(|p| p.is_dir()).collect())
         .unwrap_or_default();
-    let general = root.join("work/xetal-ml/work/xetal-libraries/libs");
-    dirs.extend(GENERAL.iter().map(|name| general.join(name)));
+    // Every library of X_eTaL-libraries at this repository's pin.
+    let general = root.join("work/xetal-libraries/libs");
+    println!("cargo:rerun-if-changed={}", root.join("XETAL_LIBRARIES_COMMIT").display());
+    let mut theirs: Vec<PathBuf> = std::fs::read_dir(&general)
+        .map(|d| d.filter_map(Result::ok).map(|e| e.path()).filter(|p| p.is_dir()).collect())
+        .unwrap_or_default();
+    theirs.sort();
+    dirs.extend(theirs);
     let mut found: Vec<(String, PathBuf)> = dirs.iter().flat_map(|d| sources(d)).collect();
     found.sort();
     for name in GENERAL {
@@ -72,7 +81,7 @@ fn libraries(root: &Path) {
 /// (its file, the repository, its path there), and the full pinned
 /// commits, for links to the source.
 fn origins(root: &Path) {
-    let roots = [("own", root.join("libs"), "libs"), ("ml", root.join("work/xetal-ml/libs"), "libs"), ("libraries", root.join("work/xetal-ml/work/xetal-libraries/libs"), "libs")];
+    let roots = [("own", root.join("libs"), "libs"), ("ml", root.join("work/xetal-ml/libs"), "libs"), ("libraries", root.join("work/xetal-libraries/libs"), "libs")];
     let mut code = String::from("pub const ORIGINS: &[(&str, &str, &str)] = &[\n");
     for (kind, dir, prefix) in &roots {
         let mut dirs: Vec<PathBuf> = std::fs::read_dir(dir).map(|d| d.filter_map(Result::ok).map(|e| e.path()).filter(|p| p.is_dir()).collect()).unwrap_or_default();
@@ -87,7 +96,7 @@ fn origins(root: &Path) {
     code += "];\n";
     let full = |file: PathBuf| std::fs::read_to_string(file).unwrap_or_default().trim().to_string();
     code += &format!("pub const ML_COMMIT: &str = {:?};\n", full(root.join("XETAL_ML_COMMIT")));
-    code += &format!("pub const LIBRARIES_COMMIT: &str = {:?};\n", full(root.join("work/xetal-ml/XETAL_LIBRARIES_COMMIT")));
+    code += &format!("pub const LIBRARIES_COMMIT: &str = {:?};\n", full(root.join("XETAL_LIBRARIES_COMMIT")));
     let out = Path::new(&std::env::var("OUT_DIR").unwrap()).join("origins.rs");
     std::fs::write(out, code).unwrap();
 }
@@ -101,6 +110,7 @@ fn main() {
     println!("cargo:rustc-env=LESSON_TIMESTAMP={}", run("date", &["-u", "+%Y%m%dT%H%M"]));
     println!("cargo:rustc-env=LESSON_ML_SHA={}", pinned(&root.join("XETAL_ML_COMMIT")));
     println!("cargo:rustc-env=LESSON_XETAL_SHA={}", pinned(&root.join("work/xetal-ml/XETAL_COMMIT")));
+    println!("cargo:rustc-env=LESSON_LIBRARIES_SHA={}", pinned(&root.join("XETAL_LIBRARIES_COMMIT")));
     // .git/HEAD names the branch and does not change at a commit; its log does.
     println!("cargo:rerun-if-changed={}", root.join(".git/logs/HEAD").display());
 }

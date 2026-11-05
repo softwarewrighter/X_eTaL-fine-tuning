@@ -24,8 +24,9 @@ demos/*/web/dist/
 *~
 .DS_Store
 
-# the X_eTaL-ML clone, with the X_eTaL and X_eTaL-libraries it pins
-# (scripts/xetal-ml.sh; XETAL_ML_COMMIT is tracked), the binary's symlink, local
+# the X_eTaL-ML clone, with the X_eTaL it pins, and the X_eTaL-libraries
+# clone (scripts/xetal-ml.sh, scripts/xetal-libraries.sh; XETAL_ML_COMMIT
+# and XETAL_LIBRARIES_COMMIT are tracked), the binary's symlink, local
 # scratch, datasets and demo output
 /tmp/
 work/

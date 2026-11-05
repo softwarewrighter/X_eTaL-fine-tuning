@@ -3,7 +3,7 @@
 //! (Check) and one it does not, added here (Matrix); the footer names
 //! this repository and the pins.
 
-use lesson::chrome::{build, pins, FRAMES, REPO};
+use lesson::chrome::{build, libraries_pin, pins, FRAMES, REPO};
 use lesson::libs::added;
 use lesson::run::{output, printed};
 
@@ -48,6 +48,8 @@ fn the_footer_names_this_repository_and_the_pins() {
     assert_eq!(ml, &pin.trim()[..7]);
     let x = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/../../work/xetal-ml/XETAL_COMMIT")).unwrap();
     assert_eq!(xetal, &x.trim()[..7]);
+    let l = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/../../XETAL_LIBRARIES_COMMIT")).unwrap();
+    assert_eq!(libraries_pin(), &l.trim()[..7]);
     // Compact, no labels: host, short commit, yyyymmddThhmm.
     let b = build();
     let parts: Vec<&str> = b.split(' ').collect();
@@ -130,7 +132,7 @@ fn a_library_function_is_explained_from_its_own_source() {
     assert_eq!(home("LoRA"), "X_eTaL-ML");
     // A general library, added here, is found too, in its own repository.
     assert_eq!(home("Matrix"), "X_eTaL-libraries");
-    assert_eq!(xref_page("Matrix").unwrap(), "../doc/work-xetal-ml-work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html");
+    assert_eq!(xref_page("Matrix").unwrap(), "../doc/work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html");
     assert!(definition("Matrix", "t_race").unwrap().source_url.contains("/X_eTaL-libraries/blob/"));
 }
 
@@ -154,4 +156,24 @@ fn functions_in_code_link_to_the_cross_reference() {
     // Inside a library, l: is the library itself.
     assert_eq!(Linker::within("LoRA", "").href(Class::LibFunc, "l:d_elta").unwrap(), "../doc/work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta");
     assert_eq!(builtins("h := A '+ '* i_nner x\n4 4 r_eshape 'm_ax r_/ h\n"), ["i_nner", "r_eshape", "m_ax", "r_/"]);
+}
+
+#[test]
+fn the_pages_run_the_libraries_of_this_repositorys_own_pin() {
+    // Every library of work/xetal-libraries (XETAL_LIBRARIES_COMMIT) is
+    // put in the store, replacing the copies microscope embedded at
+    // X_eTaL-ML's libraries pin, so the browser and the command line
+    // (scripts/libpath.sh) agree.
+    let added = added();
+    for file in ["Check.xtl", "Equations.xtlm", "Matrix.xtl", "Plot.xtl", "Strings.xtl"] {
+        assert!(added.contains(&file), "{file} not added: {added:?}");
+    }
+    let clone = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../work/xetal-libraries/libs");
+    for (file, source) in lesson::libs::LIBRARIES {
+        let name = file.split('.').next().unwrap();
+        let on_disk = std::fs::read_to_string(clone.join(name).join("src").join(file)).unwrap();
+        assert_eq!(*source, on_disk, "{file} differs from the pinned clone");
+    }
+    // And a program still imports one microscope also embeds.
+    assert_eq!(output("\"e:\" u_se< \"Equations\"\nx := 1.0 2.0 3.0\n\"s[] | \" e:e_q< \"sum i:=0..2 | x[i]\"\n", 1).unwrap(), ["6.0"]);
 }

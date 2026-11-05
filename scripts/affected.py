@@ -30,7 +30,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 # A change here affects everything.
-EVERYTHING = ("shared/", "scripts/", "justfile", "XETAL_ML_COMMIT", ".cargo/", "templates/", ".python-version")
+EVERYTHING = ("shared/", "scripts/", "justfile", "XETAL_ML_COMMIT", "XETAL_LIBRARIES_COMMIT", ".cargo/", "templates/", ".python-version")
 # Documentation and records: the cheap checks only.
 DOCS_ONLY = (".md", ".agentrail/", ".gitignore", "LICENSE", ".github/", "docs/")
 
@@ -119,6 +119,7 @@ def self_test():
         (["shared/lesson/src/lib.rs"], ["all"]),
         (["shared/lesson/lesson.css"], ["pages"]),
         (["XETAL_ML_COMMIT"], ["all"]),
+        (["XETAL_LIBRARIES_COMMIT"], ["all"]),
         (["scripts/gate.sh"], ["all"]),
     ]
     for files, want in cases:

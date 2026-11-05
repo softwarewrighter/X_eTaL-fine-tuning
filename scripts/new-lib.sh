@@ -12,7 +12,7 @@ name="${1:?$usage}"; alias="${2:?$usage}"; summary="${3:?$usage}"
 [[ "$alias" =~ ^[a-z]+:$ ]] || { echo "new-lib: an alias is lowercase letters and a colon (t:)" >&2; exit 1; }
 [ ! -e "$base/libs/$name" ] || { echo "new-lib: libs/$name exists" >&2; exit 1; }
 [ ! -e "$root/work/xetal-ml/work/xetal/lib/$name.xtl" ] || { echo "new-lib: $name is a standard library" >&2; exit 1; }
-for up in "$root/work/xetal-ml/libs/$name" "$root/work/xetal-ml/work/xetal-libraries/libs/$name"; do
+for up in "$root/work/xetal-ml/libs/$name" "$root/work/xetal-libraries/libs/$name"; do
   [ ! -e "$up" ] || { echo "new-lib: $name is a library of X_eTaL-ML or X_eTaL-libraries" >&2; exit 1; }
 done
 mkdir -p "$base/libs"

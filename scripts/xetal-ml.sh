@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Get the toolchain through this repository's one pin (docs/plan.md,
-# F1): clone X_eTaL-ML into work/xetal-ml (gitignored), check out the
+# Get the toolchain through this repository's pins (docs/plan.md, F1:
+# X_eTaL-ML here, X_eTaL-libraries by scripts/xetal-libraries.sh, X_eTaL
+# through X_eTaL-ML): clone X_eTaL-ML into work/xetal-ml (gitignored), check out the
 # known-good commit in XETAL_ML_COMMIT, and run that clone's own
 # scripts/xetal.sh, which fetches and builds the X_eTaL and
 # X_eTaL-libraries commits X_eTaL-ML pins (work/xetal-ml/work/). Then
@@ -33,6 +34,9 @@ fi
 # X_eTaL and the libraries X_eTaL-ML pins, built by its own script
 # (into work/xetal-ml/target/xetal).
 "$clone/scripts/xetal.sh" >/dev/null
+
+# X_eTaL-libraries at this repository's own pin (work/xetal-libraries).
+"$root/scripts/xetal-libraries.sh"
 
 mkdir -p "$root/bin"
 ln -sfn "../work/xetal-ml/target/xetal/release/xetal" "$root/bin/xetal"

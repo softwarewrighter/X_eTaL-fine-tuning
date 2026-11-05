@@ -3,9 +3,9 @@
 What the lessons and experiments here need from the general libraries
 of
 [X_eTaL-libraries](https://github.com/softwarewrighter/X_eTaL-libraries),
-reached at the commit X_eTaL-ML pins (`work/xetal-ml/`,
-`XETAL_LIBRARIES_COMMIT` there; `../X_eTaL-libraries` is read only
-from here: its own plan takes them). ML-specific needs are in
+reached at this repository's own pin (`XETAL_LIBRARIES_COMMIT`,
+cloned into `work/xetal-libraries/`; `../X_eTaL-libraries` is read
+only from here: its own plan takes them). ML-specific needs are in
 [`xetal-ML-asks.md`](xetal-ML-asks.md).
 
 A need is asked for here before the language is: a function in a
@@ -53,7 +53,9 @@ What the check found for this repository:
   design, for KaTeX 0.18.10): `trust` allowing `\htmlClass`, and
   `strict` ignoring `htmlExtension`; with `strict: 'error'` the marked
   LaTeX is refused even when trusted.
-- **The path a landed ask takes to this repository is two re-pins**
-  (`docs/plan.md`, F1: one pin, X_eTaL-ML, which pins
-  X_eTaL-libraries): X_eTaL-ML moves its libraries pin, then this
-  repository moves its X_eTaL-ML pin. Asked of X_eTaL-ML as FM12.
+- **The path a landed ask takes to this repository is one re-pin**
+  (`docs/plan.md`, F1, since 2026-11-05): `just libs-pin`, then `just
+  gate --full`, then the workaround of what landed removed and the
+  ask marked landed here. This repository pins X_eTaL-libraries
+  itself (`XETAL_LIBRARIES_COMMIT`), so it does not wait for
+  X_eTaL-ML to move its own libraries pin.

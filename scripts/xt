@@ -21,7 +21,7 @@ dirs = sorted(str(d) for d in root.glob("libs/*/src") if d.is_dir())
 # Then the libraries of X_eTaL-ML and every library of the X_eTaL-libraries
 # it pins (docs/plan.md, F2), held by this repository even when
 # XETAL_LIBS_ROOT points elsewhere.
-for pattern in ("work/xetal-ml/libs/*/src", "work/xetal-ml/work/xetal-libraries/libs/*/src"):
+for pattern in ("work/xetal-ml/libs/*/src", "work/xetal-libraries/libs/*/src"):
     dirs += sorted(str(d) for d in Path(sys.argv[2]).glob(pattern) if d.is_dir())
 print(":".join(os.path.relpath(d) for d in dirs))
 PY

@@ -12,4 +12,4 @@ set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 prefix="${1-$root/}"
 cd "$root"
-{ ls -d libs/*/src work/xetal-ml/libs/*/src work/xetal-ml/work/xetal-libraries/libs/*/src 2>/dev/null || true; } | sed "s#^#$prefix#" | paste -sd: -
+{ ls -d libs/*/src work/xetal-ml/libs/*/src work/xetal-libraries/libs/*/src 2>/dev/null || true; } | sed "s#^#$prefix#" | paste -sd: -

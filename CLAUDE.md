@@ -350,16 +350,23 @@ Read before working:
 
 1. **Nothing outside this repository is changed** (the user,
    2026-11-05): not `../X_eTaL`, `../X_eTaL-libraries`,
-   `../X_eTaL-ML`, nor their clones under `work/`. What they lack is
+   `../X_eTaL-ML`, nor their clones under `work/` (`work/xetal-ml`,
+   `work/xetal-libraries`). What they lack is
    an ask (rule 3), with a workaround here.
-2. One pin (plan F1): `XETAL_ML_COMMIT` is the X_eTaL-ML commit this
-   repo works with; `just xetal` (scripts/xetal-ml.sh) clones it into
-   the gitignored `work/xetal-ml/` and runs its own `scripts/xetal.sh`,
-   which gets the X_eTaL and X_eTaL-libraries it pins; `bin/xetal`
-   links to that binary and every recipe runs it. Move the pin with
-   `just ml-pin [REF]` (a COMMITTED ref of `../X_eTaL-ML`), at a saga
-   start or when an ask has landed, never mid-step, `XETAL_ML_COMMIT`
-   in its own commit after every baseline is re-run.
+2. Two pins, moved one at a time (plan F1). `XETAL_ML_COMMIT` is the
+   X_eTaL-ML commit this repo works with: `just xetal`
+   (scripts/xetal-ml.sh) clones it into the gitignored
+   `work/xetal-ml/` and runs its own `scripts/xetal.sh`, which builds
+   the X_eTaL it pins; `bin/xetal` links to that binary and every
+   recipe runs it. `XETAL_LIBRARIES_COMMIT` is this repo's own
+   X_eTaL-libraries commit, cloned into `work/xetal-libraries/`: the
+   search path and the pages' store take the general libraries from
+   it. X_eTaL has no pin here; it is X_eTaL-ML's. Move a pin with
+   `just ml-pin [REF]` or `just libs-pin [REF]` (a COMMITTED ref of
+   the sibling) when an ask has landed or at a saga start, never
+   mid-step, and never both at once: one pin, `just gate --full`, the
+   pin file in its own commit; then the next. Changes asked of several
+   repositories arrive separately, and are taken separately.
 3. This repository composes; it does not define (the user,
    2026-11-05). A demo's program calls the functions of X_eTaL-ML's
    and X_eTaL-libraries' libraries and X_eTaL's built-in words. It

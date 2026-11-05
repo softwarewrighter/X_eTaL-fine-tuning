@@ -8,7 +8,7 @@ set positional-arguments
 default:
     @just --list
 
-# Get X_eTaL-ML at the known-good commit in XETAL_ML_COMMIT (clone in work/xetal-ml) and build the X_eTaL it pins (binary bin/xetal), with the X_eTaL-libraries it pins
+# Get X_eTaL-ML at the known-good commit in XETAL_ML_COMMIT (clone in work/xetal-ml), build the X_eTaL it pins (binary bin/xetal), and get X_eTaL-libraries at XETAL_LIBRARIES_COMMIT (work/xetal-libraries)
 xetal:
     @scripts/xetal-ml.sh
 
@@ -16,19 +16,24 @@ xetal:
 ml-pin ref="HEAD":
     scripts/ml-pin.sh "$1"
 
-# The pins: XETAL_ML_COMMIT, the X_eTaL and X_eTaL-libraries commits X_eTaL-ML pins, and the binary's own report
+# Pin a newer X_eTaL-libraries: a committed ref of ../X_eTaL-libraries (default HEAD) into XETAL_LIBRARIES_COMMIT; then just gate --full and commit
+libs-pin ref="HEAD":
+    scripts/xetal-libraries.sh --pin "$1"
+
+# The pins: XETAL_ML_COMMIT (and the X_eTaL commit X_eTaL-ML pins), XETAL_LIBRARIES_COMMIT, and the binary's own report
 xetal-version:
     @scripts/xetal-ml.sh >/dev/null
     @echo "XETAL_ML_COMMIT $(cat XETAL_ML_COMMIT)"
     @echo "  its XETAL_COMMIT $(cat work/xetal-ml/XETAL_COMMIT)"
-    @echo "  its XETAL_LIBRARIES_COMMIT $(cat work/xetal-ml/XETAL_LIBRARIES_COMMIT)"
+    @echo "  (its own XETAL_LIBRARIES_COMMIT $(cat work/xetal-ml/XETAL_LIBRARIES_COMMIT), not used here)"
+    @echo "XETAL_LIBRARIES_COMMIT $(cat XETAL_LIBRARIES_COMMIT)"
     @bin/xetal --version
 
 # Evaluate an expression with the pinned xetal, every library on XETAL_PATH: just eval "'+ r_/ 1 2 3"
 eval expr:
     @scripts/xt eval -e "$1"
 
-# The library search path (this repo's libraries, X_eTaL-ML's, X_eTaL-libraries'): export XETAL_PATH="$(just path)"
+# The library search path (X_eTaL-ML's libraries at its pin, X_eTaL-libraries' at this repo's own): export XETAL_PATH="$(just path)"
 path:
     @scripts/libpath.sh
 

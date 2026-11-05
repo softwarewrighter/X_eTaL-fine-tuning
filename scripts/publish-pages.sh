@@ -13,12 +13,13 @@ git diff --quiet HEAD -- || { echo "publish: commit your changes first (the site
 [ -f pages/index.html ] || { echo "publish: no pages/ (just pages first)" >&2; exit 1; }
 head="$(git rev-parse --short HEAD)"
 ml="$(cut -c1-7 XETAL_ML_COMMIT)"
+libs="$(cut -c1-7 XETAL_LIBRARIES_COMMIT)"
 index="$(mktemp)"; rm -f "$index"
 trap 'rm -f "$index"' EXIT
 export GIT_INDEX_FILE="$index"
 git --work-tree=pages add -A -f .
 tree="$(git write-tree)"
 unset GIT_INDEX_FILE
-commit="$(git commit-tree "$tree" -m "pages: built from main $head with X_eTaL-ML $ml")"
+commit="$(git commit-tree "$tree" -m "pages: built from main $head with X_eTaL-ML $ml and X_eTaL-libraries $libs")"
 git push --quiet --force origin "$commit:refs/heads/gh-pages"
-echo "published pages/ (main $head, X_eTaL-ML $ml) to gh-pages: https://softwarewrighter.github.io/X_eTaL-fine-tuning/"
+echo "published pages/ (main $head, X_eTaL-ML $ml, X_eTaL-libraries $libs) to gh-pages: https://softwarewrighter.github.io/X_eTaL-fine-tuning/"

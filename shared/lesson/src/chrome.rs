@@ -26,6 +26,11 @@ pub fn pins() -> (&'static str, &'static str) {
     (env!("LESSON_ML_SHA"), env!("LESSON_XETAL_SHA"))
 }
 
+/// The X_eTaL-libraries commit this repository pins.
+pub fn libraries_pin() -> &'static str {
+    env!("LESSON_LIBRARIES_SHA")
+}
+
 fn sep() -> Html {
     html! { <span class="sep">{ "\u{00b7}" }</span> }
 }
@@ -45,6 +50,7 @@ pub fn footer() -> Html {
             <a href="../">{ "All lessons" }</a>{ sep() }
             <a href="../doc/">{ "Cross-reference" }</a>{ sep() }
             <span>{ "X_eTaL-ML " }<a href={format!("{ML}/commit/{ml}")} target="_blank">{ ml }</a></span>{ sep() }
+            <span>{ format!("X_eTaL-libraries {}", libraries_pin()) }</span>{ sep() }
             <span>{ format!("X_eTaL {xetal}") }</span>{ sep() }
             <span class="build" data-sha={sha()}>{ build() }</span>
         </footer>
