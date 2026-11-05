@@ -96,8 +96,15 @@ as baselines to compare against.
 
 ## Demos
 
-None is built yet. The first to come, in order
-([`docs/plan.md`](docs/plan.md)):
+Live: [the catalog](https://softwarewrighter.github.io/X_eTaL-fine-tuning/).
+
+| Demo | What you see | The line that does it |
+| ---- | ------------ | --------------------- |
+| [LoRA hello](demos/lora-hello/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-hello/)) | a frozen 4 x 4 layer adapted by a rank-1 update: change the input or alpha and see the frozen output, what the adapter adds and the adapted output; the update's rank, the merge, the 8 numbers trained against the matrix's 16 | `y := (W, A, B, s) lo:f_orward x`: an adapter is one tuple, taken apart by the library |
+
+![LoRA hello](demos/lora-hello/screenshot.png)
+
+The lessons to come, in order ([`docs/plan.md`](docs/plan.md)):
 
 | Lesson | What you will do |
 | ------ | ---------------- |
@@ -126,32 +133,32 @@ in [`docs/plan.md`](docs/plan.md):
 
 | | |
 | - | - |
-| Now | planned: the plan, the first saga's seven steps and the repository's rules. No program, library or page yet |
-| Next | the build machinery and a first command-line program on X_eTaL-ML's LoRA library, then the shared teaching shell and the LoRA lab |
+| Now | the build machinery (one pin, the gate, the live site) and a first demo, LoRA hello, at the command line and live, on X_eTaL-ML's LoRA library. No lesson and no library of this repository yet |
+| Next | the shared teaching shell (glossary and tooltips, stepper, heat maps, the narrator of changes), then the LoRA lab |
 | Asks | what this repository needs from the others, each with its workaround, none blocking: [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md), [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md). Nothing is asked of the language |
 
 ## Build
 
-Not buildable yet: the recipes below are what the plan's first step
-delivers, and this section is corrected by that step to what then
-runs.
-
 Requirements: Rust (stable, with the `wasm32-unknown-unknown` target
 and [`trunk`](https://trunkrs.dev/) for the pages), git,
-[`just`](https://github.com/casey/just) and
-[`uv`](https://docs.astral.sh/uv/). The scripts' Python is a
-uv-managed virtual environment, `.venv` (Python 3.12, from
-`.python-version`), made by `scripts/py` on first use; the system's
-Python is never used. The first `just xetal` needs the network.
+[`just`](https://github.com/casey/just),
+[`uv`](https://docs.astral.sh/uv/), and for the tests
+`reg-rs`, `sw-markdown-checker` and Google Chrome (the pages are
+checked headless). The scripts' Python is a uv-managed virtual
+environment, `.venv` (Python 3.12, from `.python-version`), made by
+`scripts/py` on first use; the system's Python is never used. The
+first `just xetal` needs the network.
 
 ```bash
-just                # list the recipes
-just xetal          # fetch X_eTaL-ML at the pinned commit, and build the X_eTaL it pins (bin/xetal)
-just xetal-version  # the commits pinned, and the binary's own report
+just                   # list the recipes
+just xetal             # fetch X_eTaL-ML at the pinned commit, and build the X_eTaL it pins (bin/xetal)
+just xetal-version     # the commits pinned, and the binary's own report
 just eval "'+ r_/ 1 2 3"
-just run SLUG       # run a demo's program at the command line
-just serve SLUG     # its page at http://127.0.0.1:8212/
-just gate           # the pre-commit gate: what the change touches; just gate --full for everything
+just demos             # the demos, in catalog order
+just run lora-hello    # run a demo's program at the command line; just show for a notebook
+just serve lora-hello  # its page at http://127.0.0.1:8212/
+just test              # every demo and library baseline
+just gate              # the pre-commit gate: what the change touches; just gate --full for everything
 ```
 
 This repository tracks no copy of X_eTaL or of X_eTaL-ML:
@@ -162,6 +169,18 @@ X_eTaL and X_eTaL-libraries commits it was tested with. Every recipe
 runs that binary, so results do not depend on whatever `xetal` is on
 your PATH. `just ml-pin [REF]` moves to a newer X_eTaL-ML.
 
+The libraries are found on one search path: this repository's, then
+X_eTaL-ML's, then X_eTaL-libraries'.
+
+```bash
+export XETAL_PATH="$(just path)"    # use them from your own programs
+just pages                # build the live site into pages/ (not tracked): the catalog, each page, the cross-reference in pages/doc
+just publish              # put it live: pages/ becomes the gh-pages branch
+just check-live           # the deployed pages run X_eTaL and report this commit
+just serve-pages          # preview it at http://127.0.0.1:8212/X_eTaL-fine-tuning/
+just new-demo SLUG "Title"              # start a demo from demos/_template
+just new-lib Name alias: "what it is"   # start a library from templates/Library
+```
 ### Layout
 
 - `demos/<slug>/` -- one lesson or experiment per directory: its
@@ -169,8 +188,12 @@ your PATH. `just ml-pin [REF]` moves to a newer X_eTaL-ML.
   experiments in `presets/`, and its web page in `web/`.
 - `libs/<Name>/` -- one library per directory: `src/<Name>.xtl`, its
   reference page `docs/README.md`, `demos/`, and reg-rs `tests/`.
-- `shared/lesson/` -- what every page shares: the glossary and its
-  tooltips, the stepper, the heat maps, the narrator of changes.
+- `scripts/` -- the logic behind the `just` recipes, adapted from
+  X_eTaL-ML's.
+- `shared/lesson/` -- what every page shares, on X_eTaL-ML's page
+  shell: this repository's libraries in the browser and the footer
+  now; the glossary and its tooltips, the stepper, the heat maps and
+  the narrator of changes next.
 - `docs/` -- the plan, the research it came from, and the asks.
 
 ## Documentation

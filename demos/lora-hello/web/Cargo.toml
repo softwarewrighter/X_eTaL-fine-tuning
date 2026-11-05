@@ -1,0 +1,16 @@
+[package]
+name = "lora-hello-web"
+description = "LoRA hello: a frozen 4 x 4 layer adapted by a rank-1 update; change the input and alpha, see the frozen output, the adapted one and the correction the adapter adds"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

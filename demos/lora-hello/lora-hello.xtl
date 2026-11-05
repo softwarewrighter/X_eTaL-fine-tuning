@@ -1,0 +1,52 @@
+#!/usr/bin/env xetal
+## LoRA hello: a frozen 4 x 4 layer adapted by a rank-1 update, with
+## X_eTaL-ML's LoRA library. The first program of this repository: it
+## proves the chain from the pin (XETAL_ML_COMMIT) to a tested program.
+## The layer is y = W x + s B (A x): W stays as it is, and only A
+## (1 x 4) and B (4 x 1) would be trained.
+
+"lo:" u_se< "LoRA"
+
+### The layer
+
+## The frozen W by a fixed ripple (no chance), the adapter's two
+## factors, one input, and the scale s = alpha / r.
+W := 4 4 r_eshape s_in 0.7 * f_loat r_ange 16
+A := 1 4 r_eshape 0.5 -0.5 1.0 0.25
+B := 4 1 r_eshape 1.0 0.0 -1.0 0.5
+x := 1.0 2.0 3.0 4.0
+s := 2.0 lo:s_caling 1
+
+### What the adapter changes
+
+## The input squeezed through the adapter: h = A x, one number (the
+## rank is 1), printed after the scale s.
+h := A '+ '* i_nner x
+s c_at h
+
+## The frozen layer's output, W x; the adapted one's, W x + s B (A x);
+## the correction the adapter adds, s B (A x): A x is 3.5, so it is 7
+## times B; and that the two outputs differ by exactly that (within
+## 1e-12: 1).
+base := W '+ '* i_nner x
+y := (W, A, B, s) lo:f_orward x
+correction := (lo:d_elta (A, B, s)) '+ '* i_nner x
+base
+y
+correction
+0.000000000001 > 'm_ax r_/ a_bs correction - y - base
+
+### The update and the merge
+
+## The update s B A is a 4 x 4 matrix of rank 1. Folded into W it gives
+## one matrix whose output is the factored layer's (within 1e-12: 1).
+merged := lo:m_erge (W, A, B, s)
+lo:r_ank lo:d_elta (A, B, s)
+0.000000000001 > 'm_ax r_/ a_bs y - merged '+ '* i_nner x
+
+### What it costs
+
+## The numbers a rank-1 adapter trains on a 4 x 4 matrix, r (m + n),
+## against the 16 of the matrix itself.
+counts := (1 lo:p_arams 4 4) c_at 16
+counts

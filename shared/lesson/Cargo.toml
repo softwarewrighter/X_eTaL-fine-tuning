@@ -1,0 +1,14 @@
+[package]
+name = "lesson"
+description = "The teaching shell of the X_eTaL fine-tuning pages, on X_eTaL-ML's microscope: this repository's libraries in the pages' store, the footer, and (from the plan's step lesson-shell) the glossary, the stepper, heat maps, the narrator of changes"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+# X_eTaL-ML's shared page shell at the pin (docs/plan.md, F2): never edited.
+microscope = { path = "../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+
+[workspace]

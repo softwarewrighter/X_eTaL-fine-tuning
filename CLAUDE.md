@@ -407,6 +407,11 @@ Read before working:
 12. The live site is built locally into `pages/` (`just pages`), NOT
     tracked on main: `just publish` makes it the single commit of the
     `gh-pages` branch. Port 8212 is this repo's.
+    Every page's footer, the catalog's too, is the sibling live demos'
+    (the user, 2026-11-05): copyright, license, a GitHub link, the pins,
+    and the build shown compactly without labels: host, short sha,
+    yyyymmddThhmm, no time zone (`lesson::chrome::footer`). A link to
+    the literate documents (org-mode, as HTML) joins it later.
 13. American spellings only, everywhere. Docs are ASCII-only markdown
     (`sw-markdown-checker`). User-facing docs (README, demo and
     library pages) say what and how; saga and step talk lives only in

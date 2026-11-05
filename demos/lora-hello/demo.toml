@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "lora-hello"            # the directory name, demos/<slug>/
+title = "LoRA hello"
+summary = "A frozen 4 x 4 layer adapted by a rank-1 update, at the command line: the frozen output, the adapted one, the correction the adapter adds, the update's rank, the merge, and the 8 numbers it trains against the matrix's 16. The first program of this repository, on X_eTaL-ML's LoRA library."
+concepts = ["LoRA", "a frozen layer", "a low-rank update", "the merge", "tuples as arguments"]        # the X_eTaL ideas it shows
+status = "live"              # draft | live | deferred
+order = 5                    # position in the catalog (lower first)
+track = "peft"               # basics | full | peft | editing | agents (docs/plan.md, Tracks)
+lesson = 0                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
+needs = []                   # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "y := (W, A, B, s) lo:f_orward x"
+why = "An adapter is one tuple, (W, A, B, s): the frozen matrix, the two small trained ones and the scale, taken apart by the library."

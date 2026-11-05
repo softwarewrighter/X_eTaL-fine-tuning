@@ -1,6 +1,6 @@
 number = 1
 slug = "foundation"
-status = "pending"
+status = "in-progress"
 description = """
 Step foundation (docs/plan.md, Saga 1 row 1; decisions F1, F2, F4, F9).
 

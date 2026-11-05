@@ -1,0 +1,3 @@
+command = "scripts/browser-check.sh lora-hello"
+exit_code = 0
+desc = "lora-hello: the built page run in headless Chrome shows X_eTaL's results"

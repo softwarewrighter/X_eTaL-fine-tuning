@@ -1,0 +1,5 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.sh).
+A x = 3.5: the input squeezed to one number
+13.544698
+the update's rank (lo:r_ank, by Gram-Schmidt)
+8 of 16
