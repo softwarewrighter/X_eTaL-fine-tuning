@@ -22,7 +22,11 @@ to express the mathematics in X_eTaL (largely the text of X_eTaL-ML's
 back-propagation (zeroth-order optimization and evolution strategies:
 MeZO, ES at Scale, DART-ES, AGZO, StructZO, EGGROLL, Dust, and the
 Neural Thickets claim with its replication), with a priority order
-and an evaluation design. This plan turns them, and the user's
+and an evaluation design. And `docs/research4.txt`, on shared
+subspaces: a fixed, reusable basis with small per-task coefficients as
+a cross-cutting idea (a representation, not an optimizer) linking the
+LoRA variations, continual learning and search without
+back-propagation, with five demos proposed. This plan turns them, and the user's
 direction since, into sagas and steps.
 
 Development is driven by agentrail sagas (one active saga in
@@ -110,7 +114,7 @@ laboratory beside it.
 | F1 | **One pin: X_eTaL-ML.** `XETAL_ML_COMMIT` holds the known-good commit of X_eTaL-ML; `just xetal` clones it into the gitignored `work/xetal-ml/` and runs that clone's own `scripts/xetal.sh`, which fetches and builds the X_eTaL and X_eTaL-libraries commits X_eTaL-ML pins. `bin/xetal` links to that binary. `just ml-pin [REF]` moves the pin to a committed ref of `../X_eTaL-ML`. Nothing under `work/` is ever edited. | X_eTaL-ML's pins are already tested together; taking them transitively means this repo can never combine an X_eTaL with libraries or ML code it was not tested against. The sibling vendoring rule (`../X_eTaL/docs/vendoring.md`) applied one level up. |
 | F2 | **Reuse, do not copy.** `XETAL_PATH` is X_eTaL-ML's `libs/*/src`, then the X_eTaL-libraries it pins (`work/xetal-ml/work/xetal-libraries/libs/*/src`, so Matrix is reachable though X_eTaL-ML links only some), with this repository's `libs/*/src` first should it ever have one. The pages depend on `work/xetal-ml/shared/microscope` by path, as X_eTaL-ML's own pages do. | The ML mathematics has one home; the research: "reuse the X_eTaL-ML LoRA implementation" and "extend those rather than introduce another framework". |
 | F3 | **Compose, do not define; ask; language last** (the user, 2026-11-05). A demo's program calls library functions and built-in words; it defines no `u:` function, and this repository writes no `l:` library export and no `m:` macro, as a rule. A function the libraries lack is asked for: of X_eTaL-ML when it is machine learning (`docs/xetal-ML-asks.md`; that is where ML `.xtl` and `.xtlm` belong), of X_eTaL-libraries when it is general, a function or an `.xtlm` macro (`docs/xetal-libraries-asks.md`), of X_eTaL-extensions when it needs native code (`docs/xetal-extensions-asks.md`), and of X_eTaL itself last (`docs/xetal-asks.md`, created when the first is needed, justified against keeping the language small). Meanwhile the expression is written out in the program where it is used, named in the ask and on the page; if that would make the program unreadable the step waits and the ask is a blocker. Rust is for the pages' presentation only (the WebAssembly host), never for an algorithm. | The user: this is an X_eTaL demo, to be made from the X_eTaL ecosystem; the asks exist so that what is missing is added where it belongs. X_eTaL-ML is therefore on this repository's path. |
-| F4 | **Layout as in X_eTaL-ML** (its A3, A4): each demo (a lesson or an experiment) is `demos/<slug>/` with `demo.toml`, `README.md`, `*.xtl`, `reg/` reg-rs baselines, optional `train/` and `web/`; each library is `libs/<Name>/` with `src/`, `tests/` (`types.rgt`), `docs/README.md`, `demos/`. `demo.toml` gains `track` (lora, variants, alternatives, edge, applied: the Tracks below) and `lesson` (its place in the curriculum, or none for an experiment). | One structure across the X_eTaL repos; the research's lessons/experiments/evaluations split is carried by the catalog's fields instead of three trees. |
+| F4 | **Layout as in X_eTaL-ML** (its A3, A4): each demo (a lesson or an experiment) is `demos/<slug>/` with `demo.toml`, `README.md`, `*.xtl`, `reg/` reg-rs baselines, optional `train/` and `web/`; each library is `libs/<Name>/` with `src/`, `tests/` (`types.rgt`), `docs/README.md`, `demos/`. `demo.toml` gains `track` (lora, variants, subspaces, alternatives, edge, applied: the Tracks below) and `lesson` (its place in the curriculum, or none for an experiment). | One structure across the X_eTaL repos; the research's lessons/experiments/evaluations split is carried by the catalog's fields instead of three trees. |
 | F5 | **The teaching shell is shared**: `shared/lesson/`, a Yew crate on top of X_eTaL-ML's `microscope`, gives every page the same parts: the glossary and its tooltips (`shared/lesson/glossary.tsv`, one row per term: short definition, why it matters, a worked example, the lesson that teaches it), the four depths (hover: definition; click: short explanation; expand: worked example; learn more: the lesson), a stepper (play, pause, next, previous, reset) over a recorded trace, the mode switch, heat maps with a legend and a cell inspector (matrix, row, column, value, meaning, whether the color scale is shared), a cell's arithmetic expanded with its numbers, the equation with selectable symbols, the change narrator, and prediction questions. Everything reachable by keyboard and touch, never by hover alone. | The research's last point: the same educational components reused across every lesson; written once, tested once. |
 | F6 | **A trace, not a re-implementation.** A page's experiment is an X_eTaL program whose pipelines are Flow pipelines; `flow:s_tages<` gives every stage's value (the trace event's inputs, output and shape), the program's source ranges locate its code, and a training loop keeps the states it shows in its `p_ower` tuple. The stepper steps through that recorded trace (so stepping back reruns nothing). | The research's "experiment trace" exists already as Flow's stages; the UI animates real computations rather than redoing them in Rust or JavaScript. |
 | F7 | **Deterministic.** Fixed seeds, presets stored as data (`demos/<slug>/presets/*.toml`), the same preset gives the same trace; reg-rs baselines pin the CLI output and each page's trace; property tests for shapes and the merge identity, finite-difference checks for every gradient. | Experiments must be replayable and comparable; the research's engineering criteria. |
@@ -139,7 +143,11 @@ Three stages, in this order:
 
 1. **LoRA and its variations**: LoRA itself, then the variations from
    QLoRA to DoRA (rsLoRA, LoRA-FA, QLoRA, DoRA, VeRA, and others
-   chosen when that saga is planned).
+   chosen when that saga is planned), then the idea underneath
+   several of them, **shared subspaces** (`docs/research4.txt`: a
+   fixed basis reused across tasks, small coefficients per task), which
+   leads to learning tasks in sequence without forgetting, and into
+   stage 2.
 2. **Alternatives**: above all **weight-space methods that use no
    back-propagation** (the user: "another alternative to LoRA we want
    to eventually demo"; `docs/research3.txt`: zeroth-order
@@ -150,9 +158,10 @@ Three stages, in this order:
    and **an AI editing a model's weights directly** (the user: "a new
    focus", approach and demo to be decided).
 
-Stages 2 and 3 are planned to be planned: each saga opens with a
-planning step that settles its methods and demos with the user and
-writes them down (`docs/weight-space-plan.md`, `docs/edge-plan.md`)
+Shared subspaces and stages 2 and 3 are planned to be planned: each
+saga opens with a planning step that settles its methods and demos
+with the user and writes them down (`docs/subspaces-plan.md`,
+`docs/weight-space-plan.md`, `docs/edge-plan.md`)
 before anything is built. What is known now is in "Open questions".
 
 ## Tracks
@@ -163,6 +172,7 @@ A demo's `track` in its `demo.toml` is one of these.
 | ----- | ------- | ----------------------- |
 | lora | LoRA: a frozen layer, a low-rank adapter, its training, rank and scale, LoRA-FA | how can a model learn something new while its weights stay as they are? |
 | variants | QLoRA, DoRA, VeRA and the others chosen; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
+| subspaces | a fixed shared basis with per-task coefficients; which directions to keep; tasks in sequence (Share, LoDA, SuLoRA, LoRA-XS) | where may a change live, when does sharing that place between tasks help, and when does it hurt? |
 | alternatives | weight-space methods without back-propagation (zeroth-order optimization, evolution strategies, activation perturbation), beside back-propagation itself (full and selective fine-tuning); weight arithmetic, other parameter-efficient methods, methods that change no weight | can a model learn from forward passes alone, at what cost, and when is that the better choice? |
 | edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing weights directly | can a model be changed without training at all, and can a model do that to a model? |
 | applied | a coding model taught a team's engineering standards, measured by an executable grader; real open-weight models | does any of this make a real model better at a real job, and how is that proved? |
@@ -185,14 +195,18 @@ them in it. A lesson not yet settled has no number.
 | 9 | vera | shared frozen random projections, trained scaling vectors | the trainable count against LoRA's; what the sharing costs | 2 |
 | 10 | variants-compared | which variation when | every variation on the same task, equal ranks and equal budgets | 2 |
 | 11 | adapters-in-moe | where adapters attach in a mixture of experts; a frozen router decides who learns | shared, every expert, selected experts; routing before and after | 2 |
-| | how-learning-works, full-ft | what back-propagation is and what it costs; every weight moving, forgetting measured | one weight, then one layer: the loss, the gradient, what the backward pass keeps; a shifted task and the old task's loss | 3 |
-| | forward-only | learning from forward passes alone (MeZO, evolution strategies) | the estimate beside the true gradient as passes grow; passes, memory and loss against back-propagation | 3 |
-| | reward-not-loss | learning from an outcome that cannot be differentiated (DART-ES) | a toy grader as the reward; problems of unequal difficulty | 3 |
-| | better-directions | where to search: a layer's input span, a structured subspace, low rank (AGZO, StructZO, EGGROLL) | each against random directions at equal forward passes | 3 |
-| | selection-noise | the best of many random tries looks like learning | selected gain against held-out gain | 3 |
-| | weight-space-compared | when learning without back-propagation is the better choice | every method at equal compute and at equal memory | 3 |
-| | editing-a-fact | a layer as a key-value memory; a rank-one edit in closed form | one association changed; what else moved | 4 |
-| | ai-edits-weights (to be settled) | a model proposing and testing changes to a model's weights | to be decided with the user | 4 |
+| | subspace-intro | what a subspace is: a few directions, everything made from them, projecting onto them and what is lost | small vectors, and the row space LoRA-FA was held to | 3 |
+| | shared-vs-separate | one basis shared by several tasks, small coefficients for each | related and unrelated tasks, each with its own adapter and with a shared basis: what transfers, what interferes | 3 |
+| | subspace-selection | which directions matter as much as how many | random, the layer's own, chosen from the data, at equal coefficients | 3 |
+| | continual-subspaces | learning tasks in sequence without forgetting | a shared, a separate and an evolving basis; every old task after each new one | 3 |
+| | how-learning-works, full-ft | what back-propagation is and what it costs; every weight moving, forgetting measured | one weight, then one layer: the loss, the gradient, what the backward pass keeps; a shifted task and the old task's loss | 4 |
+| | forward-only | learning from forward passes alone (MeZO, evolution strategies) | the estimate beside the true gradient as passes grow; passes, memory and loss against back-propagation | 4 |
+| | reward-not-loss | learning from an outcome that cannot be differentiated (DART-ES) | a toy grader as the reward; problems of unequal difficulty | 4 |
+| | better-directions | where to search: a layer's input span, a structured subspace, low rank, a shared reduced space (AGZO, StructZO, EGGROLL) | each against random directions at equal forward passes; the same search in the full weights and in a shared subspace | 4 |
+| | selection-noise | the best of many random tries looks like learning | selected gain against held-out gain | 4 |
+| | weight-space-compared | when learning without back-propagation is the better choice | every method at equal compute and at equal memory | 4 |
+| | editing-a-fact | a layer as a key-value memory; a rank-one edit in closed form | one association changed; what else moved | 5 |
+| | ai-edits-weights (to be settled) | a model proposing and testing changes to a model's weights | to be decided with the user | 5 |
 
 Each lesson is framed (principle 1): the question, the background,
 the rationale and the purpose first; a prediction, one small
@@ -212,9 +226,11 @@ signature wanted and the workaround meanwhile.
 | the learning task | X_eTaL-ML | FM7 | a task made from a seed (inputs, targets from a hidden shifted layer, optional noise), a train and held-out split, train, validation and retention losses, a run's record; the comparison harness (a method as its start, its step and its counts, every method on the same task and seeds); full and selective fine-tuning of a layer (its gradient and steps) | Saga 1, lora-training |
 | rsLoRA's scale | X_eTaL-ML | FM3 | alpha / sqrt r beside alpha / r | Saga 1, rank-and-scaling |
 | a spectrum | X_eTaL-libraries | FL2 | singular values and the best rank-k approximation of a matrix | Saga 1, lora-vs-fa |
+| subspace geometry | X_eTaL-libraries | FL3 | projection onto a subspace, an orthonormal basis of some vectors, the angles between two subspaces, a change of basis (with FL2's singular values) | Saga 1, lora-vs-fa (the projection onto A's row space); Saga 3 |
 | the variations | X_eTaL-ML | FM4 | QLoRA (4-bit and NF4 quantization, an adapter on a quantized base), VeRA, DoRA, and the others chosen | Saga 2 |
 | a mixture of experts | X_eTaL-ML | FM6 | its MoE library and a small trained base model | Saga 2, adapters-in-moe |
-| learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 3 |
+| shared-basis adapters | X_eTaL-ML | FM10 | an adapter in a fixed shared basis, `W x + U C V' x` (C full or diagonal), its gradient and steps; bases from a seed, from W's singular directions, from the data; a family of tasks (related, unrelated, in sequence) with transfer and forgetting measured; later a basis that evolves over tasks (Share), shared with task-specific directions (LoDA), a subspace per task (SuLoRA) | Saga 3 |
+| learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 4 |
 | closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |## Saga 1 -- lora-lab  [ACTIVE]
 
 The research's recommended first milestone: one complete, polished
@@ -233,8 +249,8 @@ of the road, with Saga 2.
 | 3 | lora-lab | demos/lora-lab, live: the first milestone. An intro (a pretrained model, a task, the key idea) and a prediction question; the 8 x 8 example; the forward pass `y = W x + s B (A x)` as a Flow pipeline stepped through stage by stage from `flow:s_tages<` (inputs read highlighted, the operation, outputs written, each shape), forward and back without rerunning; any output cell's arithmetic, written out and with its numbers; the equation's symbols selectable, each highlighting its matrix, its stage and its X_eTaL source; the rank slider with the trainable count and its explanation (on 8 x 8, rank 4 trains as many numbers as full fine-tuning, rank 8 twice as many); a closing comparison of the frozen layer's output with the adapted one's; the source panel shows all the code the page runs |
 | 4 | lora-training | demos/lora-training, live: Experiment B, learning from examples (the task, the split and the losses: ask FM7): one training step narrated in six stages (forward, loss, gradient at the output, dA and dB, the update, W unchanged), every number from the run; then training with train and validation loss curves, step back through recorded states; presets: first experiment, too large a learning rate, overfitting; the narration of each run's outcome from its measured curves |
 | 5 | rank-and-scaling | demos/rank-and-scaling, live: rank and alpha swept on the learning task; trainable numbers, train and validation loss at each, every figure marked measured or analytical (F8); rsLoRA's alpha / sqrt r (ask FM3) beside LoRA's alpha / r, the update's size at each rank; the narrator explains capacity, cost and stability from the measurements, without claiming rank always helps |
-| 6 | lora-vs-fa | demos/lora-vs-fa, live: Experiment A, approximating a known matrix, named as such: LoRA and LoRA-FA fitting a known update against the truncated SVD's optimum (Eckart-Young); why LoRA-FA's update stays in the frozen A's row space, shown by projecting each learned update onto it; then the same two on the learning task of step 4, so the two experiments are compared and kept apart |
-| 7 | landscape | demos/landscape, live: lesson 6, the map: the ways to change a model in families (change no weight; change every weight; a small trained part beside frozen weights, LoRA and its variations; learn without back-propagation; edit in closed form; let an AI do the editing), each in a sentence a newcomer can follow, set against the three worries (forgetting, time, cost); for the small task of this saga, each family's accounting computed by X_eTaL (numbers trained, numbers held while training, what is stored), marked analytical; what is measured so far and what the next lessons will measure; where each later lesson sits |
+| 6 | lora-vs-fa | demos/lora-vs-fa, live: Experiment A, approximating a known matrix, named as such: LoRA and LoRA-FA fitting a known update against the truncated SVD's optimum (Eckart-Young); why LoRA-FA's update stays in the frozen A's row space, shown by projecting each learned update onto it; that row space named for what it is, a subspace (the first one a reader meets: the glossary gains subspace, basis and projection; Saga 3 builds on it); then the same two on the learning task of step 4, so the two experiments are compared and kept apart |
+| 7 | landscape | demos/landscape, live: lesson 6, the map: the ways to change a model in families (change no weight; change every weight; a small trained part beside frozen weights, LoRA and its variations; learn without back-propagation; edit in closed form; let an AI do the editing), each in a sentence a newcomer can follow, set against the three worries (forgetting, time, cost); and the two questions that sort them all (`docs/research4.txt`): where may the change live (every weight, two thin tables, coefficients in a shared basis, one closed-form edit) and how is it found (back-propagation, forward passes only, a formula, an AI); for the small task of this saga, each family's accounting computed by X_eTaL (numbers trained, numbers held while training, what is stored), marked analytical; what is measured so far and what the next lessons will measure; where each later lesson sits |
 | 8 | lab-polish | the acceptance pass of the research: every visible symbol and control has an accessible explanation (a test lists them against the glossary), keyboard-only and touch walkthroughs of each lesson in the browser tests, a deterministic replay test per preset, a checklist for trying the lessons with novices (what rank means, why W stays frozen, what A and B do, why a small adapter changes the output) in `docs/novice-check.md`; the README's demos table and screenshots |
 
 Acceptance for the saga (from the research): a beginner completes the
@@ -259,12 +275,46 @@ asked for (asks FM4, FM6): a lesson whose mathematics is not there waits for it.
 | 2 | variant-harness | the comparison harness asked of X_eTaL-ML (ask FM7) (a method as its start, its step, its forward pass and its counts; the same task, split and seeds for all; the run's record), the retention measure (the old task's loss after learning the new one), and `shared/lesson`'s comparison table, each figure marked measured or analytical |
 | 3 | qlora | lesson 7: uniform 4-bit quantization first, then the NF4 codebook; the adapter trained on the dequantized base; the quantization error, the bytes of each part, the merge that is not bit-exact |
 | 4 | dora | lesson 8: DoRA (Liu and others, 2024; ask FM4): W as a magnitude per column times a direction, the adapter on the direction, its gradients checked by finite differences; magnitude and direction shown changing apart |
-| 5 | vera | lesson 9: VeRA (Kopiczko and others, 2024): A and B frozen, random and shared (regenerated from a seed), two small trained vectors; its count against LoRA's |
+| 5 | vera | lesson 9: VeRA (Kopiczko and others, 2024): A and B frozen, random and shared (regenerated from a seed), two small trained vectors; its count against LoRA's; its bases are the same for every layer and task, the first shared subspace by design (Saga 3) |
 | 6 | more-variants | the variations chosen in step 1, a lesson or a panel each |
 | 7 | variants-compared | lesson 10: every variation on the same task at equal ranks and at equal budgets: new-task loss, validation, retention, numbers trained, bytes stored, numbers held while training; what the measurements support saying about which to use when |
 | 8 | adapters-in-moe | lesson 11, on X_eTaL-ML's MoE library once it has landed (its Saga 6, steps 7 to 9; otherwise this step waits there): adapters on the shared layer, on every expert, on selected experts, the router frozen; which experts get trained at all; an all-expert adapter is not small (the research's 108 MiB a layer); routing before and after |
 
-## Saga 3 -- weight-space  [PLANNED, to be planned]
+## Saga 3 -- shared-subspaces  [PLANNED, to be planned]
+
+The idea underneath several of the variations, taught for itself:
+keep a basis fixed and reusable, and let each task learn only small
+coefficients in it, `delta W = U C V'` (U and V shared, C the task's
+own). Source: `docs/research4.txt`, which argues that this is more
+than an optimization: it is a choice of *representation* (where a
+change may live), separate from the *optimizer* that finds it
+(back-propagation, a forward-only search, a closed-form edit), and so
+the bridge from the LoRA variations to continual learning and to
+Saga 4's search without back-propagation. Its claims about papers
+(Share, LoDA, SuLoRA, LoRA-XS, Fisher-guided LoRA, OPLoRA, GaLore) are
+the review's, read from the papers in step 1 before being built on.
+
+Two things it must not teach: that sharing is always better (a shared
+basis can be a bottleneck, unrelated tasks interfere, and moving the
+basis moves every task learned on it), and that LoRA's updates form a
+subspace (the rank-r updates do not, since both factors move; they do
+once U and V are fixed: the precise version is an aside).
+
+The idea is seeded earlier, so this saga names what the reader has
+already seen: LoRA-FA's update stays in the row space of its frozen A
+(Saga 1, lora-vs-fa: the first fixed subspace), and VeRA shares frozen
+random bases and trains two vectors (Saga 2: a diagonal C).
+
+| # | Step slug | Delivers |
+| - | --------- | -------- |
+| 1 | subspaces-plan | a planning step, with the user: each paper of `docs/research4.txt` read from its source and cited; what each needs at toy scale; the family of tasks the lessons run on (related ones, unrelated ones, in sequence); what is asked of X_eTaL-libraries (FL3) and X_eTaL-ML (FM10) and what has landed; `docs/subspaces-plan.md`; this saga's steps below confirmed or replaced |
+| 2 | subspace-intro | the lesson "what is a subspace?" for new eyes: a few directions and everything that can be made from them; a basis; projecting onto it and what is lost; shown on small vectors and on LoRA-FA's row space, already met. No training |
+| 3 | shared-vs-separate | "when does sharing help?": two related tasks and two unrelated ones, each learned with its own LoRA adapter and with one shared basis and per-task coefficients (a full C, a diagonal C); what transfers and what interferes, measured; the counts for a real layer computed by X_eTaL (at 4096 x 4096 and rank 16, 131,072 a task for LoRA beside 256 or 16 for coefficients in a shared basis), and the storage as tasks accumulate (for one task sharing costs more) |
+| 4 | subspace-selection | "which directions should be kept?": a random basis (as VeRA's), W's own leading singular directions (LoRA-XS), directions chosen from the data (Fisher-guided), and the pretrained model's dominant directions protected (OPLoRA), at equal coefficients: that which directions can matter as much as how many |
+| 5 | continual-subspaces | "can new tasks be learned without forgetting the old?": tasks in sequence with a shared fixed basis, a basis per task kept apart (SuLoRA), a shared basis that evolves (Share), and shared with task-specific directions (LoDA); every earlier task's loss after each new one |
+| 6 | subspaces-compared | what the measurements support: when to share, when to separate; the representation named apart from the optimizer, which Saga 4 changes while keeping the representation (its better-directions step searches a shared reduced space without back-propagation) |
+
+## Saga 4 -- weight-space  [PLANNED, to be planned]
 
 Learning without back-propagation: the alternative to LoRA the user
 named. Source: `docs/research3.txt` (a review dated 2026-11-05), which
@@ -288,12 +338,12 @@ and the effect of choosing a better search space seen directly.
 | 2 | backprop-baseline | what the alternatives are alternatives to: a loss, a gradient by the chain rule, checked by finite differences, what a backward pass must keep (every layer's input) and what the optimizer keeps; then full and selective fine-tuning (ask FM7) of a layer and the old task's loss before and after (forgetting, measured). The lessons how-learning-works and full-ft |
 | 3 | forward-only | the functions asked of X_eTaL-ML (ask FM8) and the lesson: a perturbation regenerated from its seed; the two-point estimate (the loss at the weights moved one way and the other, MeZO's step); a population of them (basic evolution strategies, antithetic pairs, centered ranks). Beside back-propagation on the same task: forward passes used, numbers held in memory, the loss reached, and the estimate's direction against the true gradient as passes grow |
 | 4 | reward-not-loss | what back-propagation cannot do directly: learning from an outcome that is not differentiable (a count of checks passed, a threshold, a toy grader), by evolution strategies; DART-ES's difficulty-aware reweighting and targeted replay on problems of unequal difficulty. The toy form of the applied goal's reward |
-| 5 | better-directions | search geometry: perturbing inside the span of a layer's inputs, where its gradient lies (AGZO), and a structured, conditioned subspace (StructZO), against random full-dimensional directions at equal forward passes; low-rank perturbations for a population (EGGROLL), which is LoRA's idea again |
+| 5 | better-directions | search geometry: perturbing inside the span of a layer's inputs, where its gradient lies (AGZO), and a structured, conditioned subspace (StructZO), against random full-dimensional directions at equal forward passes; low-rank perturbations for a population (EGGROLL), which is LoRA's idea again; and the search run in a shared reduced space, `theta = theta0 + P z` with only z perturbed (Saga 3's representation under this saga's optimizer): the optimizer and the budget held, only the search space changed |
 | 6 | selection-noise | the warning (Neural Thickets and its replication): pick the best of many random perturbations and it looks like learning; held-out examples say how much was noise. Training, selection and final test sets kept apart, shown mattering |
 | 7 | dust | perturbing activations, a token a population member, instead of weights: as step 1 decides (it needs a model over a sequence, so a tiny one from X_eTaL-ML, or an explanation without a run) |
 | 8 | weight-space-compared | every method of this saga, back-propagation and LoRA on the same task, at equal compute and at equal memory: learned, lost, cost; what the measurements support and what remains the papers' claim |
-| 9 | other-alternatives | the alternatives that are neither: weight arithmetic (task vectors, merging: no training at the merge, but the merged models were trained), other parameter-efficient methods briefly (biases alone, scaling vectors), and the baseline that changes no weight |
-## Saga 4 -- bleeding-edge  [PLANNED, to be planned]
+| 9 | other-alternatives | the alternatives that are neither: back-propagation itself confined to a small subspace of gradients (GaLore), weight arithmetic (task vectors, merging: no training at the merge, but the merged models were trained), other parameter-efficient methods briefly (biases alone, scaling vectors), and the baseline that changes no weight |
+## Saga 5 -- bleeding-edge  [PLANNED, to be planned]
 
 Changing a model without training it, and a model changing a model.
 The user's new focus is an AI editing a language model's weights
@@ -305,7 +355,7 @@ directly; its approach and demo are to be decided, in step 1.
 | 2 | edit-functions | the functions asked of X_eTaL-ML (ask FM9): a layer as a linear associative memory (keys to values); the rank-one closed-form edit with a key covariance (ROME), through Matrix's solve; tests that the edited key gives the new value and that the update has rank one |
 | 3 | editing-a-fact | the lesson: one association changed without training; what else moved (locality on unrelated keys, retention) |
 | 4 | many-edits | many edits at once by least squares (MEMIT); the update projected off preserved keys (AlphaEdit); sequential edits degrading a model, measured |
-| 5 | experiment-loop | the loop an AI would drive, first driven by a fixed policy written in X_eTaL so it can be tested: diagnose a failure, propose an intervention (an adapter, selective fine-tuning, a weight-space search of Saga 3, a closed-form edit), apply it to a copy, evaluate (the task, regression, retention, cost), accept, reject or revise, record the evidence |
+| 5 | experiment-loop | the loop an AI would drive, first driven by a fixed policy written in X_eTaL so it can be tested: diagnose a failure, propose an intervention (an adapter, selective fine-tuning, a weight-space search of Saga 4, a closed-form edit), apply it to a copy, evaluate (the task, regression, retention, cost), accept, reject or revise, record the evidence |
 | 6 | ai-edits-weights | the demo settled in step 1 |
 
 Research methods are reimplemented from their papers and cited
@@ -329,7 +379,7 @@ own when its time comes.
 ## Open questions (for the user)
 
 Settled by `docs/research3.txt`: which weight-space,
-no-back-propagation methods are meant and in what order (Saga 3).
+no-back-propagation methods are meant and in what order (Saga 4).
 
 1. **What is "an AI editing weights directly" to be?**
    `docs/research3.txt` names two neighbors without choosing:
@@ -338,9 +388,9 @@ no-back-propagation methods are meant and in what order (Saga 3).
    compiler, tests or a grader) and *direct weight editing* (specific
    parameters changed to add or correct a behavior). Which is the
    focus: (a) an agent steering a weight-space search (it chooses
-   where to search, what to reward and what to keep, on Saga 3's
+   where to search, what to reward and what to keep, on Saga 4's
    methods); (b) an agent that locates a behavior and writes the edit
-   itself (on Saga 4's closed-form edits); (c) a particular recent
+   itself (on Saga 5's closed-form edits); (c) a particular recent
    paper or announcement, to be added as `docs/research4.txt`?
 2. **Where do experiments on real models live?** `docs/research3.txt`
    recommends validating on a dense model of 135M to 1B parameters,
@@ -355,16 +405,22 @@ no-back-propagation methods are meant and in what order (Saga 3).
    functions, X_eTaL-ML is on its path: Saga 1 writes the learning
    task (FM7) and rsLoRA's scale (FM3) out in its programs, but Saga 2
    needs its quant-nf4, qlora,
-   vera and MoE steps and DoRA (FM4, FM6) and Sagas 3 and 4 new
-   libraries (FM8, FM9). Does the user carry the asks there, or is a session in
+   vera and MoE steps and DoRA (FM4, FM6) and Sagas 3, 4 and 5 new
+   libraries (FM10, FM8, FM9). Does the user carry the asks there, or is a session in
    X_eTaL-ML to work from `docs/xetal-ML-asks.md` here?
 5. **Which variations beyond QLoRA, DoRA and VeRA**: LoRA+, AdaLoRA,
    PiSSA, others, or none?
-6. **Reading the papers.** Several papers in `docs/research3.txt` are
-   from July to October 2026 and are known here only through that
-   review. The planning steps are written to read each from its
+6. **Reading the papers.** Several papers in `docs/research3.txt` and
+   `docs/research4.txt` are from 2026 and are known here only through
+   those reviews. The planning steps are written to read each from its
    source on the web before building on it. Is that the wanted way,
    or will the papers (or notes on them) be added to `docs/`?
+7. **Where shared subspaces sit.** `docs/research4.txt` proposes "a
+   small progression after VeRA". The plan makes it a saga of its own
+   (Saga 3) between the variations and the search without
+   back-propagation, with the idea seeded in LoRA-FA and VeRA and its
+   search experiment inside Saga 4. Is a saga of its own wanted, or
+   are these to be steps of Saga 2?
 ## Cross-cutting
 
 - Move the X_eTaL-ML pin (`just ml-pin`) at the start of a saga, or
@@ -384,9 +440,12 @@ no-back-propagation methods are meant and in what order (Saga 3).
   left unchanged.
 - One pin, X_eTaL-ML (F1), to start with (the user, 2026-11-05).
 - The ML asks file is `docs/xetal-ML-asks.md`; port 8212.
+- Shared subspaces are covered as a cross-cutting idea, a
+  representation and not an optimizer, not as one more variation, and
+  never as always better (`docs/research4.txt`, 2026-11-05): Saga 3.
 - The weight-space family and its order (`docs/research3.txt`,
   2026-11-05): MeZO and basic evolution strategies, DART-ES, AGZO and
-  StructZO, EGGROLL, Dust, hybrids; Saga 3 follows it at toy scale.
+  StructZO, EGGROLL, Dust, hybrids; Saga 4 follows it at toy scale.
 - No functions of its own (the user, 2026-11-05): a demo composes
   library functions; what is missing is asked for (F3). The libraries
   once planned here (FineTune, PEFT, WeightSpace, Edit) are asks of

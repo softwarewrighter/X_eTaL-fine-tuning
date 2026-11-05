@@ -30,3 +30,13 @@ then compared with Experiment B.
    browser check.
 
 Docs, CHANGES.md, the plan, ask FL2; publish and check-live.
+
+Added 2026-11-05 (docs/research4.txt, shared subspaces; docs/plan.md,
+Saga 3): the row space of the frozen A is the first fixed subspace a
+reader meets. Name it as that, in new-eyes words: the glossary gains
+subspace, basis and projection, each a few plain sentences. Say only
+what this lesson shows (LoRA-FA's update cannot leave that subspace,
+LoRA's can); the general idea of sharing a subspace between tasks is
+Saga 3's, pointed to under "where next". The projection onto A's row
+space is written out with Matrix's inverse (ask FL3 in
+docs/xetal-libraries-asks.md has the expression, tried at the pin).

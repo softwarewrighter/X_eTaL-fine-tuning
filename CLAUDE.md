@@ -328,6 +328,10 @@ Read before working:
   without back-propagation (zeroth-order optimization, evolution
   strategies); its claims about papers are the review's, to be read
   from the papers before being built on (archival, NOT normative)
+- `docs/research4.txt` -- shared subspaces as a cross-cutting idea (a
+  fixed basis reused across tasks; a representation, not an
+  optimizer); the same caution about its papers (archival, NOT
+  normative)
 - `docs/new-eyes.md` -- the checklist a page is written and read
   against
 - `docs/xetal-ML-asks.md`, `docs/xetal-libraries-asks.md`,

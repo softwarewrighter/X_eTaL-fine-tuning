@@ -21,7 +21,7 @@ every page is (CLAUDE.md rule 8): the question is the newcomer's own,
    - edit in closed form (a rank-one edit: no training at all);
    - let an AI do the editing.
    Say which are lessons here already, which come next (Saga 2), and
-   which are planned to be planned (Sagas 3 and 4): no claim about a
+   which are planned to be planned (Sagas 3, 4 and 5): no claim about a
    method this repository has not yet measured beyond what its
    definition gives.
 2. The accounting, computed by X_eTaL for this saga's small task and
@@ -42,3 +42,16 @@ every page is (CLAUDE.md rule 8): the question is the newcomer's own,
 Tests: the model natively (the counts against the formulas), the
 frames, the browser check. README (Demos), the demo's README,
 CHANGES.md, the plan; publish and check-live.
+
+Added 2026-11-05 (docs/research4.txt; docs/plan.md, Saga 3): the map
+is sorted by two questions, kept apart, since any answer to the first
+can be paired with any answer to the second:
+- where may the change live (the representation): every weight; two
+  thin tables beside frozen weights (LoRA); small coefficients in a
+  fixed basis that tasks share (shared subspaces: VeRA is the first
+  the reader has met); one closed-form edit;
+- how is the change found (the optimizer): back-propagation; forward
+  passes only; a formula; an AI proposing and testing.
+Draw the map as that grid, with each lesson, live or to come, in its
+cell. Shared subspaces are a column of it, not one more variation,
+and are not presented as better than separate adapters.

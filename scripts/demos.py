@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 STATUSES = {"draft", "live", "deferred"}
 # The tracks of docs/plan.md; a lesson is its number in the curriculum,
 # 0 for an experiment outside it.
-TRACKS = {"lora", "variants", "alternatives", "edge", "applied"}
+TRACKS = {"lora", "variants", "subspaces", "alternatives", "edge", "applied"}
 # The sections that frame a demo's README, as its page is framed.
 FRAMING = ("## The question", "## Background", "## Summary")
 FIELDS = {"slug": str, "title": str, "summary": str, "concepts": list,
