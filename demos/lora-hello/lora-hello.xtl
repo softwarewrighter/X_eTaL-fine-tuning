@@ -4,65 +4,82 @@
 ## something new without every one of its numbers being retrained (the
 ## cost) or overwritten (the forgetting)? LoRA's answer is to freeze
 ## the weights and train a small correction beside them. Here is one
-## layer of that, shrunk to 4 x 4 so every number can be read: a frozen
-## W and a rank-1 adapter, with X_eTaL-ML's LoRA library. Nothing is
-## trained here (the adapter's numbers are made up): this shows what
-## an adapter is, where it sits, what it adds and what it costs. The
-## layer is y = W x + s B (A x): W stays as it is, and only A (1 x 4)
-## and B (4 x 1) would be trained.
+## layer of that, shrunk to 4 rows and 4 columns so every number can be
+## read: a frozen table W and an adapter of rank 1, with X_eTaL-ML's
+## LoRA library. Nothing is trained here (the adapter's numbers are
+## made up): this shows what an adapter is, where it sits, what it adds
+## and what it costs. The layer is y = W x + s B (A x): W stays as it
+## is, and only A (1 row of 4) and B (1 column of 4) would be trained.
 
 "lo:" u_se< "LoRA"
 
 ### The layer
 
-## The frozen W by a fixed ripple (no chance), the adapter's two
-## factors, one input, and the scale s = alpha / r.
+## The frozen table W (16 made-up numbers, from a sine so they need
+## not be typed), the adapter's two thin tables A and B, one input x,
+## and the strength s = alpha / r (alpha is 2, the rank r is 1).
 W := 4 4 r_eshape s_in 0.7 * f_loat r_ange 16
 A := 1 4 r_eshape 0.5 -0.5 1.0 0.25
 B := 4 1 r_eshape 1.0 0.0 -1.0 0.5
 x := 1.0 2.0 3.0 4.0
 s := 2.0 lo:s_caling 1
+# The numbers of the layer, for the page to show: W row by row, the
+# one row of A, the one column of B.
+r_avel W
+r_avel A
+r_avel B
 
-### What the adapter changes
+### What the adapter adds
 
-## The input squeezed through the adapter: h = A x, one number (the
-## rank is 1), printed after the scale s.
+## The squeeze: h = A x, the input brought down to one number (the
+## rank is 1). Printed after the strength s.
 h := A '+ '* i_nner x
 s c_at h
+# The squeeze written out: each number of A times the matching number
+# of x (h is their sum). Then that one number times the strength.
+x * r_avel A
+s * h
 
-## The frozen layer's output, W x; the adapted one's, W x + s B (A x);
-## the correction the adapter adds, s B (A x): A x is 3.5, so it is 7
-## times B; and that the two outputs differ by exactly that (within
-## 1e-12: 1).
+## What the frozen layer gives, W x; what the adapted layer gives,
+## W x + s B (A x); and the correction the adapter adds, s B (A x).
+## Then a check that the two outputs differ by exactly the correction:
+## 1 means yes.
 base := W '+ '* i_nner x
 y := (W, A, B, s) lo:f_orward x
 correction := (lo:d_elta (A, B, s)) '+ '* i_nner x
+# The first row of W times x written out: its sum is the first number
+# of base.
+x * 4 t_ake r_avel W
 base
 y
 correction
 0.000000000001 > 'm_ax r_/ a_bs correction - y - base
 
-### The update and the merge
+### The correction as one table, and the merge
 
-## The update s B A is a 4 x 4 matrix of rank 1. Folded into W it gives
-## one matrix whose output is the factored layer's (within 1e-12: 1).
+## Written out as a table, the correction is s B A: 4 rows and 4
+## columns, every row a multiple of A, so its rank is 1. Added to W it
+## gives one table, the merged one, whose output is the same as W and
+## the adapter together: 1 means yes.
+table := lo:d_elta (A, B, s)
 merged := lo:m_erge (W, A, B, s)
-lo:r_ank lo:d_elta (A, B, s)
+r_avel table
+lo:r_ank table
 0.000000000001 > 'm_ax r_/ a_bs y - merged '+ '* i_nner x
 
 ### What it costs
 
-## The numbers a rank-1 adapter trains on a 4 x 4 matrix, r (m + n),
-## against the 16 of the matrix itself.
+## The numbers an adapter of rank 1 trains on a table of 4 rows and 4
+## columns, r (rows + columns), beside the 16 of the table itself.
 counts := (1 lo:p_arams 4 4) c_at 16
 counts
 
 ### On a layer of a real model
 
-## The same count where it matters: one 4096 x 4096 projection (the
-## size in a 7-billion-parameter local model) at rank 16: the numbers
-## the adapter trains, the matrix's, and the first as a percentage of
-## the second.
+## The same count where it matters: one table of 4096 rows and 4096
+## columns (a size found in a 7-billion-parameter model) at rank 16:
+## the numbers the adapter trains, the numbers of the table, and the
+## first as a percentage of the second.
 big := (16 lo:p_arams 4096 4096) c_at 4096 * 4096
 big
 100.0 * (f_loat 16 lo:p_arams 4096 4096) / f_loat 4096 * 4096

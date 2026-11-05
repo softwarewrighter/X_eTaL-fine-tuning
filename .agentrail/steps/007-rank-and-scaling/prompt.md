@@ -1,12 +1,13 @@
 Step rank-and-scaling (docs/plan.md, Saga 1 row 5, principle 4,
 decision F8; docs/research.txt section 6). Track "lora", lesson 4.
 
-1. libs/PEFT (`pe:`), its first function with tests and a reference
-   page: rsLoRA's scale alpha / sqrt r (`pe:s_calingRs`, cited: Kalajdzievski
-   2023), beside LoRA's alpha / r; ask FM3 in docs/xetal-ML-asks.md
-   updated to offer it.
+1. No library and no function of its own (CLAUDE.md rule 3): rsLoRA's
+   scale (Kalajdzievski, 2023) is `alpha / s_qrt f_loat r`, written
+   out in the program beside lo:s_caling's alpha / r; ask FM3 in
+   docs/xetal-ML-asks.md asks X_eTaL-ML for it. If FM3 has landed at
+   the pin, use it.
 2. demos/rank-and-scaling: on the learning task of step lora-training
-   (FineTune), rank 1 .. 8 and a few alphas swept: for each, the
+   (written out as in step lora-training), rank 1 .. 8 and a few alphas swept: for each, the
    trainable numbers (analytical), the train and validation loss after
    a fixed number of steps (measured), the size of the update s B A
    (its Frobenius norm, measured) under each scale rule.

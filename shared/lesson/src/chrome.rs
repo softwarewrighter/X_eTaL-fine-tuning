@@ -93,3 +93,26 @@ pub fn frame(kind: Frame, title: &str, body: Html) -> Html {
         </section>
     }
 }
+
+/// An aside: something a reader may want explained and another may
+/// skip, hidden until its summary is opened (keyboard and touch too).
+pub fn aside(id: &str, summary: &str, body: Html) -> Html {
+    html! {
+        <details class="aside" data-aside={id.to_string()}>
+            <summary>{summary.to_string()}</summary>
+            <div class="aside-body">{body}</div>
+        </details>
+    }
+}
+
+/// A panel as microscope's (`microscope::chrome::panel`), its heading's
+/// code given already drawn, so it can be linked (`code::Linker`).
+pub fn panel(title: &str, code: Html, note: &str, body: Html) -> Html {
+    html! {
+        <section class="panel">
+            <h2>{title.to_string()}{" "}{code}</h2>
+            <p class="note">{note.to_string()}</p>
+            {body}
+        </section>
+    }
+}

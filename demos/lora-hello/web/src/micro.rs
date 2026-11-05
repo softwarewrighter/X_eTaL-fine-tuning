@@ -1,5 +1,5 @@
 //! The model: the demo's program (lora-hello.xtl) run with the input x
-//! and alpha the page sets, and its ten printed lines read back.
+//! and alpha the page sets, and its seventeen printed lines read back.
 //! Nothing here knows about the browser, and nothing here computes the
 //! layer: every number is X_eTaL's.
 
@@ -10,7 +10,7 @@ use microscope::run::{lit, numbers};
 pub const PROGRAM: &str = include_str!("../../lora-hello.xtl");
 
 /// The lines the program prints.
-pub const PRINTED: usize = 10;
+pub const PRINTED: usize = 17;
 
 /// What the page sets: the input's four numbers and alpha (the scale s
 /// is alpha / r, and r is 1).
@@ -38,6 +38,21 @@ pub fn program(s: Settings) -> String {
 /// What the program printed.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Hello {
+    /// The frozen table W, row by row (4 x 4).
+    pub w: Vec<f64>,
+    /// The one row of A.
+    pub a: Vec<f64>,
+    /// The one column of B.
+    pub b: Vec<f64>,
+    /// Each number of A times the matching number of x; their sum is h.
+    pub products: Vec<f64>,
+    /// The squeezed number times the strength, s h.
+    pub scaled: f64,
+    /// Each number of the first row of W times the matching number of x;
+    /// their sum is the first number of `base`.
+    pub w_row: Vec<f64>,
+    /// The correction written out as a table, s B A, row by row (4 x 4).
+    pub table: Vec<f64>,
     /// The scale s = alpha / r.
     pub s: f64,
     /// The input squeezed through the adapter, h = A x: one number.
@@ -65,20 +80,33 @@ pub struct Hello {
 /// Run the program at settings `s`.
 pub fn run(s: Settings) -> Result<Hello, String> {
     let out = output(&program(s), PRINTED)?;
-    let scaled = numbers::<f64>(&out[0], 2)?;
-    let trained = numbers::<usize>(&out[7], 2)?;
-    let big = numbers::<usize>(&out[8], 2)?;
+    let pair = numbers::<f64>(&out[3], 2)?;
+    let trained = numbers::<usize>(&out[14], 2)?;
+    let big = numbers::<usize>(&out[15], 2)?;
     Ok(Hello {
-        s: scaled[0],
-        h: scaled[1],
-        base: numbers(&out[1], 4)?,
-        y: numbers(&out[2], 4)?,
-        correction: numbers(&out[3], 4)?,
-        adds_up: out[4].trim() == "1",
-        rank: out[5].trim().parse().map_err(|_| format!("not a rank: {}", out[5]))?,
-        merged_same: out[6].trim() == "1",
+        w: numbers(&out[0], 16)?,
+        a: numbers(&out[1], 4)?,
+        b: numbers(&out[2], 4)?,
+        s: pair[0],
+        h: pair[1],
+        products: numbers(&out[4], 4)?,
+        scaled: numbers::<f64>(&out[5], 1)?[0],
+        w_row: numbers(&out[6], 4)?,
+        base: numbers(&out[7], 4)?,
+        y: numbers(&out[8], 4)?,
+        correction: numbers(&out[9], 4)?,
+        adds_up: out[10].trim() == "1",
+        table: numbers(&out[11], 16)?,
+        rank: out[12].trim().parse().map_err(|_| format!("not a rank: {}", out[12]))?,
+        merged_same: out[13].trim() == "1",
         trained: (trained[0], trained[1]),
         big: (big[0], big[1]),
-        percent: out[9].trim().parse().map_err(|_| format!("not a percentage: {}", out[9]))?,
+        percent: out[16].trim().parse().map_err(|_| format!("not a percentage: {}", out[16]))?,
     })
+}
+
+/// The program's line that starts with `start`, as the program has it
+/// (so the page shows the program's own lines, not copies), or "".
+pub fn line(start: &str) -> &'static str {
+    PROGRAM.lines().find(|l| l.starts_with(start)).unwrap_or("")
 }

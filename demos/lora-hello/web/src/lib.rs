@@ -4,3 +4,4 @@
 
 pub mod app;
 pub mod micro;
+pub mod text;

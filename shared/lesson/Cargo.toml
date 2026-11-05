@@ -9,6 +9,8 @@ publish = false
 [dependencies]
 # X_eTaL-ML's shared page shell at the pin (docs/plan.md, F2): never edited.
 microscope = { path = "../../work/xetal-ml/shared/microscope" }
+# X_eTaL's own drawing of source (the same crate microscope draws with).
+xetal-play = { path = "../../work/xetal-ml/work/xetal/components/web/crates/xetal-play" }
 yew = { version = "0.21", features = ["csr"] }
 
 [workspace]

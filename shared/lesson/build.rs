@@ -68,9 +68,34 @@ fn libraries(root: &Path) {
     std::fs::write(out, code).unwrap();
 }
 
+/// `$OUT_DIR/origins.rs`: where each library on the search path lives
+/// (its file, the repository, its path there), and the full pinned
+/// commits, for links to the source.
+fn origins(root: &Path) {
+    let roots = [("own", root.join("libs"), "libs"), ("ml", root.join("work/xetal-ml/libs"), "libs"), ("libraries", root.join("work/xetal-ml/work/xetal-libraries/libs"), "libs")];
+    let mut code = String::from("pub const ORIGINS: &[(&str, &str, &str)] = &[\n");
+    for (kind, dir, prefix) in &roots {
+        let mut dirs: Vec<PathBuf> = std::fs::read_dir(dir).map(|d| d.filter_map(Result::ok).map(|e| e.path()).filter(|p| p.is_dir()).collect()).unwrap_or_default();
+        dirs.sort();
+        for d in dirs {
+            let name = d.file_name().and_then(|n| n.to_str()).unwrap_or("").to_string();
+            for (file, _) in sources(&d) {
+                code += &format!("    ({file:?}, {kind:?}, {:?}),\n", format!("{prefix}/{name}/src/{file}"));
+            }
+        }
+    }
+    code += "];\n";
+    let full = |file: PathBuf| std::fs::read_to_string(file).unwrap_or_default().trim().to_string();
+    code += &format!("pub const ML_COMMIT: &str = {:?};\n", full(root.join("XETAL_ML_COMMIT")));
+    code += &format!("pub const LIBRARIES_COMMIT: &str = {:?};\n", full(root.join("work/xetal-ml/XETAL_LIBRARIES_COMMIT")));
+    let out = Path::new(&std::env::var("OUT_DIR").unwrap()).join("origins.rs");
+    std::fs::write(out, code).unwrap();
+}
+
 fn main() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
     libraries(&root);
+    origins(&root);
     println!("cargo:rustc-env=LESSON_SHA={}", run("git", &["rev-parse", "--short", "HEAD"]));
     println!("cargo:rustc-env=LESSON_HOST={}", run("hostname", &["-s"]));
     println!("cargo:rustc-env=LESSON_TIMESTAMP={}", run("date", &["-u", "+%Y%m%dT%H%M"]));

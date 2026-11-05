@@ -1,0 +1,42 @@
+/* The teaching shell's styles, beside microscope.css (whose variables
+   these use): framing sections, words that open a plain explanation,
+   asides, linked code, the list of ideas. */
+.frame p, .frame ul, .frame ol, .frame dl, .panel > p.read, .aside-body p, .ideas p { max-width: 46rem; line-height: 1.55; }
+.frame ul { padding-left: 1.2em; }
+.frame li { margin: 6px 0; }
+.frame a, .aside a, .links a, .ideas a { color: var(--accent); }
+main .panel { margin-bottom: 14px; }
+
+/* A word that opens its explanation: a button that reads as text. */
+button.term { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  border-bottom: 1px dotted var(--accent); border-radius: 0; }
+button.term:hover, button.term:focus-visible, button.term.open { color: var(--accent); border-bottom-style: solid; outline: none; }
+button.term:focus-visible { box-shadow: 0 2px 0 var(--accent); }
+.eli5 { display: block; margin: 6px 0 8px; padding: 8px 12px; border-left: 3px solid var(--accent);
+  background: var(--off); border-radius: 0 8px 8px 0; font-size: 0.95em; line-height: 1.5; max-width: 44rem; }
+.hint { color: var(--muted); font-size: 0.9em; }
+
+/* An aside: closed until its summary is opened. */
+details.aside { margin: 10px 0; border: 1px dashed var(--line); border-radius: 10px; padding: 0 12px; }
+details.aside > summary { cursor: pointer; padding: 8px 0; color: var(--accent); font-weight: 600; }
+details.aside[open] { border-style: solid; padding-bottom: 10px; }
+.aside-body h3 { font-size: 0.95rem; margin: 12px 0 4px; }
+.aside-body p.quote { color: var(--muted); border-left: 3px solid var(--line); padding-left: 10px; }
+.aside-body table.read { border-collapse: collapse; margin: 6px 0; }
+.aside-body table.read td { padding: 4px 12px 4px 0; vertical-align: top; }
+.aside-body table.read td:first-child { white-space: nowrap; }
+
+/* Code whose functions link to the cross-reference. */
+a.xl { text-decoration: none; }
+a.xl:hover, a.xl:focus-visible { text-decoration: underline; }
+pre.source a.xl { color: inherit; }
+pre.source a.t-builtin { color: var(--t-builtin); } pre.source a.t-user { color: var(--t-user); } pre.source a.t-sym { color: var(--t-sym, inherit); }
+
+/* Every idea of the page, each closed until opened; the functions used. */
+.ideas details.idea { border-bottom: 1px solid var(--line); padding: 6px 0; }
+.ideas details.idea > summary { cursor: pointer; font-weight: 600; }
+.ideas details.idea p { margin: 6px 0 4px; }
+table.functions { border-collapse: collapse; }
+table.functions th { text-align: left; padding: 4px 12px 4px 0; font-weight: 600; }
+table.functions td { padding: 6px 12px 6px 0; vertical-align: top; border-top: 1px solid var(--line); }
+table.functions td.links { white-space: nowrap; }

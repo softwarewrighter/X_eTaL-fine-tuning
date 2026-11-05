@@ -5,11 +5,13 @@ matrix"). Track "lora", lesson 5.
 Experiment A, approximating a known matrix, named as that on the page,
 then compared with Experiment B.
 
-1. The spectrum (ask FL2's workaround): in FineTune, the singular
-   values of a matrix by power iteration with deflation on M' M and
-   the Eckart-Young optimum at each rank, checked against a matrix
-   built from known singular values; adapted from the LoRA explorer's
-   inline code with a note.
+1. The spectrum (ask FL2's workaround; no function of its own,
+   CLAUDE.md rule 3): the singular values of a matrix by power
+   iteration with deflation on M' M and the Eckart-Young optimum at
+   each rank, written out in the program as the LoRA explorer writes
+   it (with a note of where it came from), and checked there against
+   a matrix built from known singular values. If FL2 has landed at
+   the pin, use it.
 2. demos/lora-vs-fa: LoRA and LoRA-FA (lo:a_dam, lo:a_damFA, the same
    seeded A, B at 0) fitting a known rank-4 update, loss curves
    against the optimum at the rank chosen; each learned update

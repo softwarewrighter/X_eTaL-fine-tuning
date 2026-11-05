@@ -328,9 +328,11 @@ Read before working:
   without back-propagation (zeroth-order optimization, evolution
   strategies); its claims about papers are the review's, to be read
   from the papers before being built on (archival, NOT normative)
-- `docs/xetal-ML-asks.md`, `docs/xetal-libraries-asks.md` (and
-  `docs/xetal-asks.md` once one exists) -- what this repo needs from
-  the others
+- `docs/new-eyes.md` -- the checklist a page is written and read
+  against
+- `docs/xetal-ML-asks.md`, `docs/xetal-libraries-asks.md`,
+  `docs/xetal-extensions-asks.md` (and `docs/xetal-asks.md` once one
+  exists) -- what this repo needs from the others
 - at the pin, under `work/xetal-ml/` (never newer, never edited):
   `demos/lora-explorer/`, `libs/LoRA/docs/README.md`,
   `shared/microscope/README.md`, `docs/plan.md`; the language in
@@ -350,23 +352,40 @@ Read before working:
    `just ml-pin [REF]` (a COMMITTED ref of `../X_eTaL-ML`), at a saga
    start or when an ask has landed, never mid-step, `XETAL_ML_COMMIT`
    in its own commit after every baseline is re-run.
-3. Missing pieces, in this order of preference (plan F3; the user:
-   keep the language small):
-   a. write it here, in a library of this repo (`libs/<Name>/`);
-   b. ML-specific and belonging upstream: `docs/xetal-ML-asks.md`;
-   c. general: `docs/xetal-libraries-asks.md`, asking for a function,
-      or an `.xtlm` macro where a function cannot do it;
-   d. only when no library or macro can: `docs/xetal-asks.md`, with
-      the justification for a language change and why a-c fail.
-   Each ask: status, kind, which demos and libraries need it, why, a
-   minimal repro or example, the workaround in use. Do not hide a
-   workaround: name it in the ask and on the demo's or library's page.
-   A real blocker (no workaround) is marked **blocker** and reported
-   to the user at the end of the step.
+3. This repository composes; it does not define (the user,
+   2026-11-05). A demo's program calls the functions of X_eTaL-ML's
+   and X_eTaL-libraries' libraries and X_eTaL's built-in words. It
+   does not, as a rule, define functions of its own: no `u:` function
+   in a program, no `l:` library export, no `m:` macro. A function a
+   demo needs and the libraries lack is asked for, in this order of
+   preference (the user: keep the language small):
+   a. ML-specific (`.xtl` or `.xtlm` that belongs in X_eTaL-ML):
+      `docs/xetal-ML-asks.md`;
+   b. general (mathematics, notation, plotting): 
+      `docs/xetal-libraries-asks.md`, a function, or an `.xtlm` macro
+      where a function cannot do it;
+   c. native code: `docs/xetal-extensions-asks.md`, a new Rust
+      extension, in preference to a change of the language;
+   d. only when none of those can: `docs/xetal-asks.md`, with the
+      justification for a language change and why a to c fail.
+   Each ask: status, kind, which demos need it, why, a minimal example
+   with the signature wanted, the workaround in use. The workaround
+   while an ask is open is the expression written out in the program
+   where it is used (an unnamed lambda is fine), named in the ask and
+   on the demo's page; if that would make the program unreadable, the
+   step waits: the ask is marked **blocker** and the user is told.
+3a. Rust is for presentation only (the user, 2026-11-05: "Rust is
+   allowed across the board for WASM presentation, just not for ML
+   algorithms"). The pages' WebAssembly host (`shared/lesson`, a
+   demo's `web/`) runs the X_eTaL program, reads back what it printed
+   and lays it out. It never computes a layer, a gradient, a count or
+   any number a page shows: that is X_eTaL's, in the `.xtl`. Keep the
+   Rust thin and shared; a lesson's content is its program and its
+   prose, not Rust logic.
 4. Reuse, do not copy (plan F2): import X_eTaL-ML's and
    X_eTaL-libraries' libraries (`XETAL_PATH` from `just path`); the
-   pages depend on `work/xetal-ml/shared/microscope` by path. Tests
-   use the Check library (`"ch:" u_se< "Check"`). Code adapted from
+   pages depend on `work/xetal-ml/shared/microscope` by path. Checks
+   in a program use the Check library (`"k:" u_se< "Check"`). Code adapted from
    this author's MIT repos carries a note of where it came from; a
    method from a paper is reimplemented and cited.
 5. Each demo (a lesson or an experiment) is its own sub-project,
@@ -375,19 +394,29 @@ Read before working:
    `.xtl`, browser-SLUG for its page), `presets/`, optional `test.sh`
    and `train/`, `web/` its own Cargo workspace. A demo never reaches
    into another demo; what pages share lives in `shared/lesson`.
-6. Each library is its own directory, `libs/<Name>/`: `src/`
-   (`<Name>.xtl` and/or `<Name>.xtlm`, nothing else), `tests/` (reg-rs
-   baselines, `types.rgt` pinning the exports' types, `demo-D.rgt` per
-   demo), `docs/README.md` (the reference page), `demos/` and a short
-   `README.md`. X_eTaL's style guide applies (`l:` exports, private
-   helpers unprefixed, no top-level expressions, a header with the
-   import line and alias). Every gradient is checked against central
-   differences.
+6. No library is planned here (rule 3). The tooling for one
+   (`libs/<Name>/`, `just new-lib`, `just test-lib`) stays for the
+   case the user asks for an exception; such a library would follow
+   X_eTaL's style guide and have every gradient checked against
+   central differences.
 7. Commit `.rgt`/`.out`/`.err` baselines, never `.tdb*`. Rebless
    (`just bless`) only after reviewing the diff, and say so in the
    commit.
 8. The teaching rules (plan, Guiding principles), which every page
    keeps and tests check where they can:
+   - new eyes (`docs/new-eyes.md`, the checklist every page is written
+     and read against): the reader knows neither machine learning nor
+     X_eTaL and may not program. Every idea opens a plain explanation
+     from the word itself (`lesson::eli5`, `glossary.tsv`); no code is
+     needed to follow the page, and code sits in asides; one
+     calculation is worked in full; a library function shown comes
+     with its import, its purpose, its definition as the pinned
+     library has it (`lesson::explain`), a reading, and links to its
+     source and cross-reference; code is described as it is drawn;
+     every function in code links to the cross-reference
+     (`lesson::code`); one name for one thing; nothing over-claimed.
+     Before a page is done it is read cold by a reviewer given only
+     its text;
    - no page jumps into its subject (the user, 2026-11-05, on the
      first live page: a newcomer who asked "how do I teach my local
      LLM new things, without catastrophic forgetting or excessive

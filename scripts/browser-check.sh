@@ -9,12 +9,16 @@
 # The page must also be framed: a section for each of the question, the
 # background, the rationale, the purpose, the summary and what is next
 # (lesson::chrome::frame), so no page jumps into its subject.
+# And every link from its code into the cross-reference (pages/doc)
+# must land on a real entry.
 #   scripts/browser-check.sh SLUG
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 slug="${1:?usage: browser-check.sh SLUG}"
 want="$root/demos/$slug/web/browser.txt"
 [ -f "$want" ] || { echo "browser-check: no $want" >&2; exit 1; }
+# Where the cross-reference was built (not checked against the deployed site).
+doc=""; [ -n "${XETAL_LIVE:-}" ] || doc="$root/pages/doc"
 "$root/scripts/browser-dom.sh" "$slug" | "$root/scripts/py" -c '
 import html, re, sys
 dom = sys.stdin.read()
@@ -37,5 +41,20 @@ for w in want:
     found = w in text
     print(("found: " if found else "MISSING: ") + w)
     ok &= found
+# Every link from the code of the page into the cross-reference lands on a
+# real entry (checked against the built cross-reference; the deployed
+# site is the same build, so check-live does not repeat it).
+import os
+doc = sys.argv[2] if len(sys.argv) > 2 else ""
+if doc and os.path.isdir(doc):
+    links = sorted(set(re.findall(r"href=\"\.\./doc/([^\"]+)\"", dom)))
+    dead = []
+    for link in links:
+        page, _, anchor = link.partition("#")
+        path = os.path.join(doc, page)
+        if not os.path.isfile(path) or (anchor and f"id=\"{anchor}\"" not in open(path).read()):
+            dead.append(link)
+    print(f"cross-reference links: {len(links)}, dead: " + (", ".join(dead) if dead else "none"))
+    ok &= not dead
 sys.exit(0 if ok else 1)
-' "$want"
+' "$want" "$doc"

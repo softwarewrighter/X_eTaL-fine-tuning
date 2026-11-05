@@ -104,7 +104,7 @@ Live: [the catalog](https://softwarewrighter.github.io/X_eTaL-fine-tuning/).
 
 | Demo | What you see | The line that does it |
 | ---- | ------------ | --------------------- |
-| [LoRA hello](demos/lora-hello/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-hello/)) | start here: how do you teach a model something new without it forgetting, and without retraining all of it? The question and the background for a newcomer, then one frozen 4 x 4 layer and a rank-1 adapter: change the input or alpha and see what the adapter adds while the weights never move; the cost on a real layer (0.78% of its numbers at rank 16); what that settles and what it does not | `y := (W, A, B, s) lo:f_orward x`: an adapter is one tuple, taken apart by the library |
+| [LoRA hello](demos/lora-hello/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-hello/)) | start here, with no machine learning and no programming assumed: how do you teach a model something new without it forgetting, and without retraining all of it? The question and the background, every term opening a plain explanation; one frozen layer of 16 numbers and an adapter of 8, all shown; one calculation worked in five steps as you change the input or the strength; the cost on a real layer (0.78% of its numbers at rank 16); what that showed and what it did not. The code is folded into asides, each library function explained from its own source and linked to the cross-reference | `y := (W, A, B, s) lo:f_orward x`: the layer and its adapter are one bundle, taken apart by the library |
 
 ![LoRA hello](demos/lora-hello/screenshot.png)
 
@@ -123,25 +123,27 @@ the alternatives; and the bleeding edge.
 
 ## Libraries
 
-The mathematics is X_eTaL-ML's (LoRA, Optim, Flow, NN, Quant) and
-X_eTaL-libraries' (Equations, Plot, Matrix, Check), used at pinned
-commits, not copied. This repository adds what they lack, each planned
-in [`docs/plan.md`](docs/plan.md):
+This repository has none of its own: a lesson's program composes
+functions of X_eTaL-ML's libraries (LoRA, Optim, Flow, NN, Quant) and
+X_eTaL-libraries' (Equations, Plot, Matrix, Check), at pinned commits,
+and X_eTaL's built-in words. A function a lesson needs and those
+libraries lack is asked for where it belongs, not written here:
 
-| Library | Alias | What |
-| ------- | ----- | ---- |
-| FineTune | `ft:` | the learning task with its train and held-out split, train, validation and retention losses, the harness every method is compared on, full fine-tuning of a layer |
-| PEFT | `pe:` | the LoRA variations X_eTaL-ML's library lacks: rsLoRA's scale, DoRA, and others as needed |
-| WeightSpace | `ws:` | learning without back-propagation: seeded perturbations, forward passes only, zeroth-order estimates and evolution strategies |
-| Edit | `ed:` | a layer as a key-value memory, rank-one and batch edits in closed form, locality and retention |
+| Asked of | In | For |
+| -------- | -- | --- |
+| X_eTaL-ML | [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md) | machine learning: the learning task and its measures, the LoRA variations, learning without back-propagation, closed-form editing |
+| X_eTaL-libraries | [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md) | general mathematics and notation |
+| X_eTaL-extensions | [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md) | native code, in preference to a change of the language |
 
-## Status
+Rust appears here only as the pages' presentation (the WebAssembly
+host that runs X_eTaL in the browser and lays out what it prints):
+every algorithm and every number shown is X_eTaL's.## Status
 
 | | |
 | - | - |
 | Now | the build machinery (one pin, the gate, the live site) and a first demo, LoRA hello, at the command line and live, on X_eTaL-ML's LoRA library. No lesson and no library of this repository yet |
 | Next | the shared teaching shell (glossary and tooltips, stepper, heat maps, the narrator of changes), then the LoRA lab |
-| Asks | what this repository needs from the others, each with its workaround, none blocking: [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md), [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md). Nothing is asked of the language |
+| Asks | this repository defines no functions of its own; what the lessons need from the others is asked for: [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md), [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md), [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md). No step of the present saga is blocked; the LoRA variations wait on X_eTaL-ML. Nothing is asked of the language |
 
 ## Build
 
@@ -192,20 +194,22 @@ just new-lib Name alias: "what it is"   # start a library from templates/Library
 - `demos/<slug>/` -- one lesson or experiment per directory: its
   `.xtl` programs, a README, reg-rs baselines in `reg/`, named
   experiments in `presets/`, and its web page in `web/`.
-- `libs/<Name>/` -- one library per directory: `src/<Name>.xtl`, its
-  reference page `docs/README.md`, `demos/`, and reg-rs `tests/`.
 - `scripts/` -- the logic behind the `just` recipes, adapted from
   X_eTaL-ML's.
 - `shared/lesson/` -- what every page shares, on X_eTaL-ML's page
-  shell: this repository's libraries in the browser and the footer
-  now; the glossary and its tooltips, the stepper, the heat maps and
-  the narrator of changes next.
+  shell (presentation only): the frames of a page, words that open a
+  plain explanation (the glossary), asides, a library function
+  explained from its own source, code with every function linked to
+  the cross-reference, the footer; the stepper, the heat maps and the
+  narrator of changes next.
 - `docs/` -- the plan, the research it came from, and the asks.
 
 ## Documentation
 
 - [`docs/plan.md`](docs/plan.md) -- principles, decisions, the
   curriculum and the roadmap
+- [`docs/new-eyes.md`](docs/new-eyes.md) -- how a page is written and
+  checked for a reader who knows neither machine learning nor X_eTaL
 - [`docs/research.txt`](docs/research.txt),
   [`docs/research2.txt`](docs/research2.txt),
   [`docs/research3.txt`](docs/research3.txt) -- the design review this
@@ -213,7 +217,8 @@ just new-lib Name alias: "what it is"   # start a library from templates/Library
   review of weight-space fine-tuning without back-propagation
   (archival)
 - [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md),
-  [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md) --
+  [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md),
+  [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md) --
   what is asked of the sibling repositories
 - [`CHANGES.md`](CHANGES.md) -- every commit
 

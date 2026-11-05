@@ -4,13 +4,14 @@ docs/research.txt section 7; CLAUDE.md rule 8).
 Experiment B, learning from examples, kept apart from approximating a
 matrix. Track "lora", lesson 3.
 
-1. libs/FineTune (`ft:`), its first functions, with tests, types.rgt
-   and a reference page: a learning task from a seed (N inputs of 8
-   numbers, targets from a hidden shifted layer W + T, optional
-   noise), a deterministic train and held-out split, the train and
-   validation losses of an adapter (through lo:l_oss), and a run's
-   record (the losses every k steps, the states kept for stepping
-   back). Each name bound once; doc comments with `## >>` examples.
+1. No library and no function of its own (CLAUDE.md rule 3; ask FM7
+   in docs/xetal-ML-asks.md says what is asked of X_eTaL-ML): the
+   program writes the task out as plain expressions, as X_eTaL-ML's
+   lora-explorer writes its training: N inputs of 8 numbers as
+   columns and their targets from a hidden shifted layer W + T (fixed
+   ripples, no chance), the train and held-out sets by taking
+   columns, every loss by lo:l_oss, the record kept in the `p_ower`
+   state. If the pin has since moved and FM7 has landed, use it.
 2. demos/lora-training/lora-training.xtl: the task, B at 0 and a
    seeded A (as LoRA starts), one training step as a Flow pipeline
    (forward, loss, g, lo:g_rads' dA and dB, the SGD update), checked
@@ -26,8 +27,8 @@ matrix. Track "lora", lesson 3.
    experiment, too large a learning rate (oscillation), overfitting
    (few examples, high rank: validation rises). The narrator explains
    each outcome from its measured curve, hedged as rule 8 says.
-5. Tests: the gradients against central differences (FineTune and the
-   pipeline), a replay test per preset (the same preset, the same
+5. Tests: the pipeline's gradients against lo:g_rads (which the library
+   checks by central differences), a replay test per preset (the same preset, the same
    trace), W unchanged, the page's model natively, the browser check.
 
 Docs, CHANGES.md, the plan, the asks; publish and check-live.

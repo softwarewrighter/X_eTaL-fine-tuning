@@ -48,3 +48,15 @@ No lesson page yet: a small gallery page (demos/shell-gallery, status
 draft, not in the catalog) shows each part on fixed data for the
 browser check and for review. Update docs/xetal-ML-asks.md (FM5: the
 heat map offered upstream) and the plan.
+
+Since this step was written (the steps hello-framing and
+hello-new-eyes): shared/lesson already has `chrome` (the footer, the
+six frames, asides, a panel), `eli5` (glossary.tsv with 32 ideas, a
+word that opens its explanation, marked prose, the list of ideas),
+`explain` (a library function from the pinned library's own source)
+and `code` (X_eTaL drawn with every function linked to the
+cross-reference). Build on them: the glossary and the term of items 1
+and 2 exist (extend the glossary; add the depths still missing: a
+worked example, the link to the lesson that teaches it). Everything
+is presentation: no number is computed in Rust (CLAUDE.md rule 3a).
+Every part is written and read against docs/new-eyes.md.

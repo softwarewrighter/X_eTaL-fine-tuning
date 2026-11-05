@@ -61,6 +61,14 @@ laboratory beside it.
    background, the rationale and the purpose before the experiment,
    and a summary against the question and what is next after it. The
    browser check requires the six frames; a demo's README has them too.
+   And it is written for new eyes (`docs/new-eyes.md`): a reader who
+   knows neither machine learning nor X_eTaL and may not program.
+   Every idea opens a plain explanation from the word itself; code is
+   folded into asides and never needed to follow the page; a library
+   function shown comes with its import, its purpose, its definition
+   from the pinned source and links to source and cross-reference;
+   every function in code is a link; a page is read cold by a
+   reviewer given only its text before it is called done.
 2. **Progressive depth, never less depth.** Three modes over one
    computation: Beginner (guided, plain language, one experiment at a
    time), Explorer (every control, short explanations), Advanced
@@ -100,8 +108,8 @@ laboratory beside it.
 | # | Decision | Why |
 | - | -------- | --- |
 | F1 | **One pin: X_eTaL-ML.** `XETAL_ML_COMMIT` holds the known-good commit of X_eTaL-ML; `just xetal` clones it into the gitignored `work/xetal-ml/` and runs that clone's own `scripts/xetal.sh`, which fetches and builds the X_eTaL and X_eTaL-libraries commits X_eTaL-ML pins. `bin/xetal` links to that binary. `just ml-pin [REF]` moves the pin to a committed ref of `../X_eTaL-ML`. Nothing under `work/` is ever edited. | X_eTaL-ML's pins are already tested together; taking them transitively means this repo can never combine an X_eTaL with libraries or ML code it was not tested against. The sibling vendoring rule (`../X_eTaL/docs/vendoring.md`) applied one level up. |
-| F2 | **Reuse, do not copy.** `XETAL_PATH` is this repo's `libs/*/src`, then X_eTaL-ML's `libs/*/src`, then the X_eTaL-libraries it pins (`work/xetal-ml/work/xetal-libraries/libs/*/src`, so Matrix is reachable though X_eTaL-ML links only some). The pages depend on `work/xetal-ml/shared/microscope` by path, as X_eTaL-ML's own pages do. A function X_eTaL-ML lacks is written here in a library of this repo, named in `docs/xetal-ML-asks.md`, and offered upstream once it has settled. | The ML mathematics has one home; the research: "reuse the X_eTaL-ML LoRA implementation" and "extend those rather than introduce another framework". |
-| F3 | **Language last.** Order of preference for anything missing: a library in this repo, an ask to X_eTaL-ML (`docs/xetal-ML-asks.md`), an ask to X_eTaL-libraries, preferring an `.xtlm` macro to new syntax (`docs/xetal-libraries-asks.md`), and only then an ask to X_eTaL itself (`docs/xetal-asks.md`, created when the first one is needed, each justified against keeping the language small). Every ask names its workaround, which is used and shown on the page meanwhile. | The user: keep the language small; libraries and macros before language changes. |
+| F2 | **Reuse, do not copy.** `XETAL_PATH` is X_eTaL-ML's `libs/*/src`, then the X_eTaL-libraries it pins (`work/xetal-ml/work/xetal-libraries/libs/*/src`, so Matrix is reachable though X_eTaL-ML links only some), with this repository's `libs/*/src` first should it ever have one. The pages depend on `work/xetal-ml/shared/microscope` by path, as X_eTaL-ML's own pages do. | The ML mathematics has one home; the research: "reuse the X_eTaL-ML LoRA implementation" and "extend those rather than introduce another framework". |
+| F3 | **Compose, do not define; ask; language last** (the user, 2026-11-05). A demo's program calls library functions and built-in words; it defines no `u:` function, and this repository writes no `l:` library export and no `m:` macro, as a rule. A function the libraries lack is asked for: of X_eTaL-ML when it is machine learning (`docs/xetal-ML-asks.md`; that is where ML `.xtl` and `.xtlm` belong), of X_eTaL-libraries when it is general, a function or an `.xtlm` macro (`docs/xetal-libraries-asks.md`), of X_eTaL-extensions when it needs native code (`docs/xetal-extensions-asks.md`), and of X_eTaL itself last (`docs/xetal-asks.md`, created when the first is needed, justified against keeping the language small). Meanwhile the expression is written out in the program where it is used, named in the ask and on the page; if that would make the program unreadable the step waits and the ask is a blocker. Rust is for the pages' presentation only (the WebAssembly host), never for an algorithm. | The user: this is an X_eTaL demo, to be made from the X_eTaL ecosystem; the asks exist so that what is missing is added where it belongs. X_eTaL-ML is therefore on this repository's path. |
 | F4 | **Layout as in X_eTaL-ML** (its A3, A4): each demo (a lesson or an experiment) is `demos/<slug>/` with `demo.toml`, `README.md`, `*.xtl`, `reg/` reg-rs baselines, optional `train/` and `web/`; each library is `libs/<Name>/` with `src/`, `tests/` (`types.rgt`), `docs/README.md`, `demos/`. `demo.toml` gains `track` (lora, variants, alternatives, edge, applied: the Tracks below) and `lesson` (its place in the curriculum, or none for an experiment). | One structure across the X_eTaL repos; the research's lessons/experiments/evaluations split is carried by the catalog's fields instead of three trees. |
 | F5 | **The teaching shell is shared**: `shared/lesson/`, a Yew crate on top of X_eTaL-ML's `microscope`, gives every page the same parts: the glossary and its tooltips (`shared/lesson/glossary.tsv`, one row per term: short definition, why it matters, a worked example, the lesson that teaches it), the four depths (hover: definition; click: short explanation; expand: worked example; learn more: the lesson), a stepper (play, pause, next, previous, reset) over a recorded trace, the mode switch, heat maps with a legend and a cell inspector (matrix, row, column, value, meaning, whether the color scale is shared), a cell's arithmetic expanded with its numbers, the equation with selectable symbols, the change narrator, and prediction questions. Everything reachable by keyboard and touch, never by hover alone. | The research's last point: the same educational components reused across every lesson; written once, tested once. |
 | F6 | **A trace, not a re-implementation.** A page's experiment is an X_eTaL program whose pipelines are Flow pipelines; `flow:s_tages<` gives every stage's value (the trace event's inputs, output and shape), the program's source ranges locate its code, and a training loop keeps the states it shows in its `p_ower` tuple. The stepper steps through that recorded trace (so stepping back reruns nothing). | The research's "experiment trace" exists already as Flow's stages; the UI animates real computations rather than redoing them in Rust or JavaScript. |
@@ -192,19 +200,22 @@ experiment, a plain-language analysis of the measured result; then a
 summary against the question and what is next. Presets reproduce
 named experiments.
 
-## The libraries (planned)
+## The functions the lessons need (asked for, not written here)
 
-Aliases chosen not to collide with X_eTaL's, X_eTaL-libraries' or
-X_eTaL-ML's (`lo:` `op:` `flow:` `nn:` `qz:` and the rest).
+This repository composes library functions; it does not define its
+own (decision F3). What the lessons need beyond what X_eTaL-ML and
+X_eTaL-libraries have at the pin is asked for, each ask with the
+signature wanted and the workaround meanwhile.
 
-| Library | Alias | What | Saga |
-| ------- | ----- | ---- | ---- |
-| FineTune | `ft:` | the learning-from-examples task (inputs, targets, a shifted target, a seed), a train and held-out split, train, validation and retention losses, a run's record, the comparison harness (a method as its start, its step and its counts, every method on the same task and seeds); a matrix's singular values and the Eckart-Young optimum (ask FL2's workaround); full fine-tuning of a layer | 1 (task, split, losses, spectrum), 2 (harness), 3 (full fine-tuning) |
-| PEFT | `pe:` | the variations X_eTaL-ML's LoRA lacks at the pin: rsLoRA's scale, DoRA, and QLoRA or VeRA where X_eTaL-ML has not landed them (its Saga 6), each offered upstream | 1 (rsLoRA), 2 |
-| WeightSpace | `ws:` | learning without back-propagation (`docs/research3.txt`): a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | 3 |
-| Edit | `ed:` | a layer as a linear associative memory, a rank-one edit in closed form (through X_eTaL-libraries' Matrix), many edits by least squares, the update projected off preserved keys, locality and retention | 4 |
-
-## Saga 1 -- lora-lab  [ACTIVE]
+| Need | Asked of | Ask | What | First needed |
+| ---- | -------- | --- | ---- | ------------ |
+| the learning task | X_eTaL-ML | FM7 | a task made from a seed (inputs, targets from a hidden shifted layer, optional noise), a train and held-out split, train, validation and retention losses, a run's record; the comparison harness (a method as its start, its step and its counts, every method on the same task and seeds); full and selective fine-tuning of a layer (its gradient and steps) | Saga 1, lora-training |
+| rsLoRA's scale | X_eTaL-ML | FM3 | alpha / sqrt r beside alpha / r | Saga 1, rank-and-scaling |
+| a spectrum | X_eTaL-libraries | FL2 | singular values and the best rank-k approximation of a matrix | Saga 1, lora-vs-fa |
+| the variations | X_eTaL-ML | FM4 | QLoRA (4-bit and NF4 quantization, an adapter on a quantized base), VeRA, DoRA, and the others chosen | Saga 2 |
+| a mixture of experts | X_eTaL-ML | FM6 | its MoE library and a small trained base model | Saga 2, adapters-in-moe |
+| learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 3 |
+| closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |## Saga 1 -- lora-lab  [ACTIVE]
 
 The research's recommended first milestone: one complete, polished
 learning journey, "How does a tiny adapter change a frozen neural
@@ -217,10 +228,11 @@ of the road, with Saga 2.
 | - | --------- | -------- |
 | 1 | foundation | DONE: one pin (`XETAL_ML_COMMIT` 6bac452, X_eTaL abdd371, X_eTaL-libraries 6b09aad), `scripts/libpath.sh` (the three library roots), the gate, the catalog with `track` and `lesson`, `shared/lesson` (the library store, FM1, and the footer, FM2, both confirmed by its tests), and demos/lora-hello with a small live page added to prove the publishing chain (the user asked for a live page early); the footer convention settled (compact build info, no labels). As planned: the repository's machinery, adapted from X_eTaL-ML: `XETAL_ML_COMMIT` and `scripts/xetal-ml.sh` (F1), `scripts/xt` and `just path` (F2), `scripts/py` and `.python-version`, `just gate` (pinned toolchain, spelling with self-test, markdown, rebind, `c_at` chains, doc-test, demos and libraries, pages), `just new-demo`, `just new-lib`, `just test`, `just pages`, `just serve`, `just publish`, `just check-live`, the catalog page; `demos/_template`; `shared/lesson` as an empty crate that builds natively and for wasm32 against microscope; a first CLI demo, `lora-hello`, calling `lo:f_orward` and `lo:m_erge` with baselines; the README's build section true |
 | 1a | hello-framing | DONE (inserted 2026-11-05, the user's review of the first live page: it jumped into its subject): demos/lora-hello reframed for a newcomer (the question, the background, the idea, what the page is, things to try, the count on a 4096 x 4096 layer at rank 16 computed by X_eTaL, a summary against forgetting, time and cost, where next); `lesson::chrome::frame` and its six kinds, required of every page by the browser check and of every README by `demos.py check` |
+| 1b | hello-new-eyes | DONE (inserted 2026-11-05, the user's second review: asides for `lo:f_orward` and `lo:m_erge`, the import shown, links to source and cross-reference; "new eyes": the reader knows neither ML nor X_eTaL; links to hidden plain explanations; every function in code linked): `shared/lesson` gains `eli5` (a glossary of 32 ideas, opened from the word), `explain` (a library function from the pinned library's own source) and `code` (X_eTaL drawn with every function linked into the cross-reference); demos/lora-hello rewritten against `docs/new-eyes.md` and a cold reading: the layer's numbers shown, one calculation worked in five steps, the correction as a table, code folded into asides, claims cut back to what was shown; the browser check verifies every cross-reference link |
 | 2 | lesson-shell | `shared/lesson` (F5): the glossary (`glossary.tsv`: the research's 17 terms and every symbol of the LoRA layer) and its tooltip at four depths, heat map with legend and cell inspector, the stepper over a recorded trace, the Beginner, Explorer and Advanced switch, the change narrator (sentences from measured before-and-after values), a prediction question with feedback; keyboard and touch reachable; native tests for each part |
 | 3 | lora-lab | demos/lora-lab, live: the first milestone. An intro (a pretrained model, a task, the key idea) and a prediction question; the 8 x 8 example; the forward pass `y = W x + s B (A x)` as a Flow pipeline stepped through stage by stage from `flow:s_tages<` (inputs read highlighted, the operation, outputs written, each shape), forward and back without rerunning; any output cell's arithmetic, written out and with its numbers; the equation's symbols selectable, each highlighting its matrix, its stage and its X_eTaL source; the rank slider with the trainable count and its explanation (on 8 x 8, rank 4 trains as many numbers as full fine-tuning, rank 8 twice as many); a closing comparison of the frozen layer's output with the adapted one's; the source panel shows all the code the page runs |
-| 4 | lora-training | demos/lora-training, live: Experiment B, learning from examples (FineTune's task, split and losses): one training step narrated in six stages (forward, loss, gradient at the output, dA and dB, the update, W unchanged), every number from the run; then training with train and validation loss curves, step back through recorded states; presets: first experiment, too large a learning rate, overfitting; the narration of each run's outcome from its measured curves |
-| 5 | rank-and-scaling | demos/rank-and-scaling, live: rank and alpha swept on the learning task; trainable numbers, train and validation loss at each, every figure marked measured or analytical (F8); `pe:` rsLoRA's alpha / sqrt r beside LoRA's alpha / r, the update's size at each rank; the narrator explains capacity, cost and stability from the measurements, without claiming rank always helps |
+| 4 | lora-training | demos/lora-training, live: Experiment B, learning from examples (the task, the split and the losses: ask FM7): one training step narrated in six stages (forward, loss, gradient at the output, dA and dB, the update, W unchanged), every number from the run; then training with train and validation loss curves, step back through recorded states; presets: first experiment, too large a learning rate, overfitting; the narration of each run's outcome from its measured curves |
+| 5 | rank-and-scaling | demos/rank-and-scaling, live: rank and alpha swept on the learning task; trainable numbers, train and validation loss at each, every figure marked measured or analytical (F8); rsLoRA's alpha / sqrt r (ask FM3) beside LoRA's alpha / r, the update's size at each rank; the narrator explains capacity, cost and stability from the measurements, without claiming rank always helps |
 | 6 | lora-vs-fa | demos/lora-vs-fa, live: Experiment A, approximating a known matrix, named as such: LoRA and LoRA-FA fitting a known update against the truncated SVD's optimum (Eckart-Young); why LoRA-FA's update stays in the frozen A's row space, shown by projecting each learned update onto it; then the same two on the learning task of step 4, so the two experiments are compared and kept apart |
 | 7 | landscape | demos/landscape, live: lesson 6, the map: the ways to change a model in families (change no weight; change every weight; a small trained part beside frozen weights, LoRA and its variations; learn without back-propagation; edit in closed form; let an AI do the editing), each in a sentence a newcomer can follow, set against the three worries (forgetting, time, cost); for the small task of this saga, each family's accounting computed by X_eTaL (numbers trained, numbers held while training, what is stored), marked analytical; what is measured so far and what the next lessons will measure; where each later lesson sits |
 | 8 | lab-polish | the acceptance pass of the research: every visible symbol and control has an accessible explanation (a test lists them against the glossary), keyboard-only and touch walkthroughs of each lesson in the browser tests, a deterministic replay test per preset, a checklist for trying the lessons with novices (what rank means, why W stays frozen, what A and B do, why a small adapter changes the output) in `docs/novice-check.md`; the README's demos table and screenshots |
@@ -239,14 +251,14 @@ mixture of experts, sections 2 to 5 and "does LoRA-FA change
 anything?") and the papers. X_eTaL-ML's Saga 6 plans the mathematics
 of some (quant-nf4, qlora, vera, moe-lib): at this saga's start the
 pin is moved, what has landed is used, and what has not is written in
-`pe:` here and offered upstream (asks FM4, FM6).
+asked for (asks FM4, FM6): a lesson whose mathematics is not there waits for it.
 
 | # | Step slug | Delivers |
 | - | --------- | -------- |
 | 1 | variants-plan | a planning step: the pin moved and what X_eTaL-ML has landed recorded; the variations beyond QLoRA, DoRA and VeRA chosen with the user (candidates: LoRA+ (a larger rate for B), AdaLoRA (rank given where it matters), PiSSA (A and B started from W's own leading singular vectors)); the one task and the measures every variation is held to; `docs/variants-plan.md`; the asks updated |
-| 2 | variant-harness | FineTune's comparison harness (a method as its start, its step, its forward pass and its counts; the same task, split and seeds for all; the run's record), the retention measure (the old task's loss after learning the new one), and `shared/lesson`'s comparison table, each figure marked measured or analytical |
+| 2 | variant-harness | the comparison harness asked of X_eTaL-ML (ask FM7) (a method as its start, its step, its forward pass and its counts; the same task, split and seeds for all; the run's record), the retention measure (the old task's loss after learning the new one), and `shared/lesson`'s comparison table, each figure marked measured or analytical |
 | 3 | qlora | lesson 7: uniform 4-bit quantization first, then the NF4 codebook; the adapter trained on the dequantized base; the quantization error, the bytes of each part, the merge that is not bit-exact |
-| 4 | dora | lesson 8: `pe:` DoRA (Liu and others, 2024): W as a magnitude per column times a direction, the adapter on the direction, its gradients checked by finite differences; magnitude and direction shown changing apart |
+| 4 | dora | lesson 8: DoRA (Liu and others, 2024; ask FM4): W as a magnitude per column times a direction, the adapter on the direction, its gradients checked by finite differences; magnitude and direction shown changing apart |
 | 5 | vera | lesson 9: VeRA (Kopiczko and others, 2024): A and B frozen, random and shared (regenerated from a seed), two small trained vectors; its count against LoRA's |
 | 6 | more-variants | the variations chosen in step 1, a lesson or a panel each |
 | 7 | variants-compared | lesson 10: every variation on the same task at equal ranks and at equal budgets: new-task loss, validation, retention, numbers trained, bytes stored, numbers held while training; what the measurements support saying about which to use when |
@@ -265,7 +277,7 @@ reported result only as reported, beside what this repository itself
 measured at toy scale.
 
 What a toy can show that a benchmark table cannot: this repository
-has every exact gradient (X_eTaL-ML's `lo:g_rads`, FineTune's `dW`),
+has every exact gradient (X_eTaL-ML's `lo:g_rads`, and the full fine-tuning gradient asked for in FM7),
 so an estimate made from forward passes alone can be set beside the
 true gradient, its direction compared as the number of passes grows,
 and the effect of choosing a better search space seen directly.
@@ -273,8 +285,8 @@ and the effect of choosing a better search space seen directly.
 | # | Step slug | Delivers |
 | - | --------- | -------- |
 | 1 | weight-space-plan | a planning step, with the user: each paper of `docs/research3.txt` read from its source and cited (MeZO; evolution strategies and ES at Scale; DART-ES; AGZO; StructZO; EGGROLL; KronZO; Dust; Neural Thickets and its replication), what each needs that a toy layer lacks (a sequence of tokens for Dust, a population on an accelerator for EGGROLL), which get a lesson, which a panel, which a paragraph; `docs/weight-space-plan.md`; this saga's steps below confirmed or replaced |
-| 2 | backprop-baseline | what the alternatives are alternatives to: a loss, a gradient by the chain rule, checked by finite differences, what a backward pass must keep (every layer's input) and what the optimizer keeps; then FineTune's full and selective fine-tuning of a layer and the old task's loss before and after (forgetting, measured). The lessons how-learning-works and full-ft |
-| 3 | forward-only | libs/WeightSpace (`ws:`) and the lesson: a perturbation regenerated from its seed; the two-point estimate (the loss at the weights moved one way and the other, MeZO's step); a population of them (basic evolution strategies, antithetic pairs, centered ranks). Beside back-propagation on the same task: forward passes used, numbers held in memory, the loss reached, and the estimate's direction against the true gradient as passes grow |
+| 2 | backprop-baseline | what the alternatives are alternatives to: a loss, a gradient by the chain rule, checked by finite differences, what a backward pass must keep (every layer's input) and what the optimizer keeps; then full and selective fine-tuning (ask FM7) of a layer and the old task's loss before and after (forgetting, measured). The lessons how-learning-works and full-ft |
+| 3 | forward-only | the functions asked of X_eTaL-ML (ask FM8) and the lesson: a perturbation regenerated from its seed; the two-point estimate (the loss at the weights moved one way and the other, MeZO's step); a population of them (basic evolution strategies, antithetic pairs, centered ranks). Beside back-propagation on the same task: forward passes used, numbers held in memory, the loss reached, and the estimate's direction against the true gradient as passes grow |
 | 4 | reward-not-loss | what back-propagation cannot do directly: learning from an outcome that is not differentiable (a count of checks passed, a threshold, a toy grader), by evolution strategies; DART-ES's difficulty-aware reweighting and targeted replay on problems of unequal difficulty. The toy form of the applied goal's reward |
 | 5 | better-directions | search geometry: perturbing inside the span of a layer's inputs, where its gradient lies (AGZO), and a structured, conditioned subspace (StructZO), against random full-dimensional directions at equal forward passes; low-rank perturbations for a population (EGGROLL), which is LoRA's idea again |
 | 6 | selection-noise | the warning (Neural Thickets and its replication): pick the best of many random perturbations and it looks like learning; held-out examples say how much was noise. Training, selection and final test sets kept apart, shown mattering |
@@ -290,7 +302,7 @@ directly; its approach and demo are to be decided, in step 1.
 | # | Step slug | Delivers |
 | - | --------- | -------- |
 | 1 | edge-plan | a planning step, with the user: what "an AI editing weights directly" is to mean here (the candidates under "Open questions"), read from the papers and cited; the demo; the rails any such demo runs on (a disposable copy, bounded edits, rollback, provenance, evaluation before acceptance); `docs/edge-plan.md`; this saga's steps below confirmed or replaced |
-| 2 | edit-lib | libs/Edit: a layer as a linear associative memory (keys to values); the rank-one closed-form edit with a key covariance (ROME), through Matrix's solve; tests that the edited key gives the new value and that the update has rank one |
+| 2 | edit-functions | the functions asked of X_eTaL-ML (ask FM9): a layer as a linear associative memory (keys to values); the rank-one closed-form edit with a key covariance (ROME), through Matrix's solve; tests that the edited key gives the new value and that the update has rank one |
 | 3 | editing-a-fact | the lesson: one association changed without training; what else moved (locality on unrelated keys, retention) |
 | 4 | many-edits | many edits at once by least squares (MEMIT); the update projected off preserved keys (AlphaEdit); sequential edits degrading a model, measured |
 | 5 | experiment-loop | the loop an AI would drive, first driven by a fixed policy written in X_eTaL so it can be tested: diagnose a failure, propose an intervention (an adapter, selective fine-tuning, a weight-space search of Saga 3, a closed-form edit), apply it to a copy, evaluate (the task, regression, retention, cost), accept, reject or revise, record the evidence |
@@ -339,9 +351,13 @@ no-back-propagation methods are meant and in what order (Saga 3).
 3. **Dust at toy scale?** It perturbs activations token by token, so
    it needs a model over a sequence. A lesson on a tiny transformer
    (X_eTaL-ML's micro-gpt is one), or an explanation without a run?
-4. **Who builds QLoRA's and VeRA's mathematics first**: X_eTaL-ML
-   (its Saga 6 has them planned) or this repository (in `pe:`, offered
-   upstream)? The plan assumes: whichever is ready at Saga 2's start.
+4. **How do asks reach X_eTaL-ML?** Since this repository defines no
+   functions, X_eTaL-ML is on its path: Saga 1 writes the learning
+   task (FM7) and rsLoRA's scale (FM3) out in its programs, but Saga 2
+   needs its quant-nf4, qlora,
+   vera and MoE steps and DoRA (FM4, FM6) and Sagas 3 and 4 new
+   libraries (FM8, FM9). Does the user carry the asks there, or is a session in
+   X_eTaL-ML to work from `docs/xetal-ML-asks.md` here?
 5. **Which variations beyond QLoRA, DoRA and VeRA**: LoRA+, AdaLoRA,
    PiSSA, others, or none?
 6. **Reading the papers.** Several papers in `docs/research3.txt` are
@@ -371,6 +387,11 @@ no-back-propagation methods are meant and in what order (Saga 3).
 - The weight-space family and its order (`docs/research3.txt`,
   2026-11-05): MeZO and basic evolution strategies, DART-ES, AGZO and
   StructZO, EGGROLL, Dust, hybrids; Saga 3 follows it at toy scale.
+- No functions of its own (the user, 2026-11-05): a demo composes
+  library functions; what is missing is asked for (F3). The libraries
+  once planned here (FineTune, PEFT, WeightSpace, Edit) are asks of
+  X_eTaL-ML (FM7, FM3, FM4, FM8, FM9). Rust is for presentation only.
+- New eyes (the user, 2026-11-05): `docs/new-eyes.md`.
 - The order (the user, 2026-11-05, after `docs/research2.txt`): LoRA
   and its variations first (QLoRA to DoRA), then alternatives (the
   weight-space, no-back-propagation approach among them), then

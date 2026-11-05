@@ -64,8 +64,12 @@ step "the pinned X_eTaL"
 if [ "$mode" = full ]; then
   step "the demo tooling's self-test"
   "$root/scripts/selftest-demos.sh"
-  step "the library tooling's self-test"
-  "$root/scripts/selftest-libs.sh"
+  # The library tooling is tested only while there is a library to
+  # use it: none is planned here (CLAUDE.md rule 3).
+  if [ ${#libs[@]} -gt 0 ]; then
+    step "the library tooling's self-test"
+    "$root/scripts/selftest-libs.sh"
+  fi
   # The teaching shell of the pages (shared/lesson, on X_eTaL-ML's microscope).
   step "shared/lesson"
   (cd "$root/shared/lesson" && cargo test -q >/dev/null 2>&1 && cargo check -q --target wasm32-unknown-unknown) \
@@ -103,7 +107,7 @@ fi
 # American spellings only (the checker checks itself first).
 "$root/scripts/py" "$root/scripts/check-spelling.py" --self-test
 "$root/scripts/py" "$root/scripts/check-spelling.py"
-md=(README.md CHANGES.md docs/plan.md docs/xetal-ML-asks.md docs/xetal-libraries-asks.md shared/lesson/README.md libs/README.md)
+md=(README.md CHANGES.md docs/plan.md docs/new-eyes.md docs/xetal-ML-asks.md docs/xetal-libraries-asks.md docs/xetal-extensions-asks.md shared/lesson/README.md libs/README.md)
 [ -e docs/xetal-asks.md ] && md+=(docs/xetal-asks.md)
 for f in demos/*/README.md libs/*/README.md libs/*/docs/README.md; do [ -e "$f" ] && md+=("$f"); done
 for f in "${md[@]}"; do sw-markdown-checker -f "$f" >/dev/null || { sw-markdown-checker -f "$f"; exit 1; }; done

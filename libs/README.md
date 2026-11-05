@@ -1,31 +1,25 @@
 # Libraries
 
-The libraries of this repository, one directory each (`libs/<Name>/`:
-`src/`, `tests/`, `docs/README.md`, `demos/`). None is built yet; the
-plan ([`docs/plan.md`](../docs/plan.md)) has four:
-
-| Library | Alias | What |
-| ------- | ----- | ---- |
-| FineTune | `ft:` | the learning task with its train and held-out split, train, validation and retention losses, the harness every method is compared on, full fine-tuning of a layer |
-| PEFT | `pe:` | the LoRA variations X_eTaL-ML's library lacks: rsLoRA's scale, DoRA, and others as needed |
-| WeightSpace | `ws:` | learning without back-propagation: seeded perturbations, forward passes only, zeroth-order estimates and evolution strategies |
-| Edit | `ed:` | a layer as a key-value memory, rank-one and batch edits in closed form, locality and retention |
-
-Most of the mathematics is not here: it is X_eTaL-ML's (LoRA, Optim,
-Flow, NN, Quant) and X_eTaL-libraries' (Equations, Plot, Matrix,
-Check), found on the search path at the pinned commits:
+There is none here, and none is planned: this repository composes
+library functions and does not define its own
+([`docs/plan.md`](../docs/plan.md), decision F3). The mathematics of
+the lessons is X_eTaL-ML's (LoRA, Optim, Flow, NN, Quant) and
+X_eTaL-libraries' (Equations, Plot, Matrix, Check), found on the
+search path at the pinned commits:
 
 ```bash
-export XETAL_PATH="$(just path)"       # this repository's, then X_eTaL-ML's, then X_eTaL-libraries'
+export XETAL_PATH="$(just path)"       # X_eTaL-ML's libraries, then X_eTaL-libraries'
 just eval '"lo:" u_se< "LoRA"
 2 lo:p_arams 8 8'
 ```
 
-A library here may not be named like one of those (`just new-lib`
-refuses it), since it would hide it.
+A function a lesson needs and those libraries lack is asked for, with
+the signature wanted: of X_eTaL-ML
+([`docs/xetal-ML-asks.md`](../docs/xetal-ML-asks.md)), of
+X_eTaL-libraries
+([`docs/xetal-libraries-asks.md`](../docs/xetal-libraries-asks.md)),
+or, for native code, of X_eTaL-extensions
+([`docs/xetal-extensions-asks.md`](../docs/xetal-extensions-asks.md)).
 
-```bash
-just new-lib Name alias: "what it is"   # start one from templates/Library
-just test-lib Name                      # its baselines, pinned types, expansions
-just doc-test                           # every ## >> example in the doc comments
-```
+The tooling for a library (`just new-lib`, `just test-lib`,
+`templates/Library`) is kept for an exception the user asks for.
