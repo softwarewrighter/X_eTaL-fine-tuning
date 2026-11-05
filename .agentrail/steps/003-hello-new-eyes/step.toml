@@ -1,10 +1,11 @@
 number = 3
 slug = "hello-new-eyes"
-status = "in-progress"
+status = "completed"
 description = """
 Step hello-new-eyes (inserted 2026-11-05 on the user's second review
 of LoRA ..."""
 role = "production"
 context_files = []
 created_at = "2026-11-05T09:37:16"
-commits = []
+completed_at = "2026-11-05T10:33:21"
+commits = ["5236eb2a601acf8ea2e71a03d32b4fbcf36bcae1"]
