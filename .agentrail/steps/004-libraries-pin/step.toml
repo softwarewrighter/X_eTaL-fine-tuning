@@ -1,10 +1,11 @@
 number = 4
 slug = "libraries-pin"
-status = "in-progress"
+status = "completed"
 description = """
 Step libraries-pin (inserted 2026-11-05; the user: "if you ask for
 changes in..."""
 role = "production"
 context_files = []
 created_at = "2026-11-05T15:08:18"
-commits = []
+completed_at = "2026-11-05T15:14:55"
+commits = ["6b4a6747e2831e7e6b68648bc698554d943fff21"]
