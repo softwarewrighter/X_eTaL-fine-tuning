@@ -13,6 +13,7 @@ archive), `pin` a move of the X_eTaL-ML pin.
 
 ## 2026-11-05
 
+- `chore` saga step foundation closed
 - `build` the foundation (step foundation): one pin, `XETAL_ML_COMMIT` (X_eTaL-ML 6bac452, which pins X_eTaL abdd371 and X_eTaL-libraries 6b09aad), cloned and built by `scripts/xetal-ml.sh` through X_eTaL-ML's own script; `scripts/libpath.sh`, the search path over this repository's libraries, X_eTaL-ML's and every X_eTaL-libraries one; the justfile and the scripts adapted from X_eTaL-ML's (gate with `--full`, affected planner, demos and libraries with reg-rs baselines, templates, pages, catalog, cross-reference, browser check, publish, check-live; port 8212); `demo.toml` gains `track` and `lesson`; a library named like an upstream one is refused; `shared/lesson`, on X_eTaL-ML's microscope: the libraries its store lacks added (Matrix; ask FM1 confirmed) and this repository's footer (FM2 confirmed), compact build info without labels (host, short sha, yyyymmddThhmm) as the sibling live demos, 6 tests; demos/lora-hello: a frozen 4 x 4 layer and a rank-1 adapter on X_eTaL-ML's LoRA library, at the command line and as a live page (the input and alpha editable, the frozen output, what the adapter adds, the adapted output, the rank, the merge, 8 of 16 numbers), 5 page tests, CLI and browser baselines; README's build section true
 - `docs` README: X_eTaL-gpu and X_eTaL-fpga (hardwarewrighter) in the table of X_eTaL repositories
 - `plan` port 8212 for this repository's pages (the user's choice), one pin and the asks file's name settled
