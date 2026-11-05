@@ -1,9 +1,9 @@
-number = 7
-slug = "lab-polish"
+number = 5
+slug = "lora-training"
 status = "pending"
 description = """
-Step lab-polish (docs/plan.md, Saga 1 row 7 and the saga's acceptance;
-docs/r..."""
+Step lora-training (docs/plan.md, Saga 1 row 4, principle 5;
+docs/research.tx..."""
 role = "production"
 context_files = []
 created_at = "2026-11-05T07:28:20"

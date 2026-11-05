@@ -3,7 +3,7 @@
 //! (Check) and one it does not, added here (Matrix); the footer names
 //! this repository and the pins.
 
-use lesson::chrome::{build, pins, REPO};
+use lesson::chrome::{build, pins, FRAMES, REPO};
 use lesson::libs::added;
 use lesson::run::{output, printed};
 
@@ -55,4 +55,13 @@ fn the_footer_names_this_repository_and_the_pins() {
     assert!(parts[1].len() == 7 && parts[1].chars().all(|c| c.is_ascii_hexdigit()), "{b}");
     let t = parts[2];
     assert!(t.len() == 13 && t.as_bytes()[8] == b'T' && t.chars().filter(|c| c.is_ascii_digit()).count() == 12, "{b}");
+}
+
+#[test]
+fn the_frames_are_those_the_browser_check_requires() {
+    // scripts/browser-check.sh names them in its FRAMES line.
+    let script = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/../../scripts/browser-check.sh")).unwrap();
+    let names: Vec<&str> = FRAMES.iter().map(|f| f.name()).collect();
+    assert_eq!(names, ["question", "background", "rationale", "purpose", "summary", "next"]);
+    assert!(script.contains(&format!("FRAMES = {names:?}")), "browser-check.sh does not require {names:?}");
 }

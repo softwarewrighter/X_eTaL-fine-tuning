@@ -1,0 +1,10 @@
+number = 2
+slug = "hello-framing"
+status = "in-progress"
+description = """
+Step hello-framing (inserted 2026-11-05 on the user's review of the
+first liv..."""
+role = "production"
+context_files = []
+created_at = "2026-11-05T08:27:06"
+commits = []

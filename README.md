@@ -100,7 +100,7 @@ Live: [the catalog](https://softwarewrighter.github.io/X_eTaL-fine-tuning/).
 
 | Demo | What you see | The line that does it |
 | ---- | ------------ | --------------------- |
-| [LoRA hello](demos/lora-hello/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-hello/)) | a frozen 4 x 4 layer adapted by a rank-1 update: change the input or alpha and see the frozen output, what the adapter adds and the adapted output; the update's rank, the merge, the 8 numbers trained against the matrix's 16 | `y := (W, A, B, s) lo:f_orward x`: an adapter is one tuple, taken apart by the library |
+| [LoRA hello](demos/lora-hello/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-hello/)) | start here: how do you teach a model something new without it forgetting, and without retraining all of it? The question and the background for a newcomer, then one frozen 4 x 4 layer and a rank-1 adapter: change the input or alpha and see what the adapter adds while the weights never move; the cost on a real layer (0.78% of its numbers at rank 16); what that settles and what it does not | `y := (W, A, B, s) lo:f_orward x`: an adapter is one tuple, taken apart by the library |
 
 ![LoRA hello](demos/lora-hello/screenshot.png)
 

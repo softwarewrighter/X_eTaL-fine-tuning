@@ -19,6 +19,8 @@ STATUSES = {"draft", "live", "deferred"}
 # The tracks of docs/plan.md; a lesson is its number in the curriculum,
 # 0 for an experiment outside it.
 TRACKS = {"basics", "full", "peft", "editing", "agents"}
+# The sections that frame a demo's README, as its page is framed.
+FRAMING = ("## The question", "## Background", "## Summary")
 FIELDS = {"slug": str, "title": str, "summary": str, "concepts": list,
           "status": str, "order": int, "needs": list,
           "track": str, "lesson": int}
@@ -48,6 +50,10 @@ def problems(d, meta):
         out.append(f"{d.name}: lesson is its number in the curriculum, or 0")
     if not (d / "README.md").is_file():
         out.append(f"{d.name}: no README.md")
+    else:
+        # No demo jumps into its subject (CLAUDE.md, the teaching rules).
+        text = (d / "README.md").read_text()
+        out += [f"{d.name}: README.md has no section '{h}'" for h in FRAMING if f"\n{h}\n" not in text]
     return out
 
 

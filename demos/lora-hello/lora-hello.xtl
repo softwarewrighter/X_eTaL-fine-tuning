@@ -1,9 +1,15 @@
 #!/usr/bin/env xetal
-## LoRA hello: a frozen 4 x 4 layer adapted by a rank-1 update, with
-## X_eTaL-ML's LoRA library. The first program of this repository: it
-## proves the chain from the pin (XETAL_ML_COMMIT) to a tested program.
-## The layer is y = W x + s B (A x): W stays as it is, and only A
-## (1 x 4) and B (4 x 1) would be trained.
+## LoRA hello: what does a small adapter add to a layer whose weights
+## do not change? The question behind it: how can a model learn
+## something new without every one of its numbers being retrained (the
+## cost) or overwritten (the forgetting)? LoRA's answer is to freeze
+## the weights and train a small correction beside them. Here is one
+## layer of that, shrunk to 4 x 4 so every number can be read: a frozen
+## W and a rank-1 adapter, with X_eTaL-ML's LoRA library. Nothing is
+## trained here (the adapter's numbers are made up): this shows what
+## an adapter is, where it sits, what it adds and what it costs. The
+## layer is y = W x + s B (A x): W stays as it is, and only A (1 x 4)
+## and B (4 x 1) would be trained.
 
 "lo:" u_se< "LoRA"
 
@@ -50,3 +56,13 @@ lo:r_ank lo:d_elta (A, B, s)
 ## against the 16 of the matrix itself.
 counts := (1 lo:p_arams 4 4) c_at 16
 counts
+
+### On a layer of a real model
+
+## The same count where it matters: one 4096 x 4096 projection (the
+## size in a 7-billion-parameter local model) at rank 16: the numbers
+## the adapter trains, the matrix's, and the first as a percentage of
+## the second.
+big := (16 lo:p_arams 4096 4096) c_at 4096 * 4096
+big
+100.0 * (f_loat 16 lo:p_arams 4096 4096) / f_loat 4096 * 4096

@@ -11,6 +11,7 @@ edited); this crate (`lesson`) is what this repository adds on top.
 | `libs` | the libraries microscope's store lacks, embedded at build time and added to it, so a page's program imports them with `u_se<`: this repository's own (`libs/<Name>/src`) and the general ones named in `build.rs` (Matrix). `install()` adds them once; `added()` lists them |
 | `run` | `output(src, lines)` and `printed(src)`: microscope's runs, with those libraries installed first |
 | `chrome` | `footer()`, as the sibling repositories' pages have it: copyright, license, GitHub, the way back to the catalog, the cross-reference, the pinned X_eTaL-ML commit and the X_eTaL commit it pins, and the build, compact and without labels (host, short commit, `yyyymmddThhmm`) |
+| `chrome` | `frame(kind, title, body)`: a framing section of a page, of one of six kinds (`Frame`: the question, the background, the rationale, the purpose, the summary, what is next). No page jumps into its subject: `scripts/browser-check.sh` fails one that lacks a kind |
 
 Still to come (the plan's teaching shell): the glossary and its
 tooltips, the stepper over a recorded trace, heat maps with a legend

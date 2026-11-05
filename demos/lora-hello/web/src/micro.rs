@@ -1,5 +1,5 @@
 //! The model: the demo's program (lora-hello.xtl) run with the input x
-//! and alpha the page sets, and its eight printed lines read back.
+//! and alpha the page sets, and its ten printed lines read back.
 //! Nothing here knows about the browser, and nothing here computes the
 //! layer: every number is X_eTaL's.
 
@@ -10,7 +10,7 @@ use microscope::run::{lit, numbers};
 pub const PROGRAM: &str = include_str!("../../lora-hello.xtl");
 
 /// The lines the program prints.
-pub const PRINTED: usize = 8;
+pub const PRINTED: usize = 10;
 
 /// What the page sets: the input's four numbers and alpha (the scale s
 /// is alpha / r, and r is 1).
@@ -56,6 +56,10 @@ pub struct Hello {
     pub merged_same: bool,
     /// The numbers the adapter trains, and the matrix's.
     pub trained: (usize, usize),
+    /// The same count on a 4096 x 4096 layer at rank 16.
+    pub big: (usize, usize),
+    /// The first of those as a percentage of the second.
+    pub percent: f64,
 }
 
 /// Run the program at settings `s`.
@@ -63,6 +67,7 @@ pub fn run(s: Settings) -> Result<Hello, String> {
     let out = output(&program(s), PRINTED)?;
     let scaled = numbers::<f64>(&out[0], 2)?;
     let trained = numbers::<usize>(&out[7], 2)?;
+    let big = numbers::<usize>(&out[8], 2)?;
     Ok(Hello {
         s: scaled[0],
         h: scaled[1],
@@ -73,5 +78,7 @@ pub fn run(s: Settings) -> Result<Hello, String> {
         rank: out[5].trim().parse().map_err(|_| format!("not a rank: {}", out[5]))?,
         merged_same: out[6].trim() == "1",
         trained: (trained[0], trained[1]),
+        big: (big[0], big[1]),
+        percent: out[9].trim().parse().map_err(|_| format!("not a percentage: {}", out[9]))?,
     })
 }

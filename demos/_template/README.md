@@ -1,7 +1,15 @@
 # __TITLE__
 
-One paragraph: the question this lesson or experiment answers, what
-you do, and what the measured result shows.
+One paragraph for someone new: what this is and why they would care.
+
+## The question
+
+The question in a newcomer's words, and the worries behind it.
+
+## Background
+
+What a reader must know to follow it, in plain words; the idea and why
+it is a good answer (the rationale); what this demo is and is not.
 
 Live: [the __TITLE__ page](https://softwarewrighter.github.io/X_eTaL-fine-tuning/__SLUG__/)
 (once the demo has a web app).
@@ -24,6 +32,11 @@ just run __SLUG__          # run the program
 just show __SLUG__         # as a notebook: each statement, then its output
 just test-demo __SLUG__    # its CLI baseline (reg-rs)
 ```
+
+## Summary
+
+What it showed, set against the question; what it did not show or
+measure; where to go next.
 
 ## Workarounds
 

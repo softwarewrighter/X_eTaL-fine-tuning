@@ -380,6 +380,18 @@ Read before working:
    commit.
 8. The teaching rules (plan, Guiding principles), which every page
    keeps and tests check where they can:
+   - no page jumps into its subject (the user, 2026-11-05, on the
+     first live page: a newcomer who asked "how do I teach my local
+     LLM new things, without catastrophic forgetting or excessive
+     time and electricity?" was instantly lost): every page opens
+     with the question in a newcomer's words, the background needed
+     to follow it, the rationale (why this approach) and the purpose
+     (what this page is and is not), and closes with a summary set
+     against the question and what is next; `lesson::chrome::frame`
+     marks each and `scripts/browser-check.sh` fails a page lacking
+     one. A demo's README has the same parts (`## The question`,
+     `## Background`, `## Summary`; `scripts/demos.py check`). Claims
+     are honest about what was not shown or measured;
    - every number, shape and highlighted cell comes from the X_eTaL
      run (Flow's stages, printed arrays); Rust lays out and animates,
      it never recomputes the mathematics; animation changes no result;

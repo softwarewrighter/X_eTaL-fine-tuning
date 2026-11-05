@@ -1,6 +1,14 @@
 page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
 errors: none
 found: A x = 3.5: the input squeezed to one number
 found: 13.544698
 found: the update's rank (lo:r_ank, by Gram-Schmidt)
 found: 8 of 16
+found: 131,072 of 16,777,216 (0.78%)
+found: On this layer the adapter would train 8 numbers of 16

@@ -50,3 +50,46 @@ pub fn footer() -> Html {
         </footer>
     }
 }
+
+/// The parts that frame every page (the user's review of the first
+/// one, 2026-11-05: a page may not jump into its subject): the
+/// question in a newcomer's words, the background needed, the
+/// rationale (why this approach), the purpose (what this page is and
+/// is not), and after the experiment a summary and what is next.
+/// scripts/browser-check.sh fails a page that lacks one.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum Frame {
+    Question,
+    Background,
+    Rationale,
+    Purpose,
+    Summary,
+    Next,
+}
+
+/// Every frame, in the order a page shows them.
+pub const FRAMES: [Frame; 6] = [Frame::Question, Frame::Background, Frame::Rationale, Frame::Purpose, Frame::Summary, Frame::Next];
+
+impl Frame {
+    /// Its name in the page (`data-frame`), which the browser check reads.
+    pub fn name(self) -> &'static str {
+        match self {
+            Frame::Question => "question",
+            Frame::Background => "background",
+            Frame::Rationale => "rationale",
+            Frame::Purpose => "purpose",
+            Frame::Summary => "summary",
+            Frame::Next => "next",
+        }
+    }
+}
+
+/// A framing section: a titled panel of prose, marked with its kind.
+pub fn frame(kind: Frame, title: &str, body: Html) -> Html {
+    html! {
+        <section class="panel frame" data-frame={kind.name()}>
+            <h2>{title.to_string()}</h2>
+            {body}
+        </section>
+    }
+}

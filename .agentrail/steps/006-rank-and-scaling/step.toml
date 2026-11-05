@@ -1,9 +1,9 @@
-number = 2
-slug = "lesson-shell"
+number = 6
+slug = "rank-and-scaling"
 status = "pending"
 description = """
-Step lesson-shell (docs/plan.md, Saga 1 row 2; decisions F5, F6;
-CLAUDE.md ru..."""
+Step rank-and-scaling (docs/plan.md, Saga 1 row 5, principle 4,
+decision F8; ..."""
 role = "production"
 context_files = []
 created_at = "2026-11-05T07:28:20"

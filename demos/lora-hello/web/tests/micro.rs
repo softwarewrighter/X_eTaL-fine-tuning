@@ -31,6 +31,9 @@ fn the_adapter_adds_seven_times_b() {
     assert!(h.adds_up && h.merged_same);
     assert_eq!(h.rank, 1);
     assert_eq!(h.trained, (8, 16));
+    // On a 4096 x 4096 layer at rank 16: 16 (4096 + 4096) of 4096 squared.
+    assert_eq!(h.big, (131_072, 16_777_216));
+    assert_eq!(h.percent, 0.78125);
     for i in 0..4 {
         assert!((h.y[i] - h.base[i] - h.correction[i]).abs() < 1e-12);
     }

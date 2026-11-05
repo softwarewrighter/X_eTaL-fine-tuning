@@ -6,6 +6,9 @@
 # (text the page only shows once X_eTaL has run and printed its
 # arrays). Prints one line per check, the same each run, so reg-rs can
 # keep it as a baseline (browser-<slug> in the demo's reg/).
+# The page must also be framed: a section for each of the question, the
+# background, the rationale, the purpose, the summary and what is next
+# (lesson::chrome::frame), so no page jumps into its subject.
 #   scripts/browser-check.sh SLUG
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -21,6 +24,12 @@ text = html.unescape(re.sub(r"<[^>]+>", "", main.group(1))) if main else ""
 ok = True
 print("page: loaded" if "</html>" in dom else "page: NOT LOADED")
 ok &= "</html>" in dom
+# Every page is framed (lesson::chrome::Frame): it may not jump into its subject.
+FRAMES = ["question", "background", "rationale", "purpose", "summary", "next"]
+for f in FRAMES:
+    found = f"data-frame=\"{f}\"" in dom
+    print(("frame: " if found else "MISSING frame: ") + f)
+    ok &= found
 errors = [m for m in ("X_eTaL stopped", "class=\"error\"", "panicked") if m in dom]
 print("errors: " + (", ".join(errors) if errors else "none"))
 ok &= not errors
