@@ -51,3 +51,14 @@ review. Training is NOT in this step (step lora-training).
 
 README (Demos), the demo's README, CHANGES.md, the plan; publish and
 check-live.
+
+Added 2026-11-05 (docs/xetal-libraries-asks.md, "Where each stands";
+docs/xetal-ML-asks.md FM11, FM12): for the selectable symbols, check
+at the pin whether X_eTaL-libraries' `e:t_exSymbols<` (ask FL1) has
+arrived through X_eTaL-ML's libraries pin, and whether Flow draws
+through it (FM11). If both have, use them: the page's KaTeX call must
+then set `trust` to allow `\htmlClass` and `strict` to ignore
+`htmlExtension` (with `strict: 'error'` marked LaTeX is refused even
+when trusted). If only FL1 has, the page may call `e:t_exSymbols<` on
+each stage's equation. If neither, wrap the names by text as FL1's
+workaround says, with its test. Say on the page which was used.

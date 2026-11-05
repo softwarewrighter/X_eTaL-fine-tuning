@@ -26,7 +26,11 @@ and an evaluation design. And `docs/research4.txt`, on shared
 subspaces: a fixed, reusable basis with small per-task coefficients as
 a cross-cutting idea (a representation, not an optimizer) linking the
 LoRA variations, continual learning and search without
-back-propagation, with five demos proposed. This plan turns them, and the user's
+back-propagation, with five demos proposed. And `docs/research5.txt`, compiled here: what has
+been published about an AI editing a model's weights directly (one
+recent, unreplicated result and its neighbors), the closed-form
+editing it would use and its documented failures, what fits at toy
+scale, and three demos recommended in order. This plan turns them, and the user's
 direction since, into sagas and steps.
 
 Development is driven by agentrail sagas (one active saga in
@@ -156,7 +160,9 @@ Three stages, in this order:
    selective fine-tuning), then the other alternatives briefly.
 3. **Bleeding-edge alternatives**: direct edits of a model's weights,
    and **an AI editing a model's weights directly** (the user: "a new
-   focus", approach and demo to be decided).
+   focus"; `docs/research5.txt`: removing a direction from a layer
+   under a check, closed-form edits under a gate, and a policy that
+   chooses its own training recipe).
 
 Shared subspaces and stages 2 and 3 are planned to be planned: each
 saga opens with a planning step that settles its methods and demos
@@ -205,8 +211,10 @@ them in it. A lesson not yet settled has no number.
 | | better-directions | where to search: a layer's input span, a structured subspace, low rank, a shared reduced space (AGZO, StructZO, EGGROLL) | each against random directions at equal forward passes; the same search in the full weights and in a shared subspace | 4 |
 | | selection-noise | the best of many random tries looks like learning | selected gain against held-out gain | 4 |
 | | weight-space-compared | when learning without back-propagation is the better choice | every method at equal compute and at equal memory | 4 |
-| | editing-a-fact | a layer as a key-value memory; a rank-one edit in closed form | one association changed; what else moved | 5 |
-| | ai-edits-weights (to be settled) | a model proposing and testing changes to a model's weights | to be decided with the user | 5 |
+| | direction-removal | an edit found and checked without training: contrast, project, check | a planted defect removed by subtracting one direction; the same policy on a layer with nothing to fix | 5 |
+| | editing-a-fact, many-edits | a layer as a key-to-value memory; edits in closed form, and how they wear out | one association changed exactly; a stream of edits overwriting each other | 5 |
+| | gated-edits | verifying an edit before keeping it | candidate edits scored on copies; accept, shrink or reject | 5 |
+| | recipe-policy | a model directing its own fine-tuning (not direct editing) | a policy learns which recipe to apply, then forgets and collapses | 5 |
 
 Each lesson is framed (principle 1): the question, the background,
 the rationale and the purpose first; a prediction, one small
@@ -232,6 +240,8 @@ signature wanted and the workaround meanwhile.
 | shared-basis adapters | X_eTaL-ML | FM10 | an adapter in a fixed shared basis, `W x + U C V' x` (C full or diagonal), its gradient and steps; bases from a seed, from W's singular directions, from the data; a family of tasks (related, unrelated, in sequence) with transfer and forgetting measured; later a basis that evolves over tasks (Share), shared with task-specific directions (LoDA), a subspace per task (SuLoRA) | Saga 3 |
 | learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 4 |
 | closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |## Saga 1 -- lora-lab  [ACTIVE]
+| marked mathematics in a pipeline | X_eTaL-ML | FM11 | Flow's `m_ath<` drawn through Equations' `e:t_exSymbols<` (FL1) | Saga 1, lora-lab |
+| the libraries' pin moved | X_eTaL-ML | FM12 | X_eTaL-ML's pin of X_eTaL-libraries moved once FL1 to FL3 have landed there: a landed library ask reaches this repository only through it (F1) | Saga 1, as each lands |
 
 The research's recommended first milestone: one complete, polished
 learning journey, "How does a tiny adapter change a frozen neural
@@ -345,23 +355,54 @@ and the effect of choosing a better search space seen directly.
 | 9 | other-alternatives | the alternatives that are neither: back-propagation itself confined to a small subspace of gradients (GaLore), weight arithmetic (task vectors, merging: no training at the merge, but the merged models were trained), other parameter-efficient methods briefly (biases alone, scaling vectors), and the baseline that changes no weight |
 ## Saga 5 -- bleeding-edge  [PLANNED, to be planned]
 
-Changing a model without training it, and a model changing a model.
-The user's new focus is an AI editing a language model's weights
-directly; its approach and demo are to be decided, in step 1.
+Changing a model without training it, and an AI doing the changing:
+the user's new focus. Source: `docs/research5.txt`, a report compiled
+here on 2026-11-05 (the earlier research files did not cover it). What
+it found, in short, and with its own markings of what was and was not
+verified:
+
+- Exactly one published item shows an AI editing a language model's
+  weights directly: "Sparks of Weight-Space Programming" (MIT CSAIL, a
+  blog post of 2026-11-02; no paper, no review, no replication). An
+  LLM found a direction in a small model's weights and subtracted it,
+  `W' = W - a u (u' W)`, with no gradient. The gain was a defect
+  removed (the model stopped looping), not an ability added, and the
+  same procedure on a model without the defect gained nothing.
+- Everything else is a neighbor: models that write their own training
+  recipes and are then fine-tuned conventionally (SEAL), networks
+  trained to emit a weight change in one pass (MEND, Text-to-LoRA),
+  and closed-form editing (ROME, MEMIT, AlphaEdit), which is exact on
+  one matrix and, by the stricter evaluations, unreliable as a way of
+  updating what a model knows.
+- At toy scale the arithmetic of every one of these edits fits one
+  8 x 8 layer exactly. What does not fit is finding where and what to
+  edit inside a deep model, and the reasoning of the AI, which is
+  what the one direct result claims as new.
+- There is no established name for the topic. This plan says
+  "agent-directed weight editing" and keeps "Weight-Space Programming"
+  for its authors' sense.
+
+The report recommends three demos in this order, which the steps
+follow; every page says what was planted, what was assumed, and what
+was only read about.
 
 | # | Step slug | Delivers |
 | - | --------- | -------- |
-| 1 | edge-plan | a planning step, with the user: what "an AI editing weights directly" is to mean here (the candidates under "Open questions"), read from the papers and cited; the demo; the rails any such demo runs on (a disposable copy, bounded edits, rollback, provenance, evaluation before acceptance); `docs/edge-plan.md`; this saga's steps below confirmed or replaced |
-| 2 | edit-functions | the functions asked of X_eTaL-ML (ask FM9): a layer as a linear associative memory (keys to values); the rank-one closed-form edit with a key covariance (ROME), through Matrix's solve; tests that the edited key gives the new value and that the update has rank one |
-| 3 | editing-a-fact | the lesson: one association changed without training; what else moved (locality on unrelated keys, retention) |
-| 4 | many-edits | many edits at once by least squares (MEMIT); the update projected off preserved keys (AlphaEdit); sequential edits degrading a model, measured |
-| 5 | experiment-loop | the loop an AI would drive, first driven by a fixed policy written in X_eTaL so it can be tested: diagnose a failure, propose an intervention (an adapter, selective fine-tuning, a weight-space search of Saga 4, a closed-form edit), apply it to a copy, evaluate (the task, regression, retention, cost), accept, reject or revise, record the evidence |
-| 6 | ai-edits-weights | the demo settled in step 1 |
+| 1 | edge-plan | a planning step, with the user: what may be called "the AI" on a page (a fixed policy written in X_eTaL, honest for search-driven editing and not for the direct result; or a recorded run of a language model reading the 64 numbers and writing the edit, and how such a run is kept reproducible); whether to build now on a days-old, unreplicated source with a dated caveat, or wait for a paper; the headline edit's strength and how its direction was found read from the source's logs; every figure a page will print re-read at its source (`docs/research5.txt` marks which came through a summarizer or an abstract); `docs/edge-plan.md`; this saga's steps below confirmed or replaced |
+| 2 | direction-removal | the lesson "contrast, project, check", the one demo of a published instance: a layer with a planted defect (on some inputs it writes along a direction u); a policy takes a few bad and good examples, finds u from the difference of mean outputs with forward passes only, applies `W' = W - a u (u' W)` to a copy, and keeps the edit only if a defect score improves and a keep-intact score holds on inputs it did not use; the strength swept (exact removal at 1, over-correction beyond); the edit held to the two columns that write u most; then the same policy on a layer with no defect, where it achieves nothing. The rails shown are the source's: a disposable copy, refused kinds of edit, a counted budget, a held-out check, keep only if better. It needs no inverse and no library beyond matrix products. The page says what it does not show: finding the layer and the direction in a deep model, and that a fixed policy is not the source's claim |
+| 3 | editing-a-fact | a layer as a key-to-value memory and the rank-one closed-form edit (ROME) hitting its target exactly; the same edit with and without the key covariance, and what each disturbs (ask FM9; Matrix's solve). The page states, with citations, what a toy cannot simulate: where the key and value come from in a real model, and that realistic evaluation finds single-edit success far below what was first reported |
+| 4 | many-edits | many edits at once by least squares (MEMIT) and its trade-off; the update projected off preserved keys (AlphaEdit), exact when a null space exists and leaking when it does not (asks FL2, FL3); a stream of edits, each exact when made, earlier ones overwritten, drift accumulating |
+| 5 | gated-edits | the loop the field proposes for an agent, driven by a fixed policy so it can be tested: several candidate edits applied to copies, scored on the target, on related and on unrelated keys; the best accepted, shrunk or rejected against a budget; the original always kept. The stream of step 4 run with and without the gate: what verification buys and what it costs in evaluations |
+| 6 | recipe-policy | the best-known neighbor (SEAL), in a table: sample a recipe, apply it to a copy by a few gradient steps, score it, move the policy toward what was rewarded; then the two regressions its follow-ups report, forgetting once updates are kept and the policy collapsing onto one recipe. The page says this is self-directed fine-tuning, not direct editing, and that the policy is not the model being edited |
+| 7 | ai-edits-weights | what step 1 settles: a language model's own run on the toy layer, if one is wanted, beside the fixed policy of step 2 |
+
+Held in reserve (`docs/research5.txt`): a network that rewrites a
+gradient into an edit (MEND), whose benefit at this scale is
+unmeasured, and a description-to-adapter generator, which needs its
+strong controls (an averaged and a shared adapter) to be honest.
 
 Research methods are reimplemented from their papers and cited
-(X_eTaL-ML's A8), at toy scale; each page says what the toy omits.
-
-## Later -- applied  [NOT PLANNED YET]
+(X_eTaL-ML's A8), at toy scale; each page says what the toy omits.## Later -- applied  [NOT PLANNED YET]
 
 `docs/research2.txt`'s destination: a coding model that follows a
 team's engineering standards (pure functions, composition, low
@@ -381,17 +422,15 @@ own when its time comes.
 Settled by `docs/research3.txt`: which weight-space,
 no-back-propagation methods are meant and in what order (Saga 4).
 
-1. **What is "an AI editing weights directly" to be?**
-   `docs/research3.txt` names two neighbors without choosing:
-   *agent-directed optimization* (an agent proposes, evaluates and
-   keeps changes to a model's weights from external feedback such as a
-   compiler, tests or a grader) and *direct weight editing* (specific
-   parameters changed to add or correct a behavior). Which is the
-   focus: (a) an agent steering a weight-space search (it chooses
-   where to search, what to reward and what to keep, on Saga 4's
-   methods); (b) an agent that locates a behavior and writes the edit
-   itself (on Saga 5's closed-form edits); (c) a particular recent
-   paper or announcement, to be added as `docs/research4.txt`?
+1. **What may be called "the AI" on a page?** (`docs/research5.txt`.)
+   A fixed policy written in X_eTaL is honest for search-driven
+   editing and can be tested; it is not what the one direct result
+   claims, which is that a language model's reasoning replaced the
+   fixed policy. At 8 x 8 a language model can read all 64 numbers. Is
+   a recorded (or live) run of one ever wanted on a page where every
+   other number is computed by X_eTaL, and how would it be kept
+   reproducible? And: build the first demo now on a days-old,
+   unreplicated blog post, with a dated caveat, or wait for a paper?
 2. **Where do experiments on real models live?** `docs/research3.txt`
    recommends validating on a dense model of 135M to 1B parameters,
    then coding models and mixtures of experts, with a Rust
@@ -415,12 +454,13 @@ no-back-propagation methods are meant and in what order (Saga 4).
    those reviews. The planning steps are written to read each from its
    source on the web before building on it. Is that the wanted way,
    or will the papers (or notes on them) be added to `docs/`?
-7. **Where shared subspaces sit.** `docs/research4.txt` proposes "a
-   small progression after VeRA". The plan makes it a saga of its own
-   (Saga 3) between the variations and the search without
-   back-propagation, with the idea seeded in LoRA-FA and VeRA and its
-   search experiment inside Saga 4. Is a saga of its own wanted, or
-   are these to be steps of Saga 2?
+7. **A second pin?** With one pin (F1) an ask landed in
+   X_eTaL-libraries reaches this repository only after X_eTaL-ML moves
+   its libraries pin (ask FM12) and this repository moves its
+   X_eTaL-ML pin. That keeps every combination tested, and couples
+   this repository's pace to X_eTaL-ML's. The alternative is a
+   libraries pin of its own here, for its own programs and pages. One
+   pin stays unless the user says otherwise.
 ## Cross-cutting
 
 - Move the X_eTaL-ML pin (`just ml-pin`) at the start of a saga, or
@@ -440,6 +480,10 @@ no-back-propagation methods are meant and in what order (Saga 4).
   left unchanged.
 - One pin, X_eTaL-ML (F1), to start with (the user, 2026-11-05).
 - The ML asks file is `docs/xetal-ML-asks.md`; port 8212.
+- Shared subspaces are a saga of their own (the user, 2026-11-05).
+- What an AI editing weights means here: `docs/research5.txt`'s three
+  demos in its order (Saga 5); the topic is called agent-directed
+  weight editing.
 - Shared subspaces are covered as a cross-cutting idea, a
   representation and not an optimizer, not as one more variation, and
   never as always better (`docs/research4.txt`, 2026-11-05): Saga 3.

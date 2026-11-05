@@ -332,6 +332,10 @@ Read before working:
   fixed basis reused across tasks; a representation, not an
   optimizer); the same caution about its papers (archival, NOT
   normative)
+- `docs/research5.txt` -- a report compiled here on AI systems that
+  edit a model's weights directly; it marks what was read at source,
+  at abstract level or through a summarizer, and every figure in it
+  is its authors' claim (archival, NOT normative)
 - `docs/new-eyes.md` -- the checklist a page is written and read
   against
 - `docs/xetal-ML-asks.md`, `docs/xetal-libraries-asks.md`,

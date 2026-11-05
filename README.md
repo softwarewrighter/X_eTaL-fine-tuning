@@ -92,7 +92,7 @@ Three stages, in this order ([`docs/plan.md`](docs/plan.md)):
 | 1. LoRA variations | QLoRA, DoRA, VeRA and others; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
 | 1. Shared subspaces | the idea under several variations: a fixed basis reused across tasks, small coefficients for each; which directions to keep; tasks learned in sequence | where may a change live, and when does sharing that place between tasks help or hurt? |
 | 2. Alternatives | weight-space methods that use no back-propagation (zeroth-order optimization and evolution strategies: MeZO, DART-ES, AGZO, StructZO, Dust), beside back-propagation itself; then the other alternatives briefly | can a model learn from forward passes alone, at what cost, and when is that the better choice? |
-| 3. Bleeding edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing a model's weights directly | can a model be changed without training at all, and can a model do that to a model? |
+| 3. Bleeding edge | an edit found and checked without training (a direction removed from a layer), closed-form edits of a layer (ROME, MEMIT, AlphaEdit) under a gate, an AI doing the editing | can a model be changed without training at all, can that be trusted, and can a model do it to a model? |
 | Later: applied | a coding model taught a team's engineering standards, measured by an executable grader, on real open-weight models | does any of this make a real model better at a real job, and how is that proved? |
 
 Every method is held to the same account: what was learned, what was
@@ -214,10 +214,12 @@ just new-lib Name alias: "what it is"   # start a library from templates/Library
 - [`docs/research.txt`](docs/research.txt),
   [`docs/research2.txt`](docs/research2.txt),
   [`docs/research3.txt`](docs/research3.txt),
-  [`docs/research4.txt`](docs/research4.txt) -- the design review this
-  repository came from, the wider discussion of fine-tuning, a review
-  of weight-space fine-tuning without back-propagation, and one of
-  shared subspaces (archival)
+  [`docs/research4.txt`](docs/research4.txt),
+  [`docs/research5.txt`](docs/research5.txt) -- the design review this
+  repository came from, the wider discussion of fine-tuning, reviews
+  of weight-space fine-tuning without back-propagation and of shared
+  subspaces, and a report on AI systems that edit a model's weights
+  directly (archival)
 - [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md),
   [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md),
   [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md) --
