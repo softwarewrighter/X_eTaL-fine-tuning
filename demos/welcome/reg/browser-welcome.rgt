@@ -1,0 +1,3 @@
+command = "scripts/browser-check.sh welcome"
+exit_code = 0
+desc = "welcome: the built page run in headless Chrome shows X_eTaL's results"

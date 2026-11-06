@@ -28,6 +28,13 @@ pub struct Concept {
 
 const GLOSSARY: &str = include_str!("../glossary.tsv");
 
+include!(concat!(env!("OUT_DIR"), "/lessons.rs"));
+
+/// A lesson's title, from its slug (its demo.toml's), or the slug itself.
+pub fn lesson_title(slug: &str) -> &str {
+    LESSONS.iter().find(|(s, _)| *s == slug).map_or(slug, |(_, t)| *t)
+}
+
 /// Every idea of the glossary, in its order.
 pub fn concepts() -> Vec<Concept> {
     GLOSSARY
@@ -121,7 +128,7 @@ pub struct Here(pub AttrValue);
 fn deeper(c: &Concept, here: Option<&Here>) -> Html {
     let example = (!c.example.is_empty()).then(|| html! { <details class="example"><summary>{"A worked example"}</summary><span>{ c.example }</span></details> });
     let elsewhere = !c.lesson.is_empty() && here.is_none_or(|h| h.0 != c.lesson);
-    let lesson = elsewhere.then(|| html! { <span class="taught">{"Taught in "}<a href={format!("../{}/", c.lesson)}>{ format!("the lesson {}", c.lesson) }</a>{"."}</span> });
+    let lesson = elsewhere.then(|| html! { <span class="taught">{"Taught in the lesson "}<a href={format!("../{}/", c.lesson)}>{ lesson_title(c.lesson) }</a>{"."}</span> });
     html! { <>{ for example }{ for lesson }</> }
 }
 

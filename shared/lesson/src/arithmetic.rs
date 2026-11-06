@@ -31,11 +31,22 @@ pub fn list(v: &[f64]) -> String {
     v.iter().map(|x| show(*x)).collect::<Vec<_>>().join(", ")
 }
 
+/// A number as a term of a sum: a negative one in brackets, so that no
+/// two signs stand side by side (`3 + (-1)`, not `3 + -1`).
+pub fn term(v: f64) -> String {
+    if v < 0.0 { format!("({})", show(v)) } else { show(v) }
+}
+
+/// One product as text: `a x b`, a negative factor in brackets.
+pub fn product(a: f64, b: f64) -> String {
+    format!("{} \u{00d7} {}", term(a), term(b))
+}
+
 /// The sum as text: `a1 x b1 + a2 x b2 + ... = p1 + p2 + ... = total`,
 /// the factors, the products and the total all as given.
 pub fn written(name: &str, a: &[f64], b: &[f64], products: &[f64], total: f64) -> String {
-    let terms: Vec<String> = a.iter().zip(b).map(|(a, b)| format!("{} \u{00d7} {}", show(*a), show(*b))).collect();
-    let sums: Vec<String> = products.iter().map(|v| show(*v)).collect();
+    let terms: Vec<String> = a.iter().zip(b).map(|(a, b)| product(*a, *b)).collect();
+    let sums: Vec<String> = products.iter().map(|v| term(*v)).collect();
     format!("{name} = {} = {} = {}", terms.join(" + "), sums.join(" + "), show(total))
 }
 

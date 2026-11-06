@@ -234,7 +234,7 @@ fn a_sum_is_written_out_from_the_numbers_given() {
     assert_eq!(commas(8), "8");
     assert_eq!(list(&[7.0, 0.0, -7.0, 3.5]), "7, 0, -7, 3.5");
     // It writes what it is given: the products and the total are X_eTaL's.
-    assert_eq!(written("A x", &[0.5, -0.5], &[1.0, 2.0], &[0.5, -1.0], -0.5), "A x = 0.5 \u{00d7} 1 + -0.5 \u{00d7} 2 = 0.5 + -1 = -0.5");
+    assert_eq!(written("A x", &[0.5, -0.5], &[1.0, 2.0], &[0.5, -1.0], -0.5), "A x = 0.5 \u{00d7} 1 + (-0.5) \u{00d7} 2 = 0.5 + (-1) = -0.5");
     assert_eq!(in_symbols("y", "W", "x", 2, 3), "y(2) = W(2,1) \u{00d7} x(1) + W(2,2) \u{00d7} x(2) + W(2,3) \u{00d7} x(3)");
     assert!(adds_up(&[0.5, -1.0, 3.0, 1.0], 3.5, 1e-12) && !adds_up(&[0.5, -1.0], 3.5, 1e-12));
 }

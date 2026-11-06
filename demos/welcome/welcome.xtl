@@ -1,0 +1,50 @@
+#!/usr/bin/env xetal
+## Welcome: one small calculation on which a newcomer is shown how
+## these lessons work (the page steps through it, pictures it, writes
+## one of its sums out). It is the layer of the first lesson, LoRA
+## hello: a frozen table W of 4 rows and 4 columns with an adapter of
+## rank 1, written this time as a pipeline: the input x, then the
+## squeeze h = A x, then the spread u = B h, then the output
+## y = W x + s u. X_eTaL-ML's Flow runs the pipeline and can report
+## every stage's value, which is what a page steps through.
+
+"e:" u_se< "Equations"
+"flow:" u_se< "Flow"
+"lo:" u_se< "LoRA"
+
+### The layer
+
+## The frozen table W (16 made-up numbers, from a sine), the adapter's
+## two thin tables A and B, one input X, and the strength s (alpha is
+## 2, the rank is 1).
+W := 4 4 r_eshape s_in 0.7 * f_loat r_ange 16
+A := 1 4 r_eshape 0.5 -0.5 1.0 0.25
+B := 4 1 r_eshape 1.0 0.0 -1.0 0.5
+X := 1.0 2.0 3.0 4.0
+s := 2.0 lo:s_caling 1
+
+### The layer as a pipeline
+
+## Four stages, each a line: the data, then three equations. A stage
+## names its value after the $ sign, and a later stage may use it.
+y := @ flow:p_ipe< c#"
+   X $x
+|> "h[k] | 1" e:e_q< "sum j:=0..3 | A[k,j] * x[j]" $h
+|> "u[i] | 4" e:e_q< "sum k:=0..0 | B[i,k] * h[k]" $u
+|> "y[i] | 4" e:e_q< "(sum j:=0..3 | W[i,j] * x[j]) + s * u[i]""#
+y
+
+### For the page
+
+# The numbers of the three tables, row by row, for the pictures.
+r_avel W
+r_avel A
+r_avel B
+# Stage 2 written out: each number of A times the matching number of
+# x, then their sum, which is h.
+X * r_avel A
+'+ r_/ X * r_avel A
+# The output if the last stage counted the spread-out list four times
+# instead of twice (a strength of 4), for the sentence about a change:
+# its first number.
+1 t_ake (W, A, B, 4.0 lo:s_caling 1) lo:f_orward X

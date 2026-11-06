@@ -11,6 +11,10 @@ documentation, `plan` saga planning and reordering, `release`
 milestone release, `chore` agentrail bookkeeping (step complete, saga
 archive), `pin` a move of the X_eTaL-ML pin.
 
+## 2026-11-06
+
+- `demo` Welcome: the shell gallery remade as the page a newcomer meets first (step welcome; the user: what is the gallery for, why is it not linked, the stepper has no animation, it should greet beginners). demos/welcome (renamed from shell-gallery), first in the catalog under a new `start` track, linked from the catalog's introduction and from LoRA hello: a short greeting (what the lessons are about, who they are for, what to do on the page), then the seven things a lesson uses, each to try on one small calculation. The stepper animates: a stage's numbers appear one after another, a dot travels to it from each stage it reads (`lesson::stepper::flow`), stages not reached yet are drawn empty, a bar shows how far along it is and, while playing, how long until the next stage; motion is off under `prefers-reduced-motion`; nothing is recomputed. Numbers are written in the squares (`Heat`: `numbers`, `cell`, `pending`, `hint`). Read cold by a reviewer given only its text, and revised: the greeting cut to what a newcomer needs, the words to try made words the page uses (the glossary gains list and stage), every letter named before it appears, a negative number in a sum written in brackets (`arithmetic::term`, in LoRA hello too), an idea's lesson named by its title, the scale labeled, claims cut back to what the page does. `catalog = false` removed from the tooling; 5 page tests; baselines of both pages reblessed after review
+
 ## 2026-11-05
 
 - `chore` saga step lesson-shell closed

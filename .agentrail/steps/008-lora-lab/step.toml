@@ -1,0 +1,10 @@
+number = 8
+slug = "lora-lab"
+status = "pending"
+description = """
+Step lora-lab (docs/plan.md, Saga 1 row 3: the research's first
+milestone; do..."""
+role = "production"
+context_files = []
+created_at = "2026-11-05T07:28:20"
+commits = []

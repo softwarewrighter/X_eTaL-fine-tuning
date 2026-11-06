@@ -1,0 +1,10 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.sh).
+Stage 1 of 4
+Stage 1 of 4, x. The input: a list of 4 numbers.
+h = 0.5 × 1 + (-0.5) × 2 + 1 × 3 + 0.25 × 4 = 0.5 + (-1) + 3 + 1 = 3.5
+The first number of the output rose from 13.544698 to 20.544698.
+its square in part 3 shows it rounded, as 13.54
+Predict first:
+# The greeting, and the way on.
+Welcome. These lessons are about one practical question
+Start the first lesson: LoRA hello

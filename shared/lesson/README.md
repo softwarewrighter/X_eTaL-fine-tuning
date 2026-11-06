@@ -15,15 +15,15 @@ edited); this crate (`lesson`) is what this repository adds on top.
 | `explain` | a library function from the pinned library's own source: `imports(program)`, `calls(program)`, `definition(library, name)` (its doc comment, its definition, its line, the link to that line on GitHub at the pinned commit, its entry in the cross-reference), `function(alias, d, purpose, reading)` (the aside), `table(program)` (every function a program calls, in the library's words). A page never retypes library code |
 | `code` | X_eTaL drawn as microscope draws it, with every function a link into the cross-reference: `Linker::of(program)` (its imports), `Linker::within(library, source)`, `.code(src)`, `.block(src)`; `builtins(src)` lists the built-in words a program uses, for a page to explain |
 | `mode` | three depths over one computation: `Mode` (Beginner, Explorer, Advanced), `when(mode, depth, body)`, and `Switch`, radio buttons. The mode is the page's state, apart from the experiment's: switching it resets nothing |
-| `heat` | X_eTaL-ML's `microscope::heat` colors with what a lesson needs: `Heat` (a legend, a note on whether the scale is shared, cells marked as read or written by the step on show, an inspector naming the matrix, row, column and value); one tab stop, arrow keys over the cells, a click or tap to pick; `key(scale, shared)` for one legend under a group of maps |
-| `stepper` | a pipeline stepped through from its recorded trace: `trace(line, statement)` reads what `@ flow:s_tages<` printed (each stage's value, shape, text and what it reads); `Stepper` (Start, Back, Play or Pause, Next). Stepping moves a position in the record and runs nothing |
+| `heat` | X_eTaL-ML's `microscope::heat` colors with what a lesson needs: `Heat` (a legend, a note on whether the scale is shared, cells marked as read or written by the step on show, an inspector naming the matrix, row, column and value; optionally the number written in each cell, and a `pending` map drawn empty until its stage is reached; marked cells come in one after another); one tab stop, arrow keys over the cells, a click or tap to pick; `key(scale, shared)` for one legend under a group of maps |
+| `stepper` | a pipeline stepped through from its recorded trace: `trace(line, statement)` reads what `@ flow:s_tages<` printed (each stage's value, shape, text and what it reads); `Stepper` (Start, Back, Play or Pause, Next, a bar showing how far along it is and, while playing, how long until the next stage); `flow(names, step, reads)` draws the stages in a row with a dot traveling to the stage on show from each stage it reads. Stepping moves a position in the record and runs nothing; motion is off under `prefers-reduced-motion` |
 | `arithmetic` | a sum written out: `numeric` (each factor, each product, the total, all as X_eTaL printed them), `symbolic` (the same in symbols), `show`, `commas`, `list` for numbers; `adds_up` for a page's test |
 | `narrate` | a change in words from measured numbers: `moved`, `count`, `held_out`. They compare and never do arithmetic or call a result better; `forbidden` finds a verdict word, for a test |
 | `predict` | `Predict`: a question answered before the experiment under it is drawn; the right answer is given by the page from its run |
 
-Every part is shown working on one run at
-[`demos/shell-gallery`](../../demos/shell-gallery/README.md), a page for
-reviewing them (built and tested, not listed in the catalog).
+Every part is in use on the welcome page,
+[`demos/welcome`](../../demos/welcome/README.md), where a newcomer
+tries each on one small calculation.
 
 ## Libraries, and whose page it is
 

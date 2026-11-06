@@ -6,7 +6,7 @@ summary = "How do you teach a model something new without it forgetting what it 
 concepts = ["LoRA", "a frozen layer", "a low-rank update", "the merge", "tuples as arguments"]        # the X_eTaL ideas it shows
 status = "live"              # draft | live | deferred
 order = 5                    # position in the catalog (lower first)
-track = "lora"               # lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
 lesson = 1                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
 needs = []                   # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
 line = "y := (W, A, B, s) lo:f_orward x"

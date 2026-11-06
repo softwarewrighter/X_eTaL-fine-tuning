@@ -18,17 +18,15 @@ ROOT = Path(__file__).resolve().parent.parent
 STATUSES = {"draft", "live", "deferred"}
 # The tracks of docs/plan.md; a lesson is its number in the curriculum,
 # 0 for an experiment outside it.
-TRACKS = {"lora", "variants", "subspaces", "alternatives", "edge", "applied"}
+TRACKS = {"start", "lora", "variants", "subspaces", "alternatives", "edge", "applied"}
 # The sections that frame a demo's README, as its page is framed.
 FRAMING = ("## The question", "## Background", "## Summary")
 FIELDS = {"slug": str, "title": str, "summary": str, "concepts": list,
           "status": str, "order": int, "needs": list,
           "track": str, "lesson": int}
 # Optional: the demo's key line of X_eTaL and why it is one expression
-# (the catalog card shows both, the line rendered by xetal); and
-# `catalog = false` for a page that is built and tested but not listed
-# among the lessons (the gallery of the shell's parts).
-OPTIONAL = {"line": str, "why": str, "catalog": bool}
+# (the catalog card shows both, the line rendered by xetal).
+OPTIONAL = {"line": str, "why": str}
 
 
 def demo_dirs():

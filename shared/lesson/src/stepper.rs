@@ -72,6 +72,9 @@ pub struct StepperProps {
     /// How long a step is held while playing, in milliseconds.
     #[prop_or(1600)]
     pub hold: u32,
+    /// What the page calls a step ("Stage"), for "Stage 2 of 4".
+    #[prop_or(AttrValue::Static("Step"))]
+    pub unit: AttrValue,
 }
 
 /// The controls: to the start, back, play or pause, forward, and where
@@ -104,11 +107,59 @@ pub fn stepper(props: &StepperProps) -> Html {
     };
     html! {
         <div class="stepper" role="group" aria-label="Step through the computation">
-            <button type="button" onclick={go(0)} disabled={step == 0}>{"Start"}</button>
+            <button type="button" onclick={go(0)} disabled={step == 0} title="Back to the first">{"Start"}</button>
             <button type="button" onclick={go(previous(step))} disabled={step == 0}>{"Back"}</button>
             <button type="button" class="play" onclick={toggle} aria-pressed={playing.to_string()}>{ if *playing { "Pause" } else { "Play" } }</button>
             <button type="button" onclick={go(next(step, len))} disabled={step + 1 >= len}>{"Next"}</button>
-            <span class="where" role="status">{ format!("Step {} of {}", step + 1, len) }</span>
+            <span class="where" role="status">{ format!("{} {} of {}", props.unit, step + 1, len) }</span>
+            <span class="track" aria-hidden="true">
+                { for (0..len).map(|i| html! { <span class={classes!("seg", (i <= step).then_some("done"), (i == step).then_some("now"))}></span> }) }
+                if *playing && step + 1 < len {
+                    <span class="tick" key={step} style={format!("animation-duration: {}ms", props.hold)}></span>
+                }
+            </span>
         </div>
+    }
+}
+
+/// Where the stages are drawn in the flow picture: `n` of them in a
+/// row `width` wide; the center of stage `i` (from 0).
+pub fn node_x(i: usize, n: usize, width: f64) -> f64 {
+    width * (i as f64 + 0.5) / n as f64
+}
+
+/// The stages in a row, with the numbers a stage reads shown moving
+/// into it: the stage on show is ringed, each stage it reads sends a
+/// dot along an arc to it. The dots move once each time the stage
+/// changes (give the picture a `key` that changes with the step); a
+/// reader who has asked their system for less motion sees the arcs
+/// without the dots. It draws the record: it changes no value.
+pub fn flow(names: &[&str], step: usize, reads: &[usize]) -> Html {
+    let (width, height, base) = (460.0, 92.0, 62.0);
+    let n = names.len().max(1);
+    let to = node_x(step, n, width);
+    let arcs = reads.iter().map(|r| {
+        // `r` is a stage's number, from 1.
+        let from = node_x(r - 1, n, width);
+        let lift = base - 18.0 - 30.0 * ((to - from).abs() / width);
+        let path = format!("M {from} {} Q {} {lift} {to} {}", base - 16.0, (from + to) / 2.0, base - 16.0);
+        html! { <>
+            <path d={path.clone()} class="arc" />
+            <circle r="5" class="dot">
+                <animateMotion dur="0.9s" fill="freeze" path={path} />
+            </circle>
+        </> }
+    });
+    let nodes = names.iter().enumerate().map(|(i, name)| {
+        let x = node_x(i, n, width);
+        let class = if i == step { "node on" } else if reads.contains(&(i + 1)) { "node read" } else if i < step { "node done" } else { "node" };
+        html! { <g class={class}><circle cx={x.to_string()} cy={base.to_string()} r="16" /><text x={x.to_string()} y={base.to_string()}>{ *name }</text></g> }
+    });
+    html! {
+        <svg class="flow" viewBox={format!("0 0 {width} {height}")} width={width.to_string()} height={height.to_string()} role="img"
+            aria-label={format!("Stage {} of {}: {}", step + 1, names.len(), names.get(step).copied().unwrap_or(""))}>
+            { for arcs }
+            { for nodes }
+        </svg>
     }
 }

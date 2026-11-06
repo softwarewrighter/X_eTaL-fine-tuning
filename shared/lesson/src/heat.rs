@@ -53,9 +53,9 @@ pub fn legend(scale: f64) -> Vec<(f64, String)> {
 /// What the note under a legend says about its scale.
 pub fn scale_note(shared: bool) -> &'static str {
     if shared {
-        "The maps side by side here share one scale, so the same color is the same value in each."
+        "These pictures share one scale: the same color is the same number in each."
     } else {
-        "This map has a scale of its own: its colors cannot be compared with another map's."
+        "This picture has a scale of its own: its colors cannot be compared with another picture's."
     }
 }
 
@@ -79,10 +79,10 @@ pub fn step(picked: usize, rows: usize, cols: usize, key: &str) -> usize {
 /// note on whether the scale is shared. A group of maps sharing a scale
 /// shows it once, under the group.
 pub fn key(scale: f64, shared: bool) -> Html {
-    let stops = legend(scale).into_iter().map(|(v, color)| html! { <span class="stop"><span class="swatch" style={format!("background: {color}")}></span>{ show(v) }</span> });
+    let stops = legend(scale).into_iter().map(|(v, color)| html! { <span class="stop"><span class="swatch" style={format!("background: {color}")}></span>{ brief(v) }</span> });
     html! {
         <div class="heat-key">
-            <div class="legend" aria-label="Color scale">{ for stops }</div>
+            <div class="legend" aria-label="Color scale"><span class="lead">{"The colors, from the most negative number to the most positive:"}</span>{ for stops }</div>
             <p class="legend-note">{ scale_note(shared) }</p>
         </div>
     }
@@ -110,25 +110,59 @@ pub struct HeatProps {
     /// Whether to draw the legend (once is enough for maps sharing a scale).
     #[prop_or(true)]
     pub legend: bool,
+    /// Whether to write each value in its cell, as well as coloring it
+    /// (for small maps a newcomer reads number by number).
+    #[prop_or_default]
+    pub numbers: bool,
+    /// The side of a cell, in pixels.
+    #[prop_or(CELL)]
+    pub cell: f64,
+    /// Not worked out yet (a later stage of a calculation being stepped
+    /// through): the cells are drawn empty, with no value to read.
+    #[prop_or_default]
+    pub pending: bool,
+    /// Whether to say, under the map, how to read a cell (once is
+    /// enough for a group of maps).
+    #[prop_or(true)]
+    pub hint: bool,
+}
+
+/// A value as written in a cell: two decimals at most.
+pub fn brief(v: f64) -> String {
+    show((v * 100.0).round() / 100.0)
 }
 
 #[function_component(Heat)]
 pub fn heat(props: &HeatProps) -> Html {
     let picked = use_state(|| None::<usize>);
     let m = &props.matrix;
-    let (w, h) = (m.cols as f64 * CELL, m.rows as f64 * CELL);
+    let side = props.cell;
+    let (w, h) = (m.cols as f64 * side, m.rows as f64 * side);
+    // Marked cells come in one after another: the order they are worked out in.
+    let mut order = 0usize;
     let cells = m.items.iter().enumerate().map(|(k, v)| {
-        let (y, x) = ((k / m.cols) as f64 * CELL, (k % m.cols) as f64 * CELL);
+        let (y, x) = ((k / m.cols) as f64 * side, (k % m.cols) as f64 * side);
         let mark = props.marks.iter().find(|(c, _)| *c == k).map(|(_, mk)| match mk {
             Mark::Read => "read",
             Mark::Written => "written",
         });
         let pick = { let picked = picked.clone(); Callback::from(move |_| picked.set(Some(k))) };
+        let delay = if mark.is_some() { order += 1; format!("animation-delay: {}ms", (order - 1) * 140) } else { String::new() };
+        // Dark figures on a pale cell, light ones on a strong color.
+        let strong = props.scale > 0.0 && (v / props.scale).abs() > 0.55;
+        if props.pending {
+            return html! { <g class="cellg pending"><rect x={x.to_string()} y={y.to_string()} width={side.to_string()} height={side.to_string()} class="cell pending" /><text x={(x + side / 2.0).to_string()} y={(y + side / 2.0).to_string()} class="num pending">{"?"}</text></g> };
+        }
         html! {
-            <rect x={x.to_string()} y={y.to_string()} width={CELL.to_string()} height={CELL.to_string()} fill={fill(*v, props.scale)}
-                class={classes!("cell", mark, (*picked == Some(k)).then_some("picked"))} onclick={pick}>
-                <title>{ inspect(&props.name, m, k) }</title>
-            </rect>
+            <g class={classes!("cellg", mark)} style={delay}>
+                <rect x={x.to_string()} y={y.to_string()} width={side.to_string()} height={side.to_string()} fill={fill(*v, props.scale)}
+                    class={classes!("cell", mark, (*picked == Some(k)).then_some("picked"))} onclick={pick}>
+                    <title>{ inspect(&props.name, m, k) }</title>
+                </rect>
+                if props.numbers {
+                    <text x={(x + side / 2.0).to_string()} y={(y + side / 2.0).to_string()} class={classes!("num", strong.then_some("strong"))}>{ brief(*v) }</text>
+                }
+            </g>
         }
     });
     let onkeydown = {
@@ -152,7 +186,9 @@ pub fn heat(props: &HeatProps) -> Html {
             </svg>
             <p class="inspector" role="status">{
                 match *picked {
+                    _ if props.pending => html! { <span class="hint">{"Not worked out yet."}</span> },
                     Some(k) => html! { <>{ inspect(&props.name, m, k) }{ if props.meaning.is_empty() { html! {} } else { html! { <>{". "}{ props.meaning.clone() }</> } } }</> },
+                    None if !props.hint => html! {},
                     None => html! { <span class="hint">{"Click a cell, or use the arrow keys, to read it."}</span> },
                 }
             }</p>

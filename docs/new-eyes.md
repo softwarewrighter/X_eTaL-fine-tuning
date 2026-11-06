@@ -59,14 +59,6 @@ concept"; "direct links from code snippets to the xref").
     letter in it is said to be a list, a table or a single number, and
     what writing two side by side means.
 
-## What it applies to
-
-Every page listed in the catalog: the lessons and experiments a reader
-is sent to. A page kept out of the catalog for reviewing the shell's
-parts (demos/shell-gallery) is framed and tested like any other, and
-is not given a cold reading: it teaches nothing, and its parts are
-read in the lessons that use them.
-
 ## The reading
 
 Before a page is called done, its text is read cold by a reviewer who

@@ -1,0 +1,11 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "welcome"            # the directory name, demos/<slug>/
+title = "Welcome: how these lessons work"
+summary = "New here? Five minutes on how these lessons work, with nothing to know beforehand: words that open a plain explanation, a question to answer first, a calculation you can step through and watch, pictures of the numbers, a sum written out, a change put into words, and how much to show. All on one small calculation, the same one the first lesson explains."
+concepts = ["how to read a lesson", "a pipeline's stages", "a recorded trace"]        # the X_eTaL ideas it shows
+status = "live"              # draft | live | deferred
+order = 1                    # position in the catalog (lower first)
+track = "start"              # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+lesson = 0                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
+needs = []                   # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around

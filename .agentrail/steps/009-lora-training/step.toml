@@ -1,0 +1,10 @@
+number = 9
+slug = "lora-training"
+status = "pending"
+description = """
+Step lora-training (docs/plan.md, Saga 1 row 4, principle 5;
+docs/research.tx..."""
+role = "production"
+context_files = []
+created_at = "2026-11-05T07:28:20"
+commits = []

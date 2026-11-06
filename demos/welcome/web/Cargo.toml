@@ -1,0 +1,15 @@
+[package]
+name = "welcome-web"
+description = "Welcome: how these lessons work, shown on one small calculation: words that open, a question first, a calculation stepped through and animated, pictures of the numbers, a sum written out, a change in words, three depths"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

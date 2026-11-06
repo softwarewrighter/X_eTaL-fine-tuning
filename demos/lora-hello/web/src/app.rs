@@ -14,7 +14,7 @@
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 
-use lesson::arithmetic::{commas, list, numeric, show};
+use lesson::arithmetic::{commas, list, numeric, product, show};
 use lesson::chrome::{footer, frame, header, Frame};
 use lesson::code::Linker;
 use lesson::eli5::{index, li, p, prose, Here};
@@ -49,7 +49,7 @@ fn read(linker: &Linker, code: &str, meaning: &str) -> Html {
 fn before() -> Html {
     html! { <>
         { frame(Frame::Question, "The question", html! { <>
-            <p class="hint">{ text::HINT }</p>
+            <p class="hint">{ text::HINT }{" First time here? "}<a href="../welcome/">{"The welcome page"}</a>{" shows how these lessons work, in five minutes."}</p>
             { p(text::QUESTION[0]) }
             <ul>{ li(text::QUESTION[1]) }{ li(text::QUESTION[2]) }{ li(text::QUESTION[3]) }</ul>
             { p(text::QUESTION[4]) }
@@ -145,7 +145,7 @@ fn merge_aside(linker: &Linker) -> Html {
 fn calculation(h: &Hello, s: Settings, controls: Html, linker: &Linker) -> Html {
     let moved = h.y.iter().zip(&h.base).filter(|(a, b)| (*a - *b).abs() > 1e-12).count();
     let still: Vec<String> = h.y.iter().zip(&h.base).enumerate().filter(|(_, (a, b))| (*a - *b).abs() <= 1e-12).map(|(i, _)| (i + 1).to_string()).collect();
-    let spread: Vec<String> = h.b.iter().map(|b| format!("{} \u{00d7} {}", show(h.scaled), show(*b))).collect();
+    let spread: Vec<String> = h.b.iter().map(|b| product(h.scaled, *b)).collect();
     html! {
         <section class="panel calc">
             <h2>{"One calculation, start to finish"}</h2>
@@ -159,7 +159,7 @@ fn calculation(h: &Hello, s: Settings, controls: Html, linker: &Linker) -> Html 
             { p(text::CALC[4]) }
             { numeric("A x", &h.a, &s.x, &h.products, h.h) }
             { p(text::CALC[5]) }
-            <p class="worked">{ format!("{} \u{00d7} {} = {}", show(h.h), show(h.s), show(h.scaled)) }</p>
+            <p class="worked">{ format!("{} = {}", product(h.h, h.s), show(h.scaled)) }</p>
             { p(text::CALC[6]) }
             <p class="worked">{ format!("{} = {}", spread.join(", "), list(&h.correction)) }</p>
             { p(text::CALC[7]) }

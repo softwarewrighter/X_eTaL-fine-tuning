@@ -66,8 +66,31 @@ fn origins(root: &Path) {
     std::fs::write(out, code).unwrap();
 }
 
+/// `$OUT_DIR/lessons.rs`: each demo's slug and title (from its
+/// demo.toml), so an idea can name the lesson that teaches it as a
+/// reader knows it, not by its directory.
+fn lessons(root: &Path) {
+    let demos = root.join("demos");
+    println!("cargo:rerun-if-changed={}", demos.display());
+    let mut dirs: Vec<PathBuf> = std::fs::read_dir(&demos).map(|d| d.filter_map(Result::ok).map(|e| e.path()).filter(|p| p.is_dir()).collect()).unwrap_or_default();
+    dirs.sort();
+    let mut code = String::from("pub const LESSONS: &[(&str, &str)] = &[\n");
+    for d in dirs {
+        let toml = d.join("demo.toml");
+        println!("cargo:rerun-if-changed={}", toml.display());
+        let text = std::fs::read_to_string(&toml).unwrap_or_default();
+        let title = text.lines().find_map(|l| l.strip_prefix("title = \"")).and_then(|t| t.split('"').next());
+        if let (Some(slug), Some(title)) = (d.file_name().and_then(|n| n.to_str()), title) {
+            code += &format!("    ({slug:?}, {title:?}),\n");
+        }
+    }
+    code += "];\n";
+    std::fs::write(Path::new(&std::env::var("OUT_DIR").unwrap()).join("lessons.rs"), code).unwrap();
+}
+
 fn main() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+    lessons(&root);
     origins(&root);
     println!("cargo:rustc-env=LESSON_SHA={}", run("git", &["rev-parse", "--short", "HEAD"]));
     println!("cargo:rustc-env=LESSON_HOST={}", run("hostname", &["-s"]));

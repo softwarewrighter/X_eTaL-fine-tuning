@@ -83,6 +83,7 @@ figure.lesson-heat .cell.written { stroke: var(--fg); stroke-width: 2.5; }
 figure.lesson-heat .cell.picked { stroke: var(--accent); stroke-width: 3.5; }
 figure.lesson-heat .frame { fill: none; stroke: var(--line); pointer-events: none; }
 figure.lesson-heat .inspector { margin: 6px 0 2px; font-size: 0.9em; min-height: 2.6em; }
+.legend .lead { flex-basis: 100%; }
 .legend { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.8em; color: var(--muted); font-variant-numeric: tabular-nums; }
 .legend .stop { display: inline-flex; align-items: center; gap: 4px; }
 .legend .swatch { display: inline-block; width: 14px; height: 14px; border: 1px solid var(--line); border-radius: 2px; }
@@ -102,3 +103,37 @@ section.predict { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px;
 .predict button.choice:disabled { cursor: default; }
 .predict button.skip { font-size: 0.9em; color: var(--muted); }
 .predict .verdict { margin: 8px 0; max-width: 46rem; }
+
+/* Motion: the numbers a stage works out come in one after another;
+   what it reads from pulses; the sentence for the stage slides in; a
+   bar shows how far along the calculation is. All of it is off for a
+   reader who asks their system for less motion. */
+@keyframes cell-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes read-march { to { stroke-dashoffset: -14; } }
+@keyframes says-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes tick { from { width: 0; } to { width: 100%; } }
+figure.lesson-heat .cellg.written { animation: cell-in 0.45s ease-out both; }
+figure.lesson-heat .cell.read { animation: read-march 0.9s linear infinite; }
+figure.lesson-heat text.num { font: 600 12px ui-monospace, Menlo, monospace; text-anchor: middle; dominant-baseline: central; fill: #1d1d1f; pointer-events: none; }
+figure.lesson-heat text.num.strong { fill: #ffffff; }
+.stage-says { animation: says-in 0.35s ease-out both; }
+.stepper .track { display: inline-flex; gap: 4px; align-items: center; position: relative; margin-left: 8px; }
+.stepper .track .seg { width: 34px; height: 6px; border-radius: 3px; background: var(--line); transition: background 0.3s; }
+.stepper .track .seg.done { background: var(--accent); }
+.stepper .track .seg.now { box-shadow: 0 0 0 2px var(--card), 0 0 0 3px var(--accent); }
+.stepper .track .tick { position: absolute; left: 0; bottom: -6px; height: 2px; background: var(--muted); animation: tick linear both; }
+svg.flow { display: block; max-width: 100%; height: auto; margin: 6px 0; }
+svg.flow .node circle { fill: var(--card); stroke: var(--line); stroke-width: 1.5; transition: stroke 0.3s, fill 0.3s; }
+svg.flow .node text { font: 600 14px ui-monospace, Menlo, monospace; text-anchor: middle; dominant-baseline: central; fill: var(--muted); }
+svg.flow .node.done circle { stroke: var(--muted); }
+svg.flow .node.read circle { stroke: var(--t-builtin); stroke-width: 2.5; stroke-dasharray: 4 3; }
+svg.flow .node.on circle { stroke: var(--accent); stroke-width: 3; fill: var(--off); }
+svg.flow .node.on text, svg.flow .node.read text { fill: var(--fg); }
+svg.flow .arc { fill: none; stroke: var(--t-builtin); stroke-width: 1.5; stroke-dasharray: 4 3; }
+svg.flow .dot { fill: var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+  figure.lesson-heat .cellg.written, figure.lesson-heat .cell.read, .stage-says, .stepper .track .tick { animation: none; }
+  svg.flow .dot { display: none; }
+}
+figure.lesson-heat .cell.pending { fill: none; stroke: var(--line); stroke-dasharray: 3 4; cursor: default; }
+figure.lesson-heat text.num.pending { fill: var(--muted); font-weight: 400; }

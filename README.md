@@ -105,15 +105,10 @@ Live: [the catalog](https://softwarewrighter.github.io/X_eTaL-fine-tuning/).
 
 | Demo | What you see | The line that does it |
 | ---- | ------------ | --------------------- |
+| [Welcome](demos/welcome/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/welcome/)) | new here? Five minutes on how these lessons work, nothing to know beforehand: words that open a plain explanation, a guess first, a calculation you step through and watch (its numbers appearing stage by stage), pictures of the numbers, a sum written out, a change put into words, three depths | `y := @ flow:p_ipe< ...`: the calculation as four stages in a row, whose recorded values the page replays |
 | [LoRA hello](demos/lora-hello/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-hello/)) | start here, with no machine learning and no programming assumed: how do you teach a model something new without it forgetting, and without retraining all of it? The question and the background, every term opening a plain explanation; one frozen layer of 16 numbers and an adapter of 8, all shown; one calculation worked in five steps as you change the input or the strength; the cost on a real layer (0.78% of its numbers at rank 16); what that showed and what it did not. The code is folded into asides, each library function explained from its own source and linked to the cross-reference | `y := (W, A, B, s) lo:f_orward x`: the layer and its adapter are one bundle, taken apart by the library |
 
 ![LoRA hello](demos/lora-hello/screenshot.png)
-
-The parts the lessons are built from (words that open, a question
-first, a stepper, heat maps, a sum written out, a change in words,
-three depths) can be looked over on one page, which is not a lesson:
-[the shell gallery](demos/shell-gallery/README.md)
-([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/shell-gallery/)).
 
 The lessons to come, in order ([`docs/plan.md`](docs/plan.md)):
 
@@ -148,7 +143,7 @@ every algorithm and every number shown is X_eTaL's.## Status
 
 | | |
 | - | - |
-| Now | the build machinery (a pin for each sibling asked of, the gate, the live site), the first lesson, LoRA hello, and the teaching shell every lesson is built from, shown on its gallery page |
+| Now | the build machinery (a pin for each sibling asked of, the gate, the live site), a welcome page for newcomers, the first lesson, LoRA hello, and the teaching shell every lesson is built from |
 | Next | the LoRA lab: the forward pass stepped through, every cell's arithmetic, the equation's symbols selectable; then LoRA training |
 | Asks | this repository defines no functions of its own; what the lessons need from the others is asked for: [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md), [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md), [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md). No step of the present saga is blocked; the LoRA variations wait on X_eTaL-ML. Nothing is asked of the language |
 

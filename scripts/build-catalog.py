@@ -31,7 +31,7 @@ XETAL = "https://github.com/softwarewrighter/X_eTaL"
 ML = "https://github.com/softwarewrighter/X_eTaL-ML"
 LIBS = "https://github.com/softwarewrighter/X_eTaL-libraries"
 STATUS = {"live": "Live", "draft": "In progress", "deferred": "Waiting on an ask"}
-TRACK = {"lora": "LoRA", "variants": "LoRA variations", "subspaces": "Shared subspaces", "alternatives": "Alternatives",
+TRACK = {"start": "Start here", "lora": "LoRA", "variants": "LoRA variations", "subspaces": "Shared subspaces", "alternatives": "Alternatives",
          "edge": "Bleeding edge", "applied": "Applied"}
 
 PAGE = """<!doctype html>
@@ -140,6 +140,9 @@ can step through.</p>
 <li><b>What you are looking at.</b> Each lesson is a short X_eTaL program running in your browser
 (WebAssembly). It opens with a question, runs one small experiment, says what changed in plain
 words and measured numbers, and keeps the mathematics and all the code it runs a click away.</li>
+<li><b>New here?</b> <a href="welcome/">Start with the welcome page</a>: five minutes on how these
+lessons work and how to use what you will meet in them. Then the first lesson,
+<a href="lora-hello/">LoRA hello</a>.</li>
 <li><b>Who it is for.</b> Someone who knows arithmetic and has never trained a network. Every
 symbol and control is explained, by mouse, keyboard or touch; three depths (Beginner, Explorer,
 Advanced) show the same computation.</li>
@@ -214,7 +217,7 @@ def card(m):
     chips = "".join(f'<span class="chip">{html.escape(c)}</span>' for c in m["concepts"])
     st = m["status"]
     # Its track, and its place in the curriculum when it is a lesson.
-    where = TRACK[m["track"]] + (f' &middot; lesson {m["lesson"]}' if m["lesson"] else " &middot; experiment")
+    where = TRACK[m["track"]] + ("" if m["track"] == "start" else f' &middot; lesson {m["lesson"]}' if m["lesson"] else " &middot; experiment")
     pic = ""
     alt = html.escape(m["title"])
     if m.get("web") and m.get("picture"):
@@ -256,8 +259,6 @@ def main():
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "pages" / "index.html"
     demos = json.loads(subprocess.run([sys.executable, str(ROOT / "scripts" / "demos.py"), "json"],
                                       capture_output=True, text=True, check=True).stdout)
-    # A page built and tested but not listed (catalog = false): the shell's gallery.
-    demos = [m for m in demos if m.get("catalog", True)]
     mlsha = (ROOT / "XETAL_ML_COMMIT").read_text().strip()
     libsha = (ROOT / "XETAL_LIBRARIES_COMMIT").read_text().strip()
     pinned = ROOT / "work" / "xetal-ml" / "XETAL_COMMIT"
