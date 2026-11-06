@@ -15,3 +15,31 @@ found: Predict first:
 found: Welcome. These lessons are about one practical question
 found: Start the first lesson: LoRA hello
 cross-reference links: 0, dead: none
+at ?stage=2:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 2 of 4, h.
+found: html: <animateMotion
+found: html: cellg written
+found: Not worked out yet.
+cross-reference links: 0, dead: none
+at ?mode=advanced&stage=4:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 4 of 4, y.
+found: This stage uses: x and u.
+found: h(1) = A(1,1) × x(1)
+found: The code, for those who want it
+cross-reference links: 14, dead: none

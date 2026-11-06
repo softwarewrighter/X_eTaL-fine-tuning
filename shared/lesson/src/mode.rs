@@ -36,6 +36,12 @@ impl Mode {
         }
     }
 
+    /// The mode named in a page's address (`?mode=explorer`), if any.
+    pub fn from_link() -> Option<Mode> {
+        let named = crate::link::param("mode")?;
+        Mode::ALL.into_iter().find(|m| m.label().eq_ignore_ascii_case(&named))
+    }
+
     /// Whether a part meant for readers at `depth` and deeper is shown.
     pub fn shows(self, depth: Mode) -> bool {
         self >= depth

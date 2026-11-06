@@ -14,6 +14,7 @@
 //! - `arithmetic`: a sum written out in symbols and with its numbers
 //! - `narrate`: what changed, in words, from measured numbers
 //! - `predict`: a question answered before the experiment is shown
+//! - `link`: a page opened at a state named in its address
 //!
 //! Written for a reader with new eyes: one who knows neither machine
 //! learning nor X_eTaL (docs/new-eyes.md). Presentation only: nothing
@@ -25,6 +26,7 @@ pub mod code;
 pub mod eli5;
 pub mod explain;
 pub mod heat;
+pub mod link;
 pub mod mode;
 pub mod narrate;
 pub mod predict;

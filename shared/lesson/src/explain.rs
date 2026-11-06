@@ -197,11 +197,36 @@ pub fn table(program: &str) -> Html {
         let d = definition(&lib, &name)?;
         Some(html! {
             <tr>
-                <td>{ linker.code(&format!("{alias}{name}")) }</td>
+                <td>{ linker.code(&format!("{alias}{name}{}", if d.source.starts_with("m:") { "<" } else { "" })) }</td>
                 <td>{ d.doc.clone() }</td>
                 <td class="links"><a href={d.source_url.clone()} target="_blank">{"source"}</a>{" \u{00b7} "}<a href={d.xref.clone()}>{"cross-reference"}</a></td>
             </tr>
         })
     });
     html! { <table class="functions"><tr><th>{"Function"}</th><th>{"What the library says it does"}</th><th>{"Read it"}</th></tr>{ for rows }</table> }
+}
+
+const BUILTINS: &str = include_str!("../builtins.tsv");
+
+/// What a built-in word of X_eTaL does, in plain words (builtins.tsv),
+/// or None for one not yet explained there.
+pub fn word(typed: &str) -> Option<&'static str> {
+    BUILTINS.lines().filter(|l| !l.starts_with('#')).find_map(|l| l.split_once('\t').filter(|(w, _)| *w == typed).map(|(_, m)| m))
+}
+
+/// The built-in words a program uses that builtins.tsv does not
+/// explain: empty, in a page's test.
+pub fn unexplained(program: &str) -> Vec<String> {
+    crate::code::builtins(program).into_iter().filter(|w| word(w).is_none()).collect()
+}
+
+/// Every built-in word a program uses, a line each: the word, drawn
+/// and linked to its entry in the cross-reference, and what it does.
+pub fn words(program: &str) -> Html {
+    let linker = Linker::of(program);
+    let rows = crate::code::builtins(program).into_iter().filter_map(|w| {
+        let meaning = word(&w)?;
+        Some(html! { <tr><td>{ linker.code(&w) }</td><td>{ meaning }</td></tr> })
+    });
+    html! { <table class="functions"><tr><th>{"Word"}</th><th>{"What it does"}</th></tr>{ for rows }</table> }
 }

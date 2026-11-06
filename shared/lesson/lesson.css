@@ -137,3 +137,4 @@ svg.flow .dot { fill: var(--accent); }
 }
 figure.lesson-heat .cell.pending { fill: none; stroke: var(--line); stroke-dasharray: 3 4; cursor: default; }
 figure.lesson-heat text.num.pending { fill: var(--muted); font-weight: 400; }
+figure.lesson-heat.chosen svg { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }

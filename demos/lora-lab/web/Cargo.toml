@@ -1,0 +1,16 @@
+[package]
+name = "lora-lab-web"
+description = "LoRA lab: an adapter's correction worked out stage by stage on an 8 x 8 layer, any number's arithmetic written out, the formula's symbols to pick, and what the rank changes"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

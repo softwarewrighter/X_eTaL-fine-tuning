@@ -1,6 +1,6 @@
 number = 8
 slug = "lora-lab"
-status = "pending"
+status = "in-progress"
 description = """
 Step lora-lab (docs/plan.md, Saga 1 row 3: the research's first
 milestone; do..."""

@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "lora-lab"            # the directory name, demos/<slug>/
+title = "LoRA lab"
+summary = "How is an adapter's correction worked out, number by number, and what does its rank change? One layer of 64 frozen numbers and an adapter beside it: take the calculation a stage at a time and watch each stage's numbers appear, click any number to see the sum behind it, pick a letter of the formulas to see what it stands for, and move the rank to see what changes, what it costs, and what does not move at all."
+concepts = ["a pipeline of equations", "a recorded trace", "symbols marked in LaTeX", "rank"]        # the X_eTaL ideas it shows
+status = "live"              # draft | live | deferred
+order = 20                   # position in the catalog (lower first)
+track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+lesson = 2                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
+needs = ["FM11"]             # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "\"h[k] | r\" e:e_q< \"sum j:=0..7 | A[k,j] * x[j]\""
+why = "A stage of the layer is its equation, written as text: the same text is run to give the numbers and drawn to give the formula."

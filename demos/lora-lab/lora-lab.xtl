@@ -1,0 +1,76 @@
+#!/usr/bin/env xetal
+## LoRA lab: how an adapter's correction is worked out, number by
+## number, and what its rank changes. A frozen table W of 8 rows and 8
+## columns, and an adapter of rank r beside it: A (r rows of 8) and B
+## (8 rows of r). The layer is y = W x + s B (A x), written here as a
+## pipeline of four stages so that every stage's numbers can be shown:
+## the input x; the squeeze h = A x (r numbers); the spread u = B h (8
+## numbers); and the output y = W x + s u. The layer is the one of
+## X_eTaL-ML's LoRA explorer (its W, A, B and x, made up by fixed
+## ripples). Nothing is trained here.
+
+"e:" u_se< "Equations"
+"flow:" u_se< "Flow"
+"lo:" u_se< "LoRA"
+
+### The layer
+
+## The rank r (how many numbers the squeeze gives) and alpha; the
+## strength s is alpha / r.
+r := 2
+alpha := 4.0
+s := alpha lo:s_caling r
+## The frozen table W, the adapter's tables A and B, and one input X:
+## made-up numbers from sines and cosines, so none need be typed.
+c := f_loat r_ange 64
+W := 8 8 r_eshape s_in 0.7 * c * c
+d := f_loat r_ange r * 8
+A := (r c_at 8) r_eshape 0.4 * c_os 1.1 * d * d
+B := (8 c_at r) r_eshape 0.3 * s_in 0.9 * d * d
+X := c_os 0.4 * 8 t_ake c
+q := r - 1
+
+### The layer as a pipeline
+
+## Four stages, a line each: the input, then three equations. A stage
+## names its value after the $ sign, and a later stage may use it.
+y := @ flow:p_ipe< c#"
+   X $x
+|> "h[k] | r" e:e_q< "sum j:=0..7 | A[k,j] * x[j]" $h
+|> "u[i] | 8" e:e_q< "sum k:=0..q | B[i,k] * h[k]" $u
+|> "y[i] | 8" e:e_q< "(sum j:=0..7 | W[i,j] * x[j]) + s * u[i]""#
+y
+
+### What the adapter changed
+
+## What the frozen table gives by itself, W x; the correction the
+## adapter adds to it, s B (A x); and a check that the pipeline's
+## output is the library's own (lo:f_orward): 1 means yes.
+base := W '+ '* i_nner X
+correction := (lo:d_elta (A, B, s)) '+ '* i_nner X
+base
+correction
+0.000000000001 > 'm_ax r_/ a_bs y - (W, A, B, s) lo:f_orward X
+
+### What it costs
+
+## The numbers an adapter of this rank trains on this table, r (8 +
+## 8), then the 64 of the table itself; and the strength s, which is
+## alpha divided by the rank.
+(r lo:p_arams 8 8) c_at 64
+s
+
+### For the page
+
+# The numbers of the layer, row by row, for the pictures.
+r_avel W
+r_avel A
+r_avel B
+# Every product of the three sums, so any number of any stage can be
+# written out: each number of A times the matching number of x (a row
+# for each number of h); each number of B times the matching number of
+# h (a row for each number of u); each number of W times the matching
+# number of x (a row for each number of y).
+r_avel A * (r c_at 8) r_eshape X
+r_avel B * (8 c_at r) r_eshape A '+ '* i_nner X
+r_avel W * 8 8 r_eshape X

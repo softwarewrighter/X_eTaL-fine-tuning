@@ -65,11 +65,11 @@ fn the_header_and_footer_name_this_repository_and_the_pins() {
 
 #[test]
 fn the_frames_are_those_the_browser_check_requires() {
-    // scripts/browser-check.sh names them in its FRAMES line.
-    let script = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/../../scripts/browser-check.sh")).unwrap();
+    // scripts/browser-check.py names them in its FRAMES line.
+    let script = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/../../scripts/browser-check.py")).unwrap();
     let names: Vec<&str> = FRAMES.iter().map(|f| f.name()).collect();
     assert_eq!(names, ["question", "background", "rationale", "purpose", "summary", "next"]);
-    assert!(script.contains(&format!("FRAMES = {names:?}")), "browser-check.sh does not require {names:?}");
+    assert!(script.contains(&format!("FRAMES = {names:?}")), "browser-check.py does not require {names:?}");
 }
 
 // New eyes (docs/new-eyes.md): ideas explained simply, library
@@ -344,4 +344,16 @@ fn a_macro_is_explained_and_linked_as_a_function_is() {
     let l = Linker::of(program);
     assert_eq!(l.href(Class::Macro, "flow:p_ipe<").unwrap(), "../doc/work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.p_ipe-3c");
     assert_eq!(l.href(Class::Macro, "e:e_q<").unwrap(), "../doc/work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c");
+}
+
+#[test]
+fn a_state_named_in_an_address_is_read() {
+    use lesson::link::value;
+    assert_eq!(value("?stage=3&rank=5&mode=advanced", "rank").as_deref(), Some("5"));
+    assert_eq!(value("stage=3", "stage").as_deref(), Some("3"));
+    assert_eq!(value("?stage=3", "rank"), None);
+    assert_eq!(value("", "rank"), None);
+    // Outside the browser there is no address: a page starts as it always did.
+    assert_eq!(lesson::link::number("stage", 1, 4), None);
+    assert_eq!(lesson::mode::Mode::from_link(), None);
 }

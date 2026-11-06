@@ -8,3 +8,15 @@ Predict first:
 # The greeting, and the way on.
 Welcome. These lessons are about one practical question
 Start the first lesson: LoRA hello
+# Stepped to stage 2: a dot travels to it from the stage it uses, and
+# its number has appeared; the later stages are still to come.
+@ ?stage=2
+Stage 2 of 4, h.
+html: <animateMotion
+html: cellg written
+Not worked out yet.
+@ ?mode=advanced&stage=4
+Stage 4 of 4, y.
+This stage uses: x and u.
+h(1) = A(1,1) × x(1)
+The code, for those who want it

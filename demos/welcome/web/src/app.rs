@@ -116,8 +116,9 @@ fn tour(g: &Welcome, step: usize, onstep: Callback<usize>, mode: Mode, linker: &
 
 #[function_component(App)]
 pub fn app() -> Html {
-    let mode = use_state(|| Mode::Beginner);
-    let step = use_state(|| 0usize);
+    // Where the page starts may be named in its address (lesson::link): ?mode=explorer&stage=3.
+    let mode = use_state(|| Mode::from_link().unwrap_or(Mode::Beginner));
+    let step = use_state(|| lesson::link::number("stage", 1, 4).map_or(0, |n| n - 1));
     let result = use_memo((), |_| run());
     let linker = Linker::of(PROGRAM);
     let onmode = { let mode = mode.clone(); Callback::from(move |m| mode.set(m)) };

@@ -1,0 +1,53 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 1 of 4
+found: Stage 1 of 4, x. The input: a list of 8 numbers.
+found: At rank 2: the adapter has 32 numbers, beside the 64 of the table W itself.
+found: A: the adapter's first table (2 rows, 8 columns)
+found: the two agree, which the program prints as a 1.
+found: Predict first:
+cross-reference links: 0, dead: none
+at ?mode=advanced&rank=5&stage=4&pick=4.3&letter=A:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 4 of 4
+found: Stage 4 of 4, y: the output.
+found: At rank 5: the adapter has 80 numbers, beside the 64 of the table W itself.
+found: A: the adapter's first table (5 rows, 8 columns)
+found: row 3 of W, times x =
+found: That is the part of this output the frozen table gives.
+found: y(3) =
+found: W x(3) = W(3,1) × x(1)
+found: A: The adapter's first table.
+found: Its picture is outlined above.
+found: html: class="katex"
+found: html: sym sym-A
+found: html: lesson-heat chosen
+found: This stage uses: x and u, and the table W and the strength s.
+found: The library functions the program uses
+cross-reference links: 24, dead: none
+at ?rank=5&stage=2&pick=2.5:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 2 of 4, h: the squeeze.
+found: h(5) =
+found: html: <animateMotion
+cross-reference links: 0, dead: none

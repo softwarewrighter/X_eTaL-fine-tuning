@@ -50,6 +50,25 @@ pub fn written(name: &str, a: &[f64], b: &[f64], products: &[f64], total: f64) -
     format!("{name} = {} = {} = {}", terms.join(" + "), sums.join(" + "), show(total))
 }
 
+/// The sum as text with every number rounded to `places` decimals, for
+/// a sum of many terms: `a1 x b1 + ... = p1 + ... = total`. The page
+/// says the numbers are rounded; the full ones are in the pictures.
+pub fn written_to(places: usize, name: &str, a: &[f64], b: &[f64], products: &[f64], total: f64) -> String {
+    let cut = |v: f64| {
+        let p = 10f64.powi(places as i32);
+        (v * p).round() / p
+    };
+    let round = |v: &[f64]| v.iter().map(|x| cut(*x)).collect::<Vec<_>>();
+    written(name, &round(a), &round(b), &round(products), cut(total))
+}
+
+/// `v` rounded to `places` decimals, for showing (the full number is
+/// in the picture's inspector).
+pub fn rounded(v: f64, places: usize) -> f64 {
+    let p = 10f64.powi(places as i32);
+    (v * p).round() / p
+}
+
 /// A sum written out with its numbers, as a line of a page.
 pub fn numeric(name: &str, a: &[f64], b: &[f64], products: &[f64], total: f64) -> Html {
     html! { <p class="worked">{ written(name, a, b, products, total) }</p> }

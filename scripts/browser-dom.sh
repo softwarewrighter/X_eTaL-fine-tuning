@@ -4,6 +4,8 @@
 # the rendered DOM. A private profile per run; only this script's own
 # server and Chrome are stopped.
 #   scripts/browser-dom.sh SLUG [MS]   (MS: virtual time to run, default 6000)
+# XETAL_QUERY (a query string, "?stage=3") opens the page at that state
+# (lesson::link), for scripts/browser-check.py.
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 slug="${1:?usage: browser-dom.sh SLUG [MS]}"
@@ -12,7 +14,7 @@ chrome="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
 [ -x "$chrome" ] || { echo "browser-dom: no Chrome at $chrome (set CHROME)" >&2; exit 1; }
 if [ -n "${XETAL_LIVE:-}" ]; then
   # The deployed site (scripts/check-live.sh), not the local build.
-  url="https://softwarewrighter.github.io/X_eTaL-fine-tuning/$slug/"
+  url="https://softwarewrighter.github.io/X_eTaL-fine-tuning/$slug/${XETAL_QUERY:-}"
   tmp="$(mktemp -d)"
   trap 'rm -rf "$tmp"' EXIT
 else
@@ -25,7 +27,7 @@ else
   cleanup() { kill "$server" 2>/dev/null || true; wait "$server" 2>/dev/null || true; rm -rf "$tmp"; }
   trap cleanup EXIT
   for _ in $(seq 1 50); do curl -s -o /dev/null "http://127.0.0.1:$port/" && break; sleep 0.1; done
-  url="http://127.0.0.1:$port/X_eTaL-fine-tuning/$slug/"
+  url="http://127.0.0.1:$port/X_eTaL-fine-tuning/$slug/${XETAL_QUERY:-}"
 fi
 "$chrome" --headless=new --disable-gpu --no-first-run --no-default-browser-check \
   --user-data-dir="$tmp/profile" --virtual-time-budget="$ms" --dump-dom \

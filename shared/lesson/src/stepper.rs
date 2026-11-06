@@ -146,7 +146,9 @@ pub fn flow(names: &[&str], step: usize, reads: &[usize]) -> Html {
         html! { <>
             <path d={path.clone()} class="arc" />
             <circle r="5" class="dot">
-                <animateMotion dur="0.9s" fill="freeze" path={path} />
+                // Written as a named tag: SVG's element names keep their capitals,
+                // and html! would lower them, leaving an element that does nothing.
+                <@{"animateMotion"} dur="0.9s" fill="freeze" path={path} />
             </circle>
         </> }
     });

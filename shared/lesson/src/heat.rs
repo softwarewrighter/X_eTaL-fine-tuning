@@ -53,7 +53,7 @@ pub fn legend(scale: f64) -> Vec<(f64, String)> {
 /// What the note under a legend says about its scale.
 pub fn scale_note(shared: bool) -> &'static str {
     if shared {
-        "These pictures share one scale: the same color is the same number in each."
+        "The pictures in this group share one scale: the same color is the same number in each of them."
     } else {
         "This picture has a scale of its own: its colors cannot be compared with another picture's."
     }
@@ -125,6 +125,13 @@ pub struct HeatProps {
     /// enough for a group of maps).
     #[prop_or(true)]
     pub hint: bool,
+    /// Told which cell was picked (by rows, from 0), so a page can show
+    /// more about it (where the number comes from).
+    #[prop_or_default]
+    pub onpick: Callback<usize>,
+    /// The whole map singled out (its symbol was chosen in a formula).
+    #[prop_or_default]
+    pub chosen: bool,
 }
 
 /// A value as written in a cell: two decimals at most.
@@ -146,7 +153,7 @@ pub fn heat(props: &HeatProps) -> Html {
             Mark::Read => "read",
             Mark::Written => "written",
         });
-        let pick = { let picked = picked.clone(); Callback::from(move |_| picked.set(Some(k))) };
+        let pick = { let (picked, onpick) = (picked.clone(), props.onpick.clone()); Callback::from(move |_| { picked.set(Some(k)); onpick.emit(k); }) };
         let delay = if mark.is_some() { order += 1; format!("animation-delay: {}ms", (order - 1) * 140) } else { String::new() };
         // Dark figures on a pale cell, light ones on a strong color.
         let strong = props.scale > 0.0 && (v / props.scale).abs() > 0.55;
@@ -166,18 +173,20 @@ pub fn heat(props: &HeatProps) -> Html {
         }
     });
     let onkeydown = {
-        let (picked, rows, cols) = (picked.clone(), m.rows, m.cols);
+        let (picked, rows, cols, onpick, pending) = (picked.clone(), m.rows, m.cols, props.onpick.clone(), props.pending);
         Callback::from(move |e: KeyboardEvent| {
             let key = e.key();
-            if ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].contains(&key.as_str()) {
+            if !pending && ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].contains(&key.as_str()) {
                 e.prevent_default();
-                picked.set(Some(step(picked.unwrap_or(0), rows, cols, &key)));
+                let to = step(picked.unwrap_or(0), rows, cols, &key);
+                picked.set(Some(to));
+                onpick.emit(to);
             }
         })
     };
     let onfocus = { let picked = picked.clone(); Callback::from(move |_| if picked.is_none() { picked.set(Some(0)) }) };
     html! {
-        <figure class="heat lesson-heat">
+        <figure class={classes!("heat", "lesson-heat", props.chosen.then_some("chosen"))}>
             <figcaption>{ props.caption.clone() }</figcaption>
             <svg width={(w + 2.0 * PAD).to_string()} height={(h + 2.0 * PAD).to_string()} viewBox={format!("{} {} {} {}", -PAD, -PAD, w + 2.0 * PAD, h + 2.0 * PAD)} role="img" tabindex="0"
                 aria-label={format!("{}: a table of {} rows and {} columns. Arrow keys move over its cells.", props.caption, m.rows, m.cols)} {onkeydown} {onfocus}>

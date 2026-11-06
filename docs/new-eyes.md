@@ -68,6 +68,13 @@ explained, what is over-claimed, and what is out of order. The author
 of a page cannot do this: they know too much. What the reading finds
 is fixed, or noted on the page's README as known.
 
+The reviewer is given the page as first loaded and, when a page has
+state, one or two states a reader reaches by using it (`lesson::link`:
+`?mode=explorer&stage=2&pick=2.1&letter=A`), extracted with
+`scripts/browser-dom.sh`. The browser check reads the same states: a
+`@ ?query` line in a demo's `browser.txt` opens a section of lines the
+page must show at that address.
+
 The first page's reading (2026-11-05) found, among others: prose
 naming notation as typed while the page drew it otherwise; only one
 step of the calculation worked through; three names for the

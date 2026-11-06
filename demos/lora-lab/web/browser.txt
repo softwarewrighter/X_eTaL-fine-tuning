@@ -1,0 +1,31 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+Stage 1 of 4
+Stage 1 of 4, x. The input: a list of 8 numbers.
+At rank 2: the adapter has 32 numbers, beside the 64 of the table W itself.
+A: the adapter's first table (2 rows, 8 columns)
+the two agree, which the program prints as a 1.
+Predict first:
+# The page opened further on: stage 4 at rank 5, Advanced, the third
+# number of y clicked, the letter A picked. What a reader reaches by
+# stepping, clicking a square, picking a letter and moving the rank.
+@ ?mode=advanced&rank=5&stage=4&pick=4.3&letter=A
+Stage 4 of 4
+Stage 4 of 4, y: the output.
+At rank 5: the adapter has 80 numbers, beside the 64 of the table W itself.
+A: the adapter's first table (5 rows, 8 columns)
+row 3 of W, times x =
+That is the part of this output the frozen table gives.
+y(3) =
+W x(3) = W(3,1) × x(1)
+A: The adapter's first table.
+Its picture is outlined above.
+html: class="katex"
+html: sym sym-A
+html: lesson-heat chosen
+This stage uses: x and u, and the table W and the strength s.
+The library functions the program uses
+# The squeeze at rank 5 has five numbers, and its sum can be read.
+@ ?rank=5&stage=2&pick=2.5
+Stage 2 of 4, h: the squeeze.
+h(5) =
+html: <animateMotion
