@@ -3,8 +3,7 @@
 //! Nothing here knows about the browser, and nothing here computes the
 //! layer: every number is X_eTaL's.
 
-use lesson::run::output;
-use microscope::run::{lit, numbers};
+use microscope::run::{lit, numbers, output};
 
 /// The command line's program, which the page runs with its settings.
 pub const PROGRAM: &str = include_str!("../../lora-hello.xtl");

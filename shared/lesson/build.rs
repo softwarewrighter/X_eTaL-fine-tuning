@@ -1,20 +1,14 @@
 //! Build provenance for the footer (this repository's commit, the
 //! pinned X_eTaL-ML commit and the X_eTaL commit it pins, the build
-//! host and time), and the libraries the pages' store is to hold beyond
-//! what X_eTaL-ML's microscope embeds: this repository's own
-//! (libs/<Name>/src), and every library of X_eTaL-libraries at this
-//! repository's own pin (work/xetal-libraries, XETAL_LIBRARIES_COMMIT).
-//! Those replace the seven microscope embeds at X_eTaL-ML's libraries
-//! pin and add the rest (Matrix among them; ask FM1 in
-//! docs/xetal-ML-asks.md), so a page runs the same libraries as the
-//! command line. Adapted from microscope's build.rs.
+//! host and time), and where each library on the search path lives (its
+//! repository, its path there, the pinned commits), for links to its
+//! source. The libraries themselves are embedded by X_eTaL-ML's
+//! microscope, which takes X_eTaL-libraries at this repository's pin
+//! from MICROSCOPE_LIBS (.cargo/config.toml). Adapted from microscope's
+//! build.rs.
 
 use std::path::{Path, PathBuf};
 use std::process::Command;
-
-/// Libraries of X_eTaL-libraries that must be there: a missing clone
-/// (just xetal not run) is an error, not a page without its libraries.
-const GENERAL: &[&str] = &["Matrix", "Equations", "Check"];
 
 fn run(cmd: &str, args: &[&str]) -> String {
     Command::new(cmd)
@@ -47,40 +41,11 @@ fn sources(dir: &Path) -> Vec<(String, PathBuf)> {
         .collect()
 }
 
-/// `$OUT_DIR/libs.rs`: each library to add as (file, source).
-fn libraries(root: &Path) {
-    let own = root.join("libs");
-    println!("cargo:rerun-if-changed={}", own.display());
-    let mut dirs: Vec<PathBuf> = std::fs::read_dir(&own)
-        .map(|d| d.filter_map(Result::ok).map(|e| e.path()).filter(|p| p.is_dir()).collect())
-        .unwrap_or_default();
-    // Every library of X_eTaL-libraries at this repository's pin.
-    let general = root.join("work/xetal-libraries/libs");
-    println!("cargo:rerun-if-changed={}", root.join("XETAL_LIBRARIES_COMMIT").display());
-    let mut theirs: Vec<PathBuf> = std::fs::read_dir(&general)
-        .map(|d| d.filter_map(Result::ok).map(|e| e.path()).filter(|p| p.is_dir()).collect())
-        .unwrap_or_default();
-    theirs.sort();
-    dirs.extend(theirs);
-    let mut found: Vec<(String, PathBuf)> = dirs.iter().flat_map(|d| sources(d)).collect();
-    found.sort();
-    for name in GENERAL {
-        assert!(found.iter().any(|(f, _)| f.starts_with(&format!("{name}."))), "no library {name} at the pin (just xetal)");
-    }
-    let mut code = String::from("pub const LIBRARIES: &[(&str, &str)] = &[\n");
-    for (file, src) in &found {
-        println!("cargo:rerun-if-changed={}", src.display());
-        code += &format!("    ({file:?}, include_str!({:?})),\n", src.canonicalize().unwrap());
-    }
-    code += "];\n";
-    let out = Path::new(&std::env::var("OUT_DIR").unwrap()).join("libs.rs");
-    std::fs::write(out, code).unwrap();
-}
-
 /// `$OUT_DIR/origins.rs`: where each library on the search path lives
 /// (its file, the repository, its path there), and the full pinned
 /// commits, for links to the source.
 fn origins(root: &Path) {
+    println!("cargo:rerun-if-changed={}", root.join("XETAL_LIBRARIES_COMMIT").display());
     let roots = [("own", root.join("libs"), "libs"), ("ml", root.join("work/xetal-ml/libs"), "libs"), ("libraries", root.join("work/xetal-libraries/libs"), "libs")];
     let mut code = String::from("pub const ORIGINS: &[(&str, &str, &str)] = &[\n");
     for (kind, dir, prefix) in &roots {
@@ -103,7 +68,6 @@ fn origins(root: &Path) {
 
 fn main() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
-    libraries(&root);
     origins(&root);
     println!("cargo:rustc-env=LESSON_SHA={}", run("git", &["rev-parse", "--short", "HEAD"]));
     println!("cargo:rustc-env=LESSON_HOST={}", run("hostname", &["-s"]));

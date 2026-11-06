@@ -14,11 +14,10 @@
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 
-use lesson::chrome::{footer, frame, Frame};
+use lesson::chrome::{footer, frame, header, Frame};
 use lesson::code::Linker;
 use lesson::eli5::{index, li, p, prose};
 use lesson::explain::{definition, function, imports, table};
-use microscope::chrome::header;
 
 use crate::micro::{line, program, run, Hello, Settings, PROGRAM};
 use crate::text;

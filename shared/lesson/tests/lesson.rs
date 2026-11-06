@@ -1,11 +1,11 @@
 //! The shell natively: a program run through microscope finds the
-//! libraries of X_eTaL-ML (LoRA), a general library microscope embeds
-//! (Check) and one it does not, added here (Matrix); the footer names
-//! this repository and the pins.
+//! libraries of X_eTaL-ML (LoRA) and every library of X_eTaL-libraries
+//! at this repository's pin (MICROSCOPE_LIBS: Check, Matrix); the
+//! header and footer name this repository and the pins.
 
-use lesson::chrome::{build, libraries_pin, pins, FRAMES, REPO};
-use lesson::libs::added;
-use lesson::run::{output, printed};
+use lesson::chrome::{build, libraries_pin, pins, FRAMES, REPO, SITE};
+use microscope::libs::names;
+use microscope::run::{output, printed};
 
 #[test]
 fn a_program_imports_a_library_of_xetal_ml() {
@@ -29,9 +29,10 @@ fn a_general_library_microscope_embeds_is_found() {
 }
 
 #[test]
-fn a_general_library_added_here_is_found() {
-    // Ask FM1: Matrix is not among the libraries microscope embeds.
-    assert!(added().contains(&"Matrix.xtl"), "{:?}", added());
+fn a_general_library_x_etal_ml_does_not_link_is_found() {
+    // Ask FM1 (landed): Matrix is not among the seven X_eTaL-ML links;
+    // it comes from the root named in MICROSCOPE_LIBS.
+    assert!(names().contains(&"Matrix.xtl"), "{:?}", names());
     assert_eq!(output("\"mx:\" u_se< \"Matrix\"\nmx:t_race mx:i_dentity 3\n", 1).unwrap(), ["3"]);
 }
 
@@ -41,8 +42,11 @@ fn an_error_is_reported_not_swallowed() {
 }
 
 #[test]
-fn the_footer_names_this_repository_and_the_pins() {
+fn the_header_and_footer_name_this_repository_and_the_pins() {
     assert!(REPO.ends_with("/X_eTaL-fine-tuning"));
+    // microscope's header is told whose page it is (FM2, landed).
+    assert_eq!((SITE.name, SITE.url, SITE.catalog), ("X_eTaL-fine-tuning", REPO, ("../", "All lessons")));
+    assert_eq!(SITE.commit, lesson::chrome::sha());
     let (ml, xetal) = pins();
     let pin = std::fs::read_to_string(concat!(env!("CARGO_MANIFEST_DIR"), "/../../XETAL_ML_COMMIT")).unwrap();
     assert_eq!(ml, &pin.trim()[..7]);
@@ -160,19 +164,23 @@ fn functions_in_code_link_to_the_cross_reference() {
 
 #[test]
 fn the_pages_run_the_libraries_of_this_repositorys_own_pin() {
-    // Every library of work/xetal-libraries (XETAL_LIBRARIES_COMMIT) is
-    // put in the store, replacing the copies microscope embedded at
-    // X_eTaL-ML's libraries pin, so the browser and the command line
-    // (scripts/libpath.sh) agree.
-    let added = added();
-    for file in ["Check.xtl", "Equations.xtlm", "Matrix.xtl", "Plot.xtl", "Strings.xtl"] {
-        assert!(added.contains(&file), "{file} not added: {added:?}");
-    }
+    // microscope embeds every library of work/xetal-libraries
+    // (XETAL_LIBRARIES_COMMIT, named in MICROSCOPE_LIBS), each replacing
+    // the copy X_eTaL-ML holds at its own libraries pin, so the browser
+    // and the command line (scripts/libpath.sh) agree.
     let clone = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../work/xetal-libraries/libs");
-    for (file, source) in lesson::libs::LIBRARIES {
+    let mut checked = 0;
+    for (file, source) in microscope::libs::LIBRARIES {
         let name = file.split('.').next().unwrap();
-        let on_disk = std::fs::read_to_string(clone.join(name).join("src").join(file)).unwrap();
-        assert_eq!(*source, on_disk, "{file} differs from the pinned clone");
+        let path = clone.join(name).join("src").join(file);
+        if path.is_file() {
+            assert_eq!(*source, std::fs::read_to_string(path).unwrap(), "{file} differs from the pinned clone");
+            checked += 1;
+        }
+    }
+    assert!(checked >= 25, "only {checked} libraries of the clone are embedded");
+    for file in ["Check.xtl", "Equations.xtlm", "Matrix.xtl", "Plot.xtl", "Strings.xtl"] {
+        assert!(names().contains(&file), "{file} not embedded: {:?}", names());
     }
     // And a program still imports one microscope also embeds.
     assert_eq!(output("\"e:\" u_se< \"Equations\"\nx := 1.0 2.0 3.0\n\"s[] | \" e:e_q< \"sum i:=0..2 | x[i]\"\n", 1).unwrap(), ["6.0"]);

@@ -1,12 +1,31 @@
-//! Around every page: this repository's footer. microscope's own
-//! footer names X_eTaL-ML and its commit (ask FM2 in
-//! docs/xetal-ML-asks.md), so the pages here use this one; the header,
-//! panels and notices are microscope's.
+//! Around every page: this repository's header and footer, the frames
+//! of a page, asides. The header is microscope's, told whose page it is
+//! (`microscope::chrome::Site`, X_eTaL-ML's answer to ask FM2). The
+//! footer is this repository's own: microscope's `footer_of` would name
+//! this repository too, but words the build as `build (host .., sha ..,
+//! ..)`, and the user asked here for the compact form without labels.
 
+use microscope::chrome::{header_of, Site};
 use yew::prelude::*;
 
 pub const REPO: &str = "https://github.com/softwarewrighter/X_eTaL-fine-tuning";
 pub const ML: &str = "https://github.com/softwarewrighter/X_eTaL-ML";
+
+/// Whose pages these are, for microscope's header (and its footer,
+/// should a page want that form).
+pub const SITE: Site = Site {
+    name: "X_eTaL-fine-tuning",
+    url: REPO,
+    commit: env!("LESSON_SHA"),
+    catalog: ("../", "All lessons"),
+    links: &[("All lessons", "../"), ("Cross-reference", "../doc/")],
+};
+
+/// The header of a page here: the logo (leading back to the catalog of
+/// lessons), the title and a lede.
+pub fn header(title: &str, lede: &str) -> Html {
+    header_of(&SITE, title, lede)
+}
 
 /// The build's provenance, compact and without labels, as the catalog's
 /// footer shows it: the build host, this repository's short commit and

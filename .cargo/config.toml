@@ -9,3 +9,11 @@ target-dir = "target"
 # threads): give it room for deep recursion, as X_eTaL's live demo does.
 [target.wasm32-unknown-unknown]
 rustflags = ["-C", "link-arg=-zstack-size=67108864"]
+
+# The pages run X_eTaL-libraries at this repository's own pin
+# (XETAL_LIBRARIES_COMMIT, cloned into work/xetal-libraries): X_eTaL-ML's
+# microscope embeds the library roots named here after its own, a
+# library named here replacing one of the same name (its FM1), so the
+# browser and the command line (scripts/libpath.sh) agree.
+[env]
+MICROSCOPE_LIBS = { value = "work/xetal-libraries/libs", relative = true }

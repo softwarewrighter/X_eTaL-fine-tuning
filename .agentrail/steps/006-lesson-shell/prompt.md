@@ -60,3 +60,11 @@ and 2 exist (extend the glossary; add the depths still missing: a
 worked example, the link to the lesson that teaches it). Everything
 is presentation: no number is computed in Rust (CLAUDE.md rule 3a).
 Every part is written and read against docs/new-eyes.md.
+
+Since X_eTaL-ML's first delivery (pinned 2026-11-05): the heat map of
+item 4 builds on `microscope::heat` (`Matrix`, `heat`, `largest`,
+`column`, `fill`), adding the legend, the scale note, the cell
+inspector and keyboard focus; offer those back as a patch or a further
+ask (docs/xetal-ML-asks.md, FM5). shared/lesson no longer has `libs`
+or `run`: libraries come through MICROSCOPE_LIBS, and a page runs
+programs with `microscope::run`. The header is `lesson::chrome::header`.

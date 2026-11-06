@@ -73,10 +73,11 @@ pub struct Definition {
     pub xref: String,
 }
 
-/// The source of a library, from microscope's store or this repository's.
+/// The source of a library, as microscope embedded it (X_eTaL-ML's own,
+/// and X_eTaL-libraries' at this repository's pin).
 fn library_source(library: &str) -> Option<&'static str> {
     let file = format!("{library}.xtl");
-    microscope::libs::LIBRARIES.iter().chain(crate::libs::LIBRARIES.iter()).find(|(f, _)| *f == file).map(|(_, s)| *s)
+    microscope::libs::LIBRARIES.iter().find(|(f, _)| *f == file).map(|(_, s)| *s)
 }
 
 /// `name` of `library` as the library defines it, or None when the
