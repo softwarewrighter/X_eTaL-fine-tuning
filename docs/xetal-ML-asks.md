@@ -79,3 +79,12 @@ planned: it will judge FM7 when Saga 2 here needs the harness, and
 FM8 to FM10 after each saga's planning step specifies them; they would
 be a saga of its own after its Saga 6, in the order FM7, FM10, FM8,
 FM9), FM11 (filed after its reading; not yet taken).
+
+**Offered back (FM5).** X_eTaL-ML invited the heat map's additions "as
+a patch to it or a further ask". They exist now in
+`shared/lesson/src/heat.rs`, written on `microscope::heat`: a legend
+(`legend`, `key`), a note on whether the scale is shared, cells marked
+as read or written by the step on show, an inspector naming the
+matrix, row, column and value (`inspect`), and one tab stop with the
+arrow keys moving over the cells (`step`). X_eTaL-ML is welcome to
+take any of it; nothing here waits on that.

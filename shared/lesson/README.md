@@ -11,14 +11,19 @@ edited); this crate (`lesson`) is what this repository adds on top.
 | `chrome` | `SITE` and `header(title, lede)`: microscope's header, told whose page it is (`microscope::chrome::Site`); `footer()`, as the sibling repositories' pages have it: copyright, license, GitHub, the way back to the catalog, the cross-reference, the pinned X_eTaL-ML commit and the X_eTaL commit it pins, and the build, compact and without labels (host, short commit, `yyyymmddThhmm`) |
 | `chrome` | `frame(kind, title, body)`: a framing section of a page, of one of six kinds (`Frame`: the question, the background, the rationale, the purpose, the summary, what is next). No page jumps into its subject: `scripts/browser-check.sh` fails one that lacks a kind |
 | `chrome` | `aside(id, summary, body)`: something one reader wants explained and another skips, hidden until its summary is opened; `panel(title, code, note, body)` |
-| `eli5` | every idea explained simply, where the reader asks: `glossary.tsv` (an id, the term, a few plain sentences); prose marked `[shown\|id]` and `**bold**`, drawn by `prose`, `p`, `li`: a marked word is a button that opens its explanation under it (keyboard and touch too); `index(texts)` lists every idea a page links, each closed until opened; `missing(texts)` finds marks naming no idea, for a page's test |
+| `eli5` | every idea explained simply, where the reader asks, at the depths they ask for: `glossary.tsv` (an id, the term, a few plain sentences, and for some a worked example and the lesson that teaches it); `Here`, a context naming the page, so an idea does not point to the lesson it is in; prose marked `[shown\|id]` and `**bold**`, drawn by `prose`, `p`, `li`: a marked word is a button that opens its explanation under it (keyboard and touch too); `index(texts)` lists every idea a page links, each closed until opened; `missing(texts)` finds marks naming no idea, for a page's test |
 | `explain` | a library function from the pinned library's own source: `imports(program)`, `calls(program)`, `definition(library, name)` (its doc comment, its definition, its line, the link to that line on GitHub at the pinned commit, its entry in the cross-reference), `function(alias, d, purpose, reading)` (the aside), `table(program)` (every function a program calls, in the library's words). A page never retypes library code |
 | `code` | X_eTaL drawn as microscope draws it, with every function a link into the cross-reference: `Linker::of(program)` (its imports), `Linker::within(library, source)`, `.code(src)`, `.block(src)`; `builtins(src)` lists the built-in words a program uses, for a page to explain |
+| `mode` | three depths over one computation: `Mode` (Beginner, Explorer, Advanced), `when(mode, depth, body)`, and `Switch`, radio buttons. The mode is the page's state, apart from the experiment's: switching it resets nothing |
+| `heat` | X_eTaL-ML's `microscope::heat` colors with what a lesson needs: `Heat` (a legend, a note on whether the scale is shared, cells marked as read or written by the step on show, an inspector naming the matrix, row, column and value); one tab stop, arrow keys over the cells, a click or tap to pick; `key(scale, shared)` for one legend under a group of maps |
+| `stepper` | a pipeline stepped through from its recorded trace: `trace(line, statement)` reads what `@ flow:s_tages<` printed (each stage's value, shape, text and what it reads); `Stepper` (Start, Back, Play or Pause, Next). Stepping moves a position in the record and runs nothing |
+| `arithmetic` | a sum written out: `numeric` (each factor, each product, the total, all as X_eTaL printed them), `symbolic` (the same in symbols), `show`, `commas`, `list` for numbers; `adds_up` for a page's test |
+| `narrate` | a change in words from measured numbers: `moved`, `count`, `held_out`. They compare and never do arithmetic or call a result better; `forbidden` finds a verdict word, for a test |
+| `predict` | `Predict`: a question answered before the experiment under it is drawn; the right answer is given by the page from its run |
 
-Still to come (the plan's teaching shell): the stepper over a recorded trace, heat maps with a legend
-and a cell inspector, a cell's arithmetic written out, the narrator of
-changes, prediction questions, the Beginner, Explorer and Advanced
-switch.
+Every part is shown working on one run at
+[`demos/shell-gallery`](../../demos/shell-gallery/README.md), a page for
+reviewing them (built and tested, not listed in the catalog).
 
 ## Libraries, and whose page it is
 

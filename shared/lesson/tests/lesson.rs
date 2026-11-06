@@ -90,10 +90,20 @@ fn the_glossary_is_well_formed() {
         let words = c.simply.split_whitespace().count();
         assert!((15..=75).contains(&words), "{}: {words} words", c.id);
     }
-    // Every line of the file is an idea or a comment: three fields.
+    // Every line of the file is an idea or a comment: three fields, or
+    // five with a worked example and the lesson that teaches it.
     for l in include_str!("../glossary.tsv").lines().filter(|l| !l.starts_with('#')) {
-        assert_eq!(l.split('\t').count(), 3, "{l}");
+        assert!([3, 5].contains(&l.split('\t').count()), "{l}");
     }
+    // A lesson named is one of this repository's demos.
+    let demos = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../demos");
+    for c in all.iter().filter(|c| !c.lesson.is_empty()) {
+        assert!(demos.join(c.lesson).join("demo.toml").is_file(), "{}: no lesson {}", c.id, c.lesson);
+    }
+    // The worked example of a table times a list is X_eTaL's arithmetic.
+    let times = all.iter().find(|c| c.id == "times").unwrap();
+    assert!(times.example.contains("(12, 34)"), "{}", times.example);
+    assert_eq!(output("(2 2 r_eshape 1 2 3 4) '+ '* i_nner 10 1\n", 1).unwrap(), ["12 34"]);
 }
 
 #[test]
@@ -197,4 +207,141 @@ fn a_library_delivery_taken_by_the_pin_reaches_the_pages() {
     let src = "\"e:\" u_se< \"Equations\"\n\"y[i] | N\" e:t_exSymbols< \"(sum j:=0..M-1 | W[i,j] * x[j]) + b[i]\"\n";
     let want = r"\htmlClass{sym sym-y}{y_{i}} = \left(\sum_{j=0}^{\htmlClass{sym sym-M}{M} - 1} \htmlClass{sym sym-W}{W_{i,j}} \, \htmlClass{sym sym-x}{x_{j}}\right) + \htmlClass{sym sym-b}{b_{i}}";
     assert_eq!(output(src, 1).unwrap(), [want]);
+}
+
+// The teaching shell's parts (docs/plan.md, F5): presentation only.
+
+#[test]
+fn a_mode_shows_all_that_the_one_before_it_shows() {
+    use lesson::mode::Mode;
+    assert!(Mode::Beginner < Mode::Explorer && Mode::Explorer < Mode::Advanced);
+    assert!(Mode::Beginner.shows(Mode::Beginner) && !Mode::Beginner.shows(Mode::Explorer) && !Mode::Beginner.shows(Mode::Advanced));
+    assert!(Mode::Explorer.shows(Mode::Explorer) && !Mode::Explorer.shows(Mode::Advanced));
+    assert!(Mode::ALL.iter().all(|m| Mode::Advanced.shows(*m)));
+    let labels: Vec<&str> = Mode::ALL.iter().map(|m| m.label()).collect();
+    assert_eq!(labels, ["Beginner", "Explorer", "Advanced"]);
+    assert!(Mode::ALL.iter().all(|m| m.about().len() > 20));
+}
+
+#[test]
+fn a_sum_is_written_out_from_the_numbers_given() {
+    use lesson::arithmetic::{adds_up, commas, in_symbols, list, show, written};
+    assert_eq!(show(3.5), "3.5");
+    assert_eq!(show(7.0), "7");
+    assert_eq!(show(-0.0000001), "0");
+    assert_eq!(show(0.6442176872), "0.644218");
+    assert_eq!(commas(16_777_216), "16,777,216");
+    assert_eq!(commas(8), "8");
+    assert_eq!(list(&[7.0, 0.0, -7.0, 3.5]), "7, 0, -7, 3.5");
+    // It writes what it is given: the products and the total are X_eTaL's.
+    assert_eq!(written("A x", &[0.5, -0.5], &[1.0, 2.0], &[0.5, -1.0], -0.5), "A x = 0.5 \u{00d7} 1 + -0.5 \u{00d7} 2 = 0.5 + -1 = -0.5");
+    assert_eq!(in_symbols("y", "W", "x", 2, 3), "y(2) = W(2,1) \u{00d7} x(1) + W(2,2) \u{00d7} x(2) + W(2,3) \u{00d7} x(3)");
+    assert!(adds_up(&[0.5, -1.0, 3.0, 1.0], 3.5, 1e-12) && !adds_up(&[0.5, -1.0], 3.5, 1e-12));
+}
+
+#[test]
+fn a_change_is_said_from_its_measurements_without_a_verdict() {
+    use lesson::narrate::{count, forbidden, held_out, moved};
+    assert_eq!(moved("The loss", 0.184, 0.171), "The loss fell from 0.184 to 0.171");
+    assert_eq!(moved("The loss", 0.1, 0.25), "The loss rose from 0.1 to 0.25");
+    assert_eq!(moved("The loss", 0.1, 0.1), "The loss stayed at 0.1");
+    assert_eq!(count("The numbers trained", 32, 64, Some((64, "the table itself"))), "The numbers trained went from 32 to 64, as many as the 64 of the table itself");
+    assert_eq!(count("The numbers trained", 64, 128, Some((64, "the table itself"))), "The numbers trained went from 64 to 128, more than the 64 of the table itself");
+    assert_eq!(count("The numbers trained", 16, 32, Some((64, "the table itself"))), "The numbers trained went from 16 to 32, fewer than the 64 of the table itself");
+    assert_eq!(count("The numbers trained", 131_072, 131_072, None), "The numbers trained stayed at 131,072");
+    let over = held_out((0.2, 0.05), (0.3, 0.4));
+    assert!(over.contains("may be memorizing") && over.contains("fell from 0.2 to 0.05") && over.contains("rose from 0.3 to 0.4"), "{over}");
+    let fine = held_out((0.2, 0.05), (0.3, 0.1));
+    assert!(fine.contains("Both fell"), "{fine}");
+    // No narration judges: every sentence these can make is free of the words.
+    for text in [over, fine, held_out((0.2, 0.3), (0.3, 0.4)), held_out((0.2, 0.1), (0.3, 0.3)), moved("x", 1.0, 2.0), count("n", 1, 2, Some((2, "t")))] {
+        assert_eq!(forbidden(&text), Vec::<&str>::new(), "{text}");
+    }
+    assert_eq!(forbidden("Higher rank is always better."), ["better", "always"]);
+}
+
+#[test]
+fn a_prediction_is_answered_with_what_the_run_gives() {
+    use lesson::predict::verdict;
+    use yew::AttrValue;
+    let choices = [AttrValue::from("y is unchanged"), AttrValue::from("y is zero")];
+    assert_eq!(verdict(Some(0), 0, &choices), "You predicted: y is unchanged. The run bears that out.");
+    assert_eq!(verdict(Some(1), 0, &choices), "You predicted: y is zero. The run gives: y is unchanged.");
+    assert_eq!(verdict(None, 0, &choices), "The run gives: y is unchanged.");
+}
+
+#[test]
+fn a_heat_maps_cells_legend_and_keys() {
+    use lesson::heat::{fill, inspect, legend, scale_note, step, Matrix};
+    let m = Matrix { rows: 2, cols: 3, items: vec![0.5, -0.25, 0.0, 1.0, 2.0, -3.0] };
+    assert_eq!(inspect("W", &m, 0), "W, row 1, column 1: 0.5 (positive, so red)");
+    assert_eq!(inspect("W", &m, 5), "W, row 2, column 3: -3 (negative, so blue)");
+    assert_eq!(inspect("W", &m, 2), "W, row 1, column 3: 0 (zero, so white)");
+    assert_eq!(inspect("x", &Matrix { rows: 3, cols: 1, items: vec![1.0, 2.0, 3.0] }, 1), "x, number 2: 2 (positive, so red)");
+    assert_eq!(inspect("A", &Matrix { rows: 1, cols: 2, items: vec![1.0, -2.0] }, 1), "A, number 2: -2 (negative, so blue)");
+    // The legend runs from -scale to +scale in the map's own colors.
+    let l = legend(3.0);
+    assert_eq!(l.iter().map(|(v, _)| *v).collect::<Vec<_>>(), [-3.0, -1.5, 0.0, 1.5, 3.0]);
+    assert_eq!(l[4].1, fill(3.0, 3.0));
+    assert_ne!(l[0].1, l[4].1);
+    assert_ne!(scale_note(true), scale_note(false));
+    // The arrow keys stay inside the grid.
+    assert_eq!(step(0, 2, 3, "ArrowRight"), 1);
+    assert_eq!(step(2, 2, 3, "ArrowRight"), 2);
+    assert_eq!(step(1, 2, 3, "ArrowDown"), 4);
+    assert_eq!(step(4, 2, 3, "ArrowDown"), 4);
+    assert_eq!(step(4, 2, 3, "ArrowUp"), 1);
+    assert_eq!(step(0, 2, 3, "ArrowLeft"), 0);
+    assert_eq!(step(4, 2, 3, "Home"), 3);
+    assert_eq!(step(3, 2, 3, "End"), 5);
+    assert_eq!(step(3, 2, 3, "a"), 3);
+}
+
+#[test]
+fn a_pipelines_run_is_its_trace_and_stepping_changes_nothing() {
+    use lesson::stepper::{next, previous, trace};
+    // demos/lora-hello's layer as a Flow pipeline; the trace is what
+    // flow:s_tages< prints for it, from one run.
+    let statement = "y := @ flow:p_ipe< c#\"\n   X $x\n|> \"h[k] | 1\" e:e_q< \"sum j:=0..3 | A[k,j] * x[j]\" $h\n|> \"u[i] | 4\" e:e_q< \"sum k:=0..0 | B[i,k] * h[k]\" $u\n|> \"y[i] | 4\" e:e_q< \"(sum j:=0..3 | W[i,j] * x[j]) + s * u[i]\"\"#";
+    let pipe = &statement[statement.find("c#").unwrap()..];
+    let program = format!(
+        "\"e:\" u_se< \"Equations\"\n\"flow:\" u_se< \"Flow\"\nW := 4 4 r_eshape s_in 0.7 * f_loat r_ange 16\nA := 1 4 r_eshape 0.5 -0.5 1.0 0.25\nB := 4 1 r_eshape 1.0 0.0 -1.0 0.5\nX := 1.0 2.0 3.0 4.0\ns := 2.0\n@ flow:s_tages< {pipe}\n"
+    );
+    let line = output(&program, 1).unwrap().remove(0);
+    let t = trace(&line, statement).unwrap();
+    assert_eq!(t.stages.len(), 4);
+    assert_eq!(t.stages.iter().map(|s| s.label.as_str()).collect::<Vec<_>>(), ["x", "h", "u", ""]);
+    assert_eq!(t.stages[0].items, [1.0, 2.0, 3.0, 4.0]);
+    assert_eq!(t.stages[1].items, [3.5]);
+    assert_eq!(t.stages[2].items, [3.5, 0.0, -3.5, 1.75]);
+    assert_eq!(t.stages[3].shape, [4]);
+    // What each stage reads, by Flow's rule: h reads x; u reads h; y reads x and u.
+    assert_eq!(t.stages.iter().map(|s| s.reads.clone()).collect::<Vec<_>>(), [vec![], vec![1], vec![2], vec![1, 3]]);
+    assert!(t.stages[1].text.starts_with("\"h[k] | 1\" e:e_q<"), "{}", t.stages[1].text);
+    // Stepping is a position in the record: it stays inside it, and the record is the same after.
+    let before = t.clone();
+    assert_eq!((next(0, 4), next(3, 4), previous(0), previous(3)), (1, 3, 0, 2));
+    assert_eq!(t, before);
+    // A record that does not match its pipeline is refused.
+    assert!(trace("1;x;4;1.0;4.0;1.0 2.0 3.0 4.0", statement).is_err());
+}
+
+#[test]
+fn a_macro_is_explained_and_linked_as_a_function_is() {
+    use lesson::code::Linker;
+    use lesson::explain::{calls, definition};
+    use xetal_play::Class;
+    // A macro library's export is `m:name< := ` in Name.xtlm.
+    let program = "\"flow:\" u_se< \"Flow\"\n\"e:\" u_se< \"Equations\"\ny := @ flow:p_ipe< c\"X |> 2 * it\"\n";
+    assert_eq!(calls(program), [("Flow".to_string(), "p_ipe".to_string())]);
+    let d = definition("Flow", "p_ipe").unwrap();
+    assert!(d.source.starts_with("m:p_ipe< := "), "{}", d.source);
+    assert!(d.source_url.contains("/X_eTaL-ML/blob/") && d.source_url.contains("/libs/Flow/src/Flow.xtlm#L"), "{}", d.source_url);
+    assert_eq!(d.xref, "../doc/work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.p_ipe-3c");
+    // Equations has functions and macros: each is found in its own file.
+    assert!(definition("Equations", "e_q").unwrap().source_url.contains("/X_eTaL-libraries/blob/"));
+    assert!(definition("Equations", "e_q").unwrap().xref.ends_with("Equations.xtlm.html#m.e_q-3c"));
+    let l = Linker::of(program);
+    assert_eq!(l.href(Class::Macro, "flow:p_ipe<").unwrap(), "../doc/work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.p_ipe-3c");
+    assert_eq!(l.href(Class::Macro, "e:e_q<").unwrap(), "../doc/work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c");
 }

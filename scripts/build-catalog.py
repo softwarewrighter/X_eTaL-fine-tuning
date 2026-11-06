@@ -256,6 +256,8 @@ def main():
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "pages" / "index.html"
     demos = json.loads(subprocess.run([sys.executable, str(ROOT / "scripts" / "demos.py"), "json"],
                                       capture_output=True, text=True, check=True).stdout)
+    # A page built and tested but not listed (catalog = false): the shell's gallery.
+    demos = [m for m in demos if m.get("catalog", True)]
     mlsha = (ROOT / "XETAL_ML_COMMIT").read_text().strip()
     libsha = (ROOT / "XETAL_LIBRARIES_COMMIT").read_text().strip()
     pinned = ROOT / "work" / "xetal-ml" / "XETAL_COMMIT"

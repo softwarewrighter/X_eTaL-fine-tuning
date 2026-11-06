@@ -25,8 +25,10 @@ FIELDS = {"slug": str, "title": str, "summary": str, "concepts": list,
           "status": str, "order": int, "needs": list,
           "track": str, "lesson": int}
 # Optional: the demo's key line of X_eTaL and why it is one expression
-# (the catalog card shows both, the line rendered by xetal).
-OPTIONAL = {"line": str, "why": str}
+# (the catalog card shows both, the line rendered by xetal); and
+# `catalog = false` for a page that is built and tested but not listed
+# among the lessons (the gallery of the shell's parts).
+OPTIONAL = {"line": str, "why": str, "catalog": bool}
 
 
 def demo_dirs():

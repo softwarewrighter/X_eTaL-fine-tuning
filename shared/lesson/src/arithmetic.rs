@@ -1,0 +1,64 @@
+//! Arithmetic written out, so no number on a page appears from nowhere:
+//! one cell of a product as a sum in symbols, then with the run's
+//! numbers. Presentation only: the products and the total are the ones
+//! X_eTaL printed; nothing here multiplies or adds for the page (the
+//! check that they add up is for tests).
+
+use yew::prelude::*;
+
+/// A number as a page shows it: six decimals at most, no trailing zeros.
+pub fn show(v: f64) -> String {
+    let s = format!("{v:.6}");
+    let s = s.trim_end_matches('0').trim_end_matches('.');
+    if s == "-0" { "0".into() } else { s.to_string() }
+}
+
+/// A count with commas between its thousands.
+pub fn commas(n: usize) -> String {
+    let digits = n.to_string();
+    let mut out = String::new();
+    for (i, c) in digits.chars().enumerate() {
+        if i > 0 && (digits.len() - i) % 3 == 0 {
+            out.push(',');
+        }
+        out.push(c);
+    }
+    out
+}
+
+/// Numbers in a row, with commas between.
+pub fn list(v: &[f64]) -> String {
+    v.iter().map(|x| show(*x)).collect::<Vec<_>>().join(", ")
+}
+
+/// The sum as text: `a1 x b1 + a2 x b2 + ... = p1 + p2 + ... = total`,
+/// the factors, the products and the total all as given.
+pub fn written(name: &str, a: &[f64], b: &[f64], products: &[f64], total: f64) -> String {
+    let terms: Vec<String> = a.iter().zip(b).map(|(a, b)| format!("{} \u{00d7} {}", show(*a), show(*b))).collect();
+    let sums: Vec<String> = products.iter().map(|v| show(*v)).collect();
+    format!("{name} = {} = {} = {}", terms.join(" + "), sums.join(" + "), show(total))
+}
+
+/// A sum written out with its numbers, as a line of a page.
+pub fn numeric(name: &str, a: &[f64], b: &[f64], products: &[f64], total: f64) -> Html {
+    html! { <p class="worked">{ written(name, a, b, products, total) }</p> }
+}
+
+/// The same sum in symbols, for one row of a table times a list:
+/// `y(row) = W(row,1) x(1) + W(row,2) x(2) + ...`, rows and columns
+/// counted from 1 as the page's tables label them.
+pub fn in_symbols(result: &str, table: &str, list: &str, row: usize, n: usize) -> String {
+    let terms: Vec<String> = (1..=n).map(|j| format!("{table}({row},{j}) \u{00d7} {list}({j})")).collect();
+    format!("{result}({row}) = {}", terms.join(" + "))
+}
+
+/// The sum in symbols, as a line of a page.
+pub fn symbolic(result: &str, table: &str, list: &str, row: usize, n: usize) -> Html {
+    html! { <p class="worked symbols">{ in_symbols(result, table, list, row, n) }</p> }
+}
+
+/// Whether the products add up to the total, within `tolerance`: for a
+/// page's test, that what it writes out is what X_eTaL computed.
+pub fn adds_up(products: &[f64], total: f64, tolerance: f64) -> bool {
+    (products.iter().sum::<f64>() - total).abs() <= tolerance
+}

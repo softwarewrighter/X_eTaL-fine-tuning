@@ -1,0 +1,6 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.sh).
+Step 1 of 4
+The input, x: a list of 4 numbers.
+row 1 of W, times x = 0.644218 × 1 + 0.98545 × 2 + 0.863209 × 3 + 0.334988 × 4 = 0.644218 + 1.970899 + 2.589628 + 1.339953 = 6.544698
+Raise the rank of the adapter from 1 to 2: the numbers it trains went from 8 to 16, as many as the 16 of the table itself.
+Predict first:

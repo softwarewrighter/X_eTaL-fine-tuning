@@ -3,8 +3,9 @@
 //! explain each concept"; the pages are for beginners who know neither
 //! machine learning nor X_eTaL).
 //!
-//! `glossary.tsv` holds the ideas: an id, the term, a plain
-//! explanation. A page writes its prose with marks: `[shown|id]` makes
+//! `glossary.tsv` holds the ideas, each at the depths a reader may ask
+//! for: an id, the term, a plain explanation, and for some a worked
+//! example (closed until opened) and the lesson that teaches it. A page writes its prose with marks: `[shown|id]` makes
 //! `shown` a link that opens the explanation of `id` under it, and
 //! `**words**` is bold. `prose` draws it; `index` lists every idea a
 //! page links, each a section closed until opened; `missing` finds
@@ -12,12 +13,17 @@
 
 use yew::prelude::*;
 
-/// One idea: its id, the term as a heading, and the explanation.
+/// One idea, at the depths a reader may ask for: its id, the term as a
+/// heading, the explanation in a few plain sentences, a worked example
+/// ("" when it has none), and the lesson that teaches it (its slug, or
+/// "").
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Concept {
     pub id: &'static str,
     pub term: &'static str,
     pub simply: &'static str,
+    pub example: &'static str,
+    pub lesson: &'static str,
 }
 
 const GLOSSARY: &str = include_str!("../glossary.tsv");
@@ -29,7 +35,7 @@ pub fn concepts() -> Vec<Concept> {
         .filter(|l| !l.starts_with('#') && !l.trim().is_empty())
         .filter_map(|l| {
             let mut f = l.split('\t');
-            Some(Concept { id: f.next()?, term: f.next()?, simply: f.next()? })
+            Some(Concept { id: f.next()?, term: f.next()?, simply: f.next()?, example: f.next().unwrap_or(""), lesson: f.next().unwrap_or("") })
         })
         .collect()
 }
@@ -105,6 +111,20 @@ pub fn missing(texts: &[&str]) -> Vec<String> {
     used(texts).into_iter().filter(|id| concept(id).is_none()).collect()
 }
 
+/// The page a reader is on (its lesson's slug), given by a page as a
+/// context, so an idea does not point to the lesson it is already in.
+#[derive(Clone, Debug, PartialEq)]
+pub struct Here(pub AttrValue);
+
+/// The deeper levels of an idea, under its explanation: a worked
+/// example, closed until opened, and the lesson that teaches it.
+fn deeper(c: &Concept, here: Option<&Here>) -> Html {
+    let example = (!c.example.is_empty()).then(|| html! { <details class="example"><summary>{"A worked example"}</summary><span>{ c.example }</span></details> });
+    let elsewhere = !c.lesson.is_empty() && here.is_none_or(|h| h.0 != c.lesson);
+    let lesson = elsewhere.then(|| html! { <span class="taught">{"Taught in "}<a href={format!("../{}/", c.lesson)}>{ format!("the lesson {}", c.lesson) }</a>{"."}</span> });
+    html! { <>{ for example }{ for lesson }</> }
+}
+
 #[derive(Properties, PartialEq)]
 pub struct TermProps {
     pub id: AttrValue,
@@ -117,6 +137,7 @@ pub struct TermProps {
 #[function_component(Term)]
 pub fn term(props: &TermProps) -> Html {
     let open = use_state(|| false);
+    let here = use_context::<Here>();
     let Some(c) = concept(&props.id) else {
         return html! { {props.shown.clone()} };
     };
@@ -124,7 +145,7 @@ pub fn term(props: &TermProps) -> Html {
     html! { <>
         <button type="button" class={classes!("term", open.then_some("open"))} aria-expanded={open.to_string()} title="Explain this simply" {onclick}>{props.shown.clone()}</button>
         if *open {
-            <span class="eli5" role="note"><b>{c.term}{": "}</b>{c.simply}</span>
+            <span class="eli5" role="note"><b>{c.term}{": "}</b>{c.simply}{ deeper(&c, here.as_ref()) }</span>
         }
     </> }
 }
@@ -155,7 +176,7 @@ pub fn li(text: &str) -> Html {
 /// place to look a word up, and the whole of what the page explains.
 pub fn index(texts: &[&str]) -> Html {
     let items = used(texts).into_iter().filter_map(|id| concept(&id)).map(|c| {
-        html! { <details class="idea" id={format!("idea-{}", c.id)}><summary>{c.term}</summary><p>{c.simply}</p></details> }
+        html! { <details class="idea" id={format!("idea-{}", c.id)}><summary>{c.term}</summary><p>{c.simply}</p>{ deeper(&c, None) }</details> }
     });
     html! { <div class="ideas">{ for items }</div> }
 }

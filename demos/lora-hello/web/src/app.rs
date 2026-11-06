@@ -14,45 +14,14 @@
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 
+use lesson::arithmetic::{commas, list, numeric, show};
 use lesson::chrome::{footer, frame, header, Frame};
 use lesson::code::Linker;
-use lesson::eli5::{index, li, p, prose};
+use lesson::eli5::{index, li, p, prose, Here};
 use lesson::explain::{definition, function, imports, table};
 
 use crate::micro::{line, program, run, Hello, Settings, PROGRAM};
 use crate::text;
-
-/// A number as the page shows it: six decimals at most, no trailing zeros.
-fn show(v: f64) -> String {
-    let s = format!("{v:.6}");
-    let s = s.trim_end_matches('0').trim_end_matches('.');
-    if s == "-0" { "0".into() } else { s.to_string() }
-}
-
-/// A count with commas between its thousands.
-fn commas(n: usize) -> String {
-    let digits = n.to_string();
-    let mut out = String::new();
-    for (i, c) in digits.chars().enumerate() {
-        if i > 0 && (digits.len() - i) % 3 == 0 {
-            out.push(',');
-        }
-        out.push(c);
-    }
-    out
-}
-
-/// Numbers in a row, with commas.
-fn list(v: &[f64]) -> String {
-    v.iter().map(|x| show(*x)).collect::<Vec<_>>().join(", ")
-}
-
-/// A sum written out: `a1 x b1 + a2 x b2 + ...`, the products, the total.
-fn worked(name: &str, a: &[f64], b: &[f64], products: &[f64], total: f64) -> Html {
-    let terms: Vec<String> = a.iter().zip(b).map(|(a, b)| format!("{} \u{00d7} {}", show(*a), show(*b))).collect();
-    let sums: Vec<String> = products.iter().map(|v| show(*v)).collect();
-    html! { <p class="worked">{ format!("{name} = {} = {} = {}", terms.join(" + "), sums.join(" + "), show(total)) }</p> }
-}
 
 /// A row of numbers under a heading; `against` marks the cells whose
 /// value differs from that row's (the frozen output).
@@ -184,11 +153,11 @@ fn calculation(h: &Hello, s: Settings, controls: Html, linker: &Linker) -> Html 
             { controls }
             { p(text::CALC[1]) }
             { p(text::CALC[2]) }
-            { worked("row 1 of W, times x", &h.w[..4], &s.x, &h.w_row, h.base[0]) }
+            { numeric("row 1 of W, times x", &h.w[..4], &s.x, &h.w_row, h.base[0]) }
             { p(text::CALC[3]) }
             <p class="worked">{ format!("W x = {}", list(&h.base)) }</p>
             { p(text::CALC[4]) }
-            { worked("A x", &h.a, &s.x, &h.products, h.h) }
+            { numeric("A x", &h.a, &s.x, &h.products, h.h) }
             { p(text::CALC[5]) }
             <p class="worked">{ format!("{} \u{00d7} {} = {}", show(h.h), show(h.s), show(h.scaled)) }</p>
             { p(text::CALC[6]) }
@@ -325,7 +294,7 @@ pub fn app() -> Html {
         Ok(h) => html! { <>{ numbers(h) }{ calculation(h, s, controls, &linker) }{ merging(h, &linker) }</> },
     };
     html! {
-        <>
+        <ContextProvider<Here> context={Here("lora-hello".into())}>
         <header>
             { header("LoRA hello", text::LEDE) }
         </header>
@@ -336,6 +305,6 @@ pub fn app() -> Html {
             { reference(s, &linker) }
         </main>
         { footer() }
-        </>
+        </ContextProvider<Here>>
     }
 }

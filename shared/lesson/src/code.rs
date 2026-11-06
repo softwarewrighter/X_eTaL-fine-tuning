@@ -9,7 +9,7 @@
 use xetal_play::{decorate, Class};
 use yew::prelude::*;
 
-use crate::explain::{imports, xref_page};
+use crate::explain::{file_page, imports};
 
 /// The operators that are built-in functions with an entry of their own.
 const OPERATORS: [&str; 13] = ["+", "-", "*", "/", "^", "=", "!=", "<", ">", "<=", ">=", "&", "|"];
@@ -43,23 +43,21 @@ fn css(class: Class) -> &'static str {
 /// libraries it imports (`lo:` for LoRA), each with its library's page.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Linker {
-    /// (the alias with its colon, the library's page in the cross-reference).
+    /// (the alias with its colon, the library it names).
     aliases: Vec<(String, String)>,
 }
 
 impl Linker {
     /// The linker of a program: its imports.
     pub fn of(program: &str) -> Linker {
-        Linker { aliases: imports(program).into_iter().filter_map(|i| Some((i.alias, xref_page(&i.library)?))).collect() }
+        Linker { aliases: imports(program).into_iter().map(|i| (i.alias, i.library)).collect() }
     }
 
     /// The linker of a library's own source: `l:` is the library
     /// itself, and its imports are as it names them.
     pub fn within(library: &str, source: &str) -> Linker {
         let mut l = Linker::of(source);
-        if let Some(page) = xref_page(library) {
-            l.aliases.push(("l:".to_string(), page));
-        }
+        l.aliases.push(("l:".to_string(), library.to_string()));
         l
     }
 
@@ -71,9 +69,15 @@ impl Linker {
             Class::Builtin if raw == "'" => None,
             Class::Builtin => Some(format!("../doc/builtins.html#{}", anchor(raw))),
             Class::Symbol if OPERATORS.contains(&raw) => Some(format!("../doc/builtins.html#{}", anchor(raw))),
+            // A library's function is in its Name.xtl, under l:name.
             Class::LibFunc | Class::UserFunc => {
-                let (alias, page) = self.aliases.iter().find(|(a, _)| raw.starts_with(a.as_str()))?;
-                Some(format!("{page}#l.{}", anchor(&raw[alias.len()..])))
+                let (alias, library) = self.aliases.iter().find(|(a, _)| raw.starts_with(a.as_str()))?;
+                Some(format!("{}#l.{}", file_page(&format!("{library}.xtl"))?, anchor(&raw[alias.len()..])))
+            }
+            // A library's macro (its name ends in <) is in its Name.xtlm, under m:name<.
+            Class::Macro => {
+                let (alias, library) = self.aliases.iter().find(|(a, _)| raw.starts_with(a.as_str()))?;
+                Some(format!("{}#m.{}", file_page(&format!("{library}.xtlm"))?, anchor(&raw[alias.len()..])))
             }
             _ => None,
         }

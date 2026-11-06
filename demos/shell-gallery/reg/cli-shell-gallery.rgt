@@ -1,0 +1,3 @@
+command = '"$XETAL" run --seed 1 --draw "$XETAL_DRAW" shell-gallery.xtl'
+exit_code = 0
+desc = "shell-gallery: shell-gallery.xtl run by the pinned xetal CLI"

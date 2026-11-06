@@ -109,6 +109,12 @@ Live: [the catalog](https://softwarewrighter.github.io/X_eTaL-fine-tuning/).
 
 ![LoRA hello](demos/lora-hello/screenshot.png)
 
+The parts the lessons are built from (words that open, a question
+first, a stepper, heat maps, a sum written out, a change in words,
+three depths) can be looked over on one page, which is not a lesson:
+[the shell gallery](demos/shell-gallery/README.md)
+([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/shell-gallery/)).
+
 The lessons to come, in order ([`docs/plan.md`](docs/plan.md)):
 
 | Lesson | What you will do |
@@ -142,8 +148,8 @@ every algorithm and every number shown is X_eTaL's.## Status
 
 | | |
 | - | - |
-| Now | the build machinery (one pin, the gate, the live site) and a first demo, LoRA hello, at the command line and live, on X_eTaL-ML's LoRA library. No lesson and no library of this repository yet |
-| Next | the shared teaching shell (glossary and tooltips, stepper, heat maps, the narrator of changes), then the LoRA lab |
+| Now | the build machinery (a pin for each sibling asked of, the gate, the live site), the first lesson, LoRA hello, and the teaching shell every lesson is built from, shown on its gallery page |
+| Next | the LoRA lab: the forward pass stepped through, every cell's arithmetic, the equation's symbols selectable; then LoRA training |
 | Asks | this repository defines no functions of its own; what the lessons need from the others is asked for: [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md), [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md), [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md). No step of the present saga is blocked; the LoRA variations wait on X_eTaL-ML. Nothing is asked of the language |
 
 ## Build

@@ -1,0 +1,15 @@
+[package]
+name = "shell-gallery-web"
+description = "Shell gallery: the parts every lesson is built from (shared/lesson), each shown working on one small pipeline's recorded trace"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

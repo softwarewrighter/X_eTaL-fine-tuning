@@ -1,0 +1,3 @@
+command = "scripts/browser-check.sh shell-gallery"
+exit_code = 0
+desc = "shell-gallery: the built page run in headless Chrome shows X_eTaL's results"

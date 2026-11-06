@@ -12,5 +12,7 @@ microscope = { path = "../../work/xetal-ml/shared/microscope" }
 # X_eTaL's own drawing of source (the same crate microscope draws with).
 xetal-play = { path = "../../work/xetal-ml/work/xetal/components/web/crates/xetal-play" }
 yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["KeyboardEvent"] }
+gloo-timers = "0.3"
 
 [workspace]

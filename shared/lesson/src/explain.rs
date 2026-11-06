@@ -73,20 +73,33 @@ pub struct Definition {
     pub xref: String,
 }
 
-/// The source of a library, as microscope embedded it (X_eTaL-ML's own,
-/// and X_eTaL-libraries' at this repository's pin).
-fn library_source(library: &str) -> Option<&'static str> {
-    let file = format!("{library}.xtl");
+/// A library file's source (`Name.xtl`, its functions, or `Name.xtlm`,
+/// its macros), as microscope embedded it (X_eTaL-ML's own, and
+/// X_eTaL-libraries' at this repository's pin).
+fn file_source(file: &str) -> Option<&'static str> {
     microscope::libs::LIBRARIES.iter().find(|(f, _)| *f == file).map(|(_, s)| *s)
 }
 
+/// The source of a library: its functions, or its macros when it has
+/// only those.
+fn library_source(library: &str) -> Option<&'static str> {
+    file_source(&format!("{library}.xtl")).or_else(|| file_source(&format!("{library}.xtlm")))
+}
+
 /// `name` of `library` as the library defines it, or None when the
-/// library or the function is not found.
+/// library or the name is not found: a function (`l:name := ` in
+/// `Name.xtl`), or a macro (`m:name< := ` in `Name.xtlm`).
 pub fn definition(library: &str, name: &str) -> Option<Definition> {
-    let text = library_source(library)?;
+    defined(library, name, &format!("{library}.xtl"), &format!("l:{name} := "), &format!("l:{name}"))
+        .or_else(|| defined(library, name, &format!("{library}.xtlm"), &format!("m:{name}< := "), &format!("m:{name}<")))
+}
+
+/// The definition starting with `start` in the library's `file`, its
+/// entry in the cross-reference being `id`.
+fn defined(library: &str, name: &str, file: &str, start: &str, id: &str) -> Option<Definition> {
+    let text = file_source(file)?;
     let lines: Vec<&str> = text.lines().collect();
-    let start = format!("l:{name} := ");
-    let at = lines.iter().position(|l| l.starts_with(&start))?;
+    let at = lines.iter().position(|l| l.starts_with(start))?;
     let end = (at + 1..lines.len()).find(|&i| lines[i].trim().is_empty() || lines[i].starts_with("##")).unwrap_or(lines.len());
     let first = (0..at).rev().take_while(|&i| lines[i].starts_with("##") && !lines[i].starts_with("###")).last().unwrap_or(at);
     let doc: Vec<&str> = lines[first..at]
@@ -94,7 +107,6 @@ pub fn definition(library: &str, name: &str) -> Option<Definition> {
         .map(|l| l.trim_start_matches('#').trim())
         .take_while(|l| !l.starts_with(">>"))
         .collect();
-    let file = format!("{library}.xtl");
     let (kind, path) = ORIGINS.iter().find(|(f, _, _)| *f == file).map(|(_, k, p)| (*k, *p))?;
     let line = at + 1;
     let (repo, commit) = match kind {
@@ -109,14 +121,19 @@ pub fn definition(library: &str, name: &str) -> Option<Definition> {
         source: lines[at..end].join("\n"),
         line,
         source_url: format!("https://github.com/softwarewrighter/{repo}/blob/{commit}/{path}#L{line}"),
-        xref: format!("{}#l.{}", xref_page(library)?, crate::code::anchor(name)),
+        xref: format!("{}#{}", file_page(file)?, crate::code::anchor(id)),
     })
 }
 
 /// A library's page in this site's cross-reference, from a page of a
-/// demo (`../doc/...`), or None for a library not on the search path.
+/// demo (`../doc/...`), or None for a library not on the search path:
+/// the page of its functions, or of its macros when it has only those.
 pub fn xref_page(library: &str) -> Option<String> {
-    let file = format!("{library}.xtl");
+    file_page(&format!("{library}.xtl")).or_else(|| file_page(&format!("{library}.xtlm")))
+}
+
+/// The page of one library file (`Name.xtl` or `Name.xtlm`).
+pub fn file_page(file: &str) -> Option<String> {
     let (kind, path) = ORIGINS.iter().find(|(f, _, _)| *f == file).map(|(_, k, p)| (*k, *p))?;
     let prefix = match kind {
         "ml" => "work-xetal-ml-",
@@ -128,8 +145,8 @@ pub fn xref_page(library: &str) -> Option<String> {
 
 /// The repository a library lives in, for a sentence: "X_eTaL-ML".
 pub fn home(library: &str) -> &'static str {
-    let file = format!("{library}.xtl");
-    match ORIGINS.iter().find(|(f, _, _)| *f == file).map(|(_, k, _)| *k) {
+    let (functions, macros) = (format!("{library}.xtl"), format!("{library}.xtlm"));
+    match ORIGINS.iter().find(|(f, _, _)| *f == functions || *f == macros).map(|(_, k, _)| *k) {
         Some("ml") => "X_eTaL-ML",
         Some("libraries") => "X_eTaL-libraries",
         _ => "this repository",

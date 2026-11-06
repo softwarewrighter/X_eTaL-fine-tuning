@@ -695,7 +695,9 @@ dependencies = [
 name = "lesson"
 version = "0.1.0"
 dependencies = [
+ "gloo-timers 0.3.0",
  "microscope",
+ "web-sys",
  "xetal-play",
  "yew",
 ]
