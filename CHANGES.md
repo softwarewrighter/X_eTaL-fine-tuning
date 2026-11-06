@@ -13,6 +13,7 @@ archive), `pin` a move of the X_eTaL-ML pin.
 
 ## 2026-11-05
 
+- `chore` saga step ml-delivery-1 closed
 - `build` X_eTaL-ML's first delivery adopted (step ml-delivery-1): the libraries reach the pages through its `MICROSCOPE_LIBS` (`.cargo/config.toml` names work/xetal-libraries/libs), so `shared/lesson` embeds nothing and its `libs` and `run` modules are gone (FM1); the header is its `header_of` with this repository's `Site` (FM2; the footer stays this repository's, for the compact build information); the prompts of rank-and-scaling (`lo:s_calingRs`, FM3) and lesson-shell (`microscope::heat`, FM5). The ledger: FM1, FM2, FM3, FM5 landed and their workarounds removed; FM7 to FM10 not planned there yet (judged when each saga here needs them); DoRA now asked outright. 13 tests
 - `pin` X_eTaL-ML bd178de (its step fine-tuning-asks: FM1, FM2, FM3, FM5), moved alone, the full gate passing
 - `test` LoRA hello's browser check no longer expects the number of a library line (it moves when the library grows); baseline reblessed
