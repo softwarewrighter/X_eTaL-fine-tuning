@@ -9,7 +9,8 @@ use gloo_timers::callback::Timeout;
 use microscope::stages::{inputs, stage_ranges, values};
 use yew::prelude::*;
 
-/// One stage of a pipeline, as its run recorded it.
+/// One stage of a pipeline, as its run recorded it (a stage that
+/// labels a tuple is recorded once per part, each with its own label).
 #[derive(Clone, Debug, PartialEq)]
 pub struct Stage {
     /// Its number, from 1 (the data first).
@@ -36,14 +37,17 @@ pub struct Trace {
 pub fn trace(line: &str, statement: &str) -> Result<Trace, String> {
     let vals = values(line)?;
     let ranges = stage_ranges(statement);
-    if ranges.len() != vals.len() {
-        return Err(format!("the pipeline has {} stages and its run recorded {}", ranges.len(), vals.len()));
+    // A stage records one value, or one per part of a tuple it labels
+    // (`$(W2, A3, B3, s2)`): every stage is recorded, each record is one stage's.
+    let recorded: std::collections::BTreeSet<usize> = vals.iter().map(|v| v.stage).collect();
+    if recorded.len() != ranges.len() || recorded.iter().any(|&n| n == 0 || n > ranges.len()) {
+        return Err(format!("the pipeline has {} stages and its run recorded {}", ranges.len(), recorded.len()));
     }
     let labels: Vec<(usize, String)> = vals.iter().filter(|v| !v.label.is_empty()).map(|v| (v.stage, v.label.clone())).collect();
     let stages = vals
         .into_iter()
-        .zip(ranges)
-        .map(|(v, (from, to))| {
+        .map(|v| {
+            let (from, to) = ranges[v.stage - 1];
             let text = statement[from..to].to_string();
             Stage { number: v.stage, reads: inputs(&text, v.stage, &labels), label: v.label, shape: v.shape, items: v.items, text }
         })

@@ -1,6 +1,6 @@
 number = 9
 slug = "lora-training"
-status = "pending"
+status = "in-progress"
 description = """
 Step lora-training (docs/plan.md, Saga 1 row 4, principle 5;
 docs/research.tx..."""

@@ -1,0 +1,11 @@
+# A preset is the settings of one experiment, as data: the page offers
+# it as a button and a test replays it (the same preset, the same
+# record). The program's own values are this first one's.
+title = "A first training run"
+setup = "An adapter of rank 4 learns from 8 examples at a learning rate of 0.05, 300 steps, the record every 10."
+r = 4
+alpha = 4.0
+lr = 0.05
+n = 8
+chunks = 30
+every = 10

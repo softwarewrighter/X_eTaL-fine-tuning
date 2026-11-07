@@ -1,0 +1,8 @@
+title = "Too few examples, too large a rank"
+setup = "An adapter of rank 8, the largest here, learns from only 3 examples."
+r = 8
+alpha = 4.0
+lr = 0.05
+n = 3
+chunks = 30
+every = 10

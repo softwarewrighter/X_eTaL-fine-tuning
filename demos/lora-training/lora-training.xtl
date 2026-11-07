@@ -1,0 +1,117 @@
+#!/usr/bin/env xetal
+## LoRA training: where the numbers of A and B come from. A frozen 8 x
+## 8 layer W; examples (inputs with the outputs wanted) made by a
+## hidden shift of it, W + T; an adapter that starts as LoRA does, B
+## at 0 and A seeded. One step of training as a pipeline, stage by
+## stage: the prediction, the error (which is the loss's gradient at
+## the output), the gradients of A and B, the update; checked against
+## the library's own step, W untouched. Then training by Adam with a
+## record: the loss on the examples trained on and on examples held
+## out, every few steps, and the adapter at each record, so a page
+## can step back without training again.
+
+"e:" u_se< "Equations"
+"flow:" u_se< "Flow"
+"lo:" u_se< "LoRA"
+"p:" u_se< "Plot"
+
+### Data
+
+## The settings (a preset): the rank, alpha (the strength s is alpha /
+## r), the learning rate, how many of the 12 examples are trained on
+## (the last 4 are always held out), and the record: chunks of every
+## steps.
+r := 4
+alpha := 4.0
+lr := 0.05
+n := 8
+chunks := 30
+every := 10
+## The frozen layer W, by a fixed ripple (the lab's), and the hidden
+## shift T (8 x 8, of rank 4) that the examples come from: the layer
+## W + T is what the adapter is to imitate, without ever seeing T.
+i := f_loat r_ange 64
+W := 8 8 r_eshape s_in 0.7 * i * i
+p := f_loat r_ange 32
+T := (8 4 r_eshape 0.5 * s_in 1.3 * p * p) '+ '* i_nner 4 8 r_eshape 0.5 * c_os 0.6 * p * p
+## 12 inputs of 8 numbers, one per column, by a ripple; the output
+## wanted for each is the shifted layer's. The first n columns are
+## trained on, the last 4 held out: never trained on, only measured.
+c := f_loat r_ange 96
+X := 8 12 r_eshape c_os 0.4 * c + 0.05 * c * c
+Y := (W + T) '+ '* i_nner X
+Xt := n t_ake_2 X
+Yt := n t_ake_2 Y
+Xh := -4 t_ake_2 X
+Yh := -4 t_ake_2 Y
+## The adapter as LoRA starts it: B all 0, so the correction is 0 and
+## the layer gives exactly W's output; A seeded (fixed, no chance).
+s := alpha lo:s_caling r
+q := r - 1
+A := 1 lo:s_eeded r c_at 8
+B := (8 c_at r) r_eshape 0.0
+a0 := (W, A, B, s)
+## The task's tables, for the page: W, T, the inputs and the outputs
+## wanted (by rows).
+r_avel W
+r_avel T
+r_avel X
+r_avel Y
+
+### One step of training
+
+## One step of gradient descent on the n examples trained on, a stage
+## at a time. The prediction p (the layer as it is: W x plus the
+## correction, 0 at the start); the error g = p - y, which is also the
+## loss's gradient at the output (the loss is half the sum of the
+## squared errors, lo:l_oss); the error carried back through B, b =
+## B' g; the gradients of A and B, each a sum over the examples; the
+## update, A and B moved against their gradients by the learning
+## rate. W is not in the update: the step gives it back as it was,
+## as the adapter after the step, (W2, A3, B3, s2).
+step := @ flow:p_ipe< c#"
+   Xt $x
+|> "h[k,m] | r n" e:e_q< "sum j:=0..7 | A[k,j] * x[j,m]" $h
+|> "u[i,m] | 8 n" e:e_q< "sum k:=0..q | B[i,k] * h[k,m]" $u
+|> "p[i,m] | 8 n" e:e_q< "(sum j:=0..7 | W[i,j] * x[j,m]) + s * u[i,m]" $p
+|> "g[i,m] | 8 n" e:e_q< "p[i,m] - Yt[i,m]" $g
+|> "b[k,m] | r n" e:e_q< "sum i:=0..7 | B[i,k] * g[i,m]" $b
+|> "dA[k,j] | r 8" e:e_q< "sum m:=0..n-1 | s * b[k,m] * x[j,m]" $dA
+|> "dB[i,k] | 8 r" e:e_q< "sum m:=0..n-1 | s * g[i,m] * h[k,m]" $dB
+|> "A2[k,j] | r 8" e:e_q< "A[k,j] - lr * dA[k,j]" $A2
+|> "B2[i,k] | 8 r" e:e_q< "B[i,k] - lr * dB[i,k]" $B2
+|> (W, A2, B2, s) $(W2, A3, B3, s2)"#
+## The loss before the step and after it, on the examples trained on,
+## per example (lo:l_oss gives the sum over the examples; dividing by
+## their number makes the loss on n examples comparable with the loss
+## on the 4 held out).
+(a0 lo:l_oss (Xt, Yt)) / f_loat n
+(step lo:l_oss (Xt, Yt)) / f_loat n
+## The library's own step (lo:s_gd) from the same start: how far the
+## pipeline's A and B are from its (0 to rounding), and how far its W
+## is from W (exactly 0: the step does not touch it).
+(Ws, As, Bs, _) := lr lo:s_gd (a0, (Xt, Yt))
+(W2, A2, B2, _) := step
+'m_ax r_/ (r_avel a_bs A2 - As) c_at r_avel a_bs B2 - Bs
+'m_ax r_/ r_avel a_bs (W2 - W) c_at Ws - W
+
+### Training
+
+## Training by Adam (lo:a_dam), chunks times every steps, with a
+## record after each chunk: the loss per example on the examples
+## trained on, the same on the held-out ones, and A, B and the
+## correction s B A as they are then (flattened, one record after
+## another), the start recorded first.
+(_, lossT, lossH, recA, recB, recD) := chunks '{ (z, lt, lh, ra, rb, rd) ->
+  z2 := every '{ e -> lr lo:a_dam (e, (Xt, Yt)) } p_ower z
+  (a, _, _) := z2
+  (_, a2, b2, _) := a
+  (z2, lt c_at (a lo:l_oss (Xt, Yt)) / f_loat n, lh c_at (a lo:l_oss (Xh, Yh)) / 4.0, ra c_at r_avel a2, rb c_at r_avel b2, rd c_at r_avel lo:d_elta (a2, b2, s))
+} p_ower (lo:a_damStart a0, (a0 lo:l_oss (Xt, Yt)) / f_loat n, (a0 lo:l_oss (Xh, Yh)) / 4.0, r_avel A, r_avel B, r_avel lo:d_elta (A, B, s))
+lossT
+lossH
+recA
+recB
+recD
+## The two losses as one chart, a record a point.
+_ := ("Training" "record" "loss per example" "trained on" "held out") p:c_hart! '{ k -> k s_elect (2 c_at chunks + 1) r_eshape lossT c_at lossH } m_ap r_ange 2

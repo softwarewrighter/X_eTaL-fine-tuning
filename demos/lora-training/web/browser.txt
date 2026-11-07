@@ -1,0 +1,24 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+Stage 1 of 6
+Stage 1 of 6, the prediction.
+A first training run
+rank 4, alpha 4, learning rate 0.05, 8 examples trained on and 4 held out, 300 steps, a record every 10.
+At record 30, after 300 steps: the loss per example is
+The loss on the examples trained on fell from
+html: <svg
+# The overfitting experiment, Advanced, stage 5 (the update), record 3:
+# what a reader reaches by picking an experiment, stepping and moving
+# the record.
+@ ?mode=advanced&preset=2&stage=5&record=3
+Stage 5 of 6, the update.
+Too few examples, too large a rank
+3 examples trained on and 4 held out
+At record 3, after 30 steps
+The held-out loss ended higher than it started
+The step as mathematics
+html: class="katex"
+The library functions the program uses
+# Too large a learning rate: the trained-on loss did not fall steadily.
+@ ?preset=1&stage=6
+Stage 6 of 6, W unchanged.
+The trained-on loss did not fall steadily

@@ -1,0 +1,16 @@
+[package]
+name = "lora-training-web"
+description = "LoRA training: where the numbers of A and B come from: one step of training told stage by stage on an 8 x 8 layer, then training by Adam with a record, the losses on examples trained on and held out, three presets"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

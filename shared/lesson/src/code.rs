@@ -17,6 +17,15 @@ const OPERATORS: [&str; 13] = ["+", "-", "*", "/", "^", "=", "!=", "<", ">", "<=
 /// An element id of the cross-reference for `name`, as `xetal doc`
 /// makes it: letters, digits and `_` as they are, `:` as `.`, anything
 /// else as `-` and its code in hex (`r_/` is `r_-2f`).
+/// A built-in word without its axis subscript: `t_ake_2` is `t_ake`
+/// along the second axis, with the plain word's entry and meaning.
+pub fn unsubscripted(word: &str) -> &str {
+    match word.rsplit_once('_') {
+        Some((head, digits)) if !digits.is_empty() && digits.chars().all(|c| c.is_ascii_digit()) && head.contains('_') => head,
+        _ => word,
+    }
+}
+
 pub fn anchor(name: &str) -> String {
     name.chars()
         .map(|c| match c {
@@ -67,7 +76,8 @@ impl Linker {
         match class {
             // The quote before a quoted function is drawn with it; it has no entry.
             Class::Builtin if raw == "'" => None,
-            Class::Builtin => Some(format!("../doc/builtins.html#{}", anchor(raw))),
+            // A word subscripted with an axis (`t_ake_2`) has the plain word's entry.
+            Class::Builtin => Some(format!("../doc/builtins.html#{}", anchor(unsubscripted(raw)))),
             Class::Symbol if OPERATORS.contains(&raw) => Some(format!("../doc/builtins.html#{}", anchor(raw))),
             // A library's function is in its Name.xtl, under l:name.
             Class::LibFunc | Class::UserFunc => {

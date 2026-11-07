@@ -1,0 +1,8 @@
+title = "Too large a learning rate"
+setup = "The same adapter and examples, the learning rate at 1.0 instead of 0.05."
+r = 4
+alpha = 4.0
+lr = 1.0
+n = 8
+chunks = 30
+every = 10

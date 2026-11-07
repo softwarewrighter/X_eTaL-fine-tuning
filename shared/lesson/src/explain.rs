@@ -45,7 +45,11 @@ pub fn calls(program: &str) -> Vec<(String, String)> {
             while let Some(i) = rest.find(im.alias.as_str()) {
                 let before_ok = rest[..i].chars().next_back().is_none_or(|c| !(c.is_alphanumeric() || c == '_' || c == '"'));
                 let after = &rest[i + im.alias.len()..];
-                let name: String = after.chars().take_while(|c| c.is_alphanumeric() || *c == '_').collect();
+                // A name may end in `!` (Plot's `c_hart!`, a function that draws): the `!` is part of it.
+                let mut name: String = after.chars().take_while(|c| c.is_alphanumeric() || *c == '_').collect();
+                if after[name.len()..].starts_with('!') {
+                    name.push('!');
+                }
                 if before_ok && !name.is_empty() && !out.contains(&(im.library.clone(), name.clone())) {
                     out.push((im.library.clone(), name.clone()));
                 }
@@ -211,7 +215,8 @@ const BUILTINS: &str = include_str!("../builtins.tsv");
 /// What a built-in word of X_eTaL does, in plain words (builtins.tsv),
 /// or None for one not yet explained there.
 pub fn word(typed: &str) -> Option<&'static str> {
-    BUILTINS.lines().filter(|l| !l.starts_with('#')).find_map(|l| l.split_once('\t').filter(|(w, _)| *w == typed).map(|(_, m)| m))
+    let plain = crate::code::unsubscripted(typed);
+    BUILTINS.lines().filter(|l| !l.starts_with('#')).find_map(|l| l.split_once('\t').filter(|(w, _)| *w == plain).map(|(_, m)| m))
 }
 
 /// The built-in words a program uses that builtins.tsv does not

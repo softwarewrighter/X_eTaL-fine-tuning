@@ -50,16 +50,16 @@ pub fn count(what: &str, before: usize, after: usize, beside: Option<(usize, &st
 }
 
 /// Two losses after a change: the one on the examples trained on and
-/// the one on examples held back. When the first fell and the second
+/// the one on examples held out. When the first fell and the second
 /// rose, the model may be memorizing; that is said as a possibility.
 pub fn held_out(train: (f64, f64), held: (f64, f64)) -> String {
-    let t = moved("The loss on the examples it trained on", train.0, train.1);
-    let h = moved("the loss on examples held back", held.0, held.1);
+    let t = moved("The loss on the examples trained on", train.0, train.1);
+    let h = moved("the loss on the examples held out", held.0, held.1);
     let reading = match (train.1 < train.0, held.1 < held.0, held.1 > held.0) {
-        (true, true, _) => "Both fell: what it learned carried over to examples it had not seen.",
-        (true, _, true) => "It fit its own examples more closely and the held-back ones less: it may be memorizing them rather than learning what they share (overfitting).",
+        (true, true, _) => "Both fell: the loss fell on the examples not trained on too, which memorizing the trained-on ones alone would not give.",
+        (true, _, true) => "It fit the examples trained on more closely and the held-out ones less: it may be memorizing them rather than learning what they share (overfitting).",
         (false, _, true) => "Neither fell: this change did not help on this task.",
-        _ => "The held-back loss did not rise, so nothing here suggests memorizing.",
+        _ => "The held-out loss did not rise, so nothing here suggests memorizing.",
     };
     format!("{t}; {h}. {reading}")
 }

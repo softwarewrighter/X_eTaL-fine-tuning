@@ -1,0 +1,46 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 1 of 6
+found: Stage 1 of 6, the prediction.
+found: A first training run
+found: rank 4, alpha 4, learning rate 0.05, 8 examples trained on and 4 held out, 300 steps, a record every 10.
+found: At record 30, after 300 steps: the loss per example is
+found: The loss on the examples trained on fell from
+found: html: <svg
+cross-reference links: 0, dead: none
+at ?mode=advanced&preset=2&stage=5&record=3:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 5 of 6, the update.
+found: Too few examples, too large a rank
+found: 3 examples trained on and 4 held out
+found: At record 3, after 30 steps
+found: The held-out loss ended higher than it started
+found: The step as mathematics
+found: html: class="katex"
+found: The library functions the program uses
+cross-reference links: 31, dead: none
+at ?preset=1&stage=6:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 6 of 6, W unchanged.
+found: The trained-on loss did not fall steadily
+cross-reference links: 0, dead: none

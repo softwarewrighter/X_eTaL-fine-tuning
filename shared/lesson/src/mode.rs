@@ -31,8 +31,8 @@ impl Mode {
     pub fn about(self) -> &'static str {
         match self {
             Mode::Beginner => "A guided path in plain words, one thing at a time. Nothing is assumed.",
-            Mode::Explorer => "Everything on the page at once, with every control and a short explanation of each.",
-            Mode::Advanced => "Adds the equations written out, the gradients and the code that computes it all.",
+            Mode::Explorer => "Adds more to each part: what each stage reads, each stage as the program writes it, more controls, each with a short explanation.",
+            Mode::Advanced => "Adds the mathematics written out and the program that computes it all.",
         }
     }
 

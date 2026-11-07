@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "lora-training"       # the directory name, demos/<slug>/
+title = "LoRA training"
+summary = "Where do the numbers of an adapter come from? One step of training told stage by stage on an 8 x 8 layer, every number quoted from the run: the prediction, the error, the gradients, the update, and the frozen table untouched. Then training by Adam with a record you can step back through, the loss on the examples trained on beside the loss on examples held out, and three experiments set up as data: a first run, too large a learning rate, too few examples."
+concepts = ["a training step as a pipeline", "gradients checked against the library", "a record to step back through", "a loss held out"]
+status = "live"              # draft | live | deferred
+order = 30                   # position in the catalog (lower first)
+track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+lesson = 3                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
+needs = ["FM7"]              # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "|> \"dB[i,k] | 8 r\" e:e_q< \"sum m:=0..n-1 | s * g[i,m] * h[k,m]\" $dB"
+why = "A gradient is one more stage of the pipeline, an equation like the forward ones: the error times what the stage read, summed over the examples."

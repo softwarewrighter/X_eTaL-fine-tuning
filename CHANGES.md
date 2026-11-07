@@ -11,6 +11,10 @@ documentation, `plan` saga planning and reordering, `release`
 milestone release, `chore` agentrail bookkeeping (step complete, saga
 archive), `pin` a move of the X_eTaL-ML pin.
 
+## 2026-11-07
+
+- `demo` LoRA training, lesson 3 (step lora-training): demos/lora-training, live, the first lesson that trains anything. The task written out (ask FM7): a frozen 8 x 8 W, a hidden shift T of rank 4, 12 examples by a fixed ripple with their outputs from W + T, the first n trained on and the last 4 held out (`t_ake_2`); the adapter as LoRA starts it (B at 0, A seeded). One step of gradient descent as a Flow pipeline of Equations (h, u, p, g, b, dA, dB, A2, B2, then the adapter given back as a labeled tuple), checked against `lo:s_gd` (0 to rounding) with W's difference exactly 0; the loss per example before and after; then Adam (`lo:a_dam`) with a record kept in `p_ower`'s state (both losses, A, B and s B A at each record) and the two losses drawn by Plot's `c_hart!`. Three presets as data (`presets/*.toml`): a first run (rank 4, 8 examples: both losses fall, the held-out one more slowly), too large a learning rate (1.0: the trained-on loss jumps about), too few examples at too large a rank (3 at rank 8: trained-on loss 0, held-out loss rises and stays). The page tells the step in six stages, each quoting the run's numbers (at the start b and dA are 0, so only B moves); shows X_eTaL's chart; says what the record shows from its numbers (both losses start to end, whether the trained-on loss fell steadily and where, the held-out loss's lowest and highest); and the record slider shows A, B and s B A at any record beside T. Read cold and revised. Tests: the pipeline's step against the library, W unmoved, every preset replaying to the same record, nothing unexplained. Shell: a trace takes a tuple stage's records; `calls` keeps a name's `!`; axis subscripts (`t_ake_2`) link and explain as the plain word; the glossary gains example, loss, held out, learning rate, Adam, overfitting, record; `narrate::held_out` says "held out" and claims less; the depth descriptions reworded
+
 ## 2026-11-06
 
 - `chore` saga step lora-lab closed
