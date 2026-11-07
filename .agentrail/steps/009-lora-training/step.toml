@@ -1,10 +1,11 @@
 number = 9
 slug = "lora-training"
-status = "in-progress"
+status = "completed"
 description = """
 Step lora-training (docs/plan.md, Saga 1 row 4, principle 5;
 docs/research.tx..."""
 role = "production"
 context_files = []
 created_at = "2026-11-05T07:28:20"
-commits = []
+completed_at = "2026-11-07T15:42:34"
+commits = ["71fa90c715e25889e4061dc82c398193fb87a250"]
