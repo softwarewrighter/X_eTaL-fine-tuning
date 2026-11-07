@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoRA hello</title>
+  
+<script type="module">
+import init, * as bindings from '/X_eTaL-fine-tuning/lora-hello/lora-hello-web-5982d1b0cddc05d8.js';
+const wasm = await init({ module_or_path: '/X_eTaL-fine-tuning/lora-hello/lora-hello-web-5982d1b0cddc05d8_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  
+  <link rel="icon" href="/X_eTaL-fine-tuning/lora-hello/favicon-a11bc0a2bcd81290.ico" integrity="sha384-xOjSLs9ZRBKy2hF6zlqNv+0U86E4BqZOJy7H7a4GXSVwDQMNie0D851/sRBSYI9a"/>
+  <link rel="stylesheet" href="/X_eTaL-fine-tuning/lora-hello/microscope-b8e04d49b9881b60.css" integrity="sha384-SldWmY6bcsoUy78n1c6+brZVjVWzmFEn+57uLt88OhMAlN9/1eEpBuExeAMuaGxH"/>
+  <link rel="stylesheet" href="/X_eTaL-fine-tuning/lora-hello/lesson-34dbb6604bad61b6.css" integrity="sha384-32SC5tV26l0GhJMT87oR5gbnsMRFCC06TJaqmsZHp85+UZcym11aTJ1QM8DDyxW+"/>
+  <style>
+    .controls label { display: inline-flex; align-items: center; gap: 6px; font-size: 0.95em; }
+    .controls input[type=number] { width: 5.5em; font: inherit; padding: 4px 6px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--fg); }
+    .muted { color: var(--muted); font-size: 0.9em; }
+    table.vectors { border-collapse: collapse; margin: 8px 0; }
+    table.vectors th { text-align: left; padding: 4px 14px 4px 0; font-weight: 600; white-space: nowrap; }
+    table.vectors td { padding: 4px 10px; text-align: right; font-variant-numeric: tabular-nums; border: 1px solid var(--line); min-width: 5.5em; }
+    table.vectors tr.sum th, table.vectors tr.sum td { border-top: 2px solid var(--fg); }
+    table.vectors td.changed { box-shadow: inset 0 0 0 2px var(--accent); font-weight: 700; }
+    table.facts td { padding: 3px 14px 3px 0; }
+    table.facts td:last-child { font-variant-numeric: tabular-nums; font-weight: 600; }
+    pre.err { color: #c92a2a; white-space: pre-wrap; }
+    .formula { font: 1.15rem ui-monospace, "JuliaMono", Menlo, monospace; padding: 4px 0 4px 1.2em; }
+    ol.tries { max-width: 46rem; padding-left: 1.4em; margin: 10px 0 0; }
+    ol.tries li { margin: 4px 0; }
+    .calc .controls { margin: 10px 0; }
+    .calc h3, .panel h3 { font-size: 0.95rem; margin: 14px 0 4px; }
+    .calc p, .panel > p { max-width: 46rem; line-height: 1.55; }
+    .try p { max-width: 46rem; }
+  </style>
+<link rel="modulepreload" href="/X_eTaL-fine-tuning/lora-hello/lora-hello-web-5982d1b0cddc05d8.js" crossorigin="anonymous" integrity="sha384-rnK+k3ggOWDMAeUZwuPB8FmglsoQJiKDBuxCRThqUUbc7eHSlzt9b+J5P5mX7fZh"><link rel="preload" href="/X_eTaL-fine-tuning/lora-hello/lora-hello-web-5982d1b0cddc05d8_bg.wasm" crossorigin="anonymous" integrity="sha384-jJDUq+iLUZigM4QuILU4ZpUMotgnMy4uTIBbQYEIbzzuDTQAZP5xwHxFoXbeZ4Dt" as="fetch" type="application/wasm"></head>
+<body></body>
+</html>

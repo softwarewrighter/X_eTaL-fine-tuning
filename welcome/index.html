@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome: how these lessons work</title>
+  
+<script type="module">
+import init, * as bindings from '/X_eTaL-fine-tuning/welcome/welcome-web-20cd9e8ac10d137a.js';
+const wasm = await init({ module_or_path: '/X_eTaL-fine-tuning/welcome/welcome-web-20cd9e8ac10d137a_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  
+  <link rel="icon" href="/X_eTaL-fine-tuning/welcome/favicon-a11bc0a2bcd81290.ico" integrity="sha384-xOjSLs9ZRBKy2hF6zlqNv+0U86E4BqZOJy7H7a4GXSVwDQMNie0D851/sRBSYI9a"/>
+  <link rel="stylesheet" href="/X_eTaL-fine-tuning/welcome/microscope-b8e04d49b9881b60.css" integrity="sha384-SldWmY6bcsoUy78n1c6+brZVjVWzmFEn+57uLt88OhMAlN9/1eEpBuExeAMuaGxH"/>
+  <link rel="stylesheet" href="/X_eTaL-fine-tuning/welcome/lesson-34dbb6604bad61b6.css" integrity="sha384-32SC5tV26l0GhJMT87oR5gbnsMRFCC06TJaqmsZHp85+UZcym11aTJ1QM8DDyxW+"/>
+  <style>
+    .panel h3 { font-size: 0.95rem; margin: 14px 0 4px; }
+    .panel > p { max-width: 46rem; line-height: 1.55; }
+    .stage-says { font-size: 1.05rem; max-width: 46rem; min-height: 4.2em; }
+    .panel.part h2 .n { display: inline-block; width: 1.7em; height: 1.7em; line-height: 1.7em; text-align: center; border-radius: 50%; background: var(--accent); color: var(--card); margin-right: 0.5em; font-size: 0.9em; }
+    .said { font-size: 1.05rem; border-left: 3px solid var(--accent); padding-left: 12px; max-width: 46rem; }
+    a.go { display: inline-block; padding: 10px 18px; border-radius: 10px; background: var(--accent); color: var(--card); font-weight: 700; text-decoration: none; }
+    a.go:hover, a.go:focus-visible { filter: brightness(1.1); outline: 2px solid var(--fg); outline-offset: 2px; }
+    pre.err { color: #c92a2a; white-space: pre-wrap; }
+  </style>
+<link rel="modulepreload" href="/X_eTaL-fine-tuning/welcome/welcome-web-20cd9e8ac10d137a.js" crossorigin="anonymous" integrity="sha384-0Ofp+SmO9XtNwDeEWTtdZ6ftg9hAN8tNoWbaTBg2Byok/+n3MxQ+kh9imz9VI/NI"><link rel="preload" href="/X_eTaL-fine-tuning/welcome/welcome-web-20cd9e8ac10d137a_bg.wasm" crossorigin="anonymous" integrity="sha384-tTZLvhPMwWlufWppZsKydtQw0xCSYun+5MIl2wYBCRJ4IUek6pt8hmJY+P2qsCnF" as="fetch" type="application/wasm"></head>
+<body></body>
+</html>
