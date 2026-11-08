@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "rank-and-scaling"    # the directory name, demos/<slug>/
+title = "Rank and scaling"
+summary = "What does the rank buy, and what does it cost? The adapter's rank swept from 1 to 8 on the learning task of lesson 3, under LoRA's strength alpha / r and rsLoRA's alpha / sqrt r: for each, the numbers trained (analytical), the loss on the examples trained on and on the held-out ones after the same steps (measured), and the size of the adapter's table beside the hidden shift's. Move alpha and the steps; the page reruns the sweep and says what moved, never that a rank is better."
+concepts = ["a sweep as a loop with a record", "measured against analytical", "two scale rules side by side", "what a count does not predict"]
+status = "live"              # draft | live | deferred
+order = 40                   # position in the catalog (lower first)
+track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+lesson = 4                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
+needs = ["FM7"]              # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "a2 := (W, 1 lo:s_eeded k c_at 8, (8 c_at k) r_eshape 0.0, alpha lo:s_calingRs k)"
+why = "The two rules differ in one number of the adapter's bundle, the strength; everything else, the start, the steps and the examples, is the same."

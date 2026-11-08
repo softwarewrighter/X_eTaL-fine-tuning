@@ -1,0 +1,75 @@
+#!/usr/bin/env xetal
+## Rank and scaling: the adapter's rank swept from 1 to 8 on the
+## learning task of lesson 3 (a frozen 8 x 8 layer, examples from a
+## hidden shift of it, 8 trained on and 4 held out), under two rules
+## for the strength s: LoRA's alpha / r (lo:s_caling) and rsLoRA's
+## alpha / sqrt r (lo:s_calingRs). For each rank and rule, after the
+## same number of Adam steps from the same kind of start: the numbers
+## trained (analytical), the strength (analytical), the loss per
+## example on the examples trained on and on the held-out ones
+## (measured), and the size of the adapter's table s B A (measured:
+## the square root of the sum of its squares).
+
+"lo:" u_se< "LoRA"
+"p:" u_se< "Plot"
+
+### Data
+
+## The settings: alpha, the learning rate, how many of the 12 examples
+## are trained on (the last 4 are always held out), and the steps each
+## rank is trained for.
+alpha := 4.0
+lr := 0.05
+n := 8
+steps := 100
+## The task of lesson 3: the frozen layer W by a fixed ripple, the
+## hidden shift T (8 x 8, of rank 4), 12 inputs of 8 numbers as
+## columns with the outputs the shifted layer W + T wants for them,
+## the first n trained on, the last 4 held out.
+i := f_loat r_ange 64
+W := 8 8 r_eshape s_in 0.7 * i * i
+p := f_loat r_ange 32
+T := (8 4 r_eshape 0.5 * s_in 1.3 * p * p) '+ '* i_nner 4 8 r_eshape 0.5 * c_os 0.6 * p * p
+c := f_loat r_ange 96
+X := 8 12 r_eshape c_os 0.4 * c + 0.05 * c * c
+Y := (W + T) '+ '* i_nner X
+Xt := n t_ake_2 X
+Yt := n t_ake_2 Y
+Xh := -4 t_ake_2 X
+Yh := -4 t_ake_2 Y
+
+### The sweep
+
+## Rank 1 to 8, each trained steps times by Adam (lo:a_dam) from the
+## start LoRA uses (B at 0, A seeded by the rank), once under each
+## rule for s. A row per rank: the numbers trained; then under alpha /
+## r: s, the loss per example on the examples trained on, on the
+## held-out ones, and the size of s B A; then the same four under
+## alpha / sqrt r.
+(_, table) := 8 '{ (k, rows) ->
+  a1 := (W, 1 lo:s_eeded k c_at 8, (8 c_at k) r_eshape 0.0, alpha lo:s_caling k)
+  a2 := (W, 1 lo:s_eeded k c_at 8, (8 c_at k) r_eshape 0.0, alpha lo:s_calingRs k)
+  (t1, _, _) := steps '{ e -> lr lo:a_dam (e, (Xt, Yt)) } p_ower lo:a_damStart a1
+  (t2, _, _) := steps '{ e -> lr lo:a_dam (e, (Xt, Yt)) } p_ower lo:a_damStart a2
+  (_, A1, B1, s1) := t1
+  (_, A2, B2, s2) := t2
+  d1 := lo:d_elta (A1, B1, s1)
+  d2 := lo:d_elta (A2, B2, s2)
+  row := (f_loat k lo:p_arams 8 8) c_at s1 c_at ((t1 lo:l_oss (Xt, Yt)) / f_loat n) c_at ((t1 lo:l_oss (Xh, Yh)) / 4.0) c_at (s_qrt '+ r_/ r_avel d1 * d1) c_at s2 c_at ((t2 lo:l_oss (Xt, Yt)) / f_loat n) c_at ((t2 lo:l_oss (Xh, Yh)) / 4.0) c_at s_qrt '+ r_/ r_avel d2 * d2
+  (k + 1, rows c_at row)
+} p_ower (1, 0 r_eshape 0.0)
+M := 8 9 r_eshape table
+M
+## The size of the shift T itself (the square root of the sum of its
+## squares), which a fitted adapter's table comes to, and the loss per
+## example before any training (B at 0: the layer is W's), on the
+## examples trained on and on the held-out ones, the same at every rank.
+s_qrt '+ r_/ r_avel T * T
+w0 := (W, 1 8 r_eshape 0.0, 8 1 r_eshape 0.0, 1.0)
+((w0 lo:l_oss (Xt, Yt)) / f_loat n) c_at (w0 lo:l_oss (Xh, Yh)) / 4.0
+## The measurements as three charts, rank 1 to 8 along the bottom: the
+## two losses under alpha / r, the same under alpha / sqrt r, and the
+## size of s B A under each rule beside the size of T.
+_ := ("Loss by rank, s = alpha / r" "rank" "loss per example" "trained on" "held out") p:c_hart! '{ j -> j s_elect_2 M } m_ap 3 4
+_ := ("Loss by rank, s = alpha / sqrt r" "rank" "loss per example" "trained on" "held out") p:c_hart! '{ j -> j s_elect_2 M } m_ap 7 8
+_ := ("The size of s B A, by rank" "rank" "size" "alpha / r" "alpha / sqrt r" "T itself") p:c_hart! (('{ j -> j s_elect_2 M } m_ap 5 9) c_at e_nclose 8 r_eshape s_qrt '+ r_/ r_avel T * T)

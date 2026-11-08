@@ -12,5 +12,7 @@ r_/	works a whole list down to one number with the function quoted before it: wi
 m_ax	the larger of two numbers; quoted before r_/, the largest of a list
 a_bs	the size of each number, ignoring its sign
 p_ower	does something again and again: 30 power with a step does the step 30 times, each time on what the time before gave
-s_elect	picks items out by position: 2 select picks the third (positions count from 0)
+s_elect	picks items out by position: 2 select picks the second (positions count from 1 here; Equations counts from 0); a subscript names the axis, so select with a 2 picks a column
 m_ap	does something to each item of a list in turn, and collects the results in a list
+s_qrt	the square root of each number
+e_nclose	wraps a whole array up as one item, so that a list of arrays can be made

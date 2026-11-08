@@ -1,0 +1,3 @@
+command = '"$XETAL" run --seed 1 --draw "$XETAL_DRAW" rank-and-scaling.xtl'
+exit_code = 0
+desc = "rank-and-scaling: rank-and-scaling.xtl run by the pinned xetal CLI"

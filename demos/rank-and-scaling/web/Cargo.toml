@@ -1,0 +1,16 @@
+[package]
+name = "rank-and-scaling-web"
+description = "Rank and scaling: the rank swept from 1 to 8 on the learning task under alpha / r and alpha / sqrt r, numbers trained, losses and the update size, every figure marked measured or analytical"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

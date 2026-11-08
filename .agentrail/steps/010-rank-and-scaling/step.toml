@@ -1,6 +1,6 @@
 number = 10
 slug = "rank-and-scaling"
-status = "pending"
+status = "in-progress"
 description = """
 Step rank-and-scaling (docs/plan.md, Saga 1 row 5, principle 4,
 decision F8; ..."""

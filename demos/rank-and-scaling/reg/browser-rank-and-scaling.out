@@ -1,0 +1,28 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: A: analytical, from the setup alone. M: measured, after 100 steps with alpha 4.
+found: From rank 3 to rank 4, the numbers trained went from 48 to 64
+found: With alpha 4 and 100 steps. Cost: the numbers trained go from 16 at rank 1 to 128 at rank 8
+found: The two rules. At rank 1 both give the same strength, 4.
+found: html: <svg
+found: html: mark M
+cross-reference links: 0, dead: none
+at ?mode=advanced&alpha=4&steps=0&rank=8:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: after 10 steps with alpha 16.
+found: From rank 7 to rank 8
+found: The library functions the program uses
+cross-reference links: 27, dead: none
