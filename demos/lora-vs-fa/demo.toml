@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "lora-vs-fa"          # the directory name, demos/<slug>/
+title = "LoRA beside LoRA-FA"
+summary = "Freeze half the adapter and train the other half: what does it cost? Two experiments kept apart. Fitting a known shift: LoRA and LoRA-FA from the same start, against the best any rank can do and the floor LoRA-FA cannot pass, because its update stays in one subspace, the frozen A's row space, shown by projecting each update onto it. Then learning from examples: the two beside full fine-tuning of the layer itself, with the loss on examples trained on, held out, and the layer's old examples (what training did to what it knew), every figure measured or analytical."
+concepts = ["LoRA-FA, a frozen A", "the best of a rank (singular values)", "a subspace and a projection onto it", "retention: the old examples' loss", "full fine-tuning beside adapters"]
+status = "live"              # draft | live | deferred
+order = 50                   # position in the catalog (lower first)
+track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+lesson = 5                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
+needs = ["FM7", "FL2", "FL3"] # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "P := (o_\\ A) '+ '* i_nner (mx:i_nverse A '+ '* i_nner o_\\ A) '+ '* i_nner A"
+why = "The projection onto the frozen A's row space, written out: what LoRA-FA's update can never leave, and the first subspace a reader meets."

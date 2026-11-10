@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoRA beside LoRA-FA</title>
+  <link data-trunk rel="rust" data-bin="lora-vs-fa-web" />
+  <link data-trunk rel="copy-file" href="../../../images/xetal-logo-orange.png" />
+  <link data-trunk rel="icon" href="../../../images/favicon.ico" />
+  <link data-trunk rel="css" href="../../../work/xetal-ml/shared/microscope/microscope.css" />
+  <link data-trunk rel="css" href="../../../shared/lesson/lesson.css" />
+  <!-- KaTeX (X_eTaL-ML's copy, at the pin) draws the formulas; where it
+       has not loaded, the LaTeX shows as text. The formulas mark their
+       symbols with \htmlClass (X_eTaL-libraries' e:t_exSymbols<), which
+       KaTeX draws only when trusted and not refused as an extension. -->
+  <link data-trunk rel="copy-dir" href="../../../work/xetal-ml/shared/katex" />
+  <link rel="stylesheet" href="katex/katex.min.css" />
+  <script defer src="katex/katex.min.js"></script>
+  <script>
+    function drawTex() {
+      if (!window.katex) return;
+      document.querySelectorAll(".tex[data-tex]").forEach(function (el) {
+        if (el.dataset.drawn === el.dataset.tex) return;
+        try {
+          katex.render(el.dataset.tex, el, {
+            displayMode: true, throwOnError: false,
+            trust: function (c) { return c.command === "\\htmlClass"; },
+            strict: function (code) { return code === "htmlExtension" ? "ignore" : "warn"; }
+          });
+          el.dataset.drawn = el.dataset.tex;
+        } catch (e) {}
+      });
+    }
+    new MutationObserver(drawTex).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-tex"] });
+    window.addEventListener("load", drawTex);
+  </script>
+  <style>
+    .panel h3 { font-size: 0.95rem; margin: 14px 0 4px; }
+    .panel > p, .panel > ul, .panel > ol { max-width: 46rem; line-height: 1.55; }
+    .panel.part h2 .n { display: inline-block; width: 1.7em; height: 1.7em; line-height: 1.7em; text-align: center; border-radius: 50%; background: var(--accent); color: var(--card); margin-right: 0.5em; font-size: 0.9em; }
+    .stage-says { font-size: 1.05rem; max-width: 46rem; min-height: 4.2em; }
+    .said { font-size: 1.05rem; border-left: 3px solid var(--accent); padding-left: 12px; max-width: 46rem; }
+    .worked { white-space: normal; overflow-wrap: anywhere; }
+    .rank { display: flex; align-items: center; gap: 12px; margin: 10px 0; font-size: 1.05rem; }
+    .rank input[type=range] { width: 16rem; }
+    .rank output { font-weight: 700; font-variant-numeric: tabular-nums; min-width: 1.5em; }
+    .formulas .line { display: flex; align-items: center; gap: 12px; margin: 4px 0; }
+    .formulas .which { flex: 0 0 7em; font-size: 0.9em; color: var(--muted, #888); }
+    .formulas .tex { overflow-x: auto; }
+    .formulas .sym { cursor: pointer; border-bottom: 1px dotted var(--accent); }
+    table.sweep { border-collapse: collapse; margin: 8px 0; font-variant-numeric: tabular-nums; }
+    table.sweep th, table.sweep td { padding: 4px 8px; border: 1px solid var(--line); text-align: right; white-space: nowrap; }
+    table.sweep th { font-weight: 600; }
+    table.sweep tr.chosen td, table.sweep tr.chosen th { box-shadow: inset 0 0 0 2px var(--accent); }
+    table.sweep .mark { display: inline-block; margin-left: 6px; padding: 0 5px; border-radius: 6px; font-size: 0.75em; font-weight: 700; }
+    table.sweep .mark.A { background: var(--line); color: var(--fg); }
+    table.sweep .mark.M { background: var(--accent); color: var(--card); }
+    .charts { display: flex; flex-wrap: wrap; gap: 12px; }
+    .charts .picture { max-width: 30rem; }
+    .account p { max-width: 46rem; line-height: 1.55; border-left: 3px solid var(--line); padding-left: 12px; }
+    .presets { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 10px; margin: 10px 0; }
+    .presets button { text-align: left; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--fg); cursor: pointer; font: inherit; }
+    .presets button b { display: block; margin-bottom: 4px; }
+    .presets button span { font-size: 0.9em; color: var(--muted, #888); }
+    .presets button.on, .presets button:hover, .presets button:focus-visible { border-color: var(--accent); outline: none; }
+    .presets button.on b { color: var(--accent); }
+    .setup { max-width: 46rem; }
+    .tex { overflow-x: auto; }
+    .letters { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .letters button { font: 600 1rem ui-monospace, Menlo, monospace; min-width: 2.4em; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--fg); cursor: pointer; }
+    .letters button.on, .letters button:hover, .letters button:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+    table.vectors { border-collapse: collapse; margin: 8px 0; }
+    table.vectors th { text-align: left; padding: 4px 14px 4px 0; font-weight: 600; white-space: nowrap; }
+    table.vectors td { padding: 4px 8px; text-align: right; font-variant-numeric: tabular-nums; border: 1px solid var(--line); min-width: 4em; }
+    table.vectors tr.sum th, table.vectors tr.sum td { border-top: 2px solid var(--fg); }
+    table.vectors td.changed { box-shadow: inset 0 0 0 2px var(--accent); font-weight: 700; }
+    .scroll { overflow-x: auto; }
+    a.go { display: inline-block; padding: 10px 18px; border-radius: 10px; background: var(--accent); color: var(--card); font-weight: 700; text-decoration: none; }
+    pre.err { color: #c92a2a; white-space: pre-wrap; }
+  </style>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,29 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: At rank 4, fitting T for 300 steps.
+found: its update did not leave the subspace
+found: Cost (analytical): LoRA trains 64 numbers and Adam holds 128 for them; LoRA-FA trains 32 and Adam holds 64.
+found: LoRA, after 300 steps on 8 examples (measured, per example)
+found: full fine-tuning, after 300 steps on 8 examples
+found: html: <svg
+found: html: mark M
+cross-reference links: 0, dead: none
+at ?mode=advanced&rank=2&n=3:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: At rank 2, fitting T for 300 steps.
+found: after 300 steps on 3 examples
+found: The library functions the program uses
+cross-reference links: 41, dead: none

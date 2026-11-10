@@ -16,3 +16,9 @@ s_elect	picks items out by position: 2 select picks the second (positions count 
 m_ap	does something to each item of a list in turn, and collects the results in a list
 s_qrt	the square root of each number
 e_nclose	wraps a whole array up as one item, so that a list of arrays can be made
+t_able	the table of every pair: with times, the outer product, a table whose cell i, j is the i-th item of the left list times the j-th of the right
+d_isclose	opens a wrapped-up array (one e_nclose made) to get the array inside
+o_\	the transpose: a table turned over its diagonal, rows becoming columns (o_\ A is A with its rows as columns)
+d_rop	a list without its first few items: 3 drop leaves out the first 3
+e_ach	applies a function to every item of a list, one at a time, and collects the results (each must be one number)
+s_hape	the sizes of an array's axes: for an 8 by 4 table, 8 4

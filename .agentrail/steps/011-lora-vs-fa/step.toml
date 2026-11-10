@@ -1,6 +1,6 @@
 number = 11
 slug = "lora-vs-fa"
-status = "pending"
+status = "in-progress"
 description = """
 Step lora-vs-fa (docs/plan.md, Saga 1 row 6, principle 5;
 docs/research.txt s..."""

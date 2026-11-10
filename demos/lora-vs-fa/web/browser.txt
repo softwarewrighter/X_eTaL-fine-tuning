@@ -1,0 +1,13 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+At rank 4, fitting T for 300 steps.
+its update did not leave the subspace
+Cost (analytical): LoRA trains 64 numbers and Adam holds 128 for them; LoRA-FA trains 32 and Adam holds 64.
+LoRA, after 300 steps on 8 examples (measured, per example)
+full fine-tuning, after 300 steps on 8 examples
+html: <svg
+html: mark M
+# Rank 2, 3 examples, Advanced: the program rerun and shown.
+@ ?mode=advanced&rank=2&n=3
+At rank 2, fitting T for 300 steps.
+after 300 steps on 3 examples
+The library functions the program uses
