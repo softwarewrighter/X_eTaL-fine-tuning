@@ -1,10 +1,11 @@
 number = 11
 slug = "lora-vs-fa"
-status = "in-progress"
+status = "completed"
 description = """
 Step lora-vs-fa (docs/plan.md, Saga 1 row 6, principle 5;
 docs/research.txt s..."""
 role = "production"
 context_files = []
 created_at = "2026-11-05T07:28:20"
-commits = []
+completed_at = "2026-11-10T12:43:47"
+commits = ["70ed43266fe41040b090a949c105f0703701da5b"]
