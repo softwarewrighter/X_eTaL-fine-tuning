@@ -35,7 +35,7 @@ lora := (4 lo:p_arams 8 8) c_at 16 lo:p_arams 4096 4096
 ## shared tables); learning without back-propagation on every weight
 ## (MeZO); a closed-form rank-one edit (nothing is trained). A column
 ## per layer.
-trained := (9 c_at 2) r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 0 0
+trained := 9 2 r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 0 0
 r_avel trained
 
 ### The numbers held while training
@@ -54,7 +54,7 @@ r_avel held
 ## regrow their frozen ones from a seed); the forward-only method
 ## moved every weight; a rank-one edit is two vectors, u and v. An
 ## adapter merged into W is d x d again, the first row.
-stored := (9 c_at 2) r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 2 * d
+stored := 9 2 r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 2 * d
 r_avel stored
 
 ### Bytes and shares

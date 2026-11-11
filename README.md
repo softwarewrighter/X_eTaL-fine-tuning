@@ -222,6 +222,9 @@ just new-lib Name alias: "what it is"   # start a library from templates/Library
   of weight-space fine-tuning without back-propagation and of shared
   subspaces, and a report on AI systems that edit a model's weights
   directly (archival)
+- [`docs/mhc-plan.md`](docs/mhc-plan.md) -- the plan for mHC
+  (DeepSeek's Manifold-Constrained Hyper-Connections) in X_eTaL, a
+  side track: what the Python did, what fits at toy scale, its saga
 - [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md),
   [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md),
   [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md) --

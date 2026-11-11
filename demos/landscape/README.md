@@ -34,7 +34,7 @@ apart because any answer to one pairs with any answer to the other.
 
 ```
 lora := (4 lo:p_arams 8 8) c_at 16 lo:p_arams 4096 4096
-trained := (9 c_at 2) r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 0 0
+trained := 9 2 r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 0 0
 held := trained * (3 3 3 3 3 3 3 0 0) '* t_able 1 1
 ```
 

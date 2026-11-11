@@ -13,6 +13,8 @@ archive), `pin` a move of the X_eTaL-ML pin.
 
 ## 2026-11-11
 
+- `fix` the landscape's two shapes written `9 2 r_eshape` (the gate's literal c_at chain check had not seen the untracked files); the `depth` track known to scripts/demos.py and the template
+- `plan` mHC in X_eTaL, a side track (the user, 2026-11-11): `docs/mhc-plan.md` (what `mHC-poc` did, read at source; what the paper adds; what fits at toy scale and what it omits; a seven-step saga; five open questions), the saga mhc and the `depth` track in the plan, ask FM13 (stream mixing, Sinkhorn-Knopp with its gradient, the HC and mHC layer steps, the gain proxy), agentrail step 014-mhc-plan inserted after lab-polish. Checked in X_eTaL while planning: the Python's gain proxy at 12, 24, 48 layers is 6.39, 13.37, 27.35 from `exp(2 I - 1)` alone (it measured 7.0, 14.4, 27.3 after training) and mHC's is log10(1/4) = -0.602 at any depth (its CUDA run reports -0.602)
 - `chore` saga step landscape closed
 - `docs` the landscape's glossary count corrected in CHANGES.md and the plan
 

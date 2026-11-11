@@ -183,6 +183,7 @@ A demo's `track` in its `demo.toml` is one of these.
 | alternatives | weight-space methods without back-propagation (zeroth-order optimization, evolution strategies, activation perturbation), beside back-propagation itself (full and selective fine-tuning); weight arithmetic, other parameter-efficient methods, methods that change no weight | can a model learn from forward passes alone, at what cost, and when is that the better choice? |
 | edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing weights directly | can a model be changed without training at all, and can a model do that to a model? |
 | applied | a coding model taught a team's engineering standards, measured by an executable grader; real open-weight models | does any of this make a real model better at a real job, and how is that proved? |
+| depth | residual streams and their mixing: Hyper-Connections and mHC's doubly stochastic constraint (Sinkhorn-Knopp), the gain across depth, training at 12, 24, 48 layers | why does a deep model need a skip connection, what happens when the stream is widened, and what keeps the signal bounded at any depth? (a side track, `docs/mhc-plan.md`) |
 
 ## The curriculum
 
@@ -405,7 +406,35 @@ unmeasured, and a description-to-adapter generator, which needs its
 strong controls (an averaged and a shared adapter) to be honest.
 
 Research methods are reimplemented from their papers and cited
-(X_eTaL-ML's A8), at toy scale; each page says what the toy omits.## Later -- applied  [NOT PLANNED YET]
+(X_eTaL-ML's A8), at toy scale; each page says what the toy omits.
+
+## Saga mhc -- mHC in X_eTaL  [PLANNED, placement to decide]
+
+A side track (the user, 2026-11-11): DeepSeek's Manifold-Constrained
+Hyper-Connections (Xie and others, arXiv:2512.24880) re-implemented in
+X_eTaL as lessons with visualizations and inspectable code, from the
+user's own Python implementation (`mHC-poc`) and post. The plan,
+what the Python did, what the paper adds, what fits at toy scale and
+what it omits, the asks and the open questions are in
+`docs/mhc-plan.md`. Found while planning, in X_eTaL: the Python's
+headline gain-proxy numbers are linear algebra at initialization (HC
+10^27.35 across 48 layers, mHC 10^-0.602 = 1/4 at any depth); the
+training lessons confirm them rather than discover them. The
+mathematics (stream mixing, Sinkhorn-Knopp with its gradient, the
+layer steps, the gain proxy) is asked of X_eTaL-ML (FM13), as every
+method's is; nothing in this saga depends on Sagas 2 to 5 or they on
+it, so it can run before or after them, as the user decides.
+
+| # | Step slug | Delivers |
+| - | --------- | -------- |
+| 1 | mhc-plan | a planning step, with the user: the paper's later sections read at source; the toy's block, task, widths and depths chosen and timed; ask FM13 written with signatures; the steps below confirmed or replaced |
+| 2 | residual-streams | why a skip connection, and what if there were four: the signal through 12 to 48 random layers with and without a residual (forward only); the stream state, `H_pre`, the merge, the block, `H_post'`, `H_res` stepped through as a Flow pipeline; the identity-mapping property named |
+| 3 | sinkhorn | a matrix whose rows and columns each sum to 1: Sinkhorn-Knopp stepped through on a 4 x 4, its convergence measured, the three properties checked (spectral norm at most 1, closure, a mix of permutations), the Python's function beside the X_eTaL loop |
+| 4 | gain-by-depth | the gain proxy, analytical: products of `H_res` across depth for HC and mHC, the Python's table beside the toy's, a slider on the starting logits |
+| 5 | training-at-depth | the three schemes trained at 12, 24, 48 layers on the toy task: loss, gradient norm and gain proxy per step; the final losses beside the Python's |
+| 6 | dynamic-mixing | the paper's own input-dependent `H` (gated projection plus bias; sigmoid, 2 sigmoid, Sinkhorn of exp), the toy rerun with it |
+| 7 | mhc-compared | the summary page: the three schemes at equal depth, width and steps; the paper's and the Python's figures quoted as theirs; the X_eTaL program beside the Python, function for function |
+## Later -- applied  [NOT PLANNED YET]
 
 `docs/research2.txt`'s destination: a coding model that follows a
 team's engineering standards (pure functions, composition, low

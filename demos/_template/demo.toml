@@ -6,7 +6,7 @@ summary = "One sentence: what you see and what it reveals."
 concepts = ["arrays"]        # the X_eTaL ideas it shows
 status = "draft"             # draft | live | deferred
 order = 100                  # position in the catalog (lower first)
-track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied | depth (docs/plan.md, Tracks)
 lesson = 0                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
 needs = []                   # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
 # Optional, shown on the catalog card: the demo's key line of X_eTaL
