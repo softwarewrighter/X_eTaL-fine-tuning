@@ -1,0 +1,66 @@
+#!/usr/bin/env xetal
+## The landscape: the accounting of the ways to change a layer, each
+## figure analytical (it follows from the method's definition, no
+## training is run). For two layers, this course's 8 x 8 at rank 4
+## and one real layer, 4096 x 4096 at rank 16: for each family whose
+## cost is a count, the numbers trained, the numbers held while
+## training beyond the weights themselves (the gradient and Adam's two
+## averages, where there are any), and the numbers stored afterward
+## when the change is kept apart from W. Then the bytes of the layer
+## itself at 16 bits and at 4 bits (QLoRA's base), and the adapter's
+## share of the full count.
+
+"lo:" u_se< "LoRA"
+
+### Data
+
+## The two layers side by side: d is the width of each (the layer is
+## d x d), r the rank an adapter would have on it.
+d := 8 4096
+r := 4 16
+all := d * d
+## One row in eight of the layer, the selective case this page takes: an
+## eighth of the numbers.
+some := f_loor all / 8
+## LoRA's count from the library, r (d + d), at each layer.
+lora := (4 lo:p_arams 8 8) c_at 16 lo:p_arams 4096 4096
+
+### The numbers trained
+
+## A row per family that has a count, in the order the page lists
+## them: full fine-tuning (every number of W); selective fine-tuning
+## (here one row in eight); LoRA (A and B); LoRA-FA (B alone); QLoRA
+## (LoRA's adapter on a quantized W); DoRA (LoRA's adapter and a
+## magnitude per column); VeRA (two vectors, d and r long, on frozen
+## shared tables); learning without back-propagation on every weight
+## (MeZO); a closed-form rank-one edit (nothing is trained). A column
+## per layer.
+trained := (9 c_at 2) r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 0 0
+r_avel trained
+
+### The numbers held while training
+
+## Back-propagation with Adam holds, for every number trained, its
+## gradient and two running averages: three more numbers. The
+## two-point estimate holds a seed and two losses, no gradient; a
+## closed-form edit holds nothing while it trains, since it does not.
+held := trained * (3 3 3 3 3 3 3 0 0) '* t_able 1 1
+r_avel held
+
+### The numbers stored afterward
+
+## The change kept apart from W: full and selective fine-tuning keep
+## the moved numbers; an adapter keeps its tables (LoRA-FA and VeRA
+## regrow their frozen ones from a seed); the forward-only method
+## moved every weight; a rank-one edit is two vectors, u and v. An
+## adapter merged into W is d x d again, the first row.
+stored := (9 c_at 2) r_eshape all c_at some c_at lora c_at (r * d) c_at lora c_at (lora + d) c_at (d + r) c_at all c_at 2 * d
+r_avel stored
+
+### Bytes and shares
+
+## The layer's own bytes at 16 bits a number and at 4 bits (what
+## QLoRA's quantized base takes, before its scales), at each width.
+(16 lo:b_ytes all) c_at 4 lo:b_ytes all
+## The adapter's share of the full count, LoRA then LoRA-FA.
+((f_loat lora) / f_loat all) c_at (f_loat r * d) / f_loat all

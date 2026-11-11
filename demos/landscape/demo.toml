@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "landscape"           # the directory name, demos/<slug>/
+title = "The landscape"
+summary = "LoRA is one way to change a model; what are the others, and how would you choose? The map: six families of ways to change a layer's weights (change none; change every one or chosen ones; train a small part beside frozen weights; learn without back-propagation; edit in closed form; let an AI do the editing), each in plain words with one line of arithmetic, sorted by two questions kept apart, where the change may live and how it is found; each family's accounting at 8 x 8 and at 4096 x 4096 computed by X_eTaL, every figure analytical; the three worries against what this course has measured; where every lesson, live or to come, sits."
+concepts = ["a map with two axes", "a count from a definition", "analytical, not measured", "the baseline that changes nothing"]
+status = "live"              # draft | live | deferred
+order = 60                   # position in the catalog (lower first)
+track = "lora"               # start | lora | variants | subspaces | alternatives | edge | applied (docs/plan.md, Tracks)
+lesson = 6                   # its number in the curriculum (docs/plan.md), 0 for an experiment outside it
+needs = []                   # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "lora := (4 lo:p_arams 8 8) c_at 16 lo:p_arams 4096 4096"
+why = "The same count at the two widths side by side: on the small layer an adapter is as large as the layer, on the wide one it is 1 in 128."

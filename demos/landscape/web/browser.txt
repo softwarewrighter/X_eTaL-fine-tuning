@@ -1,0 +1,13 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+At 8 by 8 with rank 4 (analytical): full fine-tuning trains 64 numbers, and while it trains their gradients and Adam's two averages are held beside them, 192 more; LoRA trains 64 and holds 192; LoRA-FA 32 and 96; VeRA 12 and 36.
+At 4096 by 4096 with rank 16 (analytical): full fine-tuning trains 16,777,216 numbers, and while it trains their gradients and Adam's two averages are held beside them, 50,331,648 more; LoRA trains 131,072 and holds 393,216
+LoRA's share of the layer's count (analytical): as many as the layer itself at 8 by 8, 1 in 128 at 4096 by 4096; LoRA-FA's 1 in 2 and 1 in 256.
+33,554,432 bytes (33.6 MB) at 16 bits; 8,388,608 bytes (8.4 MB) at 4 bits
+html: <span class="mark">A</span>
+Worked in full at 8 by 8, rank 4 (analytical): the layer holds 8 x 8 = 64 numbers
+DoRA adds one size per column, 64 + 8 = 72; VeRA's two lists are 8 and 4 long, 8 + 4 = 12; a rank-one edit trains nothing and stores two lists of 8, 2 x 8 = 16. Held under Adam: 3 x 64 = 192 for full fine-tuning, 3 x 64 = 192 for LoRA.
+no lesson planned
+to come, Saga 5
+# Advanced: the program shown.
+@ ?mode=advanced
+The library functions the program uses

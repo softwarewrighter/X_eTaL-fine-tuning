@@ -1,6 +1,6 @@
 number = 12
 slug = "landscape"
-status = "pending"
+status = "in-progress"
 description = """
 Step landscape (docs/plan.md, Saga 1 row 7, "The road", principle 7;
 added 20..."""

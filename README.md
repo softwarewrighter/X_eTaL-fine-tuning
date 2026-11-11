@@ -111,20 +111,15 @@ Live: [the catalog](https://softwarewrighter.github.io/X_eTaL-fine-tuning/).
 | [LoRA training](demos/lora-training/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-training/)) | lesson 3: where do the numbers of A and B come from? One step of training told in six stages with every number quoted from the run (the prediction, the error, the gradients, the update, W's difference exactly 0 and the library's step agreeing); then training by Adam with a record to step back through, X_eTaL's chart of the loss on the examples trained on beside the loss on 4 held out, and three experiments as files of settings: a first run, too large a learning rate, too few examples at too large a rank; what each record shows is said from its numbers | `\|> "dB[i,k] \| 8 r" e:e_q< "sum m:=0..n-1 \| s * g[i,m] * h[k,m]" $dB`: a gradient is one more stage of the pipeline, an equation like the forward ones |
 | [Rank and scaling](demos/rank-and-scaling/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/rank-and-scaling/)) | lesson 4: what does the rank buy, and what does it cost? The rank swept from 1 to 8 on lesson 3's task under LoRA's s = alpha / r and rsLoRA's s = alpha / sqrt r, 16 training runs in under a second: the numbers trained (analytical), the two losses after the same steps and the size of s B A (measured), every figure marked; X_eTaL's charts; alpha and the steps as sliders that rerun the sweep; a rank to read about, and an account of the whole table written from its numbers, including where training left the held-out loss above its untrained value; never a rank called better | `alpha lo:s_calingRs k`: the two rules differ in one number of the adapter's bundle, the strength |
 | [LoRA beside LoRA-FA](demos/lora-vs-fa/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/lora-vs-fa/)) | lesson 5: freeze half the adapter and train the other half: what does it cost? Two experiments kept apart. Fitting a known shift T: LoRA and LoRA-FA from the same start, against the lowest loss possible at the rank (from T's singular values, analytical) and LoRA-FA's floor, T's projection onto the frozen A's row space, the first subspace a reader meets; each learned update projected onto it, LoRA-FA's remainder 0 and LoRA's not. Then learning from examples: the two beside full fine-tuning of W, with the loss on examples trained on, held out, and the layer's old examples, the first retention measure; the rank and the examples as sliders that rerun everything; the accounts written from the numbers | `P := (o_\ A) '+ '* i_nner (mx:i_nverse A '+ '* i_nner o_\ A) '+ '* i_nner A`: the projection onto the frozen A's row space, what LoRA-FA's update can never leave |
+| [The landscape](demos/landscape/README.md) ([live](https://softwarewrighter.github.io/X_eTaL-fine-tuning/landscape/)) | lesson 6: LoRA is one way; what are the others, and how would you choose? The map: six families of ways to change a layer's weights (change none; change every one or chosen ones; a small trained part beside frozen weights, LoRA and its variations; learning without back-propagation; a closed-form edit; an AI doing the editing), each in plain words with one line of arithmetic and where it stands in this course; the grid of the two questions kept apart, where the change may live and how it is found, with every lesson live or to come in its cell; the accounting at 8 x 8 and at 4096 x 4096 computed by X_eTaL (numbers trained, held while training, stored), every figure analytical; the three worries against what has been measured; the curriculum | `lora := (4 lo:p_arams 8 8) c_at 16 lo:p_arams 4096 4096`: the same count at both widths, as large as the layer on one, 1 in 128 on the other |
 
 ![LoRA hello](demos/lora-hello/screenshot.png)
 
-The lessons to come, in order ([`docs/plan.md`](docs/plan.md)):
-
-| Lesson | What you will do |
-| ------ | ---------------- |
-| LoRA lab | the five-minute journey, "how does a tiny adapter change a frozen layer?": step through `y = W x + s B (A x)` on an 8 x 8 layer, open any cell's arithmetic, select a symbol of the equation to see its matrix and its code, move the rank |
-| LoRA training | one training step narrated in six stages, then training on examples with a held-out set; presets for a learning rate too large and for overfitting |
-| Rank and scaling | rank and alpha swept, the measured cost and effect explained; alpha / r beside rsLoRA's alpha / sqrt r |
-| The map | where LoRA sits among the ways to change a model, each set against forgetting, time and cost, and what the later lessons compare |
-
-Then a map of where LoRA sits; the variations (QLoRA, DoRA, VeRA);
-shared subspaces; the alternatives; and the bleeding edge.
+The lessons to come ([`docs/plan.md`](docs/plan.md)): the variations
+of LoRA (QLoRA, DoRA, VeRA and others chosen, each a lesson, then all
+on one task), shared subspaces, the alternatives (learning without
+back-propagation, closed-form edits) and the bleeding edge (an AI
+editing weights), as the map of lesson 6 lays them out.
 
 ## Libraries
 
@@ -146,8 +141,8 @@ every algorithm and every number shown is X_eTaL's.## Status
 
 | | |
 | - | - |
-| Now | the build machinery (a pin for each sibling asked of, the gate, the live site), a welcome page for newcomers, the teaching shell every lesson is built from, and five lessons: LoRA hello, the LoRA lab, LoRA training (the first that trains anything, with a held-out loss), Rank and scaling (the first sweep: cost beside result, measured beside analytical) and LoRA beside LoRA-FA (the first subspace, and the first retention measure: what training did to the layer's old outputs, LoRA and LoRA-FA beside full fine-tuning) |
-| Next | the landscape of methods; the lab's polish; then Saga 2, the variations compared on one harness |
+| Now | the build machinery (a pin for each sibling asked of, the gate, the live site), a welcome page for newcomers, the teaching shell every lesson is built from, and six lessons: LoRA hello, the LoRA lab, LoRA training (the first that trains anything, with a held-out loss), Rank and scaling (the first sweep: cost beside result, measured beside analytical) and LoRA beside LoRA-FA (the first subspace, and the first retention measure: what training did to the layer's old outputs, LoRA and LoRA-FA beside full fine-tuning) and The landscape (the map: six families, the two questions underneath them, each family's accounting at 8 x 8 and 4096 x 4096, the three worries against what has been measured) |
+| Next | the lab's polish, which closes Saga 1; then Saga 2, the variations compared on one harness |
 | Asks | this repository defines no functions of its own; what the lessons need from the others is asked for: [`docs/xetal-ML-asks.md`](docs/xetal-ML-asks.md), [`docs/xetal-libraries-asks.md`](docs/xetal-libraries-asks.md), [`docs/xetal-extensions-asks.md`](docs/xetal-extensions-asks.md). No step of the present saga is blocked; the LoRA variations wait on X_eTaL-ML. Nothing is asked of the language |
 
 ## Build

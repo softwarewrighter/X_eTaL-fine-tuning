@@ -1,0 +1,3 @@
+command = "scripts/browser-check.sh landscape"
+exit_code = 0
+desc = "landscape: the built page run in headless Chrome shows X_eTaL's results"

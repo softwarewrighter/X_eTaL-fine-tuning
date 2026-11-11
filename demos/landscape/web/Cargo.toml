@@ -1,0 +1,16 @@
+[package]
+name = "landscape-web"
+description = "The landscape: the ways to change a model in families, sorted by where the change lives and how it is found; each family's accounting at 8 x 8 and at 4096 x 4096 computed by X_eTaL, analytical; the three worries against what is measured so far"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget"] }
+console_error_panic_hook = "0.1"
+
+[workspace]
