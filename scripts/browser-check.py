@@ -17,6 +17,12 @@ comment. A line "@ ?stage=3&rank=5" starts a section checked on the
 page opened at that address (lesson::link), so states a reader reaches
 by clicking are checked too, not only the page as first loaded.
 
+Then the page as first loaded is walked by keyboard alone and by touch
+(scripts/browser-walk.py: every control named and reached by Tab, every
+heat map with its legend, every slider in its label; Enter, arrows and
+taps act; play, pause, stepping and a slider moved and returned change
+no number), unless XETAL_WALK=0.
+
 Prints one line per check, the same each run, so reg-rs can keep it as
 a baseline (browser-<slug> in the demo's reg/).
 
@@ -97,6 +103,9 @@ def main(slug):
     ok = True
     for query, lines in sections(want.read_text()):
         ok &= check(slug, query, lines, live)
+    if os.environ.get("XETAL_WALK", "1") != "0":
+        sys.stdout.flush()
+        ok &= subprocess.run([str(ROOT / "scripts" / "py"), str(ROOT / "scripts" / "browser-walk.py"), slug]).returncode == 0
     return 0 if ok else 1
 
 

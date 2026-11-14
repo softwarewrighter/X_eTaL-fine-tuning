@@ -27,3 +27,15 @@ found: At rank 2, fitting T for 300 steps.
 found: after 300 steps on 3 examples
 found: The library functions the program uses
 cross-reference links: 41, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 440, without a spoken name: none
+heat maps: 3, with a legend and a scale note: 3
+sliders: 2, in a label that shows the value: 2
+keyboard: 438 controls, reached by Tab: 438
+keyboard: Enter on a word opened "adapter"
+keyboard: an arrow moved the inspector to "T, row 1, column 2: -0.363598 (negative, so blue)"
+touch: a tap on a cell read "T, row 1, column 4: -0.145456 (negative, so blue)"
+touch: a tap on a word opened its explanation
+replay: 2 sliders moved a notch and back, every number the same after: 2

@@ -110,6 +110,10 @@ check-rebind:
 browser-check slug:
     scripts/browser-check.sh "$1"
 
+# Walk one demo's built page by keyboard alone and by touch in headless Chrome (the browser check runs it too)
+browser-walk slug:
+    scripts/browser-walk.sh "$1"
+
 # Build the live site into pages/ (not tracked; just publish publishes it)
 pages:
     scripts/build-pages.sh

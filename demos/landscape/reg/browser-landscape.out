@@ -27,3 +27,10 @@ frame: next
 errors: none
 found: The library functions the program uses
 cross-reference links: 11, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 172, without a spoken name: none
+keyboard: 170 controls, reached by Tab: 170
+keyboard: Enter on a word opened "LoRA"
+touch: a tap on a word opened its explanation

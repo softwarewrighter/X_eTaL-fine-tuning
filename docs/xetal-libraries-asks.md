@@ -61,3 +61,13 @@ What the check found for this repository:
   ask marked landed here. This repository pins X_eTaL-libraries
   itself (`XETAL_LIBRARIES_COMMIT`), so it does not wait for
   X_eTaL-ML to move its own libraries pin.
+
+**At Saga 1's close (2026-11-13).** FL1 landed and is pinned
+(bf9e200); its last step, Flow's pipeline drawn through it, is
+X_eTaL-ML's FM11. FL2 and FL3 were written out in lora-vs-fa (power
+iteration with deflation for the singular values, checked in the
+program against known ones; the projection through Matrix's inverse)
+and are needed properly by Saga 3's first step, subspace-intro, and
+by Saga 2's comparison lessons wherever a spectrum is shown. The pin
+moves when X_eTaL-libraries' Saga 27 has landed, alone, at a saga's
+planning step.

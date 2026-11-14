@@ -51,3 +51,19 @@ found: Stage 2 of 4, h: the squeeze.
 found: h(5) =
 found: html: <animateMotion
 cross-reference links: 0, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 162, without a spoken name: none
+heat maps: 8, with a legend and a scale note: 8
+sliders: 1, in a label that shows the value: 1
+symbols: 9 marked in the formulas, 9 letters, explained when picked: 9
+keyboard: 158 controls, reached by Tab: 158
+keyboard: Enter on a word opened "adapter"
+keyboard: Next moved "Stage 1 of 4" to "Stage 2 of 4", Back returned
+keyboard: an arrow moved the inspector to "W, row 1, column 2: 0.334988 (positive, so red). H"
+touch: a tap on a cell read "W, row 1, column 4: -0.979178 (negative, so blue)."
+touch: a tap on a word opened its explanation
+touch: a tap on Next moved "Stage 1 of 4" to "Stage 2 of 4"
+replay: play, pause and step left every number at "Stage 2 of 4" the same (5416 characters)
+replay: 1 sliders moved a notch and back, every number the same after: 1

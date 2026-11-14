@@ -1,6 +1,6 @@
 number = 13
 slug = "lab-polish"
-status = "pending"
+status = "in-progress"
 description = """
 Step lab-polish (docs/plan.md, Saga 1 row 7 and the saga's acceptance;
 docs/r..."""

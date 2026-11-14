@@ -43,3 +43,16 @@ found: This stage uses: x and u.
 found: h(1) = A(1,1) × x(1)
 found: The code, for those who want it
 cross-reference links: 14, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 69, without a spoken name: none
+heat maps: 7, with a legend and a scale note: 7
+keyboard: 65 controls, reached by Tab: 65
+keyboard: Enter on a word opened "language model"
+keyboard: Next moved "Stage 1 of 4" to "Stage 2 of 4", Back returned
+keyboard: an arrow moved the inspector to "x, number 2: 2 (positive, so red)"
+touch: a tap on a cell read "x, number 4: 4 (positive, so red)"
+touch: a tap on a word opened its explanation
+touch: a tap on Next moved "Stage 1 of 4" to "Stage 2 of 4"
+replay: play, pause and step left every number at "Stage 2 of 4" the same (154 characters)

@@ -18,3 +18,8 @@ found: See the code behind this: the function forward of the LoRA library
 found: exactly as the library has it (line
 found: catastrophic forgetting
 cross-reference links: 23, dead: none
+walk: loaded
+controls: 187, without a spoken name: none
+keyboard: 187 controls, reached by Tab: 187
+keyboard: Enter on a word opened "language model"
+touch: a tap on a word opened its explanation

@@ -26,3 +26,12 @@ found: after 10 steps with alpha 16.
 found: From rank 7 to rank 8
 found: The library functions the program uses
 cross-reference links: 27, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 199, without a spoken name: none
+sliders: 3, in a label that shows the value: 3
+keyboard: 197 controls, reached by Tab: 197
+keyboard: Enter on a word opened "rank"
+touch: a tap on a word opened its explanation
+replay: 3 sliders moved a notch and back, every number the same after: 3

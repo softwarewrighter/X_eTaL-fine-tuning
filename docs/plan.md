@@ -243,8 +243,11 @@ signature wanted and the workaround meanwhile.
 | a mixture of experts | X_eTaL-ML | FM6 | its MoE library and a small trained base model | Saga 2, adapters-in-moe |
 | shared-basis adapters | X_eTaL-ML | FM10 | an adapter in a fixed shared basis, `W x + U C V' x` (C full or diagonal), its gradient and steps; bases from a seed, from W's singular directions, from the data; a family of tasks (related, unrelated, in sequence) with transfer and forgetting measured; later a basis that evolves over tasks (Share), shared with task-specific directions (LoDA), a subspace per task (SuLoRA) | Saga 3 |
 | learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 4 |
-| closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |## Saga 1 -- lora-lab  [ACTIVE]
+| closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |
 | marked mathematics in a pipeline | X_eTaL-ML | FM11 | Flow's `m_ath<` drawn through Equations' `e:t_exSymbols<` (FL1) | Saga 1, lora-lab |
+| Hyper-Connections and mHC | X_eTaL-ML | FM13 | the stream mixing, Sinkhorn-Knopp with its gradient, the HC and mHC layer steps with gradients checked, the gain proxy; later the dynamic H | Saga mhc, sinkhorn |
+
+## Saga 1 -- lora-lab  [DONE, 2026-11-13]
 
 The research's recommended first milestone: one complete, polished
 learning journey, "How does a tiny adapter change a frozen neural
@@ -265,12 +268,30 @@ of the road, with Saga 2.
 | 5 | rank-and-scaling | DONE (2026-11-07; read cold and revised: the shift, the square root, W's 64 and the loss per example said before use; the account names which loss and marks every sentence; the reading of the sizes no longer judges; the account says where training left the held-out loss above its untrained value; the guess's answer given in words; the publish script rebuilds a stale pages/). demos/rank-and-scaling, live: rank and alpha swept on the learning task; trainable numbers, train and validation loss at each, every figure marked measured or analytical (F8); rsLoRA's alpha / sqrt r (ask FM3) beside LoRA's alpha / r, the update's size at each rank; the narrator explains capacity, cost and stability from the measurements, without claiming rank always helps |
 | 6 | lora-vs-fa | DONE (2026-11-10; read cold and revised). demos/lora-vs-fa, live: Experiment A, approximating a known matrix, named as such: LoRA and LoRA-FA fitting the rank-4 T from the same start against the lowest loss possible at the rank (Eckart-Young, from T's singular values by power iteration with deflation, FL2's workaround, checked in the program against known singular values) and LoRA-FA's floor, T's projection onto the frozen A's row space (FL3's workaround through Matrix's inverse): LoRA reaches the lowest to rounding at rank 4 and up, LoRA-FA its floor to 13 decimals; each learned update projected onto the row space, LoRA-FA's remainder 0 and LoRA's not (tested). The row space named as the first subspace a reader meets: the glossary gains subspace, basis, projection, singular values, LoRA-FA, full fine-tuning, retention. Experiment B, learning from examples, kept apart: lesson 3's task, LoRA, LoRA-FA and full fine-tuning of W (FM7's workaround, Adam through Optim), with the loss per example trained on, held out and on 4 old examples (W's own outputs before any training), the first retention measure (added 2026-11-07, the user's question). Measured: on this task every method moves the old outputs (rank 4, 8 examples: LoRA 0.93, LoRA-FA 1.25, full fine-tuning 1.14 per old example); the page says so, and that here an adapter was not by itself a guard of old behavior. A task whose new examples lie in a region of their own, where an update could leave the old region alone, is Saga 3's |
 | 7 | landscape | DONE (2026-11-10; read cold and revised). demos/landscape, live: lesson 6, the map. The six families (change no weight; change every weight or chosen ones; a small trained part beside frozen weights, LoRA and its variations LoRA-FA, QLoRA, DoRA, VeRA named with what each changes; learning without back-propagation; a closed-form edit; an AI doing the editing), each in two or three plain sentences with one line of its arithmetic on W and where it stands here (lessons 1 to 5; Saga 2 next; Sagas 3 to 5 to be planned), no claim about an unrun method beyond its definition. The grid of the two questions kept apart (`docs/research4.txt`): where the change may live (every weight; two thin tables; a few numbers scaling fixed shared tables; one rank-one edit) against how it is found (back-propagation; forward passes alone; a formula; an AI proposing and testing), every lesson live (a link) or to come (its saga) in its cell, empty cells marked as no lesson planned, shared bases a row and not a variation, the baseline that changes nothing outside the grid. The accounting computed by `landscape.xtl` for 8 x 8 at rank 4 and 4096 x 4096 at rank 16 (LoRA's count from `lo:p_arams`, the layer's bytes from `lo:b_ytes`, the rest written out as the definitions give them): numbers trained, held while training (three per number under Adam; none for a forward-only method or an edit) and stored apart, each marked A, the two families whose cost is not a count named instead; the sentences under the table written from the run. The three worries (forgetting, time, cost) per family: what its definition gives, what is measured here (linked to lessons 4 and 5), what is still to be measured. The curriculum, live or to come. Tests: every count against its formula, the map's live lessons are demos here, no verdict word, nothing unexplained; the glossary gains 15 ideas (in the context, back-propagation, forward pass, selective fine-tuning, QLoRA, DoRA, VeRA, learning without back-propagation, closed-form edit, an AI editing weights, where the change lives, how it is found, bits a number, seed, saga) |
-| 8 | lab-polish | the acceptance pass of the research: every visible symbol and control has an accessible explanation (a test lists them against the glossary), keyboard-only and touch walkthroughs of each lesson in the browser tests, a deterministic replay test per preset, a checklist for trying the lessons with novices (what rank means, why W stays frozen, what A and B do, why a small adapter changes the output) in `docs/novice-check.md`; the README's demos table and screenshots |
+| 8 | lab-polish | DONE (2026-11-13). The acceptance pass of the research, as tests in a real browser: `scripts/browser-walk.py` (`just browser-walk`, run by the browser check, so each page's reg-rs baseline records it; the DevTools protocol of headless Chrome, the standard library only) opens the page at its deepest mode and lists every control (buttons, inputs, links, the keyboard-reachable figures) and fails on one without a name a screen reader can speak; requires every heat map to carry its legend and scale note and every slider to sit in a label that shows its value; in a page with drawn formulas, requires every marked symbol to have a letter button and presses each, which must explain it; presses Tab from the top until the focus returns and requires every control to have been reached; acts by keyboard (arrows on the mode switch, Enter on a word that explains, Enter on Next and Back, an arrow on a heat map) and by touch (a tap on a cell, on a word, on Next); and replays: play, pause, step and return leave every number the same, and each slider moved a notch and back leaves every number the same (the narration, which compares a run with the one before it, and which cell a reader has picked are left out of that comparison; the rerun's numbers are in). The seven pages pass: 50 to 440 controls each, all named and reached; the prose-level checks (every marked word in the glossary, every function explained) stay in each page's native tests. The replay per preset was already lora-training's `every_preset_replays_to_the_same_record`; the other pages' settings are their sliders, now walked. `docs/novice-check.md`: who to try the lessons with, how, the eight questions with what a good answer contains (rank, why W stays frozen, A and B, why a small adapter changes the output, where A and B's numbers come from, what a larger rank buys and costs, whether the adapter protected the old outputs, two other ways to change a model), and how to record a session under `docs/novice/`. The README: a screenshot per lesson, the status; the catalog's order was the curriculum's already. The plan: Saga 1 closed, Saga 2 reviewed (below) |
 
 Acceptance for the saga (from the research): a beginner completes the
 first lesson without other documentation; every visible symbol and
 control is explained accessibly; the forward pass steps forward and
 back; every matrix value shown comes from the real computation.
+
+Where the saga closed (2026-11-13): of the four, three are tested
+(every control named and keyboard-reachable, every marked word
+explained; the forward pass stepped both ways with no value changed;
+every number read from the X_eTaL run, with the native tests tying
+the page's numbers to the command line's program and the library).
+The first, a beginner completing the first lesson unaided, is not a
+test's to pass: `docs/novice-check.md` is how it is checked with
+people, and no session has been held yet. What Saga 1 learned that
+Saga 2 inherits: a page is a program plus prose, and the program's
+printed lines are the page's whole input (`microscope::run::output`);
+the cold read by a reviewer finds what the author cannot (28 findings
+on the last page); writing the learning task out (FM7) cost about 20
+lines a program and was readable, so the ask is not a blocker until
+the comparison harness; a narrator that compares two runs without a
+verdict needs its words tested (`lesson::narrate::forbidden`); the
+retention measure (lesson 5) is the question every later saga comes
+back to.
 
 
 ## Saga 2 -- lora-variants  [PLANNED, next]
@@ -280,8 +301,40 @@ one task. Source: `docs/research2.txt` (QLoRA and LoRA-FA on a
 mixture of experts, sections 2 to 5 and "does LoRA-FA change
 anything?") and the papers. X_eTaL-ML's Saga 6 plans the mathematics
 of some (quant-nf4, qlora, vera, moe-lib): at this saga's start the
-pin is moved, what has landed is used, and what has not is written in
+pin is moved, what has landed is used, and what has not is
 asked for (asks FM4, FM6): a lesson whose mathematics is not there waits for it.
+
+Reviewed at Saga 1's close (2026-11-13) against what was learned:
+
+- Every variation's lesson keeps lesson 5's shape: the two
+  experiments apart (a known matrix, then examples), the three losses
+  (trained on, held out, old examples), the numbers trained, held and
+  stored beside them, every figure marked. Lesson 6's accounting
+  table is the template for the counts; its rows for QLoRA, DoRA and
+  VeRA become measured where they were analytical.
+- The comparison harness (step 2) is where writing the task out
+  stops being readable (FM7's workaround was 20 lines per program in
+  Saga 1; a harness running five methods on one task would repeat it
+  five times). Step 1 decides whether the harness is written out once
+  more here, in one program every lesson imports nothing from (a
+  demo never reaches into another: rule 5), or waits for FM7; the
+  recommendation is to ask X_eTaL-ML for FM7 now, at Saga 2's start,
+  and write step 3 (QLoRA) meanwhile, since it needs no harness.
+- QLoRA's mathematics (NF4, double quantization) and VeRA's are
+  X_eTaL-ML's Saga 6; DoRA's is asked outright (FM4). The pin moves
+  in step 1; a lesson whose library has not landed is written with
+  its forward pass and gradient written out only if that stays under
+  about 20 lines, else it waits and the step is marked blocked.
+- The glossary already names QLoRA, DoRA, VeRA, bits a number and
+  selective fine-tuning from lesson 6; each lesson deepens its entry
+  with a worked example and takes it as `lesson`.
+- The browser walk (`scripts/browser-walk.py`) runs on every new
+  page from its first build: its baseline is made with `just bless`.
+- Step 6 (more-variants) depends on open question 5; step 8
+  (adapters-in-moe) on FM6, and stays last so nothing waits on it.
+
+The steps stand as planned; step 1 writes `docs/variants-plan.md`
+and may reorder them.
 
 | # | Step slug | Delivers |
 | - | --------- | -------- |
@@ -451,6 +504,11 @@ own when its time comes.
 
 ## Open questions (for the user)
 
+Put again at Saga 1's close (2026-11-13); none has been answered yet,
+and two decide what the next step is: question 7 (Saga 2 or the mHC
+saga first) and question 4 (how FM7 and FM4 reach X_eTaL-ML, since
+Saga 2's harness and its first lessons wait on them).
+
 Settled by `docs/research3.txt`: which weight-space,
 no-back-propagation methods are meant and in what order (Saga 4).
 
@@ -498,6 +556,16 @@ no-back-propagation methods are meant and in what order (Saga 4).
    those reviews. The planning steps are written to read each from its
    source on the web before building on it. Is that the wanted way,
    or will the papers (or notes on them) be added to `docs/`?
+7. **Saga 2 or the mHC saga next?** (`docs/mhc-plan.md`.) The mHC
+   saga is independent of Sagas 2 to 5 and its first lesson needs no
+   training; Saga 2 waits on X_eTaL-ML for its mathematics (FM4) and
+   would benefit from FM7 landing first. Recommended: the mHC saga
+   now (its planning step is the next agentrail step), Saga 2 when
+   X_eTaL-ML's Saga 6 has landed what it needs. The other mHC
+   questions (the block, the task, static and dynamic H, quoting the
+   Python's figures) are in its plan.
+8. **Trying the lessons with newcomers.** `docs/novice-check.md` is
+   ready; it needs people. Is a session planned, and by whom?
 ## Cross-cutting
 
 - Move a pin (`just ml-pin`, `just libs-pin`) when an ask has landed

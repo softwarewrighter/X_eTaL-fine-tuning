@@ -81,6 +81,18 @@ FM8 to FM10 after each saga's planning step specifies them; they would
 be a saga of its own after its Saga 6, in the order FM7, FM10, FM8,
 FM9), FM11 (filed after its reading; not yet taken).
 
+**At Saga 1's close (2026-11-13).** Saga 1 used what landed (FM1,
+FM2, FM3, FM5) and wrote FM7 and FM11 out; nothing it built waits on
+X_eTaL-ML. What the next sagas take there, in the order they are
+needed: FM7 (the task, the measures and the comparison harness; Saga
+2's step 2 is where writing it out stops being readable), FM4 (QLoRA,
+DoRA and VeRA; Saga 2's steps 3 to 5, planned in X_eTaL-ML's Saga 6
+except DoRA), FM13 (Hyper-Connections and mHC; the mhc saga's step 3
+on, if that saga goes first), FM6 (the mixture of experts; Saga 2's
+last step), then FM10, FM8 and FM9 for Sagas 3 to 5, each to be
+specified in its saga's planning step. The pin is still bd178de; it
+moves at the next saga's planning step.
+
 **Offered back (FM5).** X_eTaL-ML invited the heat map's additions "as
 a patch to it or a further ask". They exist now in
 `shared/lesson/src/heat.rs`, written on `microscope::heat`: a legend

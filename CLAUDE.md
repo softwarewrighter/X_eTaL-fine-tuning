@@ -338,6 +338,9 @@ Read before working:
   is its authors' claim (archival, NOT normative)
 - `docs/new-eyes.md` -- the checklist a page is written and read
   against
+- `docs/novice-check.md` -- how the lessons are tried with newcomers
+  and what they are asked afterward (the acceptance a test cannot
+  give); sessions are recorded under `docs/novice/`
 - `docs/mhc-plan.md` -- the plan for the mHC side track (DeepSeek's
   Manifold-Constrained Hyper-Connections in X_eTaL): what the Python
   did, what the paper adds, what fits at toy scale, its saga and asks

@@ -11,6 +11,10 @@ documentation, `plan` saga planning and reordering, `release`
 milestone release, `chore` agentrail bookkeeping (step complete, saga
 archive), `pin` a move of the X_eTaL-ML pin.
 
+## 2026-11-13
+
+- `test` the acceptance pass of Saga 1 (step lab-polish): `scripts/browser-walk.py` (`just browser-walk`; the browser check runs it, so every page's reg-rs baseline records it; headless Chrome driven through its DevTools protocol with the standard library only) opens each page at its deepest mode and requires every control to have a name a screen reader can speak and to be reached by Tab from the top, every heat map its legend and scale note, every slider a label that shows its value, every symbol marked in a drawn formula a letter button that explains it; acts by keyboard (arrows on the mode switch, Enter on a word, on Next and Back, an arrow on a heat map) and by touch (taps on a cell, a word, Next); and replays (play, pause, step and return; a slider moved a notch and back) with every number the same. The seven browser baselines reblessed: lines added, none changed. `docs/novice-check.md`: trying the lessons with newcomers, the eight questions with what a good answer contains, how to record a session. README: a screenshot per lesson (welcome and the lab's taken), the status. The plan: Saga 1 closed (where the acceptance stands, what it learned), Saga 2 reviewed against it, open questions 7 (Saga 2 or mHC next) and 8 (a novice session), the glued Saga 1 header fixed and FM13 in the asks table; the asks files dated at the saga's close
+
 ## 2026-11-11
 
 - `fix` the landscape's two shapes written `9 2 r_eshape` (the gate's literal c_at chain check had not seen the untracked files); the `depth` track known to scripts/demos.py and the template
