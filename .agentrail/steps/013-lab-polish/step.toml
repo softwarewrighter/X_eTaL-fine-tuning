@@ -1,10 +1,11 @@
 number = 13
 slug = "lab-polish"
-status = "in-progress"
+status = "completed"
 description = """
 Step lab-polish (docs/plan.md, Saga 1 row 7 and the saga's acceptance;
 docs/r..."""
 role = "production"
 context_files = []
 created_at = "2026-11-05T07:28:20"
-commits = []
+completed_at = "2026-11-13T19:19:33"
+commits = ["ed5da2a235d2efade733b2b1c8f006efcbb4295e"]
