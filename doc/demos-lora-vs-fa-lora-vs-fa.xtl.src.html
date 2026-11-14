@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/lora-vs-fa/lora-vs-fa.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li class="item"><a href="#L27">k</a></li>
+<li class="item"><a href="#L28">alpha</a></li>
+<li class="item"><a href="#L29">lr</a></li>
+<li class="item"><a href="#L30">n</a></li>
+<li class="item"><a href="#L31">chunks</a></li>
+<li class="item"><a href="#L32">every</a></li>
+<li class="item"><a href="#L36">i</a></li>
+<li class="item"><a href="#L37">W</a></li>
+<li class="item"><a href="#L38">p</a></li>
+<li class="item"><a href="#L39">T</a></li>
+<li class="item"><a href="#L43">s</a></li>
+<li class="item"><a href="#L44">A</a></li>
+<li class="item"><a href="#L45">B</a></li>
+<li class="item"><a href="#L46">a0</a></li>
+<li class="item"><a href="#L58">u0</a></li>
+<li class="item"><a href="#L59">v</a></li>
+<li class="item"><a href="#L60">H1</a></li>
+<li class="item"><a href="#L61">w</a></li>
+<li class="item"><a href="#L62">H2</a></li>
+<li class="item"><a href="#L63">known</a></li>
+<li class="item"><a href="#L64">M</a></li>
+<li class="item"><a href="#L65">spectra</a></li>
+<li class="item"><a href="#L73">ev</a></li>
+<li class="item"><a href="#L78">best</a></li>
+<li class="item"><a href="#L88">I</a></li>
+<li class="item"><a href="#L89">z1</a></li>
+<li class="item"><a href="#L89">fitL</a></li>
+<li class="item"><a href="#L94">z2</a></li>
+<li class="item"><a href="#L94">fitF</a></li>
+<li class="item"><a href="#L102">A1</a></li>
+<li class="item"><a href="#L102">B1</a></li>
+<li class="item"><a href="#L103">A2</a></li>
+<li class="item"><a href="#L103">B2</a></li>
+<li class="item"><a href="#L104">D1</a></li>
+<li class="item"><a href="#L105">D2</a></li>
+<li class="item"><a href="#L115">P</a></li>
+<li class="item"><a href="#L116">rem</a></li>
+<li class="item"><a href="#L127">_</a></li>
+<li class="item"><a href="#L135">c</a></li>
+<li class="item"><a href="#L136">X</a></li>
+<li class="item"><a href="#L137">Y</a></li>
+<li class="item"><a href="#L138">Xt</a></li>
+<li class="item"><a href="#L139">Yt</a></li>
+<li class="item"><a href="#L140">Xh</a></li>
+<li class="item"><a href="#L141">Yh</a></li>
+<li class="item"><a href="#L142">o</a></li>
+<li class="item"><a href="#L143">Xo</a></li>
+<li class="item"><a href="#L144">Yo</a></li>
+<li class="item"><a href="#L147">losses</a></li>
+<li class="item"><a href="#L150">y1</a></li>
+<li class="item"><a href="#L150">recL</a></li>
+<li class="item"><a href="#L155">y2</a></li>
+<li class="item"><a href="#L155">recF</a></li>
+<li class="item"><a href="#L164">y3</a></li>
+<li class="item"><a href="#L164">recW</a></li>
+<li class="item"><a href="#L176">A3</a></li>
+<li class="item"><a href="#L176">B3</a></li>
+<li class="item"><a href="#L177">A4</a></li>
+<li class="item"><a href="#L177">B4</a></li>
+<li class="item"><a href="#L178">W5</a></li>
+<li class="item"><a href="#L183">R</a></li>
+<li class="item"><a href="#L184">_</a></li>
+<li class="item"><a href="#L185">_</a></li>
+<li class="item"><a href="#L186">_</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">source</span><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">demos/lora-vs-fa/lora-vs-fa.xtl</a></h1>
+<div class="source"><span class="line" id="L1"><a class="ln" href="#L1">1</a><span class="c-comment">⍝</span><span class="c-comment">!/usr/bin/env xetal</span></span>
+<span class="line" id="L2"><a class="ln" href="#L2">2</a><span class="c-doc">⍝│</span><span class="c-doc"> LoRA beside LoRA-FA, in two experiments kept apart. Experiment A,</span></span>
+<span class="line" id="L3"><a class="ln" href="#L3">3</a><span class="c-doc">⍝│</span><span class="c-doc"> approximating a known matrix: both fit a known rank-4 shift T from</span></span>
+<span class="line" id="L4"><a class="ln" href="#L4">4</a><span class="c-doc">⍝│</span><span class="c-doc"> the same seeded A, B at 0; LoRA moves A and B, LoRA-FA moves B</span></span>
+<span class="line" id="L5"><a class="ln" href="#L5">5</a><span class="c-doc">⍝│</span><span class="c-doc"> alone. The best any update of the rank can do (the Eckart-Young</span></span>
+<span class="line" id="L6"><a class="ln" href="#L6">6</a><span class="c-doc">⍝│</span><span class="c-doc"> optimum, from T's singular values), and the floor LoRA-FA cannot</span></span>
+<span class="line" id="L7"><a class="ln" href="#L7">7</a><span class="c-doc">⍝│</span><span class="c-doc"> pass: its update s B A has its rows in the row space of the frozen</span></span>
+<span class="line" id="L8"><a class="ln" href="#L8">8</a><span class="c-doc">⍝│</span><span class="c-doc"> A, a subspace, so the closest it can come to T is T's projection</span></span>
+<span class="line" id="L9"><a class="ln" href="#L9">9</a><span class="c-doc">⍝│</span><span class="c-doc"> onto that subspace. Each learned update is projected onto the row</span></span>
+<span class="line" id="L10"><a class="ln" href="#L10">10</a><span class="c-doc">⍝│</span><span class="c-doc"> space and the remainder measured. Experiment B, learning from</span></span>
+<span class="line" id="L11"><a class="ln" href="#L11">11</a><span class="c-doc">⍝│</span><span class="c-doc"> examples: the task of lesson 3 (examples made by the hidden shift,</span></span>
+<span class="line" id="L12"><a class="ln" href="#L12">12</a><span class="c-doc">⍝│</span><span class="c-doc"> some held out), LoRA, LoRA-FA and full fine-tuning of W itself, with</span></span>
+<span class="line" id="L13"><a class="ln" href="#L13">13</a><span class="c-doc">⍝│</span><span class="c-doc"> the loss on the examples trained on, on the held-out ones, and on</span></span>
+<span class="line" id="L14"><a class="ln" href="#L14">14</a><span class="c-doc">⍝│</span><span class="c-doc"> old examples, what the layer gave before any training, measured</span></span>
+<span class="line" id="L15"><a class="ln" href="#L15">15</a><span class="c-doc">⍝│</span><span class="c-doc"> after it (retention).</span></span>
+<span class="line" id="L16"><a class="ln" href="#L16">16</a></span>
+<span class="line" id="L17"><a class="ln" href="#L17">17</a><span class="c-string">&quot;lo:&quot;</span> <a href="std-System.xtlm.html#s.u_se-3c" class="c-macro">u̲se&lt;</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html" class="c-string">&quot;LoRA&quot;</a></span>
+<span class="line" id="L18"><a class="ln" href="#L18">18</a><span class="c-string">&quot;mx:&quot;</span> <a href="std-System.xtlm.html#s.u_se-3c" class="c-macro">u̲se&lt;</a> <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html" class="c-string">&quot;Matrix&quot;</a></span>
+<span class="line" id="L19"><a class="ln" href="#L19">19</a><span class="c-string">&quot;op:&quot;</span> <a href="std-System.xtlm.html#s.u_se-3c" class="c-macro">u̲se&lt;</a> <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html" class="c-string">&quot;Optim&quot;</a></span>
+<span class="line" id="L20"><a class="ln" href="#L20">20</a><span class="c-string">&quot;p:&quot;</span> <a href="std-System.xtlm.html#s.u_se-3c" class="c-macro">u̲se&lt;</a> <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html" class="c-string">&quot;Plot&quot;</a></span>
+<span class="line" id="L21"><a class="ln" href="#L21">21</a></span>
+<span class="line" id="L22"><a class="ln" href="#L22">22</a><span class="c-heading">⍝━━</span><span class="c-heading"> Data</span></span>
+<span class="line" id="L23"><a class="ln" href="#L23">23</a></span>
+<span class="line" id="L24"><a class="ln" href="#L24">24</a><span class="c-doc">⍝│</span><span class="c-doc"> The settings: the rank, alpha (the strength s is alpha / r), the</span></span>
+<span class="line" id="L25"><a class="ln" href="#L25">25</a><span class="c-doc">⍝│</span><span class="c-doc"> learning rate, how many of the 12 examples are trained on (the last</span></span>
+<span class="line" id="L26"><a class="ln" href="#L26">26</a><span class="c-doc">⍝│</span><span class="c-doc"> 4 are always held out), and the record: chunks of every steps.</span></span>
+<span class="line" id="L27"><a class="ln" href="#L27">27</a>k ← <span class="c-number">4</span></span>
+<span class="line" id="L28"><a class="ln" href="#L28">28</a>alpha ← <span class="c-number">4.0</span></span>
+<span class="line" id="L29"><a class="ln" href="#L29">29</a>lr ← <span class="c-number">0.05</span></span>
+<span class="line" id="L30"><a class="ln" href="#L30">30</a>n ← <span class="c-number">8</span></span>
+<span class="line" id="L31"><a class="ln" href="#L31">31</a>chunks ← <span class="c-number">30</span></span>
+<span class="line" id="L32"><a class="ln" href="#L32">32</a>every ← <span class="c-number">10</span></span>
+<span class="line" id="L33"><a class="ln" href="#L33">33</a><span class="c-doc">⍝│</span><span class="c-doc"> The frozen layer W, by a fixed ripple (the lab's), and the hidden</span></span>
+<span class="line" id="L34"><a class="ln" href="#L34">34</a><span class="c-doc">⍝│</span><span class="c-doc"> shift T (8 x 8, of rank 4): what the adapter is to come to in</span></span>
+<span class="line" id="L35"><a class="ln" href="#L35">35</a><span class="c-doc">⍝│</span><span class="c-doc"> Experiment A, and what the examples of Experiment B come from.</span></span>
+<span class="line" id="L36"><a class="ln" href="#L36">36</a>i ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">64</span></span>
+<span class="line" id="L37"><a class="ln" href="#L37">37</a>W ← <span class="c-number">8</span> <span class="c-number">8</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.7</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#i">i</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#i">i</a></span>
+<span class="line" id="L38"><a class="ln" href="#L38">38</a>p ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">32</span></span>
+<span class="line" id="L39"><a class="ln" href="#L39">39</a>T ← (<span class="c-number">8</span> <span class="c-number">4</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">1.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#p">p</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#p">p</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <span class="c-number">4</span> <span class="c-number">8</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.6</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#p">p</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#p">p</a></span>
+<span class="line" id="L40"><a class="ln" href="#L40">40</a><span class="c-doc">⍝│</span><span class="c-doc"> The adapter as both methods start it, the same for both: B all 0,</span></span>
+<span class="line" id="L41"><a class="ln" href="#L41">41</a><span class="c-doc">⍝│</span><span class="c-doc"> A seeded (fixed, no chance). LoRA trains A and B; LoRA-FA keeps A</span></span>
+<span class="line" id="L42"><a class="ln" href="#L42">42</a><span class="c-doc">⍝│</span><span class="c-doc"> frozen and trains B.</span></span>
+<span class="line" id="L43"><a class="ln" href="#L43">43</a>s ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#alpha">alpha</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_caling" class="c-libfunc">ˡᵒs̲caling</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a></span>
+<span class="line" id="L44"><a class="ln" href="#L44">44</a>A ← <span class="c-number">1</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_eeded" class="c-libfunc">ˡᵒs̲eeded</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">8</span></span>
+<span class="line" id="L45"><a class="ln" href="#L45">45</a>B ← (<span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span></span>
+<span class="line" id="L46"><a class="ln" href="#L46">46</a>a0 ← (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A">A</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B">B</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#s">s</a>)</span>
+<span class="line" id="L47"><a class="ln" href="#L47">47</a><a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a></span>
+<span class="line" id="L48"><a class="ln" href="#L48">48</a></span>
+<span class="line" id="L49"><a class="ln" href="#L49">49</a><span class="c-heading">⍝━━</span><span class="c-heading"> The spectrum of T</span></span>
+<span class="line" id="L50"><a class="ln" href="#L50">50</a></span>
+<span class="line" id="L51"><a class="ln" href="#L51">51</a><span class="c-doc">⍝│</span><span class="c-doc"> T's singular values and, from them, the lowest loss any update of rank 1</span></span>
+<span class="line" id="L52"><a class="ln" href="#L52">52</a><span class="c-doc">⍝│</span><span class="c-doc"> .. 8 can reach (Eckart-Young: half the sum of the squared singular</span></span>
+<span class="line" id="L53"><a class="ln" href="#L53">53</a><span class="c-doc">⍝│</span><span class="c-doc"> values past the rank). The squared singular values are the</span></span>
+<span class="line" id="L54"><a class="ln" href="#L54">54</a><span class="c-doc">⍝│</span><span class="c-doc"> eigenvalues of T' T, found by power iteration, each taken out once</span></span>
+<span class="line" id="L55"><a class="ln" href="#L55">55</a><span class="c-doc">⍝│</span><span class="c-doc"> found; as X_eTaL-ML's lora-explorer writes it (ask FL2's</span></span>
+<span class="line" id="L56"><a class="ln" href="#L56">56</a><span class="c-doc">⍝│</span><span class="c-doc"> workaround, until Matrix has a spectrum). The same lines run on a</span></span>
+<span class="line" id="L57"><a class="ln" href="#L57">57</a><span class="c-doc">⍝│</span><span class="c-doc"> matrix built from known singular values, as a check.</span></span>
+<span class="line" id="L58"><a class="ln" href="#L58">58</a>u0 ← <span class="c-number">1.0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.1</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">8</span></span>
+<span class="line" id="L59"><a class="ln" href="#L59">59</a>v ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">8</span></span>
+<span class="line" id="L60"><a class="ln" href="#L60">60</a>H1 ← (<a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_dentity" class="c-libfunc">ᵐˣi̲dentity</a> <span class="c-number">8</span>) <a href="builtins.html#-2d" class="c-symbol">−</a> (<span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#v">v</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#v">v</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#v">v</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#v">v</a></span>
+<span class="line" id="L61"><a class="ln" href="#L61">61</a>w ← <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">8</span></span>
+<span class="line" id="L62"><a class="ln" href="#L62">62</a>H2 ← (<a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_dentity" class="c-libfunc">ᵐˣi̲dentity</a> <span class="c-number">8</span>) <a href="builtins.html#-2d" class="c-symbol">−</a> (<span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#w">w</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#w">w</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#w">w</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#w">w</a></span>
+<span class="line" id="L63"><a class="ln" href="#L63">63</a>known ← <span class="c-number">5.0</span> <span class="c-number">3.0</span> <span class="c-number">2.0</span> <span class="c-number">1.0</span> <span class="c-number">0.5</span> <span class="c-number">0.0</span> <span class="c-number">0.0</span> <span class="c-number">0.0</span></span>
+<span class="line" id="L64"><a class="ln" href="#L64">64</a>M ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#H1">H1</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> ((<a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_dentity" class="c-libfunc">ᵐˣi̲dentity</a> <span class="c-number">8</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#known">known</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-number">8</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#H2">H2</a></span>
+<span class="line" id="L65"><a class="ln" href="#L65">65</a>spectra ← <span class="c-quote">'</span>{ Gb → G ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> Gb</span>
+<span class="line" id="L66"><a class="ln" href="#L66">66</a>  (_, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#ev">ev</a>) ← <span class="c-number">8</span> <span class="c-quote">'</span>{ (Q, e) →</span>
+<span class="line" id="L67"><a class="ln" href="#L67">67</a>    x ← <span class="c-number">300</span> <span class="c-quote">'</span>{ y → m ← Q <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> y</span>
+<span class="line" id="L68"><a class="ln" href="#L68">68</a>      m <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">0.000000000000000001</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> m <a href="builtins.html#-2a" class="c-symbol">×</a> m } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#u0">u0</a></span>
+<span class="line" id="L69"><a class="ln" href="#L69">69</a>    lam ← <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> x <a href="builtins.html#-2a" class="c-symbol">×</a> Q <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> x</span>
+<span class="line" id="L70"><a class="ln" href="#L70">70</a>    (Q <a href="builtins.html#-2d" class="c-symbol">−</a> lam <a href="builtins.html#-2a" class="c-symbol">×</a> x <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> x, e <a href="builtins.html#c_at" class="c-builtin">c̲at</a> lam)</span>
+<span class="line" id="L71"><a class="ln" href="#L71">71</a>  } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (G, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</span>
+<span class="line" id="L72"><a class="ln" href="#L72">72</a>  <span class="c-number">0.0</span> <a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#ev">ev</a> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#M">M</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#M">M</a></span>
+<span class="line" id="L73"><a class="ln" href="#L73">73</a>ev ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#spectra">spectra</a></span>
+<span class="line" id="L74"><a class="ln" href="#L74">74</a><span class="c-doc">⍝│</span><span class="c-doc"> T's singular values; the lowest loss at each rank; the check (the</span></span>
+<span class="line" id="L75"><a class="ln" href="#L75">75</a><span class="c-doc">⍝│</span><span class="c-doc"> largest difference between the known singular values and the ones</span></span>
+<span class="line" id="L76"><a class="ln" href="#L76">76</a><span class="c-doc">⍝│</span><span class="c-doc"> found, small).</span></span>
+<span class="line" id="L77"><a class="ln" href="#L77">77</a><a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#ev">ev</a></span>
+<span class="line" id="L78"><a class="ln" href="#L78">78</a>best ← <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <span class="c-quote">'</span>{ j → <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> j <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#ev">ev</a> } <a href="builtins.html#e_ach" class="c-builtin">e̲ach</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">8</span></span>
+<span class="line" id="L79"><a class="ln" href="#L79">79</a><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#best">best</a></span>
+<span class="line" id="L80"><a class="ln" href="#L80">80</a><span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#known">known</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#spectra">spectra</a></span>
+<span class="line" id="L81"><a class="ln" href="#L81">81</a></span>
+<span class="line" id="L82"><a class="ln" href="#L82">82</a><span class="c-heading">⍝━━</span><span class="c-heading"> Experiment A: approximating a known matrix</span></span>
+<span class="line" id="L83"><a class="ln" href="#L83">83</a></span>
+<span class="line" id="L84"><a class="ln" href="#L84">84</a><span class="c-doc">⍝│</span><span class="c-doc"> Both fit T itself: the inputs are the identity's columns, the</span></span>
+<span class="line" id="L85"><a class="ln" href="#L85">85</a><span class="c-doc">⍝│</span><span class="c-doc"> outputs wanted (W + T)'s, so the loss (lo:l_oss) is half the squared</span></span>
+<span class="line" id="L86"><a class="ln" href="#L86">86</a><span class="c-doc">⍝│</span><span class="c-doc"> size of s B A - T. Adam (lo:a_dam, lo:a_damFA), chunks times every</span></span>
+<span class="line" id="L87"><a class="ln" href="#L87">87</a><span class="c-doc">⍝│</span><span class="c-doc"> steps, the loss recorded after each chunk, the start first.</span></span>
+<span class="line" id="L88"><a class="ln" href="#L88">88</a>I ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_dentity" class="c-libfunc">ᵐˣi̲dentity</a> <span class="c-number">8</span></span>
+<span class="line" id="L89"><a class="ln" href="#L89">89</a>(<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#z1">z1</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitL">fitL</a>) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, L) →</span>
+<span class="line" id="L90"><a class="ln" href="#L90">90</a>  z2 ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam" class="c-libfunc">ˡᵒa̲dam</a> (e, (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#I">I</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z</span>
+<span class="line" id="L91"><a class="ln" href="#L91">91</a>  (a, _, _) ← z2</span>
+<span class="line" id="L92"><a class="ln" href="#L92">92</a>  (z2, L <a href="builtins.html#c_at" class="c-builtin">c̲at</a> a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#I">I</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>))</span>
+<span class="line" id="L93"><a class="ln" href="#L93">93</a>} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart" class="c-libfunc">ˡᵒa̲damStart</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#I">I</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>))</span>
+<span class="line" id="L94"><a class="ln" href="#L94">94</a>(<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#z2">z2</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitF">fitF</a>) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, L) →</span>
+<span class="line" id="L95"><a class="ln" href="#L95">95</a>  z2 ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damFA" class="c-libfunc">ˡᵒa̲damFA</a> (e, (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#I">I</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z</span>
+<span class="line" id="L96"><a class="ln" href="#L96">96</a>  (a, _, _) ← z2</span>
+<span class="line" id="L97"><a class="ln" href="#L97">97</a>  (z2, L <a href="builtins.html#c_at" class="c-builtin">c̲at</a> a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#I">I</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>))</span>
+<span class="line" id="L98"><a class="ln" href="#L98">98</a>} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStartFA" class="c-libfunc">ˡᵒa̲damStartFA</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#I">I</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>))</span>
+<span class="line" id="L99"><a class="ln" href="#L99">99</a><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitL">fitL</a></span>
+<span class="line" id="L100"><a class="ln" href="#L100">100</a><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitF">fitF</a></span>
+<span class="line" id="L101"><a class="ln" href="#L101">101</a><span class="c-doc">⍝│</span><span class="c-doc"> What each learned: the update s B A of each.</span></span>
+<span class="line" id="L102"><a class="ln" href="#L102">102</a>((_, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A1">A1</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B1">B1</a>, _), _, _) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#z1">z1</a></span>
+<span class="line" id="L103"><a class="ln" href="#L103">103</a>((_, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A2">A2</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B2">B2</a>, _), _, _) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#z2">z2</a></span>
+<span class="line" id="L104"><a class="ln" href="#L104">104</a>D1 ← <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A1">A1</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B1">B1</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#s">s</a>)</span>
+<span class="line" id="L105"><a class="ln" href="#L105">105</a>D2 ← <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A2">A2</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B2">B2</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#s">s</a>)</span>
+<span class="line" id="L106"><a class="ln" href="#L106">106</a><a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#D1">D1</a></span>
+<span class="line" id="L107"><a class="ln" href="#L107">107</a><a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#D2">D2</a></span>
+<span class="line" id="L108"><a class="ln" href="#L108">108</a><span class="c-doc">⍝│</span><span class="c-doc"> The row space of the frozen A: the projection onto it is P = A' (A</span></span>
+<span class="line" id="L109"><a class="ln" href="#L109">109</a><span class="c-doc">⍝│</span><span class="c-doc"> A')^-1 A, through Matrix's inverse (ask FL3's workaround). A</span></span>
+<span class="line" id="L110"><a class="ln" href="#L110">110</a><span class="c-doc">⍝│</span><span class="c-doc"> matrix's rows projected onto the subspace are M P; what is left, M</span></span>
+<span class="line" id="L111"><a class="ln" href="#L111">111</a><span class="c-doc">⍝│</span><span class="c-doc"> - M P, is its remainder. The sizes (square root of the sum of</span></span>
+<span class="line" id="L112"><a class="ln" href="#L112">112</a><span class="c-doc">⍝│</span><span class="c-doc"> squares) of the remainders of LoRA's update, LoRA-FA's and T</span></span>
+<span class="line" id="L113"><a class="ln" href="#L113">113</a><span class="c-doc">⍝│</span><span class="c-doc"> itself: LoRA-FA's is 0 to rounding, its rows never left the</span></span>
+<span class="line" id="L114"><a class="ln" href="#L114">114</a><span class="c-doc">⍝│</span><span class="c-doc"> subspace; LoRA's is not; T's is what LoRA-FA cannot reach.</span></span>
+<span class="line" id="L115"><a class="ln" href="#L115">115</a>P ← (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A">A</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> (<a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_nverse" class="c-libfunc">ᵐˣi̲nverse</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A">A</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A">A</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A">A</a></span>
+<span class="line" id="L116"><a class="ln" href="#L116">116</a>rem ← <span class="c-quote">'</span>{ Mb → M2 ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> Mb</span>
+<span class="line" id="L117"><a class="ln" href="#L117">117</a>  <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (M2 <a href="builtins.html#-2d" class="c-symbol">−</a> M2 <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#P">P</a>) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">2</span> } <a href="builtins.html#e_ach" class="c-builtin">e̲ach</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#D1">D1</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#D2">D2</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a></span>
+<span class="line" id="L118"><a class="ln" href="#L118">118</a><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#rem">rem</a></span>
+<span class="line" id="L119"><a class="ln" href="#L119">119</a><span class="c-doc">⍝│</span><span class="c-doc"> LoRA-FA's floor (analytical): half the squared size of T's</span></span>
+<span class="line" id="L120"><a class="ln" href="#L120">120</a><span class="c-doc">⍝│</span><span class="c-doc"> remainder, the loss of the best update whose rows stay in the</span></span>
+<span class="line" id="L121"><a class="ln" href="#L121">121</a><span class="c-doc">⍝│</span><span class="c-doc"> subspace; beside LoRA's, the lowest for rank k from the spectrum.</span></span>
+<span class="line" id="L122"><a class="ln" href="#L122">122</a>(<span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">3</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#rem">rem</a>) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">2</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#best">best</a></span>
+<span class="line" id="L123"><a class="ln" href="#L123">123</a><span class="c-doc">⍝│</span><span class="c-doc"> The counts (analytical): the numbers each trains (A and B, or B</span></span>
+<span class="line" id="L124"><a class="ln" href="#L124">124</a><span class="c-doc">⍝│</span><span class="c-doc"> alone) and the numbers Adam holds for them while training (two per</span></span>
+<span class="line" id="L125"><a class="ln" href="#L125">125</a><span class="c-doc">⍝│</span><span class="c-doc"> number trained).</span></span>
+<span class="line" id="L126"><a class="ln" href="#L126">126</a>(<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">8</span> <span class="c-number">8</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B">B</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">8</span> <span class="c-number">8</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B">B</a></span>
+<span class="line" id="L127"><a class="ln" href="#L127">127</a>_ ← (<span class="c-string">&quot;Fitting T&quot;</span> <span class="c-string">&quot;record&quot;</span> <span class="c-string">&quot;loss&quot;</span> <span class="c-string">&quot;LoRA&quot;</span> <span class="c-string">&quot;LoRA-FA&quot;</span> <span class="c-string">&quot;rank k limit&quot;</span> <span class="c-string">&quot;FA floor&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitL">fitL</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitF">fitF</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#best">best</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">3</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#rem">rem</a>) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">2</span></span>
+<span class="line" id="L128"><a class="ln" href="#L128">128</a></span>
+<span class="line" id="L129"><a class="ln" href="#L129">129</a><span class="c-heading">⍝━━</span><span class="c-heading"> Experiment B: learning from examples</span></span>
+<span class="line" id="L130"><a class="ln" href="#L130">130</a></span>
+<span class="line" id="L131"><a class="ln" href="#L131">131</a><span class="c-doc">⍝│</span><span class="c-doc"> The task of lesson 3: 12 inputs by a ripple, the output wanted for</span></span>
+<span class="line" id="L132"><a class="ln" href="#L132">132</a><span class="c-doc">⍝│</span><span class="c-doc"> each the shifted layer's; the first n trained on, the last 4 held</span></span>
+<span class="line" id="L133"><a class="ln" href="#L133">133</a><span class="c-doc">⍝│</span><span class="c-doc"> out. And 4 old inputs, by another ripple, with the outputs the layer</span></span>
+<span class="line" id="L134"><a class="ln" href="#L134">134</a><span class="c-doc">⍝│</span><span class="c-doc"> gave them before any training: what is to be kept.</span></span>
+<span class="line" id="L135"><a class="ln" href="#L135">135</a>c ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">96</span></span>
+<span class="line" id="L136"><a class="ln" href="#L136">136</a>X ← <span class="c-number">8</span> <span class="c-number">12</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.4</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#c">c</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.05</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#c">c</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#c">c</a></span>
+<span class="line" id="L137"><a class="ln" href="#L137">137</a>Y ← (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#X">X</a></span>
+<span class="line" id="L138"><a class="ln" href="#L138">138</a>Xt ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#n">n</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#X">X</a></span>
+<span class="line" id="L139"><a class="ln" href="#L139">139</a>Yt ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#n">n</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Y">Y</a></span>
+<span class="line" id="L140"><a class="ln" href="#L140">140</a>Xh ← <span class="c-number">-4</span> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#X">X</a></span>
+<span class="line" id="L141"><a class="ln" href="#L141">141</a>Yh ← <span class="c-number">-4</span> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Y">Y</a></span>
+<span class="line" id="L142"><a class="ln" href="#L142">142</a>o ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">32</span></span>
+<span class="line" id="L143"><a class="ln" href="#L143">143</a>Xo ← <span class="c-number">8</span> <span class="c-number">4</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.9</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#o">o</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.03</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#o">o</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#o">o</a></span>
+<span class="line" id="L144"><a class="ln" href="#L144">144</a>Yo ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xo">Xo</a></span>
+<span class="line" id="L145"><a class="ln" href="#L145">145</a><span class="c-doc">⍝│</span><span class="c-doc"> The three losses per example of an adapted layer, trained on, held</span></span>
+<span class="line" id="L146"><a class="ln" href="#L146">146</a><span class="c-doc">⍝│</span><span class="c-doc"> out and old, as one row.</span></span>
+<span class="line" id="L147"><a class="ln" href="#L147">147</a>losses ← <span class="c-quote">'</span>{ a → ((a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xt">Xt</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#n">n</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ((a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xh">Xh</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xo">Xo</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yo">Yo</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span> }</span>
+<span class="line" id="L148"><a class="ln" href="#L148">148</a><span class="c-doc">⍝│</span><span class="c-doc"> LoRA and LoRA-FA from the same start, by Adam, with a record of the</span></span>
+<span class="line" id="L149"><a class="ln" href="#L149">149</a><span class="c-doc">⍝│</span><span class="c-doc"> three losses after each chunk, the start first.</span></span>
+<span class="line" id="L150"><a class="ln" href="#L150">150</a>(<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y1">y1</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recL">recL</a>) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, L) →</span>
+<span class="line" id="L151"><a class="ln" href="#L151">151</a>  z2 ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam" class="c-libfunc">ˡᵒa̲dam</a> (e, (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xt">Xt</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yt">Yt</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z</span>
+<span class="line" id="L152"><a class="ln" href="#L152">152</a>  (a, _, _) ← z2</span>
+<span class="line" id="L153"><a class="ln" href="#L153">153</a>  (z2, L <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#losses">losses</a>)_ a)</span>
+<span class="line" id="L154"><a class="ln" href="#L154">154</a>} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart" class="c-libfunc">ˡᵒa̲damStart</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a>, (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#losses">losses</a>)_ <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a>)</span>
+<span class="line" id="L155"><a class="ln" href="#L155">155</a>(<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y2">y2</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recF">recF</a>) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, L) →</span>
+<span class="line" id="L156"><a class="ln" href="#L156">156</a>  z2 ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damFA" class="c-libfunc">ˡᵒa̲damFA</a> (e, (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xt">Xt</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yt">Yt</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z</span>
+<span class="line" id="L157"><a class="ln" href="#L157">157</a>  (a, _, _) ← z2</span>
+<span class="line" id="L158"><a class="ln" href="#L158">158</a>  (z2, L <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#losses">losses</a>)_ a)</span>
+<span class="line" id="L159"><a class="ln" href="#L159">159</a>} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStartFA" class="c-libfunc">ˡᵒa̲damStartFA</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a>, (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#losses">losses</a>)_ <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a>)</span>
+<span class="line" id="L160"><a class="ln" href="#L160">160</a><span class="c-doc">⍝│</span><span class="c-doc"> Full fine-tuning: W itself moves, every one of its 64 numbers, by</span></span>
+<span class="line" id="L161"><a class="ln" href="#L161">161</a><span class="c-doc">⍝│</span><span class="c-doc"> Adam (op:a_dam) on the gradient of the same loss, the error times</span></span>
+<span class="line" id="L162"><a class="ln" href="#L162">162</a><span class="c-doc">⍝│</span><span class="c-doc"> the inputs (written out, ask FM7's workaround). Its losses are</span></span>
+<span class="line" id="L163"><a class="ln" href="#L163">163</a><span class="c-doc">⍝│</span><span class="c-doc"> measured through the same adapter form, with the empty adapter.</span></span>
+<span class="line" id="L164"><a class="ln" href="#L164">164</a>(<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y3">y3</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recW">recW</a>) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, L) →</span>
+<span class="line" id="L165"><a class="ln" href="#L165">165</a>  z2 ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#every">every</a> <span class="c-quote">'</span>{ (V, m, q, t) →</span>
+<span class="line" id="L166"><a class="ln" href="#L166">166</a>    (V2, m2, q2) ← (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#lr">lr</a>, t) <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html#l.a_dam" class="c-libfunc">ᵒᵖa̲dam</a> (V, m, q, ((V <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xt">Xt</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yt">Yt</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xt">Xt</a>)</span>
+<span class="line" id="L167"><a class="ln" href="#L167">167</a>    (V2, m2, q2, t <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z</span>
+<span class="line" id="L168"><a class="ln" href="#L168">168</a>  (V3, _, _, _) ← z2</span>
+<span class="line" id="L169"><a class="ln" href="#L169">169</a>  (z2, L <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#losses">losses</a>)_ (V3, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A">A</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B">B</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#s">s</a>))</span>
+<span class="line" id="L170"><a class="ln" href="#L170">170</a>} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> ((<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a>, <span class="c-number">0.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a>, <span class="c-number">0.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a>, <span class="c-number">1</span>), (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#losses">losses</a>)_ <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a>)</span>
+<span class="line" id="L171"><a class="ln" href="#L171">171</a><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recL">recL</a></span>
+<span class="line" id="L172"><a class="ln" href="#L172">172</a><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recF">recF</a></span>
+<span class="line" id="L173"><a class="ln" href="#L173">173</a><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recW">recW</a></span>
+<span class="line" id="L174"><a class="ln" href="#L174">174</a><span class="c-doc">⍝│</span><span class="c-doc"> How far each moved the layer's old outputs: the size of the change</span></span>
+<span class="line" id="L175"><a class="ln" href="#L175">175</a><span class="c-doc">⍝│</span><span class="c-doc"> of the whole layer, s B A or the moved W less W (measured).</span></span>
+<span class="line" id="L176"><a class="ln" href="#L176">176</a>((_, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A3">A3</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B3">B3</a>, _), _, _) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y1">y1</a></span>
+<span class="line" id="L177"><a class="ln" href="#L177">177</a>((_, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A4">A4</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B4">B4</a>, _), _, _) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y2">y2</a></span>
+<span class="line" id="L178"><a class="ln" href="#L178">178</a>(<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W5">W5</a>, _, _, _) ← <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y3">y3</a></span>
+<span class="line" id="L179"><a class="ln" href="#L179">179</a>(<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A3">A3</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B3">B3</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#s">s</a>)) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">2</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A4">A4</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B4">B4</a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#s">s</a>)) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">2</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W5">W5</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a>) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">2</span></span>
+<span class="line" id="L180"><a class="ln" href="#L180">180</a><span class="c-doc">⍝│</span><span class="c-doc"> The records side by side, a row per record: LoRA's three losses,</span></span>
+<span class="line" id="L181"><a class="ln" href="#L181">181</a><span class="c-doc">⍝│</span><span class="c-doc"> then LoRA-FA's, then full fine-tuning's; and the three losses as one</span></span>
+<span class="line" id="L182"><a class="ln" href="#L182">182</a><span class="c-doc">⍝│</span><span class="c-doc"> chart each, a record a point.</span></span>
+<span class="line" id="L183"><a class="ln" href="#L183">183</a>R ← ((<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">3</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recL">recL</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at₂</a> ((<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">3</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recF">recF</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at₂</a> (<a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">3</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recW">recW</a></span>
+<span class="line" id="L184"><a class="ln" href="#L184">184</a>_ ← (<span class="c-string">&quot;Trained on&quot;</span> <span class="c-string">&quot;record&quot;</span> <span class="c-string">&quot;loss per example&quot;</span> <span class="c-string">&quot;LoRA&quot;</span> <span class="c-string">&quot;LoRA-FA&quot;</span> <span class="c-string">&quot;full&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ j → j <a href="builtins.html#s_elect" class="c-builtin">s̲elect₂</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#R">R</a> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <span class="c-number">1</span> <span class="c-number">4</span> <span class="c-number">7</span></span>
+<span class="line" id="L185"><a class="ln" href="#L185">185</a>_ ← (<span class="c-string">&quot;Held out&quot;</span> <span class="c-string">&quot;record&quot;</span> <span class="c-string">&quot;loss per example&quot;</span> <span class="c-string">&quot;LoRA&quot;</span> <span class="c-string">&quot;LoRA-FA&quot;</span> <span class="c-string">&quot;full&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ j → j <a href="builtins.html#s_elect" class="c-builtin">s̲elect₂</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#R">R</a> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <span class="c-number">2</span> <span class="c-number">5</span> <span class="c-number">8</span></span>
+<span class="line" id="L186"><a class="ln" href="#L186">186</a>_ ← (<span class="c-string">&quot;Old examples&quot;</span> <span class="c-string">&quot;record&quot;</span> <span class="c-string">&quot;loss per example&quot;</span> <span class="c-string">&quot;LoRA&quot;</span> <span class="c-string">&quot;LoRA-FA&quot;</span> <span class="c-string">&quot;full&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ j → j <a href="builtins.html#s_elect" class="c-builtin">s̲elect₂</a> <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#R">R</a> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <span class="c-number">3</span> <span class="c-number">6</span> <span class="c-number">9</span></span>
+</div>
+</main>
+</body>
+</html>

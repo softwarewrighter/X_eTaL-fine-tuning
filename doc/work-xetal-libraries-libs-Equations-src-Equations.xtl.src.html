@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>work/xetal-libraries/libs/Equations/src/Equations.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li class="item"><a href="#L14"><span class="c-libfunc">ˡc̲orrelate</span></a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">source</span><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">work/xetal-libraries/libs/Equations/src/Equations.xtl</a></h1>
+<div class="source"><span class="line" id="L1"><a class="ln" href="#L1">1</a><span class="c-doc">⍝│</span><span class="c-doc"> Equations: sums as printed in papers, written in one macro call (e:e_q&lt;, e:t_ex&lt;, e:b_oth&lt; in Equations.xtlm);</span></span>
+<span class="line" id="L2"><a class="ln" href="#L2">2</a><span class="c-doc">⍝│</span><span class="c-doc"> here the valid 2-D cross-correlation of a CNN layer, as array code, which checks the macro.</span></span>
+<span class="line" id="L3"><a class="ln" href="#L3">3</a><span class="c-doc">⍝│</span><span class="c-doc"> Import it with an alias of your choice: &quot;e:&quot; u_se&lt; &quot;Equations&quot;.</span></span>
+<span class="line" id="L4"><a class="ln" href="#L4">4</a><span class="c-doc">⍝│</span><span class="c-doc"> Put libs/Equations/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Equations/docs.</span></span>
+<span class="line" id="L5"><a class="ln" href="#L5">5</a><span class="c-doc">⍝│</span><span class="c-doc"> Names with l: are exported; those under h: are private to this file.</span></span>
+<span class="line" id="L6"><a class="ln" href="#L6">6</a></span>
+<span class="line" id="L7"><a class="ln" href="#L7">7</a><span class="c-doc">⍝│</span><span class="c-doc"> The valid 2-D cross-correlation of pictures X (channels, height,</span></span>
+<span class="line" id="L8"><a class="ln" href="#L8">8</a><span class="c-doc">⍝│</span><span class="c-doc"> width) with filters W (outputs, channels, kernel height, kernel</span></span>
+<span class="line" id="L9"><a class="ln" href="#L9">9</a><span class="c-doc">⍝│</span><span class="c-doc"> width), as CNN layers compute it: no kernel flip, stride 1, no</span></span>
+<span class="line" id="L10"><a class="ln" href="#L10">10</a><span class="c-doc">⍝│</span><span class="c-doc"> padding, so the result has shape outputs, H - Kh + 1, Wd - Kw + 1.</span></span>
+<span class="line" id="L11"><a class="ln" href="#L11">11</a><span class="c-doc">⍝│</span><span class="c-doc"> Y[o,h,w] is the sum over c, r, s of X[c,h+r,w+s] * W[o,c,r,s]. It is</span></span>
+<span class="line" id="L12"><a class="ln" href="#L12">12</a><span class="c-doc">⍝│</span><span class="c-doc"> written without the macros (the windows by rotation, then one inner</span></span>
+<span class="line" id="L13"><a class="ln" href="#L13">13</a><span class="c-doc">⍝│</span><span class="c-doc"> product with the filters), so it checks them independently.</span></span>
+<span class="line" id="L14"><a class="ln" href="#L14">14</a><span class="c-libfunc">ˡc̲orrelate</span> ← { X W →</span>
+<span class="line" id="L15"><a class="ln" href="#L15">15</a>  (C, H, Wd) ← (<span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> X, <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> X, <span class="c-number">3</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> X)</span>
+<span class="line" id="L16"><a class="ln" href="#L16">16</a>  (O, Kh, Kw) ← (<span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> W, <span class="c-number">3</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> W, <span class="c-number">4</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> W)</span>
+<span class="line" id="L17"><a class="ln" href="#L17">17</a>  Ho ← H <a href="builtins.html#-2d" class="c-symbol">−</a> Kh <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span></span>
+<span class="line" id="L18"><a class="ln" href="#L18">18</a>  Wo ← Wd <a href="builtins.html#-2d" class="c-symbol">−</a> Kw <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span></span>
+<span class="line" id="L19"><a class="ln" href="#L19">19</a>  P ← <span class="c-number">2</span> <span class="c-number">3</span> <span class="c-number">1</span> <span class="c-number">4</span> <span class="c-number">5</span> <a href="builtins.html#t_ranspose" class="c-builtin">t̲ranspose</a> Wo <a href="builtins.html#t_ake" class="c-builtin">t̲ake₅</a> Ho <a href="builtins.html#t_ake" class="c-builtin">t̲ake₄</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> Kh) <a href="builtins.html#o_-2d" class="c-builtin">o̲-₃</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> Kw) <a href="builtins.html#o_-2d" class="c-builtin">o̲-₃</a> X</span>
+<span class="line" id="L20"><a class="ln" href="#L20">20</a>  F ← (O <a href="builtins.html#c_at" class="c-builtin">c̲at</a> C <a href="builtins.html#-2a" class="c-symbol">×</a> Kh <a href="builtins.html#-2a" class="c-symbol">×</a> Kw) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> W</span>
+<span class="line" id="L21"><a class="ln" href="#L21">21</a>  (O <a href="builtins.html#c_at" class="c-builtin">c̲at</a> Ho <a href="builtins.html#c_at" class="c-builtin">c̲at</a> Wo) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> F <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> ((C <a href="builtins.html#-2a" class="c-symbol">×</a> Kh <a href="builtins.html#-2a" class="c-symbol">×</a> Kw) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> Ho <a href="builtins.html#-2a" class="c-symbol">×</a> Wo) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> P</span>
+<span class="line" id="L22"><a class="ln" href="#L22">22</a>}</span>
+</div>
+</main>
+</body>
+</html>

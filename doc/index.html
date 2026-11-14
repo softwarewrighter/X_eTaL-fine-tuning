@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>index - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1>X_eTaL documentation</h1>
+<h2>Files</h2>
+<ul>
+<li>program <a href="demos-landscape-landscape.xtl.html">demos/landscape/landscape.xtl</a>: The landscape: the accounting of the ways to change a layer, each
+figure analytical (it follows from the method's definition, no
+training is run). For two layers, this course's 8 x 8 at rank 4
+and one real layer, 4096 x 4096 at rank 16: for each family whose
+cost is a count, the numbers trained, the numbers held while
+training beyond the weights themselves (the gradient and Adam's two
+averages, where there are any), and the numbers stored afterward
+when the change is kept apart from W. Then the bytes of the layer
+itself at 16 bits and at 4 bits (QLoRA's base), and the adapter's
+share of the full count.</li>
+<li>library <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">work/xetal-ml/libs/LoRA/src/LoRA.xtl</a>: LoRA: low-rank adapters: the adapted forward pass in factored form, the merge, the counts, the gradients and steps, LoRA-FA</li>
+<li>library <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">work/xetal-ml/libs/Optim/src/Optim.xtl</a>: Optim: optimizers as steps: gradient descent and Adam on a weight array and its averages</li>
+<li>program <a href="demos-lora-hello-lora-hello.xtl.html">demos/lora-hello/lora-hello.xtl</a>: LoRA hello: what does a small adapter add to a layer whose weights
+do not change? The question behind it: how can a model learn
+something new without every one of its numbers being retrained (the
+cost) or overwritten (the forgetting)? LoRA's answer is to freeze
+the weights and train a small correction beside them. Here is one
+layer of that, shrunk to 4 rows and 4 columns so every number can be
+read: a frozen table W and an adapter of rank 1, with X_eTaL-ML's
+LoRA library. Nothing is trained here (the adapter's numbers are
+made up): this shows what an adapter is, where it sits, what it adds
+and what it costs. The layer is y = W x + s B (A x): W stays as it
+is, and only A (1 row of 4) and B (1 column of 4) would be trained.</li>
+<li>program <a href="demos-lora-lab-lora-lab.xtl.html">demos/lora-lab/lora-lab.xtl</a>: LoRA lab: how an adapter's correction is worked out, number by
+number, and what its rank changes. A frozen table W of 8 rows and 8
+columns, and an adapter of rank r beside it: A (r rows of 8) and B
+(8 rows of r). The layer is y = W x + s B (A x), written here as a
+pipeline of four stages so that every stage's numbers can be shown:
+the input x; the squeeze h = A x (r numbers); the spread u = B h (8
+numbers); and the output y = W x + s u. The layer is the one of
+X_eTaL-ML's LoRA explorer (its W, A, B and x, made up by fixed
+ripples). Nothing is trained here.</li>
+<li>library <a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">work/xetal-libraries/libs/Equations/src/Equations.xtl</a>: Equations: sums as printed in papers, written in one macro call (e:e_q&lt;, e:t_ex&lt;, e:b_oth&lt; in Equations.xtlm);
+here the valid 2-D cross-correlation of a CNN layer, as array code, which checks the macro.
+Import it with an alias of your choice: &quot;e:&quot; u_se&lt; &quot;Equations&quot;.
+Put libs/Equations/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Equations/docs.
+Names with l: are exported; those under h: are private to this file.</li>
+<li>macro library <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">work/xetal-libraries/libs/Equations/src/Equations.xtlm</a>: Equations: its macro library -- e_q&lt;, t_ex&lt; and b_oth&lt;: an equation as
+printed in a paper, to its value, its LaTeX, or both.
+Imported with the functions, under one alias: &quot;e:&quot; u_se&lt; &quot;Equations&quot;.
+A macro is a function from the source text written left and right of
+its call to the source that replaces the call, run before the program
+is compiled (X_eTaL MC10). Names with m: are macros; those under h: are
+private to this file.</li>
+<li>macro library <a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">work/xetal-ml/libs/Flow/src/Flow.xtlm</a>: Flow: ML data flow written left to right, |&gt; between stages -- each stage becomes one line of X_eTaL</li>
+<li>program <a href="demos-lora-training-lora-training.xtl.html">demos/lora-training/lora-training.xtl</a>: LoRA training: where the numbers of A and B come from. A frozen 8 x
+8 layer W; examples (inputs with the outputs wanted) made by a
+hidden shift of it, W + T; an adapter that starts as LoRA does, B
+at 0 and A seeded. One step of training as a pipeline, stage by
+stage: the prediction, the error (which is the loss's gradient at
+the output), the gradients of A and B, the update; checked against
+the library's own step, W untouched. Then training by Adam with a
+record: the loss on the examples trained on and on examples held
+out, every few steps, and the adapter at each record, so a page
+can step back without training again.</li>
+<li>library <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">work/xetal-libraries/libs/Plot/src/Plot.xtl</a>: Plot: text charts -- bars, sparklines, histograms, scatter plots on
+a character grid -- and line charts as pictures, with axes, labels
+and several lines in one chart.
+Import it with an alias of your choice: &quot;p:&quot; u_se&lt; &quot;Plot&quot;.
+Put libs/Plot/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Plot/docs.
+Names with l: are exported; those under h: are private to this file.</li>
+<li>library <a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">work/xetal-libraries/libs/Strings/src/Strings.xtl</a>: Strings: text functions -- case, trimming, words, split and join,
+search, replace, padding.
+Import it with an alias of your choice: &quot;t:&quot; u_se&lt; &quot;Strings&quot;.
+Put libs/Strings/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Strings/docs.
+Names with l: are exported; those under h: are private to this file.</li>
+<li>library <a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">work/xetal-libraries/libs/Format/src/Format.xtl</a>: Format: number formatting -- fixed decimals, thousands separators,
+percentages, aligned columns, text tables.
+Import it with an alias of your choice: &quot;f:&quot; u_se&lt; &quot;Format&quot;.
+Put libs/Format/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Format/docs.
+Names with l: are exported; those under h: are private to this file.</li>
+<li>library <a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">work/xetal-libraries/libs/Lists/src/Lists.xtl</a>: Lists: list functions -- differences, windows, moving means, run
+lengths, chunks, shifts, interleaving, binary search, raze.
+Import it with an alias of your choice: &quot;li:&quot; u_se&lt; &quot;Lists&quot;.
+Put libs/Lists/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Lists/docs.
+Names with l: are exported; those under h: are private to this file.</li>
+<li>library <a href="std-Svg.xtl.html">std/Svg.xtl</a>: Svg: pictures as SVG text, written for you (a standard library, built
+into xetal). Import it with an alias of your choice: &quot;v:&quot; u_se&lt; &quot;Svg&quot;.
+An element is its SVG text; a picture is elements joined with c_at
+inside v:p_icture, which []S_HOW shows and the command line writes.
+Points are a 2-row matrix, x over y, as []P_ATH and Geometry3D's
+g:p_roject give them; y grows downward, as SVG's does. Attributes
+are text made by v:a_ttr, v:f_ill, v:s_troke and the transforms, so
+no program writes a quote mark or an angle bracket of its own.
+Names with l: are exported; names with h: are private to this file.</li>
+<li>system macros <a href="std-System.xtlm.html">std/System.xtlm</a>: The system macros (lang-choices MC18, MC19, MC24), loaded before
+every file with no import and no alias: each is called unprefixed,
+as &quot;c&quot; i_f&lt; &quot;a; b&quot;. A macro is a function of the source text on each
+side of its call; the text it gives replaces the call. @ on a side
+means the macro takes nothing there (MC22). What only the compiler
+knows comes from hooks (MC20), usable only in a macro body.</li>
+<li>program <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">demos/lora-vs-fa/lora-vs-fa.xtl</a>: LoRA beside LoRA-FA, in two experiments kept apart. Experiment A,
+approximating a known matrix: both fit a known rank-4 shift T from
+the same seeded A, B at 0; LoRA moves A and B, LoRA-FA moves B
+alone. The best any update of the rank can do (the Eckart-Young
+optimum, from T's singular values), and the floor LoRA-FA cannot
+pass: its update s B A has its rows in the row space of the frozen
+A, a subspace, so the closest it can come to T is T's projection
+onto that subspace. Each learned update is projected onto the row
+space and the remainder measured. Experiment B, learning from
+examples: the task of lesson 3 (examples made by the hidden shift,
+some held out), LoRA, LoRA-FA and full fine-tuning of W itself, with
+the loss on the examples trained on, on the held-out ones, and on
+old examples, what the layer gave before any training, measured
+after it (retention).</li>
+<li>library <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">work/xetal-libraries/libs/Matrix/src/Matrix.xtl</a>: Matrix: matrices -- identity, diagonal, trace, product,
+determinant, inverse, solving linear systems.
+Import it with an alias of your choice: &quot;mx:&quot; u_se&lt; &quot;Matrix&quot;.
+Put libs/Matrix/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Matrix/docs.
+Names with l: are exported; those under h: are private to this file.</li>
+<li>program <a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">demos/rank-and-scaling/rank-and-scaling.xtl</a>: Rank and scaling: the adapter's rank swept from 1 to 8 on the
+learning task of lesson 3 (a frozen 8 x 8 layer, examples from a
+hidden shift of it, 8 trained on and 4 held out), under two rules
+for the strength s: LoRA's alpha / r (lo:s_caling) and rsLoRA's
+alpha / sqrt r (lo:s_calingRs). For each rank and rule, after the
+same number of Adam steps from the same kind of start: the numbers
+trained (analytical), the strength (analytical), the loss per
+example on the examples trained on and on the held-out ones
+(measured), and the size of the adapter's table s B A (measured:
+the square root of the sum of its squares).</li>
+<li>program <a href="demos-welcome-welcome.xtl.html">demos/welcome/welcome.xtl</a>: Welcome: one small calculation on which a newcomer is shown how
+these lessons work (the page steps through it, pictures it, writes
+one of its sums out). It is the layer of the first lesson, LoRA
+hello: a frozen table W of 4 rows and 4 columns with an adapter of
+rank 1, written this time as a pipeline: the input x, then the
+squeeze h = A x, then the spread u = B h, then the output
+y = W x + s u. X_eTaL-ML's Flow runs the pipeline and can report
+every stage's value, which is what a page steps through.</li>
+</ul>
+<h2>Items</h2>
+<table class="items">
+<tr><th>name</th><th>kind</th><th>type</th></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#d">d</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#r">r</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#all">all</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#some">some</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#lora">lora</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#trained">trained</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#held">held</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-landscape-landscape.xtl.html#stored">stored</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_caling"><span class="c-libfunc">ˡs̲caling</span></a></td><td>function</td><td><code>Num a =&gt; Float -&gt; a -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_calingRs"><span class="c-libfunc">ˡs̲calingRs</span></a></td><td>function</td><td><code>Num a =&gt; Float -&gt; a -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.f_orward"><span class="c-libfunc">ˡf̲orward</span></a></td><td>function</td><td><code>Num a =&gt; (a, a, a, a) -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta"><span class="c-libfunc">ˡd̲elta</span></a></td><td>function</td><td><code>Num a =&gt; (a, a, a) -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.m_erge"><span class="c-libfunc">ˡm̲erge</span></a></td><td>function</td><td><code>Num a =&gt; (a, a, a, a) -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss"><span class="c-libfunc">ˡl̲oss</span></a></td><td>function</td><td><code>(Float, Float, Float, Float) -&gt; (Float, Float) -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.g_rads"><span class="c-libfunc">ˡg̲rads</span></a></td><td>function</td><td><code>Num a =&gt; (a, a, a, a) -&gt; (a, a) -&gt; (a, a, a)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_gd"><span class="c-libfunc">ˡs̲gd</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; ((a, a, a, a), (a, a)) -&gt; (a, a, a, a)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart"><span class="c-libfunc">ˡa̲damStart</span></a></td><td>function</td><td><code>(Any a, Any b, Num c) =&gt; (a, Float, Float, b) -&gt; ((a, Float, Float, b), (Float, Float, Float, Float), c)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam"><span class="c-libfunc">ˡa̲dam</span></a></td><td>function</td><td><code>Float -&gt; (((Float, Float, Float, Float), (Float, Float, Float, Float), Float), (Float, Float)) -&gt; ((Float, Float, Float, Float), (Float, Float, Float, Float), Float)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_eeded"><span class="c-libfunc">ˡs̲eeded</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Int -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.g_radsFA"><span class="c-libfunc">ˡg̲radsFA</span></a></td><td>function</td><td><code>Num a =&gt; (a, a, a, a) -&gt; (a, a) -&gt; (a, a)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_gdFA"><span class="c-libfunc">ˡs̲gdFA</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; ((a, a, a, a), (a, a)) -&gt; (a, a, a, a)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStartFA"><span class="c-libfunc">ˡa̲damStartFA</span></a></td><td>function</td><td><code>(Any a, Any b, Any c, Num d) =&gt; (a, b, Float, c) -&gt; ((a, b, Float, c), (Float, Float), d)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damFA"><span class="c-libfunc">ˡa̲damFA</span></a></td><td>function</td><td><code>Float -&gt; (((Float, Float, Float, Float), (Float, Float), Float), (Float, Float)) -&gt; ((Float, Float, Float, Float), (Float, Float), Float)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#h.s_tep"><span class="c-libfunc">ʰs̲tep</span></a></td><td>function</td><td><code>Num a =&gt; Float -&gt; (Float, Int, a) -&gt; (Float, Int, a)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.r_ank"><span class="c-libfunc">ˡr̲ank</span></a></td><td>function</td><td><code>Num a =&gt; Float -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams"><span class="c-libfunc">ˡp̲arams</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.e_xpert"><span class="c-libfunc">ˡe̲xpert</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.e_xpertFA"><span class="c-libfunc">ˡe̲xpertFA</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.b_ytes"><span class="c-libfunc">ˡb̲ytes</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.c_osts"><span class="c-libfunc">ˡc̲osts</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html#l.s_gd"><span class="c-libfunc">ˡs̲gd</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; (a, a) -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html#l.a_damWith"><span class="c-libfunc">ˡa̲damWith</span></a></td><td>function</td><td><code>(Float, Float, Float, Float) -&gt; (Float, Float, Float, Float) -&gt; (Float, Float, Float)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html#l.a_dam"><span class="c-libfunc">ˡa̲dam</span></a></td><td>function</td><td><code>(Float, Float) -&gt; (Float, Float, Float, Float) -&gt; (Float, Float, Float)</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#W">W</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#A">A</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#B">B</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#x">x</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#s">s</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#h">h</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#base">base</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#y">y</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#correction">correction</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#table">table</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#merged">merged</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#counts">counts</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-hello-lora-hello.xtl.html#big">big</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#r">r</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#alpha">alpha</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#s">s</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#c">c</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#W">W</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#d">d</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#A">A</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#B">B</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#X">X</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#q">q</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#y">y</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#base">base</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-lab-lora-lab.xtl.html#correction">correction</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html#l.c_orrelate"><span class="c-libfunc">ˡc̲orrelate</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c"><span class="c-macro">ᵐe̲q&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.t_ex-3c"><span class="c-macro">ᵐt̲ex&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.t_exSymbols-3c"><span class="c-macro">ᵐt̲exSymbols&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.b_oth-3c"><span class="c-macro">ᵐb̲oth&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.c_onvolve-3c"><span class="c-macro">ᵐc̲onvolve&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.c_orrelate-3c"><span class="c-macro">ᵐc̲orrelate&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.c_onvolveTex-3c"><span class="c-macro">ᵐc̲onvolveTex&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.c_orrelateTex-3c"><span class="c-macro">ᵐc̲orrelateTex&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#modes">modes</a></td><td>value</td><td><code>Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_lide"><span class="c-libfunc">ʰs̲lide</span></a></td><td>function</td><td><code>Char -&gt; (Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_lideTex"><span class="c-libfunc">ʰs̲lideTex</span></a></td><td>function</td><td><code>Char -&gt; (Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lus"><span class="c-libfunc">ʰp̲lus</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_lideLeft"><span class="c-libfunc">ʰs̲lideLeft</span></a></td><td>function</td><td><code>Char -&gt; (Char, Char, Char)</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_lideRight"><span class="c-libfunc">ʰs̲lideRight</span></a></td><td>function</td><td><code>Char -&gt; (Char, Char)</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.o_therIndex"><span class="c-libfunc">ʰo̲therIndex</span></a></td><td>function</td><td><code>Char -&gt; (Char, Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.f_ree"><span class="c-libfunc">ʰf̲ree</span></a></td><td>function</td><td><code>Char -&gt; (Box Char, Box Char)</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.c_hecked"><span class="c-libfunc">ʰc̲hecked</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.w_hole"><span class="c-libfunc">ʰw̲hole</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#nameChars">nameChars</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#alphabet">alphabet</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#words">words</a></td><td>value</td><td><code>Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#functions">functions</a></td><td>value</td><td><code>Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#rules">rules</a></td><td>value</td><td><code>Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#defaultBy">defaultBy</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#infinities">infinities</a></td><td>value</td><td><code>Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_ickText"><span class="c-libfunc">ʰp̲ickText</span></a></td><td>function</td><td><code>Truthy a =&gt; a -&gt; (Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_ickCount"><span class="c-libfunc">ʰp̲ickCount</span></a></td><td>function</td><td><code>Truthy a =&gt; a -&gt; (Int, Int) -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.k_ind"><span class="c-libfunc">ʰk̲ind</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.f_n-3f"><span class="c-libfunc">ʰf̲n?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.f_nParts"><span class="c-libfunc">ʰf̲nParts</span></a></td><td>function</td><td><code>Char -&gt; (Char, Box Char)</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_umParts"><span class="c-libfunc">ʰs̲umParts</span></a></td><td>function</td><td><code>Char -&gt; (Box Char, Box Char, Box Char, Box Char, Box Char, Char)</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.b_inding"><span class="c-libfunc">ʰb̲inding</span></a></td><td>function</td><td><code>Char -&gt; (Char, Char, Char, Char, Char)</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.i_nfinite-3f"><span class="c-libfunc">ʰi̲nfinite?</span></a></td><td>function</td><td><code>(Num a, Truthy a) =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.o_ptionsOk"><span class="c-libfunc">ʰo̲ptionsOk</span></a></td><td>function</td><td><code>(Truthy a, Truthy b) =&gt; (a, Int, Char) -&gt; b</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.o_ption-3f"><span class="c-libfunc">ʰo̲ption?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.r_uleSteps"><span class="c-libfunc">ʰr̲uleSteps</span></a></td><td>function</td><td><code>Char -&gt; (Char, Int)</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.u_pTo"><span class="c-libfunc">ʰu̲pTo</span></a></td><td>function</td><td><code>Int -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_ast"><span class="c-libfunc">ʰp̲ast</span></a></td><td>function</td><td><code>(Int, Int) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.b_oxed"><span class="c-libfunc">ʰb̲oxed</span></a></td><td>function</td><td><code>(Char, Char, Char, Char, Char) -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.a_tom"><span class="c-libfunc">ʰa̲tom</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alue"><span class="c-libfunc">ʰv̲alue</span></a></td><td>function</td><td><code>(Box Char, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.g_ridLines"><span class="c-libfunc">ʰg̲ridLines</span></a></td><td>function</td><td><code>(Char, Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueOf"><span class="c-libfunc">ʰv̲alueOf</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueChain"><span class="c-libfunc">ʰv̲alueChain</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; (Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueFold"><span class="c-libfunc">ʰv̲alueFold</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; (Char, Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_aluePow"><span class="c-libfunc">ʰv̲aluePow</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueSum"><span class="c-libfunc">ʰv̲alueSum</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.w_ordLen"><span class="c-libfunc">ʰw̲ordLen</span></a></td><td>function</td><td><code>Char -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.r_enamed"><span class="c-libfunc">ʰr̲enamed</span></a></td><td>function</td><td><code>(Char, Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.h_asPrev-3f"><span class="c-libfunc">ʰh̲asPrev?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueScan"><span class="c-libfunc">ʰv̲alueScan</span></a></td><td>function</td><td><code>((Box Char, Box Char, Box Char, Char, (Char, Char, Char)), Char, Char, Char, Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.q_uadrature"><span class="c-libfunc">ʰq̲uadrature</span></a></td><td>function</td><td><code>Box Char -&gt; (Char, Char, Char, Char) -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.w_eights"><span class="c-libfunc">ʰw̲eights</span></a></td><td>function</td><td><code>Char -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.w_eighted"><span class="c-libfunc">ʰw̲eighted</span></a></td><td>function</td><td><code>(Char, Char, Int) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.r_educer"><span class="c-libfunc">ʰr̲educer</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.b_ound"><span class="c-libfunc">ʰb̲ound</span></a></td><td>function</td><td><code>Box Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_paced"><span class="c-libfunc">ʰs̲paced</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueFn"><span class="c-libfunc">ʰv̲alueFn</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueRef"><span class="c-libfunc">ʰv̲alueRef</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.h_orner"><span class="c-libfunc">ʰh̲orner</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; (Char, Box Char, Int) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.v_alueAtom"><span class="c-libfunc">ʰv̲alueAtom</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char, Char, (Char, Char, Char)) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.c_hecks"><span class="c-libfunc">ʰc̲hecks</span></a></td><td>function</td><td><code>(Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_ex"><span class="c-libfunc">ʰt̲ex</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.m_ark"><span class="c-libfunc">ʰm̲ark</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exBody"><span class="c-libfunc">ʰt̲exBody</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exOf"><span class="c-libfunc">ʰt̲exOf</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exAtom"><span class="c-libfunc">ʰt̲exAtom</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exChain"><span class="c-libfunc">ʰt̲exChain</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exFold"><span class="c-libfunc">ʰt̲exFold</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; (Char, Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exBare"><span class="c-libfunc">ʰt̲exBare</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exJoin"><span class="c-libfunc">ʰt̲exJoin</span></a></td><td>function</td><td><code>(Char, Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exPow"><span class="c-libfunc">ʰt̲exPow</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exSum"><span class="c-libfunc">ʰt̲exSum</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; (Char, Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exIndex"><span class="c-libfunc">ʰt̲exIndex</span></a></td><td>function</td><td><code>(Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.g_reek"><span class="c-libfunc">ʰg̲reek</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#greek">greek</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_ymbol"><span class="c-libfunc">ʰs̲ymbol</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exFn"><span class="c-libfunc">ʰt̲exFn</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.t_exRef"><span class="c-libfunc">ʰt̲exRef</span></a></td><td>function</td><td><code>Num a =&gt; (a, Box Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.s_ubscript"><span class="c-libfunc">ʰs̲ubscript</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lain"><span class="c-libfunc">ʰp̲lain</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lainChain"><span class="c-libfunc">ʰp̲lainChain</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lainFold"><span class="c-libfunc">ʰp̲lainFold</span></a></td><td>function</td><td><code>(Char, Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lainPow"><span class="c-libfunc">ʰp̲lainPow</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lainSum"><span class="c-libfunc">ʰp̲lainSum</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lainBy"><span class="c-libfunc">ʰp̲lainBy</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lainFn"><span class="c-libfunc">ʰp̲lainFn</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.p_lainRef"><span class="c-libfunc">ʰp̲lainRef</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#h.j_oinWith"><span class="c-libfunc">ʰj̲oinWith</span></a></td><td>function</td><td><code>Char -&gt; Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.p_ipe-3c"><span class="c-macro">ᵐp̲ipe&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.t_ext-3c"><span class="c-macro">ᵐt̲ext&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.m_ath-3c"><span class="c-macro">ᵐm̲ath&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.s_tages-3c"><span class="c-macro">ᵐs̲tages&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.r_ead"><span class="c-libfunc">ʰr̲ead</span></a></td><td>function</td><td><code>Char -&gt; (Box Char, Box Char, Box Char)</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.e_xpr"><span class="c-libfunc">ʰe̲xpr</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.a_fter"><span class="c-libfunc">ʰa̲fter</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.b_inder"><span class="c-libfunc">ʰb̲inder</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.s_hapeOf"><span class="c-libfunc">ʰs̲hapeOf</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.l_abel"><span class="c-libfunc">ʰl̲abel</span></a></td><td>function</td><td><code>Char -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.t_ouches-3f"><span class="c-libfunc">ʰt̲ouches?</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.s_tage-3f"><span class="c-libfunc">ʰs̲tage?</span></a></td><td>function</td><td><code>Box Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.i_t-3f"><span class="c-libfunc">ʰi̲t?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.u_ses-3f"><span class="c-libfunc">ʰu̲ses?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.m_acro-3f"><span class="c-libfunc">ʰm̲acro?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.w_ord-3f"><span class="c-libfunc">ʰw̲ord?</span></a></td><td>function</td><td><code>(Truthy a, Truthy b) =&gt; (Char, a) -&gt; Char -&gt; b</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.f_unction-3f"><span class="c-libfunc">ʰf̲unction?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.b_inder-3f"><span class="c-libfunc">ʰb̲inder?</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.p_arts"><span class="c-libfunc">ʰp̲arts</span></a></td><td>function</td><td><code>Char -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.f_latten"><span class="c-libfunc">ʰf̲latten</span></a></td><td>function</td><td><code>Box Char -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.n_ame-3f"><span class="c-libfunc">ʰn̲ame?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.s_hapes-3f"><span class="c-libfunc">ʰs̲hapes?</span></a></td><td>function</td><td><code>(Box Char, Box Char) -&gt; Int -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.w_rite"><span class="c-libfunc">ʰw̲rite</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.l_ine"><span class="c-libfunc">ʰl̲ine</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char) -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.a_pplied"><span class="c-libfunc">ʰa̲pplied</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.c_heckOf"><span class="c-libfunc">ʰc̲heckOf</span></a></td><td>function</td><td><code>(Int, Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.c_heck"><span class="c-libfunc">ʰc̲heck</span></a></td><td>function</td><td><code>(Int, Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.d_raw"><span class="c-libfunc">ʰd̲raw</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.r_ow"><span class="c-libfunc">ʰr̲ow</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char) -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.i_nto"><span class="c-libfunc">ʰi̲nto</span></a></td><td>function</td><td><code>Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.b_reak"><span class="c-libfunc">ʰb̲reak</span></a></td><td>function</td><td><code>Int -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.n_amed"><span class="c-libfunc">ʰn̲amed</span></a></td><td>function</td><td><code>(Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.s_hown"><span class="c-libfunc">ʰs̲hown</span></a></td><td>function</td><td><code>(Box Char, Box Char) -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.i_ncoming"><span class="c-libfunc">ʰi̲ncoming</span></a></td><td>function</td><td><code>(Box Char, Box Char) -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.c_hr"><span class="c-libfunc">ʰc̲hr</span></a></td><td>function</td><td><code>Char -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.a_s"><span class="c-libfunc">ʰa̲s</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.d_rawn"><span class="c-libfunc">ʰd̲rawn</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.t_t"><span class="c-libfunc">ʰt̲t</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.l_atexChar"><span class="c-libfunc">ʰl̲atexChar</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.r_aw"><span class="c-libfunc">ʰr̲aw</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.t_race"><span class="c-libfunc">ʰt̲race</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.r_ecords"><span class="c-libfunc">ʰr̲ecords</span></a></td><td>function</td><td><code>(Int, Char, Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.r_ecord"><span class="c-libfunc">ʰr̲ecord</span></a></td><td>function</td><td><code>(Int, Char) -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.s_how"><span class="c-libfunc">ʰs̲how</span></a></td><td>function</td><td><code>(Box Char, Box Char, Box Char) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.o_pt"><span class="c-libfunc">ʰo̲pt</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.e_scape"><span class="c-libfunc">ʰe̲scape</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.r_equire"><span class="c-libfunc">ʰr̲equire</span></a></td><td>function</td><td><code>Truthy a =&gt; a -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#nameChars">nameChars</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#plainChars">plainChars</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#letters">letters</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.q_uoted"><span class="c-libfunc">ʰq̲uoted</span></a></td><td>function</td><td><code>Char -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.o_utside"><span class="c-libfunc">ʰo̲utside</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.s_plit"><span class="c-libfunc">ʰs̲plit</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.f_irstText"><span class="c-libfunc">ʰf̲irstText</span></a></td><td>function</td><td><code>Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.f_irst"><span class="c-libfunc">ʰf̲irst</span></a></td><td>function</td><td><code>Int -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#h.f_irstOf"><span class="c-libfunc">ʰf̲irstOf</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Int</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#r">r</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#alpha">alpha</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#lr">lr</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#n">n</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#chunks">chunks</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#every">every</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#i">i</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#W">W</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#p">p</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#T">T</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#c">c</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#X">X</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#Y">Y</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#s">s</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#q">q</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#A">A</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#B">B</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#a0">a0</a></td><td>value</td><td><code>(Float, Float, Float, Float)</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#step">step</a></td><td>value</td><td><code>(Float, Float, Float, Float)</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#As">As</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#Bs">Bs</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#W2">W2</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#A2">A2</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#B2">B2</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#lossH">lossH</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#recA">recA</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#recB">recB</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#recD">recD</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-training-lora-training.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#blocks">blocks</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#width">width</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.s_cale"><span class="c-libfunc">ʰs̲cale</span></a></td><td>function</td><td><code>(Num a, Num b) =&gt; a -&gt; b -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.b_ars"><span class="c-libfunc">ˡb̲ars</span></a></td><td>function</td><td><code>Num a =&gt; Box Char -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.s_park"><span class="c-libfunc">ˡs̲park</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.h_istogram"><span class="c-libfunc">ˡh̲istogram</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.s_catter"><span class="c-libfunc">ˡs̲catter</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.l_ine-21"><span class="c-libfunc">ˡl̲ine!</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.l_ines-21"><span class="c-libfunc">ˡl̲ines!</span></a></td><td>function</td><td><code>Num a =&gt; Box Char -&gt; Box a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21"><span class="c-libfunc">ˡc̲hart!</span></a></td><td>function</td><td><code>Num a =&gt; Box Char -&gt; Box a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.l_inspace"><span class="c-libfunc">ˡl̲inspace</span></a></td><td>function</td><td><code>(Num a, Num b) =&gt; Int -&gt; (a, b) -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.f_unction-21"><span class="c-libfunc">ˡf̲unction!</span></a></td><td>function</td><td><code>Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.f_unctions-21"><span class="c-libfunc">ˡf̲unctions!</span></a></td><td>function</td><td><code>Box Char -&gt; Box Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.f_unctionChart-21"><span class="c-libfunc">ˡf̲unctionChart!</span></a></td><td>function</td><td><code>Box Char -&gt; Box Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.x_box"><span class="c-libfunc">ʰx̲box</span></a></td><td>function</td><td><code>Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.x_boxAll"><span class="c-libfunc">ʰx̲boxAll</span></a></td><td>function</td><td><code>Box Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.W">ʰW</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.H">ʰH</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.L">ʰL</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.R">ʰR</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.T">ʰT</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.B">ʰB</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.colors">ʰcolors</a></td><td>value</td><td><code>Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.j_oined"><span class="c-libfunc">ʰj̲oined</span></a></td><td>function</td><td><code>Box Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.c_hart"><span class="c-libfunc">ʰc̲hart</span></a></td><td>function</td><td><code>Box Char -&gt; Box Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.p_ad"><span class="c-libfunc">ʰp̲ad</span></a></td><td>function</td><td><code>Float -&gt; Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.j_oinText"><span class="c-libfunc">ʰj̲oinText</span></a></td><td>function</td><td><code>Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.c_olor"><span class="c-libfunc">ʰc̲olor</span></a></td><td>function</td><td><code>Int -&gt; Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.x_at"><span class="c-libfunc">ʰx̲at</span></a></td><td>function</td><td><code>Int -&gt; Int -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.r_ound"><span class="c-libfunc">ʰr̲ound</span></a></td><td>function</td><td><code>Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.y_at"><span class="c-libfunc">ʰy̲at</span></a></td><td>function</td><td><code>Float -&gt; Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.x_atValue"><span class="c-libfunc">ʰx̲atValue</span></a></td><td>function</td><td><code>Float -&gt; Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.s_eriesXY"><span class="c-libfunc">ʰs̲eriesXY</span></a></td><td>function</td><td><code>Char -&gt; Box Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.s_eries"><span class="c-libfunc">ʰs̲eries</span></a></td><td>function</td><td><code>Char -&gt; Box Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.small">ʰsmall</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.f_rame"><span class="c-libfunc">ʰf̲rame</span></a></td><td>function</td><td><code>Int -&gt; Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.f_rameXY"><span class="c-libfunc">ʰf̲rameXY</span></a></td><td>function</td><td><code>Float -&gt; Float -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.c_hartXY"><span class="c-libfunc">ʰc̲hartXY</span></a></td><td>function</td><td><code>Box Char -&gt; (Float, Box Float) -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.t_itles"><span class="c-libfunc">ʰt̲itles</span></a></td><td>function</td><td><code>Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#h.k_ept"><span class="c-libfunc">ʰk̲ept</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#blanks">blanks</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.u_pper"><span class="c-libfunc">ˡu̲pper</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.l_ower"><span class="c-libfunc">ˡl̲ower</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.t_rimStart"><span class="c-libfunc">ˡt̲rimStart</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.t_rimEnd"><span class="c-libfunc">ˡt̲rimEnd</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.t_rim"><span class="c-libfunc">ˡt̲rim</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.w_ords"><span class="c-libfunc">ˡw̲ords</span></a></td><td>function</td><td><code>Char -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.j_oin"><span class="c-libfunc">ˡj̲oin</span></a></td><td>function</td><td><code>Char -&gt; Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.s_queeze"><span class="c-libfunc">ˡs̲queeze</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.f_ind"><span class="c-libfunc">ˡf̲ind</span></a></td><td>function</td><td><code>Eq a =&gt; a -&gt; a -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#h.a_part"><span class="c-libfunc">ʰa̲part</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.o_ccurrences"><span class="c-libfunc">ˡo̲ccurrences</span></a></td><td>function</td><td><code>Eq a =&gt; a -&gt; a -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.s_plit"><span class="c-libfunc">ˡs̲plit</span></a></td><td>function</td><td><code>Eq a =&gt; a -&gt; a -&gt; Box a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.l_ines"><span class="c-libfunc">ˡl̲ines</span></a></td><td>function</td><td><code>Char -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.r_eplace"><span class="c-libfunc">ˡr̲eplace</span></a></td><td>function</td><td><code>Box Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.p_refix-3f"><span class="c-libfunc">ˡp̲refix?</span></a></td><td>function</td><td><code>(Match a, Truthy b) =&gt; a -&gt; a -&gt; b</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.s_uffix-3f"><span class="c-libfunc">ˡs̲uffix?</span></a></td><td>function</td><td><code>(Match a, Truthy b) =&gt; a -&gt; a -&gt; b</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.i_nfix-3f"><span class="c-libfunc">ˡi̲nfix?</span></a></td><td>function</td><td><code>(Eq a, Truthy b) =&gt; a -&gt; a -&gt; b</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.p_adLeft"><span class="c-libfunc">ˡp̲adLeft</span></a></td><td>function</td><td><code>Int -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.p_adRight"><span class="c-libfunc">ˡp̲adRight</span></a></td><td>function</td><td><code>Int -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.c_enter"><span class="c-libfunc">ˡc̲enter</span></a></td><td>function</td><td><code>Int -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.r_epeat"><span class="c-libfunc">ˡr̲epeat</span></a></td><td>function</td><td><code>Int -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html#l.m_ix"><span class="c-libfunc">ˡm̲ix</span></a></td><td>function</td><td><code>Box a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#digits">digits</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#h.p_added"><span class="c-libfunc">ʰp̲added</span></a></td><td>function</td><td><code>Int -&gt; Int -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#h.o_ne"><span class="c-libfunc">ʰo̲ne</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#l.f_ixed"><span class="c-libfunc">ˡf̲ixed</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#h.c_ommas"><span class="c-libfunc">ʰc̲ommas</span></a></td><td>function</td><td><code>a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#h.g_rouped"><span class="c-libfunc">ʰg̲rouped</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#h.a_mount1"><span class="c-libfunc">ʰa̲mount1</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#l.t_housands"><span class="c-libfunc">ˡt̲housands</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#l.a_mount"><span class="c-libfunc">ˡa̲mount</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#l.p_ercent"><span class="c-libfunc">ˡp̲ercent</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Box Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#h.r_ows"><span class="c-libfunc">ʰr̲ows</span></a></td><td>function</td><td><code>Int -&gt; Box a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#l.c_olumn"><span class="c-libfunc">ˡc̲olumn</span></a></td><td>function</td><td><code>Box a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#h.n_umeric-3f"><span class="c-libfunc">ʰn̲umeric?</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html#l.t_able"><span class="c-libfunc">ˡt̲able</span></a></td><td>function</td><td><code>Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.d_eltas"><span class="c-libfunc">ˡd̲eltas</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.w_indows"><span class="c-libfunc">ˡw̲indows</span></a></td><td>function</td><td><code>Int -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.m_ovingMean"><span class="c-libfunc">ˡm̲ovingMean</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#h.s_tarts"><span class="c-libfunc">ʰs̲tarts</span></a></td><td>function</td><td><code>(Eq a, Num b, Truthy b) =&gt; a -&gt; b</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.r_unValues"><span class="c-libfunc">ˡr̲unValues</span></a></td><td>function</td><td><code>Eq a =&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.r_unLengths"><span class="c-libfunc">ˡr̲unLengths</span></a></td><td>function</td><td><code>Eq a =&gt; a -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.c_hunks"><span class="c-libfunc">ˡc̲hunks</span></a></td><td>function</td><td><code>Int -&gt; a -&gt; Box a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.r_aze"><span class="c-libfunc">ˡr̲aze</span></a></td><td>function</td><td><code>Box a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.s_hift"><span class="c-libfunc">ˡs̲hift</span></a></td><td>function</td><td><code>Int -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.i_nterleave"><span class="c-libfunc">ˡi̲nterleave</span></a></td><td>function</td><td><code>a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#h.b_s"><span class="c-libfunc">ʰb̲s</span></a></td><td>function</td><td><code>Ord a =&gt; a -&gt; a -&gt; Int -&gt; Int -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html#l.b_search"><span class="c-libfunc">ˡb̲search</span></a></td><td>function</td><td><code>Ord a =&gt; a -&gt; a -&gt; Int</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.a_ttr"><span class="c-libfunc">ˡa̲ttr</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.e_scape"><span class="c-libfunc">ˡe̲scape</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.f_ill"><span class="c-libfunc">ˡf̲ill</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.r_gb"><span class="c-libfunc">ˡr̲gb</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.s_troke"><span class="c-libfunc">ˡs̲troke</span></a></td><td>function</td><td><code>Char -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.p_olygon"><span class="c-libfunc">ˡp̲olygon</span></a></td><td>function</td><td><code>Char -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.p_olyline"><span class="c-libfunc">ˡp̲olyline</span></a></td><td>function</td><td><code>Char -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.a_t"><span class="c-libfunc">ˡa̲t</span></a></td><td>function</td><td><code>a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.t_ext"><span class="c-libfunc">ˡt̲ext</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.s_pan"><span class="c-libfunc">ˡs̲pan</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.s_ized"><span class="c-libfunc">ˡs̲ized</span></a></td><td>function</td><td><code>a -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.m_arkup"><span class="c-libfunc">ˡm̲arkup</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.g_roup"><span class="c-libfunc">ˡg̲roup</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.t_ranslate"><span class="c-libfunc">ˡt̲ranslate</span></a></td><td>function</td><td><code>a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.r_otate"><span class="c-libfunc">ˡr̲otate</span></a></td><td>function</td><td><code>a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.m_atrix"><span class="c-libfunc">ˡm̲atrix</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.s_cale"><span class="c-libfunc">ˡs̲cale</span></a></td><td>function</td><td><code>a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.c_lip"><span class="c-libfunc">ˡc̲lip</span></a></td><td>function</td><td><code>Char -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.c_lipped"><span class="c-libfunc">ˡc̲lipped</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.g_radient"><span class="c-libfunc">ˡg̲radient</span></a></td><td>function</td><td><code>Char -&gt; Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.p_icture"><span class="c-libfunc">ˡp̲icture</span></a></td><td>function</td><td><code>a -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#l.p_ictureWith"><span class="c-libfunc">ˡp̲ictureWith</span></a></td><td>function</td><td><code>a -&gt; Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#h.e_sc"><span class="c-libfunc">ʰe̲sc</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#h.j_oin"><span class="c-libfunc">ʰj̲oin</span></a></td><td>function</td><td><code>Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-Svg.xtl.html#h.p_airs"><span class="c-libfunc">ʰp̲airs</span></a></td><td>function</td><td><code>a -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.u_se-3c"><span class="c-macro">ˢu̲se&lt;</span></a></td><td>built-in macro</td><td><code>Char -&gt; Char -&gt; Unit</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.i_f-3c"><span class="c-macro">ˢi̲f&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.u_nless-3c"><span class="c-macro">ˢu̲nless&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.e_ach-3c"><span class="c-macro">ˢe̲ach&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.l_ine-3c"><span class="c-macro">ˢl̲ine&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Unit -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.f_ile-3c"><span class="c-macro">ˢf̲ile&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Unit -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.i_nclude-3c"><span class="c-macro">ˢi̲nclude&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.c_fg-3c"><span class="c-macro">ˢc̲fg&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.e_rror-3c"><span class="c-macro">ˢe̲rror&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.d_bg-3c"><span class="c-macro">ˢd̲bg&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.a_ssert-3c"><span class="c-macro">ˢa̲ssert&lt;</span></a></td><td>macro</td><td><code>Char -&gt; a -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.f_ormat-3c"><span class="c-macro">ˢf̲ormat&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.p_anic-3c"><span class="c-macro">ˢp̲anic&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.t_odo-3c"><span class="c-macro">ˢt̲odo&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.t_ry-3c"><span class="c-macro">ˢt̲ry&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.c_atch-3c"><span class="c-macro">ˢc̲atch&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.f_inally-3c"><span class="c-macro">ˢf̲inally&lt;</span></a></td><td>macro</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.r_ecover-3c"><span class="c-macro">ˢr̲ecover&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.r_etry-3c"><span class="c-macro">ˢr̲etry&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Unit -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.h_alt-3c"><span class="c-macro">ˢh̲alt&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Unit -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#s.c_ontinue-3c"><span class="c-macro">ˢc̲ontinue&lt;</span></a></td><td>macro</td><td><code>Unit -&gt; Unit -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#catchCodes">catchCodes</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.m_atchCode"><span class="c-libfunc">ʰm̲atchCode</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#ifArgs">ifArgs</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#eachAlone">eachAlone</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#eachHole">eachHole</a></td><td>value</td><td><code>Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.t_rim"><span class="c-libfunc">ʰt̲rim</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.w_ords"><span class="c-libfunc">ʰw̲ords</span></a></td><td>function</td><td><code>Char -&gt; Box Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.s_eps"><span class="c-libfunc">ʰs̲eps</span></a></td><td>function</td><td><code>Truthy a =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.h_oles"><span class="c-libfunc">ʰh̲oles</span></a></td><td>function</td><td><code>(Num a, Truthy a) =&gt; Char -&gt; a</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.j_oin"><span class="c-libfunc">ʰj̲oin</span></a></td><td>function</td><td><code>Box Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.q_uote"><span class="c-libfunc">ʰq̲uote</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.c_opy"><span class="c-libfunc">ʰc̲opy</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.w_hy"><span class="c-libfunc">ʰw̲hy</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.o_rEmpty"><span class="c-libfunc">ʰo̲rEmpty</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.l_it"><span class="c-libfunc">ʰl̲it</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.c_j"><span class="c-libfunc">ʰc̲j</span></a></td><td>function</td><td><code>Char -&gt; Char -&gt; Char</code></td></tr>
+<tr><td><a href="std-System.xtlm.html#h.p_ieces"><span class="c-libfunc">ʰp̲ieces</span></a></td><td>function</td><td><code>Char -&gt; Char</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#k">k</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#alpha">alpha</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#lr">lr</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#n">n</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#chunks">chunks</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#every">every</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#i">i</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W">W</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#p">p</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#T">T</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#s">s</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A">A</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B">B</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#a0">a0</a></td><td>value</td><td><code>(Float, Float, Float, Float)</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#u0">u0</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#v">v</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#H1">H1</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#w">w</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#H2">H2</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#known">known</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#M">M</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#spectra">spectra</a></td><td>value</td><td><code>Box Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#ev">ev</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#best">best</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#I">I</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#z1">z1</a></td><td>value</td><td><code>((Float, Float, Float, Float), (Float, Float, Float, Float), Float)</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitL">fitL</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#z2">z2</a></td><td>value</td><td><code>((Float, Float, Float, Float), (Float, Float), Float)</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#fitF">fitF</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A1">A1</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B1">B1</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A2">A2</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B2">B2</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#D1">D1</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#D2">D2</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#P">P</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#rem">rem</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#c">c</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#X">X</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Y">Y</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xt">Xt</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yt">Yt</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xh">Xh</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yh">Yh</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#o">o</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Xo">Xo</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#Yo">Yo</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#losses">losses</a></td><td>value</td><td><code>(Float, Float, Float, Float) -&gt; Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y1">y1</a></td><td>value</td><td><code>((Float, Float, Float, Float), (Float, Float, Float, Float), Float)</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recL">recL</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y2">y2</a></td><td>value</td><td><code>((Float, Float, Float, Float), (Float, Float), Float)</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recF">recF</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y3">y3</a></td><td>value</td><td><code>(Float, Float, Float, Float)</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#recW">recW</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A3">A3</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B3">B3</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#A4">A4</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#B4">B4</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#W5">W5</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#R">R</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_dentity"><span class="c-libfunc">ˡi̲dentity</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.d_iag"><span class="c-libfunc">ˡd̲iag</span></a></td><td>function</td><td><code>a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.t_race"><span class="c-libfunc">ˡt̲race</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.m_ul"><span class="c-libfunc">ˡm̲ul</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; a</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#h.s_wapping"><span class="c-libfunc">ʰs̲wapping</span></a></td><td>function</td><td><code>Int -&gt; Int -&gt; Int -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#h.p_ivot"><span class="c-libfunc">ʰp̲ivot</span></a></td><td>function</td><td><code>Num a =&gt; Int -&gt; a -&gt; Int</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#h.g_j"><span class="c-libfunc">ʰg̲j</span></a></td><td>function</td><td><code>Int -&gt; Int -&gt; Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.s_olve"><span class="c-libfunc">ˡs̲olve</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; a -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_nverse"><span class="c-libfunc">ˡi̲nverse</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#h.d_etF"><span class="c-libfunc">ʰd̲etF</span></a></td><td>function</td><td><code>Float -&gt; Float</code></td></tr>
+<tr><td><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.d_et"><span class="c-libfunc">ˡd̲et</span></a></td><td>function</td><td><code>Num a =&gt; a -&gt; Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#alpha">alpha</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#lr">lr</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#n">n</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#steps">steps</a></td><td>value</td><td><code>Int</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#i">i</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#W">W</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#p">p</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#T">T</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#c">c</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#X">X</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#Y">Y</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#Xt">Xt</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#Yt">Yt</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#Xh">Xh</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#Yh">Yh</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#table">table</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#M">M</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#w0">w0</a></td><td>value</td><td><code>(Float, Float, Float, Float)</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html#_">_</a></td><td>function</td><td><code>Char</code></td></tr>
+<tr><td><a href="demos-welcome-welcome.xtl.html#W">W</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-welcome-welcome.xtl.html#A">A</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-welcome-welcome.xtl.html#B">B</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-welcome-welcome.xtl.html#X">X</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-welcome-welcome.xtl.html#s">s</a></td><td>value</td><td><code>Float</code></td></tr>
+<tr><td><a href="demos-welcome-welcome.xtl.html#y">y</a></td><td>value</td><td><code>Float</code></td></tr>
+</table>
+</main>
+</body>
+</html>

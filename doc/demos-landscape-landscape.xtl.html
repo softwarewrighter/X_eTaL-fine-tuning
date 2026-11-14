@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/landscape/landscape.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Data</a></li>
+<li class="item"><a href="#d">d</a></li>
+<li class="item"><a href="#r">r</a></li>
+<li class="item"><a href="#all">all</a></li>
+<li class="item"><a href="#some">some</a></li>
+<li class="item"><a href="#lora">lora</a></li>
+<li><a href="#section-2">The numbers trained</a></li>
+<li class="item"><a href="#trained">trained</a></li>
+<li><a href="#section-3">The numbers held while training</a></li>
+<li class="item"><a href="#held">held</a></li>
+<li><a href="#section-4">The numbers stored afterward</a></li>
+<li class="item"><a href="#stored">stored</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/landscape/landscape.xtl</h1>
+<div class="doc">
+<p>The landscape: the accounting of the ways to change a layer, each
+figure analytical (it follows from the method's definition, no
+training is run). For two layers, this course's 8 x 8 at rank 4
+and one real layer, 4096 x 4096 at rank 16: for each family whose
+cost is a count, the numbers trained, the numbers held while
+training beyond the weights themselves (the gradient and Adam's two
+averages, where there are any), and the numbers stored afterward
+when the change is kept apart from W. Then the bytes of the layer
+itself at 16 bits and at 4 bits (QLoRA's base), and the adapter's
+share of the full count.</p>
+</div>
+<p class="meta"><a href="demos-landscape-landscape.xtl.src.html">source</a> &middot; imports <code><span class="c-error">lo:</span></code> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">work/xetal-ml/libs/LoRA/src/LoRA.xtl</a></p>
+<h2 class="section" id="section-1">Data</h2>
+<div class="item" id="d">
+<h3><a href="#d">d</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L19">line 19</a></div>
+<div class="doc">
+<p>The two layers side by side: d is the width of each (the layer is
+d x d), r the rank an adapter would have on it.</p>
+</div>
+<pre class="code">d ← <span class="c-number">8</span> <span class="c-number">4096</span></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.html#all">all</a>, <a href="demos-landscape-landscape.xtl.html#trained">trained</a>, <a href="demos-landscape-landscape.xtl.html#stored">stored</a>, <a href="demos-landscape-landscape.xtl.src.html#L66">demos/landscape/landscape.xtl:66</a></div>
+</div>
+<div class="item" id="r">
+<h3><a href="#r">r</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L20">line 20</a></div>
+<pre class="code">r ← <span class="c-number">4</span> <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.html#trained">trained</a>, <a href="demos-landscape-landscape.xtl.html#stored">stored</a>, <a href="demos-landscape-landscape.xtl.src.html#L66">demos/landscape/landscape.xtl:66</a></div>
+</div>
+<div class="item" id="all">
+<h3><a href="#all">all</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L21">line 21</a></div>
+<pre class="code">all ← <a href="demos-landscape-landscape.xtl.html#d">d</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.html#some">some</a>, <a href="demos-landscape-landscape.xtl.html#trained">trained</a>, <a href="demos-landscape-landscape.xtl.html#stored">stored</a>, <a href="demos-landscape-landscape.xtl.src.html#L64">demos/landscape/landscape.xtl:64</a>, <a href="demos-landscape-landscape.xtl.src.html#L66">demos/landscape/landscape.xtl:66</a></div>
+</div>
+<div class="item" id="some">
+<h3><a href="#some">some</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L24">line 24</a></div>
+<div class="doc">
+<p>One row in eight of the layer, the selective case this page takes: an
+eighth of the numbers.</p>
+</div>
+<pre class="code">some ← <a href="builtins.html#f_loor" class="c-builtin">f̲loor</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">8</span></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.html#trained">trained</a>, <a href="demos-landscape-landscape.xtl.html#stored">stored</a></div>
+</div>
+<div class="item" id="lora">
+<h3><a href="#lora">lora</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L26">line 26</a></div>
+<div class="doc">
+<p>LoRA's count from the library, r (d + d), at each layer.</p>
+</div>
+<pre class="code">lora ← (<span class="c-number">4</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">8</span> <span class="c-number">8</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">16</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">4096</span> <span class="c-number">4096</span></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.html#trained">trained</a>, <a href="demos-landscape-landscape.xtl.html#stored">stored</a>, <a href="demos-landscape-landscape.xtl.src.html#L66">demos/landscape/landscape.xtl:66</a></div>
+</div>
+<h2 class="section" id="section-2">The numbers trained</h2>
+<div class="item" id="trained">
+<h3><a href="#trained">trained</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L38">line 38</a></div>
+<div class="doc">
+<p>A row per family that has a count, in the order the page lists
+them: full fine-tuning (every number of W); selective fine-tuning
+(here one row in eight); LoRA (A and B); LoRA-FA (B alone); QLoRA
+(LoRA's adapter on a quantized W); DoRA (LoRA's adapter and a
+magnitude per column); VeRA (two vectors, d and r long, on frozen
+shared tables); learning without back-propagation on every weight
+(MeZO); a closed-form rank-one edit (nothing is trained). A column
+per layer.</p>
+</div>
+<pre class="code">trained ← <span class="c-number">9</span> <span class="c-number">2</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#some">some</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#r">r</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#d">d</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#r">r</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">0</span> <span class="c-number">0</span></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.src.html#L39">demos/landscape/landscape.xtl:39</a>, <a href="demos-landscape-landscape.xtl.html#held">held</a></div>
+</div>
+<h2 class="section" id="section-3">The numbers held while training</h2>
+<div class="item" id="held">
+<h3><a href="#held">held</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L47">line 47</a></div>
+<div class="doc">
+<p>Back-propagation with Adam holds, for every number trained, its
+gradient and two running averages: three more numbers. The
+two-point estimate holds a seed and two losses, no gradient; a
+closed-form edit holds nothing while it trains, since it does not.</p>
+</div>
+<pre class="code">held ← <a href="demos-landscape-landscape.xtl.html#trained">trained</a> <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">0</span> <span class="c-number">0</span>) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-number">1</span> <span class="c-number">1</span></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.src.html#L48">demos/landscape/landscape.xtl:48</a></div>
+</div>
+<h2 class="section" id="section-4">The numbers stored afterward</h2>
+<div class="item" id="stored">
+<h3><a href="#stored">stored</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-landscape-landscape.xtl.src.html#L57">line 57</a></div>
+<div class="doc">
+<p>The change kept apart from W: full and selective fine-tuning keep
+the moved numbers; an adapter keeps its tables (LoRA-FA and VeRA
+regrow their frozen ones from a seed); the forward-only method
+moved every weight; a rank-one edit is two vectors, u and v. An
+adapter merged into W is d x d again, the first row.</p>
+</div>
+<pre class="code">stored ← <span class="c-number">9</span> <span class="c-number">2</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#some">some</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#r">r</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#d">d</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#r">r</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a></pre>
+<div class="uses">Used in: <a href="demos-landscape-landscape.xtl.src.html#L58">demos/landscape/landscape.xtl:58</a></div>
+</div>
+</main>
+</body>
+</html>

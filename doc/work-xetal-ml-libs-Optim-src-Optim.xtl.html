@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>work/xetal-ml/libs/Optim/src/Optim.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Gradient descent</a></li>
+<li class="item"><a href="#l.s_gd"><span class="c-libfunc">ˡs̲gd</span></a></li>
+<li><a href="#section-2">Adam</a></li>
+<li class="item"><a href="#l.a_damWith"><span class="c-libfunc">ˡa̲damWith</span></a></li>
+<li class="item"><a href="#l.a_dam"><span class="c-libfunc">ˡa̲dam</span></a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">library</span>work/xetal-ml/libs/Optim/src/Optim.xtl</h1>
+<div class="doc">
+<p>Optim: optimizers as steps: gradient descent and Adam on a weight array and its averages</p>
+<p>Import it with an alias of your choice: &quot;op:&quot; u_se&lt; &quot;Optim&quot;.
+Put libs/Optim/src on XETAL_PATH (&quot;just path&quot;); the reference is libs/Optim/docs.
+Names with l: are exported; h: names are private to this file.</p>
+<p>An optimizer is a step: it takes a weight array (of any shape), its
+gradient and whatever the optimizer keeps (Adam's two running
+averages), and gives them back moved, as a tuple. A network's
+training step calls it once per weight array, and p_ower repeats the
+whole step. Settings come first, as a tuple: (lr, t) for Adam at step
+t (from 1).</p>
+</div>
+<p class="meta"><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.src.html">source</a></p>
+<h2 class="section" id="section-1">Gradient descent</h2>
+<div class="item" id="l.s_gd">
+<h3><a href="#l.s_gd"><span class="c-libfunc">ˡs̲gd</span></a> <span class="type">: Num a =&gt; a -&gt; (a, a) -&gt; a</span></h3>
+<div class="meta">function &middot; <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.src.html#L20">line 20</a></div>
+<div class="doc">
+<p><code>lr <span class="c-builtin">s̲gd</span> (w, g)</code>: the weights moved against their gradient by the rate lr.</p>
+<pre class="example"><span class="prompt">      </span><span class="c-string">&quot;op:&quot;</span> <a href="std-System.xtlm.html#s.u_se-3c" class="c-macro">u̲se&lt;</a> <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html" class="c-string">&quot;Optim&quot;</a></pre>
+<pre class="example"><span class="prompt">      </span><span class="c-number">0.5</span> <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html#l.s_gd" class="c-libfunc">ᵒᵖs̲gd</a> (<span class="c-number">1.0</span> <span class="c-number">2.0</span>, <span class="c-number">0.2</span> <span class="c-number">-0.4</span>)
+0.9 2.2</pre>
+</div>
+<pre class="code"><span class="c-libfunc">ˡs̲gd</span> ← { lr (w, g) → w <a href="builtins.html#-2d" class="c-symbol">−</a> lr <a href="builtins.html#-2a" class="c-symbol">×</a> g }</pre>
+<div class="uses">Used in: <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_gd"><span class="c-libfunc">ˡs̲gd</span></a>, <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_gdFA"><span class="c-libfunc">ˡs̲gdFA</span></a></div>
+</div>
+<h2 class="section" id="section-2">Adam</h2>
+<div class="item" id="l.a_damWith">
+<h3><a href="#l.a_damWith"><span class="c-libfunc">ˡa̲damWith</span></a> <span class="type">: (Float, Float, Float, Float) -&gt; (Float, Float, Float, Float) -&gt; (Float, Float, Float)</span></h3>
+<div class="meta">function &middot; <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.src.html#L29">line 29</a></div>
+<div class="doc">
+<p><code>(lr, b1, b2, t) <span class="c-builtin">a̲damWith</span> (w, m, v, g)</code>: Adam's step t (from 1)
+with decay rates b1 and b2: the running averages of the gradients
+(m) and of their squares (v) brought up to date, then the weights
+moved by the first over the square root of the second, each
+corrected for starting at 0 (eps 1e-8): (w, m, v) after the step.</p>
+</div>
+<pre class="code"><span class="c-libfunc">ˡa̲damWith</span> ← { (lr, b1, b2, t) (w, m, v, g) →
+  m2 ← (b1 <a href="builtins.html#-2a" class="c-symbol">×</a> m) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> b1) <a href="builtins.html#-2a" class="c-symbol">×</a> g
+  v2 ← (b2 <a href="builtins.html#-2a" class="c-symbol">×</a> v) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> b2) <a href="builtins.html#-2a" class="c-symbol">×</a> g <a href="builtins.html#-2a" class="c-symbol">×</a> g
+  (w <a href="builtins.html#-2d" class="c-symbol">−</a> lr <a href="builtins.html#-2a" class="c-symbol">×</a> (m2 <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> b1 <a href="builtins.html#-5e" class="c-symbol">^</a> t) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">0.00000001</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (v2 <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> b2 <a href="builtins.html#-5e" class="c-symbol">^</a> t) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">0.5</span>, m2, v2)
+}</pre>
+</div>
+<div class="item" id="l.a_dam">
+<h3><a href="#l.a_dam"><span class="c-libfunc">ˡa̲dam</span></a> <span class="type">: (Float, Float) -&gt; (Float, Float, Float, Float) -&gt; (Float, Float, Float)</span></h3>
+<div class="meta">function &middot; <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.src.html#L43">line 43</a></div>
+<div class="doc">
+<p><code>(lr, t) <span class="c-builtin">a̲dam</span> (w, m, v, g)</code>: Adam's step with the usual decay
+rates, 0.9 and 0.999. Its first step moves every weight by the rate
+against its gradient's sign, whatever the gradient's size (eps makes
+it a hair less):</p>
+<pre class="example"><span class="prompt">      </span><span class="c-string">&quot;op:&quot;</span> <a href="std-System.xtlm.html#s.u_se-3c" class="c-macro">u̲se&lt;</a> <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html" class="c-string">&quot;Optim&quot;</a></pre>
+<pre class="example"><span class="prompt">      </span>(w, m, v) ← (<span class="c-number">0.1</span>, <span class="c-number">1.0</span>) <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html#l.a_dam" class="c-libfunc">ᵒᵖa̲dam</a> (<span class="c-number">1.0</span> <span class="c-number">1.0</span>, <span class="c-number">0.0</span> <span class="c-number">0.0</span>, <span class="c-number">0.0</span> <span class="c-number">0.0</span>, <span class="c-number">0.5</span> <span class="c-number">-2.0</span>)</pre>
+<pre class="example"><span class="prompt">      </span>w
+0.9000000019999999 1.0999999995</pre>
+</div>
+<pre class="code"><span class="c-libfunc">ˡa̲dam</span> ← { (lr, t) (w, m, v, g) →
+  m2 ← (<span class="c-number">0.9</span> <a href="builtins.html#-2a" class="c-symbol">×</a> m) <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.1</span> <a href="builtins.html#-2a" class="c-symbol">×</a> g
+  v2 ← (<span class="c-number">0.999</span> <a href="builtins.html#-2a" class="c-symbol">×</a> v) <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.001</span> <a href="builtins.html#-2a" class="c-symbol">×</a> g <a href="builtins.html#-2a" class="c-symbol">×</a> g
+  (w <a href="builtins.html#-2d" class="c-symbol">−</a> lr <a href="builtins.html#-2a" class="c-symbol">×</a> (m2 <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0.9</span> <a href="builtins.html#-5e" class="c-symbol">^</a> t) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">0.00000001</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (v2 <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0.999</span> <a href="builtins.html#-5e" class="c-symbol">^</a> t) <a href="builtins.html#-5e" class="c-symbol">^</a> <span class="c-number">0.5</span>, m2, v2)
+}</pre>
+<div class="uses">Used in: <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam"><span class="c-libfunc">ˡa̲dam</span></a>, <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damFA"><span class="c-libfunc">ˡa̲damFA</span></a>, <a href="demos-lora-vs-fa-lora-vs-fa.xtl.html#y3">y3</a></div>
+</div>
+</main>
+</body>
+</html>

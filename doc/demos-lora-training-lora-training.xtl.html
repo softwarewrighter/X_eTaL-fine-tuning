@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/lora-training/lora-training.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Data</a></li>
+<li class="item"><a href="#r">r</a></li>
+<li class="item"><a href="#alpha">alpha</a></li>
+<li class="item"><a href="#lr">lr</a></li>
+<li class="item"><a href="#n">n</a></li>
+<li class="item"><a href="#chunks">chunks</a></li>
+<li class="item"><a href="#every">every</a></li>
+<li class="item"><a href="#i">i</a></li>
+<li class="item"><a href="#W">W</a></li>
+<li class="item"><a href="#p">p</a></li>
+<li class="item"><a href="#T">T</a></li>
+<li class="item"><a href="#c">c</a></li>
+<li class="item"><a href="#X">X</a></li>
+<li class="item"><a href="#Y">Y</a></li>
+<li class="item"><a href="#Xt">Xt</a></li>
+<li class="item"><a href="#Yt">Yt</a></li>
+<li class="item"><a href="#Xh">Xh</a></li>
+<li class="item"><a href="#Yh">Yh</a></li>
+<li class="item"><a href="#s">s</a></li>
+<li class="item"><a href="#q">q</a></li>
+<li class="item"><a href="#A">A</a></li>
+<li class="item"><a href="#B">B</a></li>
+<li class="item"><a href="#a0">a0</a></li>
+<li><a href="#section-2">One step of training</a></li>
+<li class="item"><a href="#step">step</a></li>
+<li class="item"><a href="#Ws">Ws</a></li>
+<li class="item"><a href="#As">As</a></li>
+<li class="item"><a href="#Bs">Bs</a></li>
+<li class="item"><a href="#W2">W2</a></li>
+<li class="item"><a href="#A2">A2</a></li>
+<li class="item"><a href="#B2">B2</a></li>
+<li><a href="#section-3">Training</a></li>
+<li class="item"><a href="#lossT">lossT</a></li>
+<li class="item"><a href="#lossH">lossH</a></li>
+<li class="item"><a href="#recA">recA</a></li>
+<li class="item"><a href="#recB">recB</a></li>
+<li class="item"><a href="#recD">recD</a></li>
+<li class="item"><a href="#_">_</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/lora-training/lora-training.xtl</h1>
+<div class="doc">
+<p>LoRA training: where the numbers of A and B come from. A frozen 8 x
+8 layer W; examples (inputs with the outputs wanted) made by a
+hidden shift of it, W + T; an adapter that starts as LoRA does, B
+at 0 and A seeded. One step of training as a pipeline, stage by
+stage: the prediction, the error (which is the loss's gradient at
+the output), the gradients of A and B, the update; checked against
+the library's own step, W untouched. Then training by Adam with a
+record: the loss on the examples trained on and on examples held
+out, every few steps, and the adapter at each record, so a page
+can step back without training again.</p>
+</div>
+<p class="meta"><a href="demos-lora-training-lora-training.xtl.src.html">source</a> &middot; imports <code><span class="c-error">e:</span></code> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">work/xetal-libraries/libs/Equations/src/Equations.xtl</a> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">work/xetal-libraries/libs/Equations/src/Equations.xtlm</a>; <code><span class="c-error">flow:</span></code> <a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">work/xetal-ml/libs/Flow/src/Flow.xtlm</a>; <code><span class="c-error">lo:</span></code> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">work/xetal-ml/libs/LoRA/src/LoRA.xtl</a>; <code><span class="c-error">p:</span></code> <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">work/xetal-libraries/libs/Plot/src/Plot.xtl</a></p>
+<h2 class="section" id="section-1">Data</h2>
+<div class="item" id="r">
+<h3><a href="#r">r</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L24">line 24</a></div>
+<div class="doc">
+<p>The settings (a preset): the rank, alpha (the strength s is alpha /
+r), the learning rate, how many of the 12 examples are trained on
+(the last 4 are always held out), and the record: chunks of every
+steps.</p>
+</div>
+<pre class="code">r ← <span class="c-number">4</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#s">s</a>, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, <a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="demos-lora-training-lora-training.xtl.html#step">step</a></div>
+</div>
+<div class="item" id="alpha">
+<h3><a href="#alpha">alpha</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L25">line 25</a></div>
+<pre class="code">alpha ← <span class="c-number">4.0</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#s">s</a></div>
+</div>
+<div class="item" id="lr">
+<h3><a href="#lr">lr</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L26">line 26</a></div>
+<pre class="code">lr ← <span class="c-number">0.05</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="n">
+<h3><a href="#n">n</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L27">line 27</a></div>
+<pre class="code">n ← <span class="c-number">8</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>, <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L88">demos/lora-training/lora-training.xtl:88</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L89">demos/lora-training/lora-training.xtl:89</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="chunks">
+<h3><a href="#chunks">chunks</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L28">line 28</a></div>
+<pre class="code">chunks ← <span class="c-number">30</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="every">
+<h3><a href="#every">every</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L29">line 29</a></div>
+<pre class="code">every ← <span class="c-number">10</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="i">
+<h3><a href="#i">i</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L33">line 33</a></div>
+<div class="doc">
+<p>The frozen layer W, by a fixed ripple (the lab's), and the hidden
+shift T (8 x 8, of rank 4) that the examples come from: the layer
+W + T is what the adapter is to imitate, without ever seeing T.</p>
+</div>
+<pre class="code">i ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">64</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#W">W</a></div>
+</div>
+<div class="item" id="W">
+<h3><a href="#W">W</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L34">line 34</a></div>
+<pre class="code">W ← <span class="c-number">8</span> <span class="c-number">8</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.7</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#i">i</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#i">i</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Y">Y</a>, <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L56">demos/lora-training/lora-training.xtl:56</a>, <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L96">demos/lora-training/lora-training.xtl:96</a></div>
+</div>
+<div class="item" id="p">
+<h3><a href="#p">p</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L35">line 35</a></div>
+<pre class="code">p ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">32</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#T">T</a>, <a href="demos-lora-training-lora-training.xtl.html#step">step</a></div>
+</div>
+<div class="item" id="T">
+<h3><a href="#T">T</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L36">line 36</a></div>
+<pre class="code">T ← (<span class="c-number">8</span> <span class="c-number">4</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">1.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#p">p</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#p">p</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <span class="c-number">4</span> <span class="c-number">8</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.6</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#p">p</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#p">p</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Y">Y</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L57">demos/lora-training/lora-training.xtl:57</a></div>
+</div>
+<div class="item" id="c">
+<h3><a href="#c">c</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L40">line 40</a></div>
+<div class="doc">
+<p>12 inputs of 8 numbers, one per column, by a ripple; the output
+wanted for each is the shifted layer's. The first n columns are
+trained on, the last 4 held out: never trained on, only measured.</p>
+</div>
+<pre class="code">c ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">96</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#X">X</a></div>
+</div>
+<div class="item" id="X">
+<h3><a href="#X">X</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L41">line 41</a></div>
+<pre class="code">X ← <span class="c-number">8</span> <span class="c-number">12</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.4</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#c">c</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.05</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#c">c</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-lora-training-lora-training.xtl.html#c">c</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Y">Y</a>, <a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L58">demos/lora-training/lora-training.xtl:58</a></div>
+</div>
+<div class="item" id="Y">
+<h3><a href="#Y">Y</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L42">line 42</a></div>
+<pre class="code">Y ← (<a href="demos-lora-training-lora-training.xtl.html#W">W</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-training-lora-training.xtl.html#T">T</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-training-lora-training.xtl.html#X">X</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L59">demos/lora-training/lora-training.xtl:59</a></div>
+</div>
+<div class="item" id="Xt">
+<h3><a href="#Xt">Xt</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L43">line 43</a></div>
+<pre class="code">Xt ← <a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-training-lora-training.xtl.html#X">X</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L88">demos/lora-training/lora-training.xtl:88</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L89">demos/lora-training/lora-training.xtl:89</a>, <a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="Yt">
+<h3><a href="#Yt">Yt</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L44">line 44</a></div>
+<pre class="code">Yt ← <a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-training-lora-training.xtl.html#Y">Y</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L88">demos/lora-training/lora-training.xtl:88</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L89">demos/lora-training/lora-training.xtl:89</a>, <a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="Xh">
+<h3><a href="#Xh">Xh</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L45">line 45</a></div>
+<pre class="code">Xh ← <span class="c-number">-4</span> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-training-lora-training.xtl.html#X">X</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="Yh">
+<h3><a href="#Yh">Yh</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L46">line 46</a></div>
+<pre class="code">Yh ← <span class="c-number">-4</span> <a href="builtins.html#t_ake" class="c-builtin">t̲ake₂</a> <a href="demos-lora-training-lora-training.xtl.html#Y">Y</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="s">
+<h3><a href="#s">s</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L49">line 49</a></div>
+<div class="doc">
+<p>The adapter as LoRA starts it: B all 0, so the correction is 0 and
+the layer gives exactly W's output; A seeded (fixed, no chance).</p>
+</div>
+<pre class="code">s ← <a href="demos-lora-training-lora-training.xtl.html#alpha">alpha</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_caling" class="c-libfunc">ˡᵒs̲caling</a> <a href="demos-lora-training-lora-training.xtl.html#r">r</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="q">
+<h3><a href="#q">q</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L50">line 50</a></div>
+<pre class="code">q ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#step">step</a></div>
+</div>
+<div class="item" id="A">
+<h3><a href="#A">A</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L51">line 51</a></div>
+<pre class="code">A ← <span class="c-number">1</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_eeded" class="c-libfunc">ˡᵒs̲eeded</a> <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">8</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="B">
+<h3><a href="#B">B</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L52">line 52</a></div>
+<pre class="code">B ← (<span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#r">r</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<div class="item" id="a0">
+<h3><a href="#a0">a0</a> <span class="type">: (Float, Float, Float, Float)</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L53">line 53</a></div>
+<pre class="code">a0 ← (<a href="demos-lora-training-lora-training.xtl.html#W">W</a>, <a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>)</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.src.html#L88">demos/lora-training/lora-training.xtl:88</a>, <a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a></div>
+</div>
+<h2 class="section" id="section-2">One step of training</h2>
+<div class="item" id="step">
+<h3><a href="#step">step</a> <span class="type">: (Float, Float, Float, Float)</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L72">line 72</a></div>
+<div class="doc">
+<p>One step of gradient descent on the n examples trained on, a stage
+at a time. The prediction p (the layer as it is: W x plus the
+correction, 0 at the start); the error g = p - y, which is also the
+loss's gradient at the output (the loss is half the sum of the
+squared errors, lo:l_oss); the error carried back through B, b =
+B' g; the gradients of A and B, each a sum over the examples; the
+update, A and B moved against their gradients by the learning
+rate. W is not in the update: the step gives it back as it was,
+as the adapter after the step, (W2, A3, B3, s2).</p>
+</div>
+<pre class="code">step ← @ <span class="c-macro">ᶠˡᵒʷp̲ipe&lt;</span> <span class="c-string">c#&quot;</span></pre>
+<details class="expansion"><summary><code><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.p_ipe-3c" class="c-macro">ᶠˡᵒʷp̲ipe&lt;</a></code> expands to</summary><pre class="code">({ @ →
+  x ← <a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>
+  h ← <span class="c-string">&quot;h[k,m] | r n&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;sum j:=0..7 | A[k,j] * x[j,m]&quot;</span>
+  u ← <span class="c-string">&quot;u[i,m] | 8 n&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;sum k:=0..q | B[i,k] * h[k,m]&quot;</span>
+  p ← <span class="c-string">&quot;p[i,m] | 8 n&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;(sum j:=0..7 | W[i,j] * x[j,m]) + s * u[i,m]&quot;</span>
+  g ← <span class="c-string">&quot;g[i,m] | 8 n&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;p[i,m] - Yt[i,m]&quot;</span>
+  b ← <span class="c-string">&quot;b[k,m] | r n&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;sum i:=0..7 | B[i,k] * g[i,m]&quot;</span>
+  dA ← <span class="c-string">&quot;dA[k,j] | r 8&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;sum m:=0..n-1 | s * b[k,m] * x[j,m]&quot;</span>
+  dB ← <span class="c-string">&quot;dB[i,k] | 8 r&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;sum m:=0..n-1 | s * g[i,m] * h[k,m]&quot;</span>
+  A2 ← <span class="c-string">&quot;A2[k,j] | r 8&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;A[k,j] - lr * dA[k,j]&quot;</span>
+  B2 ← <span class="c-string">&quot;B2[i,k] | 8 r&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;B[i,k] - lr * dB[i,k]&quot;</span>
+  (<a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, A3, B3, s2) ← (<a href="demos-lora-training-lora-training.xtl.html#W">W</a>, A2, B2, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>)
+  (<a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, A3, B3, s2)
+} @)</pre><details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g3:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g2:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g1:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g4:grid ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>
+  <span class="c-libfunc">g5:g̲rid</span> ← { k → g4:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g4:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g4:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g4:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (({ @ →
+  g6:grid ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..7&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">7</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g7:g̲rid</span> ← { k → g6:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g6:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g6:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g6:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g1:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;A[k,j]&quot;</span>)) <span class="c-libfunc">g3:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g1:r̲ank</span> (x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;x[j,m]&quot;</span>)) <span class="c-libfunc">g3:a̲t</span> ((
+      ((x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> x) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">3</span>)))))))
+} @))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g10:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g9:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g8:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g11:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>
+  <span class="c-libfunc">g12:g̲rid</span> ← { k → g11:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g11:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g11:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g11:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (({ @ →
+  g13:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..q&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g14:g̲rid</span> ← { k → g13:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g13:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g13:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g13:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g8:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;B[i,k]&quot;</span>)) <span class="c-libfunc">g10:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g8:r̲ank</span> (h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;h[k,m]&quot;</span>)) <span class="c-libfunc">g10:a̲t</span> ((
+      ((h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> h) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">3</span>)))))))
+} @))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g17:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g16:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g15:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g18:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>
+  <span class="c-libfunc">g19:g̲rid</span> ← { k → g18:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g18:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g18:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g18:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((({ @ →
+  g20:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..7&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">7</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g21:g̲rid</span> ← { k → g20:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g20:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g20:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g20:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g15:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#W">W</a>, <span class="c-string">&quot;W&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;W[i,j]&quot;</span>)) <span class="c-libfunc">g17:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#W">W</a>, <span class="c-string">&quot;W&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g21:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#W">W</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#W">W</a>, <span class="c-string">&quot;W&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g21:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g15:r̲ank</span> (x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;x[j,m]&quot;</span>)) <span class="c-libfunc">g17:a̲t</span> ((
+      ((x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g21:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> x) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g21:g̲rid</span> <span class="c-number">3</span>)))))))
+} @) <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-lora-training-lora-training.xtl.html#s">s</a> <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g15:r̲ank</span> (u, <span class="c-string">&quot;u&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;u[i,m]&quot;</span>)) <span class="c-libfunc">g17:a̲t</span> ((
+      ((u, <span class="c-string">&quot;u&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g19:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> u) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((u, <span class="c-string">&quot;u&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g19:g̲rid</span> <span class="c-number">1</span>))))))))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g24:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g23:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g22:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g25:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>
+  <span class="c-libfunc">g26:g̲rid</span> ← { k → g25:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g25:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g25:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g25:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g22:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#p">p</a>, <span class="c-string">&quot;p&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;p[i,m]&quot;</span>)) <span class="c-libfunc">g24:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#p">p</a>, <span class="c-string">&quot;p&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g26:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#p">p</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#p">p</a>, <span class="c-string">&quot;p&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g26:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2d" class="c-symbol">−</a> 
+    ((<span class="c-libfunc">g22:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>, <span class="c-string">&quot;Yt&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;Yt[i,m]&quot;</span>)) <span class="c-libfunc">g24:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>, <span class="c-string">&quot;Yt&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g26:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>, <span class="c-string">&quot;Yt&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g26:g̲rid</span> <span class="c-number">1</span>)))))))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g29:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g28:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g27:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g30:grid ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>
+  <span class="c-libfunc">g31:g̲rid</span> ← { k → g30:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g30:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g30:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g30:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (({ @ →
+  g32:grid ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..7&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">7</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g33:g̲rid</span> ← { k → g32:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g32:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g32:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g32:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g27:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;B[i,k]&quot;</span>)) <span class="c-libfunc">g29:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g28:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g33:g̲rid</span> <span class="c-number">1</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g28:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g33:g̲rid</span> <span class="c-number">3</span>))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g27:r̲ank</span> (g, <span class="c-string">&quot;g&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;g[i,m]&quot;</span>)) <span class="c-libfunc">g29:a̲t</span> ((
+      ((g, <span class="c-string">&quot;g&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g28:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g33:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> g) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((g, <span class="c-string">&quot;g&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g28:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g33:g̲rid</span> <span class="c-number">3</span>)))))))
+} @))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g36:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g35:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g34:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g37:grid ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">8</span>
+  <span class="c-libfunc">g38:g̲rid</span> ← { k → g37:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g37:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g37:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g37:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (({ @ →
+  g39:grid ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..n-1&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g40:g̲rid</span> ← { k → g39:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g39:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g39:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g39:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (((<a href="demos-lora-training-lora-training.xtl.html#s">s</a> <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g34:r̲ank</span> (b, <span class="c-string">&quot;b&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;b[k,m]&quot;</span>)) <span class="c-libfunc">g36:a̲t</span> ((
+      ((b, <span class="c-string">&quot;b&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> b) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((b, <span class="c-string">&quot;b&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">1</span>)))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g34:r̲ank</span> (x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;x[j,m]&quot;</span>)) <span class="c-libfunc">g36:a̲t</span> ((
+      ((x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> x) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((x, <span class="c-string">&quot;x&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">2</span>)))))))
+} @))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g43:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g42:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g41:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g44:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#r">r</a>
+  <span class="c-libfunc">g45:g̲rid</span> ← { k → g44:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g44:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g44:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g44:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (({ @ →
+  g46:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..n-1&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-lora-training-lora-training.xtl.html#n">n</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g47:g̲rid</span> ← { k → g46:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g46:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g46:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g46:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (((<a href="demos-lora-training-lora-training.xtl.html#s">s</a> <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g41:r̲ank</span> (g, <span class="c-string">&quot;g&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;g[i,m]&quot;</span>)) <span class="c-libfunc">g43:a̲t</span> ((
+      ((g, <span class="c-string">&quot;g&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g47:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> g) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((g, <span class="c-string">&quot;g&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g47:g̲rid</span> <span class="c-number">1</span>)))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g41:r̲ank</span> (h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;h[k,m]&quot;</span>)) <span class="c-libfunc">g43:a̲t</span> ((
+      ((h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;m&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g47:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> h) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g47:g̲rid</span> <span class="c-number">2</span>)))))))
+} @))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g50:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g49:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g48:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g51:grid ← <a href="demos-lora-training-lora-training.xtl.html#r">r</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">8</span>
+  <span class="c-libfunc">g52:g̲rid</span> ← { k → g51:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g51:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g51:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g51:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g48:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;A[k,j]&quot;</span>)) <span class="c-libfunc">g50:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g49:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g52:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g49:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g52:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2d" class="c-symbol">−</a> (<a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g48:r̲ank</span> (dA, <span class="c-string">&quot;dA&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;dA[k,j]&quot;</span>)) <span class="c-libfunc">g50:a̲t</span> ((
+      ((dA, <span class="c-string">&quot;dA&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g49:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g52:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> dA) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((dA, <span class="c-string">&quot;dA&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g49:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g52:g̲rid</span> <span class="c-number">1</span>))))))))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g55:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g54:c̲heck</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g53:r̲ank</span> ← { (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, name, <a href="demos-lora-training-lora-training.xtl.html#q">q</a>, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a> ? <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="demos-lora-training-lora-training.xtl.html#q">q</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>
+  }
+  g56:grid ← <span class="c-number">8</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#r">r</a>
+  <span class="c-libfunc">g57:g̲rid</span> ← { k → g56:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g56:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g56:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g56:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g53:r̲ank</span> (<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;B[i,k]&quot;</span>)) <span class="c-libfunc">g55:a̲t</span> ((
+      ((<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g54:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g57:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <span class="c-string">&quot;B&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g54:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g57:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2d" class="c-symbol">−</a> (<a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g53:r̲ank</span> (dB, <span class="c-string">&quot;dB&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;dB[i,k]&quot;</span>)) <span class="c-libfunc">g55:a̲t</span> ((
+      ((dB, <span class="c-string">&quot;dB&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g54:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g57:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> dB) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((dB, <span class="c-string">&quot;dB&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g54:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g57:g̲rid</span> <span class="c-number">1</span>))))))))
+} @))</pre></details>
+</details>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.src.html#L89">demos/lora-training/lora-training.xtl:89</a>, <a href="demos-lora-training-lora-training.xtl.html#W2">W2</a></div>
+</div>
+<div class="item" id="Ws">
+<h3><a href="#Ws">Ws</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L93">line 93</a></div>
+<div class="doc">
+<p>The library's own step (lo:s_gd) from the same start: how far the
+pipeline's A and B are from its (0 to rounding), and how far its W
+is from W (exactly 0: the step does not touch it).</p>
+</div>
+<pre class="code">(<a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.html#As">As</a>, <a href="demos-lora-training-lora-training.xtl.html#Bs">Bs</a>, _) ← <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_gd" class="c-libfunc">ˡᵒs̲gd</a> (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L96">demos/lora-training/lora-training.xtl:96</a></div>
+</div>
+<div class="item" id="As">
+<h3><a href="#As">As</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L93">line 93</a></div>
+<div class="doc">
+<p>The library's own step (lo:s_gd) from the same start: how far the
+pipeline's A and B are from its (0 to rounding), and how far its W
+is from W (exactly 0: the step does not touch it).</p>
+</div>
+<pre class="code">(<a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.html#As">As</a>, <a href="demos-lora-training-lora-training.xtl.html#Bs">Bs</a>, _) ← <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_gd" class="c-libfunc">ˡᵒs̲gd</a> (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L95">demos/lora-training/lora-training.xtl:95</a></div>
+</div>
+<div class="item" id="Bs">
+<h3><a href="#Bs">Bs</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L93">line 93</a></div>
+<div class="doc">
+<p>The library's own step (lo:s_gd) from the same start: how far the
+pipeline's A and B are from its (0 to rounding), and how far its W
+is from W (exactly 0: the step does not touch it).</p>
+</div>
+<pre class="code">(<a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.html#As">As</a>, <a href="demos-lora-training-lora-training.xtl.html#Bs">Bs</a>, _) ← <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_gd" class="c-libfunc">ˡᵒs̲gd</a> (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#Ws">Ws</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L95">demos/lora-training/lora-training.xtl:95</a></div>
+</div>
+<div class="item" id="W2">
+<h3><a href="#W2">W2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L94">line 94</a></div>
+<pre class="code">(<a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, <a href="demos-lora-training-lora-training.xtl.html#A2">A2</a>, <a href="demos-lora-training-lora-training.xtl.html#B2">B2</a>, _) ← <a href="demos-lora-training-lora-training.xtl.html#step">step</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#step">step</a>, <a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L96">demos/lora-training/lora-training.xtl:96</a></div>
+</div>
+<div class="item" id="A2">
+<h3><a href="#A2">A2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L94">line 94</a></div>
+<pre class="code">(<a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, <a href="demos-lora-training-lora-training.xtl.html#A2">A2</a>, <a href="demos-lora-training-lora-training.xtl.html#B2">B2</a>, _) ← <a href="demos-lora-training-lora-training.xtl.html#step">step</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L95">demos/lora-training/lora-training.xtl:95</a></div>
+</div>
+<div class="item" id="B2">
+<h3><a href="#B2">B2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L94">line 94</a></div>
+<pre class="code">(<a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, <a href="demos-lora-training-lora-training.xtl.html#A2">A2</a>, <a href="demos-lora-training-lora-training.xtl.html#B2">B2</a>, _) ← <a href="demos-lora-training-lora-training.xtl.html#step">step</a></pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#W2">W2</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L95">demos/lora-training/lora-training.xtl:95</a></div>
+</div>
+<h2 class="section" id="section-3">Training</h2>
+<div class="item" id="lossT">
+<h3><a href="#lossT">lossT</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L105">line 105</a></div>
+<div class="doc">
+<p>Training by Adam (lo:a_dam), chunks times every steps, with a
+record after each chunk: the loss per example on the examples
+trained on, the same on the held-out ones, and A, B and the
+correction s B A as they are then (flattened, one record after
+another), the start recorded first.</p>
+</div>
+<pre class="code">(_, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.html#lossH">lossH</a>, <a href="demos-lora-training-lora-training.xtl.html#recA">recA</a>, <a href="demos-lora-training-lora-training.xtl.html#recB">recB</a>, <a href="demos-lora-training-lora-training.xtl.html#recD">recD</a>) ← <a href="demos-lora-training-lora-training.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, lt, lh, ra, rb, rd) →
+  z2 ← <a href="demos-lora-training-lora-training.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam" class="c-libfunc">ˡᵒa̲dam</a> (e, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z
+  (a, _, _) ← z2
+  (_, a2, b2, _) ← a
+  (z2, lt <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, lh <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, ra <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> a2, rb <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> b2, rd <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (a2, b2, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart" class="c-libfunc">ˡᵒa̲damStart</a> <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L111">demos/lora-training/lora-training.xtl:111</a>, <a href="demos-lora-training-lora-training.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="lossH">
+<h3><a href="#lossH">lossH</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L105">line 105</a></div>
+<div class="doc">
+<p>Training by Adam (lo:a_dam), chunks times every steps, with a
+record after each chunk: the loss per example on the examples
+trained on, the same on the held-out ones, and A, B and the
+correction s B A as they are then (flattened, one record after
+another), the start recorded first.</p>
+</div>
+<pre class="code">(_, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.html#lossH">lossH</a>, <a href="demos-lora-training-lora-training.xtl.html#recA">recA</a>, <a href="demos-lora-training-lora-training.xtl.html#recB">recB</a>, <a href="demos-lora-training-lora-training.xtl.html#recD">recD</a>) ← <a href="demos-lora-training-lora-training.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, lt, lh, ra, rb, rd) →
+  z2 ← <a href="demos-lora-training-lora-training.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam" class="c-libfunc">ˡᵒa̲dam</a> (e, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z
+  (a, _, _) ← z2
+  (_, a2, b2, _) ← a
+  (z2, lt <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, lh <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, ra <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> a2, rb <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> b2, rd <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (a2, b2, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart" class="c-libfunc">ˡᵒa̲damStart</a> <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L112">demos/lora-training/lora-training.xtl:112</a>, <a href="demos-lora-training-lora-training.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="recA">
+<h3><a href="#recA">recA</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L105">line 105</a></div>
+<div class="doc">
+<p>Training by Adam (lo:a_dam), chunks times every steps, with a
+record after each chunk: the loss per example on the examples
+trained on, the same on the held-out ones, and A, B and the
+correction s B A as they are then (flattened, one record after
+another), the start recorded first.</p>
+</div>
+<pre class="code">(_, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.html#lossH">lossH</a>, <a href="demos-lora-training-lora-training.xtl.html#recA">recA</a>, <a href="demos-lora-training-lora-training.xtl.html#recB">recB</a>, <a href="demos-lora-training-lora-training.xtl.html#recD">recD</a>) ← <a href="demos-lora-training-lora-training.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, lt, lh, ra, rb, rd) →
+  z2 ← <a href="demos-lora-training-lora-training.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam" class="c-libfunc">ˡᵒa̲dam</a> (e, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z
+  (a, _, _) ← z2
+  (_, a2, b2, _) ← a
+  (z2, lt <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, lh <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, ra <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> a2, rb <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> b2, rd <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (a2, b2, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart" class="c-libfunc">ˡᵒa̲damStart</a> <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L113">demos/lora-training/lora-training.xtl:113</a></div>
+</div>
+<div class="item" id="recB">
+<h3><a href="#recB">recB</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L105">line 105</a></div>
+<div class="doc">
+<p>Training by Adam (lo:a_dam), chunks times every steps, with a
+record after each chunk: the loss per example on the examples
+trained on, the same on the held-out ones, and A, B and the
+correction s B A as they are then (flattened, one record after
+another), the start recorded first.</p>
+</div>
+<pre class="code">(_, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.html#lossH">lossH</a>, <a href="demos-lora-training-lora-training.xtl.html#recA">recA</a>, <a href="demos-lora-training-lora-training.xtl.html#recB">recB</a>, <a href="demos-lora-training-lora-training.xtl.html#recD">recD</a>) ← <a href="demos-lora-training-lora-training.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, lt, lh, ra, rb, rd) →
+  z2 ← <a href="demos-lora-training-lora-training.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam" class="c-libfunc">ˡᵒa̲dam</a> (e, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z
+  (a, _, _) ← z2
+  (_, a2, b2, _) ← a
+  (z2, lt <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, lh <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, ra <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> a2, rb <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> b2, rd <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (a2, b2, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart" class="c-libfunc">ˡᵒa̲damStart</a> <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L114">demos/lora-training/lora-training.xtl:114</a></div>
+</div>
+<div class="item" id="recD">
+<h3><a href="#recD">recD</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L105">line 105</a></div>
+<div class="doc">
+<p>Training by Adam (lo:a_dam), chunks times every steps, with a
+record after each chunk: the loss per example on the examples
+trained on, the same on the held-out ones, and A, B and the
+correction s B A as they are then (flattened, one record after
+another), the start recorded first.</p>
+</div>
+<pre class="code">(_, <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.html#lossH">lossH</a>, <a href="demos-lora-training-lora-training.xtl.html#recA">recA</a>, <a href="demos-lora-training-lora-training.xtl.html#recB">recB</a>, <a href="demos-lora-training-lora-training.xtl.html#recD">recD</a>) ← <a href="demos-lora-training-lora-training.xtl.html#chunks">chunks</a> <span class="c-quote">'</span>{ (z, lt, lh, ra, rb, rd) →
+  z2 ← <a href="demos-lora-training-lora-training.xtl.html#every">every</a> <span class="c-quote">'</span>{ e → <a href="demos-lora-training-lora-training.xtl.html#lr">lr</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_dam" class="c-libfunc">ˡᵒa̲dam</a> (e, (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> z
+  (a, _, _) ← z2
+  (_, a2, b2, _) ← a
+  (z2, lt <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, lh <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (a <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, ra <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> a2, rb <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> b2, rd <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (a2, b2, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.a_damStart" class="c-libfunc">ˡᵒa̲damStart</a> <a href="demos-lora-training-lora-training.xtl.html#a0">a0</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xt">Xt</a>, <a href="demos-lora-training-lora-training.xtl.html#Yt">Yt</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-lora-training-lora-training.xtl.html#n">n</a>, (<a href="demos-lora-training-lora-training.xtl.html#a0">a0</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.l_oss" class="c-libfunc">ˡᵒl̲oss</a> (<a href="demos-lora-training-lora-training.xtl.html#Xh">Xh</a>, <a href="demos-lora-training-lora-training.xtl.html#Yh">Yh</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4.0</span>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-training-lora-training.xtl.html#A">A</a>, <a href="demos-lora-training-lora-training.xtl.html#B">B</a>, <a href="demos-lora-training-lora-training.xtl.html#s">s</a>))</pre>
+<div class="uses">Used in: <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a>, <a href="demos-lora-training-lora-training.xtl.src.html#L115">demos/lora-training/lora-training.xtl:115</a></div>
+</div>
+<div class="item" id="_">
+<h3><a href="#_">_</a> <span class="type">: Char</span></h3>
+<div class="meta">function &middot; <a href="demos-lora-training-lora-training.xtl.src.html#L117">line 117</a></div>
+<div class="doc">
+<p>The two losses as one chart, a record a point.</p>
+</div>
+<pre class="code">_ ← (<span class="c-string">&quot;Training&quot;</span> <span class="c-string">&quot;record&quot;</span> <span class="c-string">&quot;loss per example&quot;</span> <span class="c-string">&quot;trained on&quot;</span> <span class="c-string">&quot;held out&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ k → k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> (<span class="c-number">2</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#chunks">chunks</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-lora-training-lora-training.xtl.html#lossT">lossT</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-lora-training-lora-training.xtl.html#lossH">lossH</a> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">2</span></pre>
+</div>
+</main>
+</body>
+</html>

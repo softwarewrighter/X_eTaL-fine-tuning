@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/landscape/landscape.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li class="item"><a href="#L19">d</a></li>
+<li class="item"><a href="#L20">r</a></li>
+<li class="item"><a href="#L21">all</a></li>
+<li class="item"><a href="#L24">some</a></li>
+<li class="item"><a href="#L26">lora</a></li>
+<li class="item"><a href="#L38">trained</a></li>
+<li class="item"><a href="#L47">held</a></li>
+<li class="item"><a href="#L57">stored</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">source</span><a href="demos-landscape-landscape.xtl.html">demos/landscape/landscape.xtl</a></h1>
+<div class="source"><span class="line" id="L1"><a class="ln" href="#L1">1</a><span class="c-comment">⍝</span><span class="c-comment">!/usr/bin/env xetal</span></span>
+<span class="line" id="L2"><a class="ln" href="#L2">2</a><span class="c-doc">⍝│</span><span class="c-doc"> The landscape: the accounting of the ways to change a layer, each</span></span>
+<span class="line" id="L3"><a class="ln" href="#L3">3</a><span class="c-doc">⍝│</span><span class="c-doc"> figure analytical (it follows from the method's definition, no</span></span>
+<span class="line" id="L4"><a class="ln" href="#L4">4</a><span class="c-doc">⍝│</span><span class="c-doc"> training is run). For two layers, this course's 8 x 8 at rank 4</span></span>
+<span class="line" id="L5"><a class="ln" href="#L5">5</a><span class="c-doc">⍝│</span><span class="c-doc"> and one real layer, 4096 x 4096 at rank 16: for each family whose</span></span>
+<span class="line" id="L6"><a class="ln" href="#L6">6</a><span class="c-doc">⍝│</span><span class="c-doc"> cost is a count, the numbers trained, the numbers held while</span></span>
+<span class="line" id="L7"><a class="ln" href="#L7">7</a><span class="c-doc">⍝│</span><span class="c-doc"> training beyond the weights themselves (the gradient and Adam's two</span></span>
+<span class="line" id="L8"><a class="ln" href="#L8">8</a><span class="c-doc">⍝│</span><span class="c-doc"> averages, where there are any), and the numbers stored afterward</span></span>
+<span class="line" id="L9"><a class="ln" href="#L9">9</a><span class="c-doc">⍝│</span><span class="c-doc"> when the change is kept apart from W. Then the bytes of the layer</span></span>
+<span class="line" id="L10"><a class="ln" href="#L10">10</a><span class="c-doc">⍝│</span><span class="c-doc"> itself at 16 bits and at 4 bits (QLoRA's base), and the adapter's</span></span>
+<span class="line" id="L11"><a class="ln" href="#L11">11</a><span class="c-doc">⍝│</span><span class="c-doc"> share of the full count.</span></span>
+<span class="line" id="L12"><a class="ln" href="#L12">12</a></span>
+<span class="line" id="L13"><a class="ln" href="#L13">13</a><span class="c-string">&quot;lo:&quot;</span> <a href="std-System.xtlm.html#s.u_se-3c" class="c-macro">u̲se&lt;</a> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html" class="c-string">&quot;LoRA&quot;</a></span>
+<span class="line" id="L14"><a class="ln" href="#L14">14</a></span>
+<span class="line" id="L15"><a class="ln" href="#L15">15</a><span class="c-heading">⍝━━</span><span class="c-heading"> Data</span></span>
+<span class="line" id="L16"><a class="ln" href="#L16">16</a></span>
+<span class="line" id="L17"><a class="ln" href="#L17">17</a><span class="c-doc">⍝│</span><span class="c-doc"> The two layers side by side: d is the width of each (the layer is</span></span>
+<span class="line" id="L18"><a class="ln" href="#L18">18</a><span class="c-doc">⍝│</span><span class="c-doc"> d x d), r the rank an adapter would have on it.</span></span>
+<span class="line" id="L19"><a class="ln" href="#L19">19</a>d ← <span class="c-number">8</span> <span class="c-number">4096</span></span>
+<span class="line" id="L20"><a class="ln" href="#L20">20</a>r ← <span class="c-number">4</span> <span class="c-number">16</span></span>
+<span class="line" id="L21"><a class="ln" href="#L21">21</a>all ← <a href="demos-landscape-landscape.xtl.html#d">d</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a></span>
+<span class="line" id="L22"><a class="ln" href="#L22">22</a><span class="c-doc">⍝│</span><span class="c-doc"> One row in eight of the layer, the selective case this page takes: an</span></span>
+<span class="line" id="L23"><a class="ln" href="#L23">23</a><span class="c-doc">⍝│</span><span class="c-doc"> eighth of the numbers.</span></span>
+<span class="line" id="L24"><a class="ln" href="#L24">24</a>some ← <a href="builtins.html#f_loor" class="c-builtin">f̲loor</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">8</span></span>
+<span class="line" id="L25"><a class="ln" href="#L25">25</a><span class="c-doc">⍝│</span><span class="c-doc"> LoRA's count from the library, r (d + d), at each layer.</span></span>
+<span class="line" id="L26"><a class="ln" href="#L26">26</a>lora ← (<span class="c-number">4</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">8</span> <span class="c-number">8</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">16</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">4096</span> <span class="c-number">4096</span></span>
+<span class="line" id="L27"><a class="ln" href="#L27">27</a></span>
+<span class="line" id="L28"><a class="ln" href="#L28">28</a><span class="c-heading">⍝━━</span><span class="c-heading"> The numbers trained</span></span>
+<span class="line" id="L29"><a class="ln" href="#L29">29</a></span>
+<span class="line" id="L30"><a class="ln" href="#L30">30</a><span class="c-doc">⍝│</span><span class="c-doc"> A row per family that has a count, in the order the page lists</span></span>
+<span class="line" id="L31"><a class="ln" href="#L31">31</a><span class="c-doc">⍝│</span><span class="c-doc"> them: full fine-tuning (every number of W); selective fine-tuning</span></span>
+<span class="line" id="L32"><a class="ln" href="#L32">32</a><span class="c-doc">⍝│</span><span class="c-doc"> (here one row in eight); LoRA (A and B); LoRA-FA (B alone); QLoRA</span></span>
+<span class="line" id="L33"><a class="ln" href="#L33">33</a><span class="c-doc">⍝│</span><span class="c-doc"> (LoRA's adapter on a quantized W); DoRA (LoRA's adapter and a</span></span>
+<span class="line" id="L34"><a class="ln" href="#L34">34</a><span class="c-doc">⍝│</span><span class="c-doc"> magnitude per column); VeRA (two vectors, d and r long, on frozen</span></span>
+<span class="line" id="L35"><a class="ln" href="#L35">35</a><span class="c-doc">⍝│</span><span class="c-doc"> shared tables); learning without back-propagation on every weight</span></span>
+<span class="line" id="L36"><a class="ln" href="#L36">36</a><span class="c-doc">⍝│</span><span class="c-doc"> (MeZO); a closed-form rank-one edit (nothing is trained). A column</span></span>
+<span class="line" id="L37"><a class="ln" href="#L37">37</a><span class="c-doc">⍝│</span><span class="c-doc"> per layer.</span></span>
+<span class="line" id="L38"><a class="ln" href="#L38">38</a>trained ← <span class="c-number">9</span> <span class="c-number">2</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#some">some</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#r">r</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#d">d</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#r">r</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">0</span> <span class="c-number">0</span></span>
+<span class="line" id="L39"><a class="ln" href="#L39">39</a><a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-landscape-landscape.xtl.html#trained">trained</a></span>
+<span class="line" id="L40"><a class="ln" href="#L40">40</a></span>
+<span class="line" id="L41"><a class="ln" href="#L41">41</a><span class="c-heading">⍝━━</span><span class="c-heading"> The numbers held while training</span></span>
+<span class="line" id="L42"><a class="ln" href="#L42">42</a></span>
+<span class="line" id="L43"><a class="ln" href="#L43">43</a><span class="c-doc">⍝│</span><span class="c-doc"> Back-propagation with Adam holds, for every number trained, its</span></span>
+<span class="line" id="L44"><a class="ln" href="#L44">44</a><span class="c-doc">⍝│</span><span class="c-doc"> gradient and two running averages: three more numbers. The</span></span>
+<span class="line" id="L45"><a class="ln" href="#L45">45</a><span class="c-doc">⍝│</span><span class="c-doc"> two-point estimate holds a seed and two losses, no gradient; a</span></span>
+<span class="line" id="L46"><a class="ln" href="#L46">46</a><span class="c-doc">⍝│</span><span class="c-doc"> closed-form edit holds nothing while it trains, since it does not.</span></span>
+<span class="line" id="L47"><a class="ln" href="#L47">47</a>held ← <a href="demos-landscape-landscape.xtl.html#trained">trained</a> <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">3</span> <span class="c-number">0</span> <span class="c-number">0</span>) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-number">1</span> <span class="c-number">1</span></span>
+<span class="line" id="L48"><a class="ln" href="#L48">48</a><a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-landscape-landscape.xtl.html#held">held</a></span>
+<span class="line" id="L49"><a class="ln" href="#L49">49</a></span>
+<span class="line" id="L50"><a class="ln" href="#L50">50</a><span class="c-heading">⍝━━</span><span class="c-heading"> The numbers stored afterward</span></span>
+<span class="line" id="L51"><a class="ln" href="#L51">51</a></span>
+<span class="line" id="L52"><a class="ln" href="#L52">52</a><span class="c-doc">⍝│</span><span class="c-doc"> The change kept apart from W: full and selective fine-tuning keep</span></span>
+<span class="line" id="L53"><a class="ln" href="#L53">53</a><span class="c-doc">⍝│</span><span class="c-doc"> the moved numbers; an adapter keeps its tables (LoRA-FA and VeRA</span></span>
+<span class="line" id="L54"><a class="ln" href="#L54">54</a><span class="c-doc">⍝│</span><span class="c-doc"> regrow their frozen ones from a seed); the forward-only method</span></span>
+<span class="line" id="L55"><a class="ln" href="#L55">55</a><span class="c-doc">⍝│</span><span class="c-doc"> moved every weight; a rank-one edit is two vectors, u and v. An</span></span>
+<span class="line" id="L56"><a class="ln" href="#L56">56</a><span class="c-doc">⍝│</span><span class="c-doc"> adapter merged into W is d x d again, the first row.</span></span>
+<span class="line" id="L57"><a class="ln" href="#L57">57</a>stored ← <span class="c-number">9</span> <span class="c-number">2</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#some">some</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#r">r</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#lora">lora</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-landscape-landscape.xtl.html#d">d</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-landscape-landscape.xtl.html#r">r</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-landscape-landscape.xtl.html#all">all</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a></span>
+<span class="line" id="L58"><a class="ln" href="#L58">58</a><a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-landscape-landscape.xtl.html#stored">stored</a></span>
+<span class="line" id="L59"><a class="ln" href="#L59">59</a></span>
+<span class="line" id="L60"><a class="ln" href="#L60">60</a><span class="c-heading">⍝━━</span><span class="c-heading"> Bytes and shares</span></span>
+<span class="line" id="L61"><a class="ln" href="#L61">61</a></span>
+<span class="line" id="L62"><a class="ln" href="#L62">62</a><span class="c-doc">⍝│</span><span class="c-doc"> The layer's own bytes at 16 bits a number and at 4 bits (what</span></span>
+<span class="line" id="L63"><a class="ln" href="#L63">63</a><span class="c-doc">⍝│</span><span class="c-doc"> QLoRA's quantized base takes, before its scales), at each width.</span></span>
+<span class="line" id="L64"><a class="ln" href="#L64">64</a>(<span class="c-number">16</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.b_ytes" class="c-libfunc">ˡᵒb̲ytes</a> <a href="demos-landscape-landscape.xtl.html#all">all</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">4</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.b_ytes" class="c-libfunc">ˡᵒb̲ytes</a> <a href="demos-landscape-landscape.xtl.html#all">all</a></span>
+<span class="line" id="L65"><a class="ln" href="#L65">65</a><span class="c-doc">⍝│</span><span class="c-doc"> The adapter's share of the full count, LoRA then LoRA-FA.</span></span>
+<span class="line" id="L66"><a class="ln" href="#L66">66</a>((<a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-landscape-landscape.xtl.html#lora">lora</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-landscape-landscape.xtl.html#all">all</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-landscape-landscape.xtl.html#r">r</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-landscape-landscape.xtl.html#d">d</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-landscape-landscape.xtl.html#all">all</a></span>
+</div>
+</main>
+</body>
+</html>

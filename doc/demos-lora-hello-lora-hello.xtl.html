@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/lora-hello/lora-hello.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">The layer</a></li>
+<li class="item"><a href="#W">W</a></li>
+<li class="item"><a href="#A">A</a></li>
+<li class="item"><a href="#B">B</a></li>
+<li class="item"><a href="#x">x</a></li>
+<li class="item"><a href="#s">s</a></li>
+<li><a href="#section-2">What the adapter adds</a></li>
+<li class="item"><a href="#h">h</a></li>
+<li class="item"><a href="#base">base</a></li>
+<li class="item"><a href="#y">y</a></li>
+<li class="item"><a href="#correction">correction</a></li>
+<li><a href="#section-3">The correction as one table, and the merge</a></li>
+<li class="item"><a href="#table">table</a></li>
+<li class="item"><a href="#merged">merged</a></li>
+<li><a href="#section-4">What it costs</a></li>
+<li class="item"><a href="#counts">counts</a></li>
+<li><a href="#section-5">On a layer of a real model</a></li>
+<li class="item"><a href="#big">big</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/lora-hello/lora-hello.xtl</h1>
+<div class="doc">
+<p>LoRA hello: what does a small adapter add to a layer whose weights
+do not change? The question behind it: how can a model learn
+something new without every one of its numbers being retrained (the
+cost) or overwritten (the forgetting)? LoRA's answer is to freeze
+the weights and train a small correction beside them. Here is one
+layer of that, shrunk to 4 rows and 4 columns so every number can be
+read: a frozen table W and an adapter of rank 1, with X_eTaL-ML's
+LoRA library. Nothing is trained here (the adapter's numbers are
+made up): this shows what an adapter is, where it sits, what it adds
+and what it costs. The layer is y = W x + s B (A x): W stays as it
+is, and only A (1 row of 4) and B (1 column of 4) would be trained.</p>
+</div>
+<p class="meta"><a href="demos-lora-hello-lora-hello.xtl.src.html">source</a> &middot; imports <code><span class="c-error">lo:</span></code> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">work/xetal-ml/libs/LoRA/src/LoRA.xtl</a></p>
+<h2 class="section" id="section-1">The layer</h2>
+<div class="item" id="W">
+<h3><a href="#W">W</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L21">line 21</a></div>
+<div class="doc">
+<p>The frozen table W (16 made-up numbers, from a sine so they need
+not be typed), the adapter's two thin tables A and B, one input x,
+and the strength s = alpha / r (alpha is 2, the rank r is 1).</p>
+</div>
+<pre class="code">W ← <span class="c-number">4</span> <span class="c-number">4</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.7</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L28">demos/lora-hello/lora-hello.xtl:28</a>, <a href="demos-lora-hello-lora-hello.xtl.html#base">base</a>, <a href="demos-lora-hello-lora-hello.xtl.html#y">y</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L52">demos/lora-hello/lora-hello.xtl:52</a>, <a href="demos-lora-hello-lora-hello.xtl.html#merged">merged</a></div>
+</div>
+<div class="item" id="A">
+<h3><a href="#A">A</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L22">line 22</a></div>
+<pre class="code">A ← <span class="c-number">1</span> <span class="c-number">4</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.5</span> <span class="c-number">-0.5</span> <span class="c-number">1.0</span> <span class="c-number">0.25</span></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L29">demos/lora-hello/lora-hello.xtl:29</a>, <a href="demos-lora-hello-lora-hello.xtl.html#h">h</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L40">demos/lora-hello/lora-hello.xtl:40</a>, <a href="demos-lora-hello-lora-hello.xtl.html#y">y</a>, <a href="demos-lora-hello-lora-hello.xtl.html#correction">correction</a>, <a href="demos-lora-hello-lora-hello.xtl.html#table">table</a>, <a href="demos-lora-hello-lora-hello.xtl.html#merged">merged</a></div>
+</div>
+<div class="item" id="B">
+<h3><a href="#B">B</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L23">line 23</a></div>
+<pre class="code">B ← <span class="c-number">4</span> <span class="c-number">1</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span> <span class="c-number">0.0</span> <span class="c-number">-1.0</span> <span class="c-number">0.5</span></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L30">demos/lora-hello/lora-hello.xtl:30</a>, <a href="demos-lora-hello-lora-hello.xtl.html#y">y</a>, <a href="demos-lora-hello-lora-hello.xtl.html#correction">correction</a>, <a href="demos-lora-hello-lora-hello.xtl.html#table">table</a>, <a href="demos-lora-hello-lora-hello.xtl.html#merged">merged</a></div>
+</div>
+<div class="item" id="x">
+<h3><a href="#x">x</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L24">line 24</a></div>
+<pre class="code">x ← <span class="c-number">1.0</span> <span class="c-number">2.0</span> <span class="c-number">3.0</span> <span class="c-number">4.0</span></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.html#h">h</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L40">demos/lora-hello/lora-hello.xtl:40</a>, <a href="demos-lora-hello-lora-hello.xtl.html#base">base</a>, <a href="demos-lora-hello-lora-hello.xtl.html#y">y</a>, <a href="demos-lora-hello-lora-hello.xtl.html#correction">correction</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L52">demos/lora-hello/lora-hello.xtl:52</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L68">demos/lora-hello/lora-hello.xtl:68</a></div>
+</div>
+<div class="item" id="s">
+<h3><a href="#s">s</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L25">line 25</a></div>
+<pre class="code">s ← <span class="c-number">2.0</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.s_caling" class="c-libfunc">ˡᵒs̲caling</a> <span class="c-number">1</span></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L37">demos/lora-hello/lora-hello.xtl:37</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L41">demos/lora-hello/lora-hello.xtl:41</a>, <a href="demos-lora-hello-lora-hello.xtl.html#y">y</a>, <a href="demos-lora-hello-lora-hello.xtl.html#correction">correction</a>, <a href="demos-lora-hello-lora-hello.xtl.html#table">table</a>, <a href="demos-lora-hello-lora-hello.xtl.html#merged">merged</a></div>
+</div>
+<h2 class="section" id="section-2">What the adapter adds</h2>
+<div class="item" id="h">
+<h3><a href="#h">h</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L36">line 36</a></div>
+<div class="doc">
+<p>The squeeze: h = A x, the input brought down to one number (the
+rank is 1). Printed after the strength s.</p>
+</div>
+<pre class="code">h ← <a href="demos-lora-hello-lora-hello.xtl.html#A">A</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-hello-lora-hello.xtl.html#x">x</a></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L37">demos/lora-hello/lora-hello.xtl:37</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L41">demos/lora-hello/lora-hello.xtl:41</a></div>
+</div>
+<div class="item" id="base">
+<h3><a href="#base">base</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L47">line 47</a></div>
+<div class="doc">
+<p>What the frozen layer gives, W x; what the adapted layer gives,
+W x + s B (A x); and the correction the adapter adds, s B (A x).
+Then a check that the two outputs differ by exactly the correction:
+1 means yes.</p>
+</div>
+<pre class="code">base ← <a href="demos-lora-hello-lora-hello.xtl.html#W">W</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-hello-lora-hello.xtl.html#x">x</a></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L53">demos/lora-hello/lora-hello.xtl:53</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L56">demos/lora-hello/lora-hello.xtl:56</a></div>
+</div>
+<div class="item" id="y">
+<h3><a href="#y">y</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L48">line 48</a></div>
+<pre class="code">y ← (<a href="demos-lora-hello-lora-hello.xtl.html#W">W</a>, <a href="demos-lora-hello-lora-hello.xtl.html#A">A</a>, <a href="demos-lora-hello-lora-hello.xtl.html#B">B</a>, <a href="demos-lora-hello-lora-hello.xtl.html#s">s</a>) <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.f_orward" class="c-libfunc">ˡᵒf̲orward</a> <a href="demos-lora-hello-lora-hello.xtl.html#x">x</a></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L54">demos/lora-hello/lora-hello.xtl:54</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L56">demos/lora-hello/lora-hello.xtl:56</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L68">demos/lora-hello/lora-hello.xtl:68</a></div>
+</div>
+<div class="item" id="correction">
+<h3><a href="#correction">correction</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L49">line 49</a></div>
+<pre class="code">correction ← (<a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-hello-lora-hello.xtl.html#A">A</a>, <a href="demos-lora-hello-lora-hello.xtl.html#B">B</a>, <a href="demos-lora-hello-lora-hello.xtl.html#s">s</a>)) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-lora-hello-lora-hello.xtl.html#x">x</a></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L55">demos/lora-hello/lora-hello.xtl:55</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L56">demos/lora-hello/lora-hello.xtl:56</a></div>
+</div>
+<h2 class="section" id="section-3">The correction as one table, and the merge</h2>
+<div class="item" id="table">
+<h3><a href="#table">table</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L64">line 64</a></div>
+<div class="doc">
+<p>Written out as a table, the correction is s B A: 4 rows and 4
+columns, every row a multiple of A, so its rank is 1. Added to W it
+gives one table, the merged one, whose output is the same as W and
+the adapter together: 1 means yes.</p>
+</div>
+<pre class="code">table ← <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.d_elta" class="c-libfunc">ˡᵒd̲elta</a> (<a href="demos-lora-hello-lora-hello.xtl.html#A">A</a>, <a href="demos-lora-hello-lora-hello.xtl.html#B">B</a>, <a href="demos-lora-hello-lora-hello.xtl.html#s">s</a>)</pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L66">demos/lora-hello/lora-hello.xtl:66</a>, <a href="demos-lora-hello-lora-hello.xtl.src.html#L67">demos/lora-hello/lora-hello.xtl:67</a></div>
+</div>
+<div class="item" id="merged">
+<h3><a href="#merged">merged</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L65">line 65</a></div>
+<pre class="code">merged ← <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.m_erge" class="c-libfunc">ˡᵒm̲erge</a> (<a href="demos-lora-hello-lora-hello.xtl.html#W">W</a>, <a href="demos-lora-hello-lora-hello.xtl.html#A">A</a>, <a href="demos-lora-hello-lora-hello.xtl.html#B">B</a>, <a href="demos-lora-hello-lora-hello.xtl.html#s">s</a>)</pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L68">demos/lora-hello/lora-hello.xtl:68</a></div>
+</div>
+<h2 class="section" id="section-4">What it costs</h2>
+<div class="item" id="counts">
+<h3><a href="#counts">counts</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L74">line 74</a></div>
+<div class="doc">
+<p>The numbers an adapter of rank 1 trains on a table of 4 rows and 4
+columns, r (rows + columns), beside the 16 of the table itself.</p>
+</div>
+<pre class="code">counts ← (<span class="c-number">1</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">4</span> <span class="c-number">4</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L75">demos/lora-hello/lora-hello.xtl:75</a></div>
+</div>
+<h2 class="section" id="section-5">On a layer of a real model</h2>
+<div class="item" id="big">
+<h3><a href="#big">big</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-lora-hello-lora-hello.xtl.src.html#L83">line 83</a></div>
+<div class="doc">
+<p>The same count where it matters: one table of 4096 rows and 4096
+columns (a size found in a 7-billion-parameter model) at rank 16:
+the numbers the adapter trains, the numbers of the table, and the
+first as a percentage of the second.</p>
+</div>
+<pre class="code">big ← (<span class="c-number">16</span> <a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html#l.p_arams" class="c-libfunc">ˡᵒp̲arams</a> <span class="c-number">4096</span> <span class="c-number">4096</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">4096</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <span class="c-number">4096</span></pre>
+<div class="uses">Used in: <a href="demos-lora-hello-lora-hello.xtl.src.html#L84">demos/lora-hello/lora-hello.xtl:84</a></div>
+</div>
+</main>
+</body>
+</html>
