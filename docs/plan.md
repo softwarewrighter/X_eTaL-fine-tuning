@@ -178,7 +178,7 @@ A demo's `track` in its `demo.toml` is one of these.
 | ----- | ------- | ----------------------- |
 | start | the welcome page | what are these lessons, are they for me, and how do I use one? |
 | lora | LoRA: a frozen layer, a low-rank adapter, its training, rank and scale, LoRA-FA | how can a model learn something new while its weights stay as they are? |
-| variants | QLoRA, DoRA, VeRA and the others chosen; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
+| variants | QLoRA, DoRA, VeRA, rsLoRA, LoRA+; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
 | subspaces | a fixed shared basis with per-task coefficients; which directions to keep; tasks in sequence (Share, LoDA, SuLoRA, LoRA-XS) | where may a change live, when does sharing that place between tasks help, and when does it hurt? |
 | alternatives | weight-space methods without back-propagation (zeroth-order optimization, evolution strategies, activation perturbation), beside back-propagation itself (full and selective fine-tuning); weight arithmetic, other parameter-efficient methods, methods that change no weight | can a model learn from forward passes alone, at what cost, and when is that the better choice? |
 | edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing weights directly | can a model be changed without training at all, and can a model do that to a model? |
@@ -219,6 +219,20 @@ them in it. A lesson not yet settled has no number.
 | | gated-edits | verifying an edit before keeping it | candidate edits scored on copies; accept, shrink or reject | 5 |
 | | recipe-policy | a model directing its own fine-tuning (not direct editing) | a policy learns which recipe to apply, then forgets and collapses | 5 |
 
+The depth track is a side track (`docs/mhc-plan.md`): six pages a
+reader can take after lesson 1, or on their own, numbered D1 to D6 in
+their order. How `demo.toml` carries such a number (its `lesson` is
+an integer) is settled by the first of them.
+
+| # | Lesson (demo slug) | Teaches | The experiment | Saga |
+| - | ------------------ | ------- | -------------- | ---- |
+| D1 | residual-streams | why a deep network needs a skip connection; four streams and the matrices that mix them | the signal through 12 to 48 random layers with and without a residual; one HC layer stepped through | mhc |
+| D2 | sinkhorn | a matrix whose rows and columns each sum to 1, and how to make one | Sinkhorn-Knopp stepped through on a 4 x 4; its three properties checked | mhc |
+| D3 | gain-by-depth | why an unconstrained mix explodes with depth and a doubly stochastic one cannot | products across 12, 24, 48 layers, two measures of each, a slider on the start | mhc |
+| D4 | training-at-depth | what the bound does to training | baseline, HC and mHC trained at three depths; loss, gradient norm and gain per step | mhc |
+| D5 | dynamic-mixing | the paper's own mixing, which depends on the input | the toy rerun with it | mhc |
+| D6 | mhc-compared | what the toy showed and what it could not | the three schemes side by side with the paper's and the Python's figures | mhc |
+
 Each lesson is framed (principle 1): the question, the background,
 the rationale and the purpose first; a prediction, one small
 experiment, a plain-language analysis of the measured result; then a
@@ -245,7 +259,8 @@ signature wanted and the workaround meanwhile.
 | learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 4 |
 | closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |
 | marked mathematics in a pipeline | X_eTaL-ML | FM11 | Flow's `m_ath<` drawn through Equations' `e:t_exSymbols<` (FL1) | Saga 1, lora-lab |
-| Hyper-Connections and mHC | X_eTaL-ML | FM13 | the stream mixing, Sinkhorn-Knopp with its gradient, the HC and mHC layer steps with gradients checked, the gain proxy; later the dynamic H | Saga mhc, sinkhorn |
+| Hyper-Connections and mHC | X_eTaL-ML | FM13 | the stream mixing, Sinkhorn-Knopp with its gradient, the HC and mHC layer steps with gradients checked, both gains (the paper's Amax, the Python's proxy), the dynamic H; signatures written 2026-11-15 | Saga mhc, sinkhorn (workaround: written out) |
+| a tiny transformer | X_eTaL-ML | FM14 | micro-gpt as an importable library (a sequence model a page can run), for Dust's lesson; to be specified at Saga 4's planning step | Saga 4, forward-only or later |
 
 ## Saga 1 -- lora-lab  [DONE, 2026-11-13]
 
@@ -291,10 +306,14 @@ lines a program and was readable, so the ask is not a blocker until
 the comparison harness; a narrator that compares two runs without a
 verdict needs its words tested (`lesson::narrate::forbidden`); the
 retention measure (lesson 5) is the question every later saga comes
-back to.
+back to. The user's reading at the close (2026-11-14): the seven
+pages pass every check and still "need a lot of editing/improvements";
+the writing is not done. An editing pass over them is planned as its
+own saga after the mHC saga, its kind to be specified with the user
+from one example of what is wrong (`docs/plan.md`, Saga edit, below).
 
 
-## Saga 2 -- lora-variants  [PLANNED, next]
+## Saga 2 -- lora-variants  [PLANNED, after the mHC saga]
 
 The variations, QLoRA to DoRA, each as a lesson, then all of them on
 one task. Source: `docs/research2.txt` (QLoRA and LoRA-FA on a
@@ -338,12 +357,12 @@ and may reorder them.
 
 | # | Step slug | Delivers |
 | - | --------- | -------- |
-| 1 | variants-plan | a planning step: the pin moved and what X_eTaL-ML has landed recorded; the variations beyond QLoRA, DoRA and VeRA chosen with the user (candidates: LoRA+ (a larger rate for B), AdaLoRA (rank given where it matters), PiSSA (A and B started from W's own leading singular vectors)); the one task and the measures every variation is held to; `docs/variants-plan.md`; the asks updated |
+| 1 | variants-plan | a planning step: the pin moved and what X_eTaL-ML has landed recorded; the variations beyond QLoRA, DoRA and VeRA are settled (the user, 2026-11-14): rsLoRA (lesson 4 has its scale, FM3) and LoRA+ (a larger rate for B); not AdaLoRA or PiSSA; the one task and the measures every variation is held to; `docs/variants-plan.md`; the asks updated |
 | 2 | variant-harness | the comparison harness asked of X_eTaL-ML (ask FM7) (a method as its start, its step, its forward pass and its counts; the same task, split and seeds for all; the run's record), the retention measure (the old task's loss after learning the new one), and `shared/lesson`'s comparison table, each figure marked measured or analytical |
 | 3 | qlora | lesson 7: uniform 4-bit quantization first, then the NF4 codebook; the adapter trained on the dequantized base; the quantization error, the bytes of each part, the merge that is not bit-exact |
 | 4 | dora | lesson 8: DoRA (Liu and others, 2024; ask FM4): W as a magnitude per column times a direction, the adapter on the direction, its gradients checked by finite differences; magnitude and direction shown changing apart |
 | 5 | vera | lesson 9: VeRA (Kopiczko and others, 2024): A and B frozen, random and shared (regenerated from a seed), two small trained vectors; its count against LoRA's; its bases are the same for every layer and task, the first shared subspace by design (Saga 3) |
-| 6 | more-variants | the variations chosen in step 1, a lesson or a panel each |
+| 6 | more-variants | LoRA+ (Hayou and others, 2024) as a lesson or a panel, rsLoRA's scale taken from lesson 4; the two on the harness's task beside LoRA |
 | 7 | variants-compared | lesson 10: every variation on the same task at equal ranks and at equal budgets: new-task loss, validation, retention, numbers trained, bytes stored, numbers held while training; what the measurements support saying about which to use when |
 | 8 | adapters-in-moe | lesson 11, on X_eTaL-ML's MoE library once it has landed (its Saga 6, steps 7 to 9; otherwise this step waits there): adapters on the shared layer, on every expert, on selected experts, the router frozen; which experts get trained at all; an all-expert adapter is not small (the research's 108 MiB a layer); routing before and after |
 
@@ -401,7 +420,7 @@ and the effect of choosing a better search space seen directly.
 
 | # | Step slug | Delivers |
 | - | --------- | -------- |
-| 1 | weight-space-plan | a planning step, with the user: each paper of `docs/research3.txt` read from its source and cited (MeZO; evolution strategies and ES at Scale; DART-ES; AGZO; StructZO; EGGROLL; KronZO; Dust; Neural Thickets and its replication), what each needs that a toy layer lacks (a sequence of tokens for Dust, a population on an accelerator for EGGROLL), which get a lesson, which a panel, which a paragraph; `docs/weight-space-plan.md`; this saga's steps below confirmed or replaced |
+| 1 | weight-space-plan | a planning step, with the user: each paper of `docs/research3.txt` read from its source and cited (MeZO; evolution strategies and ES at Scale; DART-ES; AGZO; StructZO; EGGROLL; KronZO; Dust; Neural Thickets and its replication), what each needs that a toy layer lacks (a sequence of tokens for Dust: its lesson runs on a tiny transformer, X_eTaL-ML's micro-gpt as an importable library, ask FM14 (the user, 2026-11-14); a population on an accelerator for EGGROLL), which get a lesson, which a panel, which a paragraph; `docs/weight-space-plan.md`; this saga's steps below confirmed or replaced |
 | 2 | backprop-baseline | what the alternatives are alternatives to: a loss, a gradient by the chain rule, checked by finite differences, what a backward pass must keep (every layer's input) and what the optimizer keeps; then full and selective fine-tuning (ask FM7) of a layer and the old task's loss before and after (forgetting, measured). The lessons how-learning-works and full-ft |
 | 3 | forward-only | the functions asked of X_eTaL-ML (ask FM8) and the lesson: a perturbation regenerated from its seed; the two-point estimate (the loss at the weights moved one way and the other, MeZO's step); a population of them (basic evolution strategies, antithetic pairs, centered ranks). Beside back-propagation on the same task: forward passes used, numbers held in memory, the loss reached, and the estimate's direction against the true gradient as passes grow |
 | 4 | reward-not-loss | what back-propagation cannot do directly: learning from an outcome that is not differentiable (a count of checks passed, a threshold, a toy grader), by evolution strategies; DART-ES's difficulty-aware reweighting and targeted replay on problems of unequal difficulty. The toy form of the applied goal's reward |
@@ -461,32 +480,55 @@ strong controls (an averaged and a shared adapter) to be honest.
 Research methods are reimplemented from their papers and cited
 (X_eTaL-ML's A8), at toy scale; each page says what the toy omits.
 
-## Saga mhc -- mHC in X_eTaL  [PLANNED, placement to decide]
+## Saga mhc -- mHC in X_eTaL  [ACTIVE, started 2026-11-15]
 
 A side track (the user, 2026-11-11): DeepSeek's Manifold-Constrained
 Hyper-Connections (Xie and others, arXiv:2512.24880) re-implemented in
 X_eTaL as lessons with visualizations and inspectable code, from the
 user's own Python implementation (`mHC-poc`) and post. The plan,
-what the Python did, what the paper adds, what fits at toy scale and
-what it omits, the asks and the open questions are in
+what the Python did, what the paper adds (its sections 5, 6 and
+appendix read at source on 2026-11-15), what fits at toy scale and
+what it omits, the timing, the decisions and the asks are in
 `docs/mhc-plan.md`. Found while planning, in X_eTaL: the Python's
 headline gain-proxy numbers are linear algebra at initialization (HC
 10^27.35 across 48 layers, mHC 10^-0.602 = 1/4 at any depth); the
-training lessons confirm them rather than discover them. The
-mathematics (stream mixing, Sinkhorn-Knopp with its gradient, the
-layer steps, the gain proxy) is asked of X_eTaL-ML (FM13), as every
-method's is; nothing in this saga depends on Sagas 2 to 5 or they on
-it, so it can run before or after them, as the user decides.
+training lessons confirm them rather than discover them. The paper's
+own gain (the largest row sum, forward; the largest column sum,
+backward) is a different number from the Python's proxy (the largest
+entry) and the pages show both, named. The mathematics (stream mixing,
+Sinkhorn-Knopp with its gradient, the layer steps, the gains, the
+dynamic `H`) is asked of X_eTaL-ML (FM13), as every method's is;
+nothing in this saga depends on Sagas 2 to 5 or they on it. Placed
+first (the user, 2026-11-14): its first lessons need nothing upstream,
+where Saga 2 waits on FM4 and FM7. Decided with the user (2026-11-15):
+a tiny MLP block, the Python's incrementing-token task on a vocabulary
+of 16, static `H` first and the paper's dynamic `H` after, the
+Python's figures quoted as the user's own runs. Timed: 2.4 ms per
+layer per training step natively, so the 48-layer training is done
+offline by X_eTaL and replayed, with a short live run on the page.
+The pin stays at bd178de: nothing asked has landed; it moves when
+FM13 does.
 
 | # | Step slug | Delivers |
 | - | --------- | -------- |
-| 1 | mhc-plan | a planning step, with the user: the paper's later sections read at source; the toy's block, task, widths and depths chosen and timed; ask FM13 written with signatures; the steps below confirmed or replaced |
-| 2 | residual-streams | why a skip connection, and what if there were four: the signal through 12 to 48 random layers with and without a residual (forward only); the stream state, `H_pre`, the merge, the block, `H_post'`, `H_res` stepped through as a Flow pipeline; the identity-mapping property named |
-| 3 | sinkhorn | a matrix whose rows and columns each sum to 1: Sinkhorn-Knopp stepped through on a 4 x 4, its convergence measured, the three properties checked (spectral norm at most 1, closure, a mix of permutations), the Python's function beside the X_eTaL loop |
-| 4 | gain-by-depth | the gain proxy, analytical: products of `H_res` across depth for HC and mHC, the Python's table beside the toy's, a slider on the starting logits |
-| 5 | training-at-depth | the three schemes trained at 12, 24, 48 layers on the toy task: loss, gradient norm and gain proxy per step; the final losses beside the Python's |
-| 6 | dynamic-mixing | the paper's own input-dependent `H` (gated projection plus bias; sigmoid, 2 sigmoid, Sinkhorn of exp), the toy rerun with it |
-| 7 | mhc-compared | the summary page: the three schemes at equal depth, width and steps; the paper's and the Python's figures quoted as theirs; the X_eTaL program beside the Python, function for function |
+| 1 | mhc-plan | DONE (2026-11-15): the paper's later sections read at source; the toy timed; the five questions decided with the user; ask FM13 written with its signatures (and FM14 noted for Saga 4); the steps below confirmed; Saga 1 archived, this saga started |
+| 2 | residual-streams | lesson D1, why a skip connection, and what if there were four: the signal through 12 to 48 random layers with and without a residual (forward only); the stream state, `H_pre`, the merge, the block, `H_post'`, `H_res` stepped through as a Flow pipeline; the identity-mapping property named; the page's X_eTaL time against the command line's (the WebAssembly factor); how `demo.toml` carries a side track's lesson number |
+| 3 | sinkhorn | lesson D2, a matrix whose rows and columns each sum to 1: Sinkhorn-Knopp stepped through on a 4 x 4, its convergence measured, the three properties checked (spectral norm at most 1, closure, a mix of permutations), the Python's function beside the X_eTaL loop |
+| 4 | gain-by-depth | lesson D3, the gain by depth, analytical: products of `H_res` across depth for HC and mHC, the paper's Amax and the Python's proxy of each, the Python's table beside the toy's, a slider on the starting logits |
+| 5 | training-at-depth | experiment D4, the three schemes trained at 12, 24, 48 layers on the toy task, offline by X_eTaL and replayed, a short live run on the page: loss, gradient norm and both gains per step; the final losses beside the Python's |
+| 6 | dynamic-mixing | lesson D5, the paper's own input-dependent `H` (gated projection plus bias; sigmoid, 2 sigmoid, Sinkhorn of exp), the toy rerun with it |
+| 7 | mhc-compared | summary D6: the three schemes at equal depth, width and steps; the paper's and the Python's figures quoted as theirs; the X_eTaL program beside the Python, function for function |
+
+## Saga edit -- the Saga 1 pages rewritten  [PLANNED, after the mHC saga]
+
+The user's reading at Saga 1's close (2026-11-14): the pages "need a
+lot of editing/improvements". A saga of its own, planned with the
+user from one example of what is wrong on one page (the length, the
+pace, the level, the order, how much X_eTaL shows, the words); its
+steps are one page each, in the curriculum's order, each read cold
+again before it is done. Not planned further until that example is
+given.
+
 ## Later -- applied  [NOT PLANNED YET]
 
 `docs/research2.txt`'s destination: a coding model that follows a
@@ -504,68 +546,19 @@ own when its time comes.
 
 ## Open questions (for the user)
 
-Put again at Saga 1's close (2026-11-13); none has been answered yet,
-and two decide what the next step is: question 7 (Saga 2 or the mHC
-saga first) and question 4 (how FM7 and FM4 reach X_eTaL-ML, since
-Saga 2's harness and its first lessons wait on them).
+Seven of the eight put at Saga 1's close were answered on 2026-11-14
+and 2026-11-15 (Settled questions, below). One stays open, and it is
+not needed before Saga 4 or 5:
 
-Settled by `docs/research3.txt`: which weight-space,
-no-back-propagation methods are meant and in what order (Saga 4).
-
-1. **What may be called "the AI" on a page?** (`docs/research5.txt`.)
-   A fixed policy written in X_eTaL is honest for search-driven
-   editing and can be tested; it is not what the one direct result
-   claims, which is that a language model's reasoning replaced the
-   fixed policy. At 8 x 8 a language model can read all 64 numbers. Is
-   a recorded (or live) run of one ever wanted on a page where every
-   other number is computed by X_eTaL, and how would it be kept
-   reproducible? Recommended, to be confirmed in Saga 5's planning
-   step: "the AI" is what the videos mean by it, a language model
-   driving a coding agent that has tools to inspect and modify a
-   weights file. A page then has two things, kept apart: a fixed
-   procedure in X_eTaL (testable; called a fixed procedure, never "the
-   AI"), and a recorded run of such an agent on the same layer, whose
-   64 numbers live in a data file: the agent may read the file, run a
-   counted number of forward passes and save an edit, with the
-   source's refusals and no training. The transcript and the edit it
-   wrote are committed as a recording (model, date, prompt, budget);
-   the page applies that edit again and checks it in X_eTaL, so every
-   number shown is still X_eTaL's. The edit can be reproduced; the
-   agent's reasoning cannot, and the page says so. The agent is also
-   run on a layer with nothing to fix.
-2. **Where do experiments on real models live?** `docs/research3.txt`
+1. **Where do experiments on real models live?** `docs/research3.txt`
    recommends validating on a dense model of 135M to 1B parameters,
    then coding models and mixtures of experts, with a Rust
    coding-quality benchmark. This repository is at toy scale by
    decision F10 (X_eTaL in the browser). Do those experiments belong
    in another repository (with X_eTaL-gpu), or is F10 to change?
-3. **Dust at toy scale?** It perturbs activations token by token, so
-   it needs a model over a sequence. A lesson on a tiny transformer
-   (X_eTaL-ML's micro-gpt is one), or an explanation without a run?
-4. **How do asks reach X_eTaL-ML?** Since this repository defines no
-   functions, X_eTaL-ML is on its path: Saga 1 writes the learning
-   task (FM7) and rsLoRA's scale (FM3) out in its programs, but Saga 2
-   needs its quant-nf4, qlora,
-   vera and MoE steps and DoRA (FM4, FM6) and Sagas 3, 4 and 5 new
-   libraries (FM10, FM8, FM9). Does the user carry the asks there, or is a session in
-   X_eTaL-ML to work from `docs/xetal-ML-asks.md` here?
-5. **Which variations beyond QLoRA, DoRA and VeRA**: LoRA+, AdaLoRA,
-   PiSSA, others, or none?
-6. **Reading the papers.** Several papers in `docs/research3.txt` and
-   `docs/research4.txt` are from 2026 and are known here only through
-   those reviews. The planning steps are written to read each from its
-   source on the web before building on it. Is that the wanted way,
-   or will the papers (or notes on them) be added to `docs/`?
-7. **Saga 2 or the mHC saga next?** (`docs/mhc-plan.md`.) The mHC
-   saga is independent of Sagas 2 to 5 and its first lesson needs no
-   training; Saga 2 waits on X_eTaL-ML for its mathematics (FM4) and
-   would benefit from FM7 landing first. Recommended: the mHC saga
-   now (its planning step is the next agentrail step), Saga 2 when
-   X_eTaL-ML's Saga 6 has landed what it needs. The other mHC
-   questions (the block, the task, static and dynamic H, quoting the
-   Python's figures) are in its plan.
-8. **Trying the lessons with newcomers.** `docs/novice-check.md` is
-   ready; it needs people. Is a session planned, and by whom?
+   Recommended: another repository; F10 stays. To decide when Saga 4
+   or 5 reaches it.
+
 ## Cross-cutting
 
 - Move a pin (`just ml-pin`, `just libs-pin`) when an ask has landed
@@ -616,3 +609,29 @@ no-back-propagation methods are meant and in what order (Saga 4).
   begin.
 - No change outside this repository (the user, 2026-11-05): needs of
   the sibling repositories are written down as asks, not made.
+- The mHC saga before Saga 2 (the user, 2026-11-14): its first
+  lessons need nothing upstream; Saga 2 waits on FM4 and FM7.
+- Trying the lessons with newcomers can wait (the user, 2026-11-14);
+  `docs/novice-check.md` stands ready. The pages themselves "need a
+  lot of editing/improvements": Saga edit.
+- How asks reach X_eTaL-ML (the user, 2026-11-14): a session in
+  X_eTaL-ML works from `docs/xetal-ML-asks.md` here, as the first
+  delivery did (its own record is its `docs/fine-tuning-asks.md`);
+  the user opens that session. ML functions belong in X_eTaL-ML,
+  general ones in X_eTaL-libraries (F3), confirmed.
+- The variations beyond QLoRA, DoRA and VeRA (the user, 2026-11-14):
+  rsLoRA and LoRA+; not AdaLoRA or PiSSA.
+- What "the AI" may be on a Saga 5 page (the user, 2026-11-14): a
+  fixed procedure in X_eTaL, never called the AI, beside a recorded
+  run of a coding agent on the same layer whose edit is committed as
+  data and re-applied and checked by X_eTaL; no live model call.
+- Dust gets a lesson on a tiny transformer (the user, 2026-11-14):
+  X_eTaL-ML's micro-gpt as an importable library, ask FM14.
+- The papers (the user, 2026-11-14): each planning step reads them
+  from their source on the web and the plan links them; **no paper
+  is copied into this repository** ("we should not redistribute
+  papers, only link to them").
+- The mHC toy (the user, 2026-11-15): a tiny MLP block; the Python's
+  incrementing-token task on a vocabulary of 16; static `H` first,
+  the paper's dynamic `H` after; the Python's figures quoted as the
+  user's own runs, labeled (`docs/mhc-plan.md`, Decided).

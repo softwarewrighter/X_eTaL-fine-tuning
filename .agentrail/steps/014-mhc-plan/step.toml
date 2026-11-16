@@ -1,6 +1,6 @@
 number = 14
 slug = "mhc-plan"
-status = "pending"
+status = "in-progress"
 description = "Step mhc-plan (inserted 2026-11-11 at the user's request: re-implement DeepSe..."
 role = "production"
 context_files = []
