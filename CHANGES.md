@@ -13,6 +13,8 @@ archive), `pin` a move of the X_eTaL-ML pin.
 
 ## 2026-11-15
 
+- `chore` saga lora-lab archived (`.agentrail-archive/lora-lab-20261115T200928`), the saga mhc created with its six steps (residual-streams, sinkhorn, gain-by-depth, training-at-depth, dynamic-mixing, mhc-compared); the agentrail briefing in CLAUDE.md refreshed (session logs kept outside the repository, the step transcript committed)
+- `chore` saga step mhc-plan closed; saga lora-lab complete
 - `plan` the mHC saga planned with the user and started (step mhc-plan): the paper's sections 5, 6 and appendix read at source (its gain is the largest row sum and column sum of the composite mapping, not the Python's largest entry; the pages show both; its experiments, table 4, the 6.7% overhead, the appendix one table, no proofs); the toy timed natively (2.4 ms per layer per training step at width 8, batch 16, so the 48-layer training is done offline by X_eTaL and replayed, with a short live run); decided: a tiny MLP block, the Python's incrementing-token task on a vocabulary of 16, static H then the paper's dynamic H, the Python's figures quoted as the user's own runs; `docs/mhc-plan.md` rewritten on these, its seven steps confirmed; ask FM13 written with its signatures and FM14 (micro-gpt as a library, for Dust) filed; the plan: Saga 1 archived and the mHC saga active, the depth track's six lessons D1 to D6 in the curriculum, Saga 2's variations settled (rsLoRA, LoRA+), a Saga edit for the first lessons' prose, seven open questions settled with the user (asks reach X_eTaL-ML by a session there; "the AI" as a recorded agent run; Dust on a tiny transformer; papers linked, never copied), one open; README status
 
 ## 2026-11-13

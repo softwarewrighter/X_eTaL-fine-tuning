@@ -1,0 +1,8 @@
+number = 4
+slug = "training-at-depth"
+status = "pending"
+description = "Step training-at-depth (docs/mhc-plan.md step 5 and Timed; docs/plan.md Saga ..."
+role = "production"
+context_files = []
+created_at = "2026-11-15T20:38:28"
+commits = []

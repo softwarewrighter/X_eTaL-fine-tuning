@@ -1,0 +1,8 @@
+number = 5
+slug = "dynamic-mixing"
+status = "pending"
+description = "Step dynamic-mixing (docs/mhc-plan.md step 6 and 'What the paper does'; docs/..."
+role = "production"
+context_files = []
+created_at = "2026-11-15T20:38:28"
+commits = []

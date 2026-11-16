@@ -1,0 +1,8 @@
+number = 3
+slug = "gain-by-depth"
+status = "pending"
+description = "Step gain-by-depth (docs/mhc-plan.md step 4; docs/plan.md Saga mhc, lesson D3..."
+role = "production"
+context_files = []
+created_at = "2026-11-15T20:38:28"
+commits = []

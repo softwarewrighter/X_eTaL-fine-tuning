@@ -1,0 +1,8 @@
+number = 1
+slug = "residual-streams"
+status = "pending"
+description = "Step residual-streams (docs/mhc-plan.md, the saga's step 2; docs/plan.md, Sag..."
+role = "production"
+context_files = []
+created_at = "2026-11-15T20:38:28"
+commits = []

@@ -1,0 +1,8 @@
+number = 6
+slug = "mhc-compared"
+status = "pending"
+description = "Step mhc-compared (docs/mhc-plan.md step 7; docs/plan.md Saga mhc, summary D6..."
+role = "production"
+context_files = []
+created_at = "2026-11-15T20:38:28"
+commits = []
