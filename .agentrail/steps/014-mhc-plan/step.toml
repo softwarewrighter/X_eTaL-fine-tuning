@@ -1,8 +1,9 @@
 number = 14
 slug = "mhc-plan"
-status = "in-progress"
+status = "completed"
 description = "Step mhc-plan (inserted 2026-11-11 at the user's request: re-implement DeepSe..."
 role = "production"
 context_files = []
 created_at = "2026-11-11T12:53:36"
-commits = []
+completed_at = "2026-11-15T20:09:18"
+commits = ["bf648d52902c6243ce59589e87125a3868bdb56a"]
