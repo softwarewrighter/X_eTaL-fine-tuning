@@ -1,0 +1,4 @@
+# A preset of the residual-streams lesson: the scale of the block's weights.
+title = "Small weights"
+setup = "every weight times 0.2"
+scale = 0.2

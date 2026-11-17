@@ -1,6 +1,6 @@
 number = 1
 slug = "residual-streams"
-status = "pending"
+status = "in-progress"
 description = "Step residual-streams (docs/mhc-plan.md, the saga's step 2; docs/plan.md, Sag..."
 role = "production"
 context_files = []

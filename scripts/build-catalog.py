@@ -32,7 +32,11 @@ ML = "https://github.com/softwarewrighter/X_eTaL-ML"
 LIBS = "https://github.com/softwarewrighter/X_eTaL-libraries"
 STATUS = {"live": "Live", "draft": "In progress", "deferred": "Waiting on an ask"}
 TRACK = {"start": "Start here", "lora": "LoRA", "variants": "LoRA variations", "subspaces": "Shared subspaces", "alternatives": "Alternatives",
-         "edge": "Bleeding edge", "applied": "Applied"}
+         "edge": "Bleeding edge", "applied": "Applied", "depth": "Depth, a side track"}
+# A side track numbers its lessons on its own (docs/plan.md, the
+# curriculum): demo.toml's lesson is the number within the track, and
+# the catalog shows it with the track's letter.
+SIDE = {"depth": "D"}
 
 PAGE = """<!doctype html>
 <html lang="en">
@@ -217,7 +221,7 @@ def card(m):
     chips = "".join(f'<span class="chip">{html.escape(c)}</span>' for c in m["concepts"])
     st = m["status"]
     # Its track, and its place in the curriculum when it is a lesson.
-    where = TRACK[m["track"]] + ("" if m["track"] == "start" else f' &middot; lesson {m["lesson"]}' if m["lesson"] else " &middot; experiment")
+    where = TRACK[m["track"]] + ("" if m["track"] == "start" else f' &middot; lesson {SIDE.get(m["track"], "")}{m["lesson"]}' if m["lesson"] else " &middot; experiment")
     pic = ""
     alt = html.escape(m["title"])
     if m.get("web") and m.get("picture"):

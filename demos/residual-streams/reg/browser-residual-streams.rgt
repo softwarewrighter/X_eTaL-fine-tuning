@@ -1,0 +1,3 @@
+command = "scripts/browser-check.sh residual-streams"
+exit_code = 0
+desc = "residual-streams: the built page run in headless Chrome shows X_eTaL's results"

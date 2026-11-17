@@ -17,7 +17,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 STATUSES = {"draft", "live", "deferred"}
 # The tracks of docs/plan.md; a lesson is its number in the curriculum,
-# 0 for an experiment outside it.
+# 0 for an experiment outside it; in a side track (depth), its number
+# within the track (the catalog shows it as D1, D2, ...).
 TRACKS = {"start", "lora", "variants", "subspaces", "alternatives", "edge", "applied", "depth"}
 # The sections that frame a demo's README, as its page is framed.
 FRAMING = ("## The question", "## Background", "## Summary")

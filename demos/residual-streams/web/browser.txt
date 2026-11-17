@@ -1,0 +1,19 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+Stage 1 of 9
+Stage 1 of 9, the stream state.
+Small weights
+after layer 48
+With the blocks
+html: <svg
+# HC's table, Explorer, the carried state mixed (stage 8), the largest scale.
+@ ?mode=explorer&preset=2&hres=hc&stage=8
+Stage 8 of 9, X mixed for the state carried on.
+Largest weights
+The layer's carried state is mixed by HC's H_res.
+This stage in the program:
+# Advanced: the mathematics and the code.
+@ ?mode=advanced&stage=9
+Stage 9 of 9, the new state.
+The layer as mathematics
+html: class="katex"
+The library functions the program uses

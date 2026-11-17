@@ -167,9 +167,11 @@ layer per training step, so 0.03 s, 0.06 s and 0.12 s a step at 12, 24
 and 48 layers; the forward alone through 48 layers, 2 ms. The Python's
 800 steps at 48 layers are then about 90 s natively for one scheme,
 and the three schemes at the three depths together about 8 minutes;
-the pages run X_eTaL as WebAssembly, which is slower by a factor not
-yet measured (to be measured in step 2, on the first page). Too long
-for a page to compute at load. So: the training experiment (step 5)
+the pages run X_eTaL as WebAssembly, measured on the first page
+(2026-11-17, step 2): its program takes 0.60 s at the command line and
+0.66 s in headless Chrome on the same machine, a factor of 1.1, so the
+native timings above hold in the browser to within about a tenth. Too
+long for a page to compute at load either way. So: the training experiment (step 5)
 is **trained offline by X_eTaL** (`just train`, a `train/` program as
 the layout allows, the record committed under `demos/<slug>/data/`
 with the seed, the steps and the X_eTaL commit that made it) and
@@ -254,7 +256,7 @@ out, and the timing program above is the shape of them.
 | # | Step slug | Delivers |
 | - | --------- | -------- |
 | 1 | mhc-plan | DONE (2026-11-15): the paper's sections 5, 6 and appendix read at source; the toy timed (2.4 ms per layer per training step natively); the five questions decided with the user; ask FM13 written with its signatures; this table confirmed; Saga 1 archived, this saga started |
-| 2 | residual-streams | lesson D1: "why a skip connection, and what if there were four?" The ordinary residual on a tiny block; the signal through 12, 24, 48 random layers with and without it (measured, forward only); then the stream state of HC as a 4 x 8 table, `H_pre`, the merge, the block, `H_post'`, `H_res` stepped through as a Flow pipeline with every number shown; the paper's identity-mapping property named: what a product of `H_res` across depth must keep. Measures the page's X_eTaL time against the command line's (the WebAssembly factor), for step 5's budget |
+| 2 | residual-streams | DONE (2026-11-17), live: lesson D1, "why a skip connection, and what if there were four?" The ordinary residual on a tiny block; the signal through 12, 24, 48 random layers with and without it (measured, forward only); then the stream state of HC as a 4 x 8 table, `H_pre`, the merge, the block, `H_post'`, `H_res` stepped through as a Flow pipeline with every number shown; the paper's identity-mapping property named: what a product of `H_res` across depth must keep. Measures the page's X_eTaL time against the command line's (the WebAssembly factor), for step 5's budget |
 | 3 | sinkhorn | lesson D2: "a matrix whose rows and columns each sum to 1". A positive 4 x 4; one row normalization, one column normalization, shown; the iteration stepped through, the row and column sums converging (measured, with the count of iterations to a tolerance); the three properties checked in the program (largest singular value at most 1, FL2 or written out; closure; the convex combination of permutations, as an aside); the Python's `make_doubly_stochastic` beside the X_eTaL `p_ower` loop, line for line |
 | 4 | gain-by-depth | lesson D3: the gain by depth, analytical. `exp(2 I - 1)` and its Sinkhorn projection; products across 12, 24, 48 layers; two measures of each product, named: the paper's Amax (largest row sum: the `3.82^L` line for HC, exactly 1 for mHC) and the Python's proxy (largest entry: 10^6.39, 10^13.37, 10^27.35 against 10^-0.602, the limit 1/S); the Python's table (7.0, 14.4, 27.3 against -0.5, -0.6, -0.6) set beside, the differences being what training moved; a slider on the starting logits (how far from the identity before HC's gain is unbounded: at every setting, by the arithmetic) |
 | 5 | training-at-depth | experiment D4: the three schemes trained at depths 12, 24, 48 on the toy task (incrementing tokens, vocabulary 16, MLP block) with Adam, from the same seed (ask FM13 or its workaround): trained offline by X_eTaL (`just train`, the record committed as data with its seed, steps and X_eTaL commit) and replayed; a short live run (12 layers, about 100 steps) computed on the page; the loss, the gradient norm, both gains per step as X_eTaL's charts; the final losses in a table beside the Python's, each marked measured here or the Python's; NaN events counted; what the toy reproduces of the Python's result and what it cannot (the task, the scale) |

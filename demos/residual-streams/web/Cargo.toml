@@ -1,0 +1,16 @@
+[package]
+name = "residual-streams-web"
+description = "Residual streams: why a deep network needs a skip connection, measured through 48 small layers; then Hyper-Connections, four streams and the tables that mix them, one layer stepped through stage by stage, with HC or mHC mixing the carried state"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget", "Document", "Window"] }
+console_error_panic_hook = "0.1"
+
+[workspace]
