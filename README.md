@@ -231,11 +231,12 @@ just new-lib Name alias: "what it is"   # start a library from templates/Library
   [`docs/research2.txt`](docs/research2.txt),
   [`docs/research3.txt`](docs/research3.txt),
   [`docs/research4.txt`](docs/research4.txt),
-  [`docs/research5.txt`](docs/research5.txt) -- the design review this
+  [`docs/research5.txt`](docs/research5.txt),
+  [`docs/research6.txt`](docs/research6.txt) -- the design review this
   repository came from, the wider discussion of fine-tuning, reviews
   of weight-space fine-tuning without back-propagation and of shared
-  subspaces, and a report on AI systems that edit a model's weights
-  directly (archival)
+  subspaces, a report on AI systems that edit a model's weights
+  directly, and a chat summary of MoE^2-LoRA (archival)
 - [`docs/mhc-plan.md`](docs/mhc-plan.md) -- the plan for mHC
   (DeepSeek's Manifold-Constrained Hyper-Connections) in X_eTaL, a
   side track: what the Python did, what fits at toy scale, its saga

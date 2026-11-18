@@ -30,7 +30,14 @@ back-propagation, with five demos proposed. And `docs/research5.txt`, compiled h
 been published about an AI editing a model's weights directly (one
 recent, unreplicated result and its neighbors), the closed-form
 editing it would use and its documented failures, what fits at toy
-scale, and three demos recommended in order. This plan turns them, and the user's
+scale, and three demos recommended in order. And `docs/research6.txt`
+(the user, 2026-11-17): a chat transcript on MoE^2-LoRA (Yang and
+others, arXiv:2607.21978, July 2026), LoRA for a mixture-of-experts
+model as a pool of LoRA experts routed by the base model's own router
+logits, set against MoELoRA (a pool and a new router per layer) and
+DAS-LoRA (adapters on the experts a domain selects); a summarizer's
+account, so every claim in it is read at the paper before it is built
+on. This plan turns them, and the user's
 direction since, into sagas and steps.
 
 Development is driven by agentrail sagas (one active saga in
@@ -178,7 +185,7 @@ A demo's `track` in its `demo.toml` is one of these.
 | ----- | ------- | ----------------------- |
 | start | the welcome page | what are these lessons, are they for me, and how do I use one? |
 | lora | LoRA: a frozen layer, a low-rank adapter, its training, rank and scale, LoRA-FA | how can a model learn something new while its weights stay as they are? |
-| variants | QLoRA, DoRA, VeRA, rsLoRA, LoRA+; adapters in a mixture of experts | what does each variation change, and what does it buy or cost? |
+| variants | QLoRA, DoRA, VeRA, rsLoRA, LoRA+; adapters in a mixture of experts, and how the adapters of a mixture are chosen per token (MoELoRA, DAS-LoRA, MoE^2-LoRA) | what does each variation change, and what does it buy or cost? |
 | subspaces | a fixed shared basis with per-task coefficients; which directions to keep; tasks in sequence (Share, LoDA, SuLoRA, LoRA-XS) | where may a change live, when does sharing that place between tasks help, and when does it hurt? |
 | alternatives | weight-space methods without back-propagation (zeroth-order optimization, evolution strategies, activation perturbation), beside back-propagation itself (full and selective fine-tuning); weight arithmetic, other parameter-efficient methods, methods that change no weight | can a model learn from forward passes alone, at what cost, and when is that the better choice? |
 | edge | closed-form edits of a layer (ROME, MEMIT, AlphaEdit), an AI editing weights directly | can a model be changed without training at all, and can a model do that to a model? |
@@ -204,6 +211,7 @@ them in it. A lesson not yet settled has no number.
 | 9 | vera | shared frozen random projections, trained scaling vectors | the trainable count against LoRA's; what the sharing costs | 2 |
 | 10 | variants-compared | which variation when | every variation on the same task, equal ranks and equal budgets | 2 |
 | 11 | adapters-in-moe | where adapters attach in a mixture of experts; a frozen router decides who learns | shared, every expert, selected experts; routing before and after | 2 |
+| 12 | moe-lora-routing | a pool of small adapters chosen per token, and who chooses: no one (an adapter rides its expert, DAS-LoRA), a new router trained from scratch (MoELoRA), or the base router's own logits with a compressed input (MoE^2-LoRA's routing-conditioned projection) | the three on one tiny mixture: which adapter each token reaches, how far the adapter router agrees with the base router, the new-task loss, retention and the count; the pool shared across two layers against a pool per layer | 2 |
 | | subspace-intro | what a subspace is: a few directions, everything made from them, projecting onto them and what is lost | small vectors, and the row space LoRA-FA was held to | 3 |
 | | shared-vs-separate | one basis shared by several tasks, small coefficients for each | related and unrelated tasks, each with its own adapter and with a shared basis: what transfers, what interferes | 3 |
 | | subspace-selection | which directions matter as much as how many | random, the layer's own, chosen from the data, at equal coefficients | 3 |
@@ -254,7 +262,8 @@ signature wanted and the workaround meanwhile.
 | a spectrum | X_eTaL-libraries | FL2 | singular values and the best rank-k approximation of a matrix | Saga 1, lora-vs-fa |
 | subspace geometry | X_eTaL-libraries | FL3 | projection onto a subspace, an orthonormal basis of some vectors, the angles between two subspaces, a change of basis (with FL2's singular values) | Saga 1, lora-vs-fa (the projection onto A's row space); Saga 3 |
 | the variations | X_eTaL-ML | FM4 | QLoRA (4-bit and NF4 quantization, an adapter on a quantized base), VeRA, DoRA, and the others chosen | Saga 2 |
-| a mixture of experts | X_eTaL-ML | FM6 | its MoE library and a small trained base model | Saga 2, adapters-in-moe |
+| a mixture of experts | X_eTaL-ML | FM6 | its MoE library and a small trained base model, with the router's logits readable | Saga 2, adapters-in-moe |
+| adapters chosen per token | X_eTaL-ML | FM15 | a pool of LoRA experts with a router: from the input alone (MoELoRA), from the base router's logits and a low-rank projection of the input (MoE^2-LoRA's RCP), or gated by the base router (DAS-LoRA); gradients through the router checked; the routing-agreement measure; one pool shared across layers | Saga 2, moe-lora-routing |
 | shared-basis adapters | X_eTaL-ML | FM10 | an adapter in a fixed shared basis, `W x + U C V' x` (C full or diagonal), its gradient and steps; bases from a seed, from W's singular directions, from the data; a family of tasks (related, unrelated, in sequence) with transfer and forgetting measured; later a basis that evolves over tasks (Share), shared with task-specific directions (LoDA), a subspace per task (SuLoRA) | Saga 3 |
 | learning without back-propagation | X_eTaL-ML | FM8 | a perturbation regenerated from its seed, the two-point estimate (MeZO), a population with antithetic pairs and centered ranks (evolution strategies), difficulty-aware reweighting and replay (DART-ES), perturbations inside a layer's input span or a structured subspace (AGZO, StructZO), low-rank perturbations (EGGROLL); forward passes and numbers held counted | Saga 4 |
 | closed-form editing | X_eTaL-ML | FM9 | a layer as a linear associative memory, a rank-one edit in closed form (through Matrix's solve), many edits by least squares, the update projected off preserved keys, locality and retention | Saga 4 |
@@ -349,8 +358,20 @@ Reviewed at Saga 1's close (2026-11-13) against what was learned:
   with a worked example and takes it as `lesson`.
 - The browser walk (`scripts/browser-walk.py`) runs on every new
   page from its first build: its baseline is made with `just bless`.
-- Step 6 (more-variants) depends on open question 5; step 8
-  (adapters-in-moe) on FM6, and stays last so nothing waits on it.
+- Step 6 (more-variants) depends on open question 5; steps 8 and 9
+  (adapters-in-moe, moe-lora-routing) on FM6 and FM15, and stay last
+  so nothing waits on them.
+- Step 9 was added on 2026-11-17 from `docs/research6.txt` (the
+  user: the plan is to cover MoE^2-LoRA). Its claims are a chat
+  summarizer's; the paper (arXiv:2607.21978) is read at source at
+  this saga's planning step, which settles what the toy can show: a
+  mixture of 4 experts of 8 x 8 with a top-1 or top-2 router, a pool
+  of 3 or 4 LoRA experts of rank 2, two layers so that one pool shared
+  across layers can be set against a pool per layer, and the routing
+  conditioned on the base router's logits beside a router from
+  scratch. What the toy cannot show, said on the page: the paper's
+  scale (OLMoE, DeepSeek-V2-Lite, Qwen3-30B-A3B), its tasks, its
+  figures (quoted as the paper's), and multimodal inputs.
 
 The steps stand as planned; step 1 writes `docs/variants-plan.md`
 and may reorder them.
@@ -365,6 +386,7 @@ and may reorder them.
 | 6 | more-variants | LoRA+ (Hayou and others, 2024) as a lesson or a panel, rsLoRA's scale taken from lesson 4; the two on the harness's task beside LoRA |
 | 7 | variants-compared | lesson 10: every variation on the same task at equal ranks and at equal budgets: new-task loss, validation, retention, numbers trained, bytes stored, numbers held while training; what the measurements support saying about which to use when |
 | 8 | adapters-in-moe | lesson 11, on X_eTaL-ML's MoE library once it has landed (its Saga 6, steps 7 to 9; otherwise this step waits there): adapters on the shared layer, on every expert, on selected experts, the router frozen; which experts get trained at all; an all-expert adapter is not small (the research's 108 MiB a layer); routing before and after |
+| 9 | moe-lora-routing | lesson 12, MoE^2-LoRA (Yang and others, arXiv:2607.21978; `docs/research6.txt`, read at the paper first) beside MoELoRA (Luo and others, 2024) and DAS-LoRA (Tang and others, 2026) on the same tiny mixture (ask FM15, or written out if it stays under about 20 lines): a pool of LoRA experts; three ways a token's adapter is chosen (riding its base expert; a router of its own from the input; the base router's logits joined to a low-rank projection of the input, `p = softmax(W_l [z; W_h h])`); which adapters each token reaches and how far the adapter router agrees with the base router (the paper's routing alignment, measured here on the toy); new-task loss, retention, the count and whether the adapters can be merged into the base (DAS-LoRA's can, the routed pools cannot); one pool shared across two layers against a pool per layer; the paper's figures quoted as its own |
 
 ## Saga 3 -- shared-subspaces  [PLANNED, to be planned]
 

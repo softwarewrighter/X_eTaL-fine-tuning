@@ -394,6 +394,11 @@ Read before working:
   edit a model's weights directly; it marks what was read at source,
   at abstract level or through a summarizer, and every figure in it
   is its authors' claim (archival, NOT normative)
+- `docs/research6.txt` -- a chat summarizer's account of MoE^2-LoRA
+  (LoRA experts for a mixture-of-experts model, routed on the base
+  router's logits) against MoELoRA and DAS-LoRA; nothing in it was
+  read at source yet, so the paper (arXiv:2607.21978) is read before
+  anything is built on it (archival, NOT normative)
 - `docs/new-eyes.md` -- the checklist a page is written and read
   against
 - `docs/novice-check.md` -- how the lessons are tried with newcomers
