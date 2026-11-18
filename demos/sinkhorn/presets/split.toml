@@ -1,0 +1,4 @@
+# A preset of the Sinkhorn-Knopp lesson: the logits the positive start is the exponential of, a 4 x 4 as 16 numbers, a row at a time.
+title = "A nearly split start"
+setup = "0 in a 3 x 3 block and in the last corner, -5 in the rest: the fourth row and column barely touch the others"
+logits = "0.0 0.0 0.0 -5.0 0.0 0.0 0.0 -5.0 0.0 0.0 0.0 -5.0 0.0 0.0 0.0 0.0"

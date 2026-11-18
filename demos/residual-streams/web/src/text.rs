@@ -76,7 +76,7 @@ pub const SUMMARY: [&str; 4] = [
     "**What was not shown.** Anything trained: the mixing tables and the blocks here are fixed by a formula. What a product of 48 mixing tables does, which the third page measures. The paper's own mixing tables, which depend on the layer's input (the fifth page). And anything at the paper's scale: its models have billions of weights and these layers have a few hundred.",
 ];
 
-pub const NEXT: &str = "The next page of this track, Sinkhorn-Knopp, is about the projection mHC uses: how a table of positive numbers is made to have rows and columns that each sum to 1, step by step, and what such a table can and cannot do to a list. It is being built; the catalog lists what is live.";
+pub const NEXT: &str = "The next page of this track, Sinkhorn-Knopp, is about the projection mHC uses: how a table of positive numbers is made to have rows and columns that each sum to 1, step by step, and what such a table can and cannot do to a list.";
 
 pub const CODE: [&str; 3] = [
     "This part is for readers who want to see the code. Nothing above depends on it. Lesson 1 says how to read X_eTaL as the page draws it.",

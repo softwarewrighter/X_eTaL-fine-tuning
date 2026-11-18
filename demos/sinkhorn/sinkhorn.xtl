@@ -1,0 +1,151 @@
+#!/usr/bin/env xetal
+## Sinkhorn-Knopp: a table whose rows and columns each sum to 1. mHC
+## (Xie and others, arXiv:2512.24880) makes its carried-state mixing
+## table from a positive 4 x 4 by dividing every row by its sum, then
+## every column by its sum, twenty times over (its eq. 9, t_max = 20).
+## Part 1: a positive 4 x 4 (the exponential of a table of logits: the
+## paper's and the Python's start 2 I - 1, or a start set up as data),
+## its row and column sums, and one round of the two divisions as a
+## pipeline with every number. Part 2: the twenty rounds, the tables
+## and their sums after every half round, how far the sums are from 1
+## after each round, and the count of rounds to within a millionth.
+## Part 3: the three properties the paper states of the result
+## (section 4.1), checked by the Check library: its largest singular
+## value is at most 1 (a list multiplied by it does not grow; power
+## iteration written out, ask FL2 of X_eTaL-libraries), the product of
+## two such tables is one too, and it is a weighted mix of permutation
+## tables (Birkhoff), found by a greedy search over the 24 orderings.
+## The Sinkhorn loop is written out here (ask FM13 of X_eTaL-ML,
+## docs/xetal-ML-asks.md).
+
+"cb:" u_se< "Combinatorics"
+"e:" u_se< "Equations"
+"flow:" u_se< "Flow"
+"k:" u_se< "Check"
+"p:" u_se< "Plot"
+
+### Data
+
+## The settings: S streams, so S x S tables; the logits the positive
+## start is the exponential of (a preset: the paper's 2 I - 1, 1 on
+## the diagonal and -1 off it, is the program's own); the paper's
+## count of rounds; and the tolerance a sum counts as 1 within.
+S := 4
+logits := (S c_at S) r_eshape 1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 -1.0 -1.0 -1.0 1.0
+tmax := 20
+tol := 0.000001
+ones := S r_eshape 1.0
+## The start: positive, whatever the logits, since e to any power is.
+A := e_xp logits
+r_avel logits
+r_avel A
+'+ r_/_2 A
+'+ r_/_1 A
+
+### Part 1: one round, as a pipeline
+
+## A round is two divisions. R: every row of A divided by its sum, so
+## that each row of R sums to 1. C: every column of R divided by its
+## sum, so that each column of C sums to 1, which can undo the rows a
+## little. Each is one equation written as text, run as written.
+round := @ flow:p_ipe< c#"
+   A $A
+|> "R[i,j] | S S" e:e_q< "A[i,j] / (sum t:=0..3 | A[i,t])" $R
+|> "C[i,j] | S S" e:e_q< "R[i,j] / (sum t:=0..3 | R[t,j])" $C"#
+r_avel round
+
+### Part 2: the rounds
+
+## The same two divisions tmax times over, from A, keeping after every
+## half round the table and its row and column sums, and after every
+## round how far the farthest column sum was from 1 before the column
+## step and how far the farthest row sum is from 1 after it: the row
+## step makes the rows sum to 1 and the column step the columns, so
+## what is left over is what the next round has to fix.
+(H, Rs, Cs, rowsR, colsR, rowsC, colsC, colOff, rowOff) := tmax '{ (M, Rs, Cs, rowsR, colsR, rowsC, colsC, co, ro) ->
+  R := M / ('+ r_/_2 M) '* t_able ones
+  C := R / ones '* t_able '+ r_/_1 R
+  (C, Rs c_at r_avel R, Cs c_at r_avel C, rowsR c_at '+ r_/_2 R, colsR c_at '+ r_/_1 R, rowsC c_at '+ r_/_2 C, colsC c_at '+ r_/_1 C, co c_at 'm_ax r_/ a_bs ('+ r_/_1 R) - 1.0, ro c_at 'm_ax r_/ a_bs ('+ r_/_2 C) - 1.0)
+} p_ower (A, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0)
+Rs
+Cs
+rowsR
+colsR
+rowsC
+colsC
+colOff
+rowOff
+## How many rounds until every row sum is within the tolerance of 1
+## (the columns are, after every round): one more than the count of
+## rounds still over it; tmax + 1 means the tolerance was not reached.
+1 + '+ r_/ rowOff > tol
+## The distances as one chart, a round a point, on a log scale (a
+## distance of 0 is drawn at the floor, 10^-16).
+_ := ("Distance from 1" "round" "log10 of the largest distance" "rows" "columns") p:c_hart! '{ k -> k s_elect (2 c_at tmax) r_eshape (l_og (rowOff c_at colOff) m_ax 1e-16) / l_og 10.0 } m_ap r_ange 2
+## The result, and the pipeline's one round against the loop's first
+## (0 to rounding).
+r_avel H
+'m_ax r_/ r_avel a_bs round - (S c_at S) r_eshape 1 s_elect (tmax c_at S * S) r_eshape Cs
+
+### Part 3: three properties of the result, checked
+
+## 1. Its largest singular value is at most 1, so multiplying a list
+## by it does not make the list longer. The largest singular value by
+## power iteration on H' H (as X_eTaL-ML's lora-explorer writes it;
+## ask FL2's workaround), for the start A and for H; then a list v,
+## H v, and their sizes.
+u0 := 1.0 + 0.1 * f_loat r_ange S
+sigmas := '{ Mb -> M := d_isclose Mb
+  G := (o_\ M) '+ '* i_nner M
+  x := 300 '{ y -> m := G '+ '* i_nner y
+    m / s_qrt '+ r_/ m * m } p_ower u0
+  s_qrt '+ r_/ x * G '+ '* i_nner x } m_ap (e_nclose A) c_at e_nclose H
+sigA := d_isclose 1 s_elect sigmas
+sigH := d_isclose 2 s_elect sigmas
+sigA c_at sigH
+v := 1.0 -2.0 0.5 3.0
+Hv := H '+ '* i_nner v
+v
+Hv
+(s_qrt '+ r_/ v * v) c_at s_qrt '+ r_/ Hv * Hv
+## 2. The product of two such tables is one too: a second table, B,
+## projected from a start set up here (the numbers 2 3 4 5 1 2 ...),
+## and the product H B with its row and column sums.
+B0 := (S c_at S) r_eshape 1.0 + f_loat (r_ange S * S) m_od 5
+B := tmax '{ M -> R := M / ('+ r_/_2 M) '* t_able ones; R / ones '* t_able '+ r_/_1 R } p_ower B0
+HB := H '+ '* i_nner B
+r_avel B0
+r_avel B
+r_avel HB
+'+ r_/_2 HB
+'+ r_/_1 HB
+## 3. It is a weighted mix of permutation tables (a permutation table
+## has one 1 in each row and each column and 0 elsewhere): Birkhoff's
+## theorem, shown on this one table and not proved. Found greedily:
+## among the 24 orderings of 4, the one whose smallest entry along it
+## in what is left of H is largest; that entry is the weight; the
+## ordering's table times the weight is taken off; ten times, the most
+## a 4 x 4 can need. The weights, the orderings picked, and what is
+## left of H at the end.
+perms := cb:p_ermutations S
+idx := perms + (t_ally perms) r_eplicate (1 c_at S) r_eshape S * (r_ange S) - 1
+(rest, picks, ws) := 10 '{ (M, picks, ws) ->
+  mins := 'm_in r_/_2 ((t_ally perms) c_at S) r_eshape ((r_avel idx) s_elect r_avel M)
+  best := mins i_ndexOf 'm_ax r_/ mins
+  (M - (best s_elect mins) * f_loat (best s_elect perms) '= t_able r_ange S, picks c_at best, ws c_at best s_elect mins)
+} p_ower (H, 0 r_eshape 0, 0 r_eshape 0.0)
+ws
+'+ r_/ ws
+r_avel picks s_elect perms
+'m_ax r_/ r_avel a_bs rest
+## The checks, each within the tolerance, as the Check library
+## reports them: a line each, then the count.
+c1 := "every row of H sums to 1" k:t_est k:t_rue ('m_ax r_/ a_bs ('+ r_/_2 H) - 1.0) < tol
+c2 := "every column of H sums to 1" k:t_est k:t_rue ('m_ax r_/ a_bs ('+ r_/_1 H) - 1.0) < tol
+c3 := "the largest singular value of H is at most 1" k:t_est k:t_rue sigH <= 1.0 + tol
+c4 := "H v is no longer than v" k:t_est k:t_rue (s_qrt '+ r_/ Hv * Hv) <= tol + s_qrt '+ r_/ v * v
+c5 := "every row of H B sums to 1" k:t_est k:t_rue ('m_ax r_/ a_bs ('+ r_/_2 HB) - 1.0) < tol
+c6 := "every column of H B sums to 1" k:t_est k:t_rue ('m_ax r_/ a_bs ('+ r_/_1 HB) - 1.0) < tol
+c7 := "the weights of the permutation tables sum to 1" k:t_est k:t_rue (a_bs ('+ r_/ ws) - 1.0) < tol
+c8 := "nothing of H is left after the permutation tables found" k:t_est k:t_rue ('m_ax r_/ r_avel a_bs rest) < tol
+k:r_eport c1 k:a_nd c2 k:a_nd c3 k:a_nd c4 k:a_nd c5 k:a_nd c6 k:a_nd c7 k:a_nd c8

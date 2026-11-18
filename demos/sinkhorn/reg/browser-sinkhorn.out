@@ -1,0 +1,58 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Round 1 of 20
+found: The paper's start
+found: 8 checks, all passed
+found: ok: every row of H sums to 1
+found: html: <svg
+cross-reference links: 0, dead: none
+at ?mode=explorer&preset=2&round=20:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Round 20 of 20: the last.
+found: A nearly split start
+found: 8 checks, 4 FAILED
+found: FAIL: every row of H sums to 1
+found: The two steps in the program:
+cross-reference links: 1, dead: none
+at ?mode=advanced&preset=1&round=11:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Round 11 of 20.
+found: within a millionth of 1 after 11 rounds
+found: The round as mathematics
+found: html: class="katex"
+found: The loop beside the Python
+found: The library functions the program uses
+cross-reference links: 42, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 415, without a spoken name: none
+heat maps: 10, with a legend and a scale note: 10
+keyboard: 411 controls, reached by Tab: 411
+keyboard: Enter on a word opened "mHC"
+keyboard: Next moved "Round 1 of 20" to "Round 2 of 20", Back returned
+keyboard: an arrow moved the inspector to "logits, row 1, column 2: -1 (negative, so blue)"
+touch: a tap on a cell read "logits, row 1, column 4: -1 (negative, so blue)"
+touch: a tap on a word opened its explanation
+touch: a tap on Next moved "Round 1 of 20" to "Round 2 of 20"
+replay: play, pause and step left every number at "Round 2 of 20" the same (9247 characters)

@@ -365,7 +365,7 @@ pub fn app() -> Html {
             { frame(Frame::Summary, "What this showed, and what it did not", html! { <ul>{ for text::SUMMARY.iter().map(|t| li(t)) }</ul> }) }
             { frame(Frame::Next, "Where next", html! { <>
                 { p(text::NEXT) }
-                <p><a class="go" href="../">{"The catalog of lessons"}</a></p>
+                <p><a class="go" href="../sinkhorn/">{"Lesson D2, Sinkhorn-Knopp"}</a>{" "}<a href="../">{"The catalog of lessons"}</a></p>
             </> }) }
             <section class="panel">
                 <h2>{"Every idea on this page, explained simply"}</h2>

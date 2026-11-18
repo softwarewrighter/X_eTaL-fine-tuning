@@ -1,0 +1,4 @@
+# A preset of the Sinkhorn-Knopp lesson: the logits the positive start is the exponential of, a 4 x 4 as 16 numbers, a row at a time.
+title = "A lopsided start"
+setup = "sixteen numbers between -1 and 2 with no pattern: every row and column sums differently"
+logits = "1.0 0.0 -1.0 0.5 -0.5 1.5 0.0 -1.0 0.0 -1.0 1.0 2.0 2.0 0.5 -0.5 0.0"

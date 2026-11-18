@@ -44,9 +44,9 @@ cross-reference links: 33, dead: none
 walk: loaded
 keyboard: an arrow changed how much is shown, and back
 walk: at the deepest mode, everything shown
-controls: 372, without a spoken name: none
+controls: 373, without a spoken name: none
 heat maps: 10, with a legend and a scale note: 10
-keyboard: 367 controls, reached by Tab: 367
+keyboard: 368 controls, reached by Tab: 368
 keyboard: Enter on a word opened "layer"
 keyboard: Next moved "Stage 1 of 9" to "Stage 2 of 9", Back returned
 keyboard: an arrow moved the inspector to "x, number 2: 0.825336 (positive, so red)"

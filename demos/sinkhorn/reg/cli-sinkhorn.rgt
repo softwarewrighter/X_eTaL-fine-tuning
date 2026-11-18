@@ -1,0 +1,3 @@
+command = '"$XETAL" run --seed 1 --draw "$XETAL_DRAW" sinkhorn.xtl'
+exit_code = 0
+desc = "sinkhorn: sinkhorn.xtl run by the pinned xetal CLI"

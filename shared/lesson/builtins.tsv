@@ -27,3 +27,7 @@ e_xp	e (2.718...) raised to each number: the exponential, which turns any number
 l_og	the natural logarithm of each number (the power e must be raised to); divided by the logarithm of 10 it is the logarithm in powers of ten
 f_irst	the first item of a list, or the first row of a table
 r_eplicate	repeats: a count on its left and a table on its right gives the table's rows each repeated that many times; with a list, each item
+m_in	the smaller of two numbers, or with ' before it, the smallest along a line of a table ('m_in r_/_2 takes the smallest of each row)
+i_ndexOf	where each item on its right is first found among the items on its left, counting from 1
+t_ally	how many items (rows, for a table) a value has
+m_od	the remainder of dividing by the number on its left: 5 m_od 1 2 3 4 5 6 is 1 2 3 4 0 1

@@ -1,0 +1,21 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+Round 1 of 20
+The paper's start
+8 checks, all passed
+ok: every row of H sums to 1
+html: <svg
+# The nearly split start, Explorer, the last round: twenty rounds are not enough.
+@ ?mode=explorer&preset=2&round=20
+Round 20 of 20: the last.
+A nearly split start
+8 checks, 4 FAILED
+FAIL: every row of H sums to 1
+The two steps in the program:
+# Advanced: the mathematics, the Python beside the loop, the code.
+@ ?mode=advanced&preset=1&round=11
+Round 11 of 20.
+within a millionth of 1 after 11 rounds
+The round as mathematics
+html: class="katex"
+The loop beside the Python
+The library functions the program uses

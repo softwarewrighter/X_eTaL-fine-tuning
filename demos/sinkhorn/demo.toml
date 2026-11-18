@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "sinkhorn"            # the directory name, demos/<slug>/
+title = "Sinkhorn-Knopp"
+summary = "How is a table of positive numbers made into one whose rows and columns each sum to 1, the table mHC mixes its streams with? Two divisions repeated: one round shown with every number, twenty rounds stepped through with the sums converging (exact after one round from the paper's start, within a millionth after eleven from a lopsided one, still a few ten-thousandths off after twenty from a nearly split one), and the three properties the paper states of the result checked by the Check library: it stretches no list, two make a third, and it is a weighted mix of permutation tables."
+concepts = ["row and column normalization", "an iteration converging", "checks as a report", "a mix of permutation tables"]
+status = "live"              # draft | live | deferred
+order = 120                  # position in the catalog (lower first): the depth track after the lessons
+track = "depth"              # start | lora | variants | subspaces | alternatives | edge | applied | depth (docs/plan.md, Tracks)
+lesson = 2                   # its number in its track (the depth track's D2; docs/plan.md, the curriculum)
+needs = ["FM13", "FL2"]      # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "R := M / ('+ r_/_2 M) '* t_able ones"
+why = "The row step in one line: every row of M divided by its sum, the sums laid along each row."

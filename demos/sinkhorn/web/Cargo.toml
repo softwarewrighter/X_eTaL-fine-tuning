@@ -1,0 +1,16 @@
+[package]
+name = "sinkhorn-web"
+description = "Sinkhorn-Knopp: a positive 4 x 4 made into a table whose rows and columns each sum to 1, one round shown, twenty rounds stepped through with the sums converging, and the three properties the mHC paper states of the result checked by X_eTaL"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget", "Document", "Window"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

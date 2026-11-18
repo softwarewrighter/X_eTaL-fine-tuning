@@ -1,0 +1,4 @@
+# A preset of the Sinkhorn-Knopp lesson: the logits the positive start is the exponential of, a 4 x 4 as 16 numbers, a row at a time.
+title = "The paper's start"
+setup = "1 on the diagonal, -1 off it: the start the paper and its Python re-implementation use"
+logits = "1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 -1.0 -1.0 -1.0 1.0"
