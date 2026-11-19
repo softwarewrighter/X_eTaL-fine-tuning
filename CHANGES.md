@@ -11,6 +11,10 @@ documentation, `plan` saga planning and reordering, `release`
 milestone release, `chore` agentrail bookkeeping (step complete, saga
 archive), `pin` a move of the X_eTaL-ML pin.
 
+## 2026-11-18
+
+- `chore` saga step sinkhorn closed
+
 ## 2026-11-17
 
 - `demo` Sinkhorn-Knopp, lesson D2 of the depth track (step sinkhorn): demos/sinkhorn, live. A positive 4 x 4 (the exponential of logits) from three starts as presets (the paper's 2I - 1, a lopsided one, a nearly split one); one round as a Flow pipeline of two equations, row 1 worked out from the program's numbers; twenty rounds stepped through, every table and its sums after each half round, X_eTaL's chart of the distances from 1 and the count of rounds to a millionth (1, 11 and more than 20: the paper's t_max = 20 shown to be a cut, four of eight checks reporting FAIL from the nearly split start); the three properties the paper states (section 4.1) checked by X_eTaL-libraries' Check library: the largest singular value 1 (power iteration written out, ask FL2), the product of two doubly stochastic tables, the result as a weighted mix of permutation tables (a greedy search over Combinatorics' 24 orderings: Birkhoff, shown not proved); the Python's sinkhorn_doubly_stochastic (mHC-poc, MIT) beside the loop line for line in the Advanced aside. Glossary: row normalization, permutation table, spectral norm, Sinkhorn-Knopp deepened, doubly stochastic and Sinkhorn-Knopp now taught here; four built-in words (m_in, i_ndexOf, t_ally, m_od). Eight native tests; CLI and browser baselines blessed (new), and D1's browser baseline reblessed after review (one control more: the link to D2). A cold read's 34 findings: the run-dependent ones fixed (the summary and the product check no longer claim what failed from the nearly split start; "got 0" explained; an unrun claim removed; e, powers of ten, projection, the size of a list and the eight checks explained; the logits on a scale of their own), three in the shared shell left for the Saga edit. D1's next link points at D2. README, the plan's and mhc-plan's step rows (the Python function's name corrected), FM13's and FL2's uses
