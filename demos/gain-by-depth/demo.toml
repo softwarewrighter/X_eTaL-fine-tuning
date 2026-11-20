@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "gain-by-depth"       # the directory name, demos/<slug>/
+title = "The gain by depth"
+summary = "What happens when the same mixing table is applied at every one of 48 layers? HC's table and mHC's, each multiplied by itself once per layer, every product measured two ways, each named: the paper's Amax gain (the largest row sum, forward; the largest column sum, backward) and the Python's proxy (the largest entry, as a power of ten). HC's grows as its row sum to the power of the depth, 3.82^48 at the paper's start, mHC's stays at 1; the untrained proxy (6.39, 13.37, 27.35) beside the Python's trained run (7.0, 14.4, 27.3), the paper's 3000 and 1.6 quoted; a slider shifts the logits, and HC's gain only holds level at a row sum of exactly 1."
+concepts = ["a table applied at every layer", "two measures, each named", "analytical beside measured", "a slider across an edge"]
+status = "live"              # draft | live | deferred
+order = 130                  # position in the catalog (lower first): the depth track after the lessons
+track = "depth"              # start | lora | variants | subspaces | alternatives | edge | applied | depth (docs/plan.md, Tracks)
+lesson = 3                   # its number in its track (the depth track's D3; docs/plan.md, the curriculum)
+needs = ["FM13"]             # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "f c_at 'm_ax r_/ a_bs '+ r_/_2 Q"
+why = "The paper's forward gain in one line: the largest of the product's row sums, kept after every layer."

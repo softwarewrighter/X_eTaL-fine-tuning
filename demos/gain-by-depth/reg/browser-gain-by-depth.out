@@ -1,0 +1,53 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: After layer 1.
+found: 4 checks, all passed
+found: ok: mHC's forward gain is 1 at every depth
+found: trained run measured 7.0, 14.4 and 27.3
+found: html: <svg
+cross-reference links: 0, dead: none
+at ?mode=explorer&shift=1&layer=48:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: After layer 48.
+found: less than 1
+cross-reference links: 0, dead: none
+at ?mode=advanced&shift=13:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: more than 1
+found: The library functions the program uses
+cross-reference links: 27, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 248, without a spoken name: none
+heat maps: 5, with a legend and a scale note: 5
+sliders: 1, in a label that shows the value: 1
+keyboard: 244 controls, reached by Tab: 244
+keyboard: Enter on a word opened "stream"
+keyboard: Next moved "Layer 1 of 48" to "Layer 2 of 48", Back returned
+keyboard: an arrow moved the inspector to "logits, row 1, column 2: -1 (negative, so blue)"
+touch: a tap on a cell read "logits, row 1, column 4: -1 (negative, so blue)"
+touch: a tap on a word opened its explanation
+touch: a tap on Next moved "Layer 1 of 48" to "Layer 2 of 48"
+replay: play, pause and step left every number at "Layer 2 of 48" the same (3197 characters)
+replay: 1 sliders moved a notch and back, every number the same after: 1

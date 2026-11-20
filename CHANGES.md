@@ -11,6 +11,10 @@ documentation, `plan` saga planning and reordering, `release`
 milestone release, `chore` agentrail bookkeeping (step complete, saga
 archive), `pin` a move of the X_eTaL-ML pin.
 
+## 2026-11-20
+
+- `demo` The gain by depth, lesson D3 of the depth track (step gain-by-depth): demos/gain-by-depth, live. HC's table (the exponential of the logits 2I - 1) and mHC's (its Sinkhorn projection), each multiplied by itself once per layer through 48 layers in a `p_ower` loop, every product kept and measured two ways: the paper's Amax gain (the largest absolute row sum, forward; column sum, backward) and the Python's proxy (log10 of the largest absolute entry). HC's forward gain is its row sum to the power of the depth (3.82^48, about 10^27.9, at the start), mHC's 1 at every depth, its entries flattening to 1/4; X_eTaL's chart of the four lines; the untrained proxy at 12, 24 and 48 layers (6.39, 13.37, 27.35; -0.598, -0.602, -0.602) beside the Python's trained run (7.0, 14.4, 27.3; -0.5, -0.6, -0.6) and the paper's quoted 3000 and 1.6, each marked analytical, the Python's run or the paper's. A slider shifts every logit by c, -2 to 1: HC's row sum is 3.82 e^c and crosses 1 between -1.5 (0.853, a gain of 4.8e-4 after 48 layers) and -1.25 (1.095, 78); mHC's table is the same at every c. Four checks by the Check library. Glossary: gain, composite mapping, forward gain, backward gain, the proxy; the built-in ^. Five native tests; CLI and browser baselines blessed (new). A cold read's 28 findings: the page's own fixed (powers of ten explained, the carried state and the start defined, the over-claim that training moved HC's gain little replaced by what the figures show, the paper's 3000 and 1.6 set against the untrained 8.90e27 and 1 with what this page cannot tell, the chart and texts following the slider, tiny numbers not written into cells); the shell's recorded under the plan's Saga edit. README, the plan's and mhc-plan's step rows, FM13's uses
+
 ## 2026-11-18
 
 - `chore` saga step sinkhorn closed

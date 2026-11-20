@@ -1,0 +1,3 @@
+command = '"$XETAL" run --seed 1 --draw "$XETAL_DRAW" gain-by-depth.xtl'
+exit_code = 0
+desc = "gain-by-depth: gain-by-depth.xtl run by the pinned xetal CLI"

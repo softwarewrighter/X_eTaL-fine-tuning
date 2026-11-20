@@ -1,0 +1,16 @@
+[package]
+name = "gain-by-depth-web"
+description = "The gain by depth: HC's and mHC's mixing tables multiplied once per layer through 48 layers, the product measured by the paper's Amax gain and the Python's proxy, with a shift of the logits as a slider"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget", "Document", "Window"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

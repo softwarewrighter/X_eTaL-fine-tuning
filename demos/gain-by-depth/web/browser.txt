@@ -1,0 +1,14 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+After layer 1.
+4 checks, all passed
+ok: mHC's forward gain is 1 at every depth
+trained run measured 7.0, 14.4 and 27.3
+html: <svg
+# A shift below the edge, layer 48: HC's gain fades.
+@ ?mode=explorer&shift=1&layer=48
+After layer 48.
+less than 1
+# Advanced: the program.
+@ ?mode=advanced&shift=13
+more than 1
+The library functions the program uses

@@ -31,3 +31,4 @@ m_in	the smaller of two numbers, or with ' before it, the smallest along a line 
 i_ndexOf	where each item on its right is first found among the items on its left, counting from 1
 t_ally	how many items (rows, for a table) a value has
 m_od	the remainder of dividing by the number on its left: 5 m_od 1 2 3 4 5 6 is 1 2 3 4 0 1
+^	one number raised to the power of another: 3.82 ^ 2 is 3.82 times 3.82

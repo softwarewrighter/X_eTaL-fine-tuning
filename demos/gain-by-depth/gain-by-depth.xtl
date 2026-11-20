@@ -1,0 +1,91 @@
+#!/usr/bin/env xetal
+## The gain by depth: what a mixing table does when it is applied at
+## every one of 48 layers. HC's carried-state table, the exponential of
+## the logits 2 I - 1 (moved by a shift c, a setting), and mHC's, its
+## Sinkhorn-Knopp projection (Xie and others, arXiv:2512.24880, eq. 9),
+## each multiplied by itself once per layer; after every layer the
+## product is measured two ways, each named: the paper's Amax Gain
+## Magnitude (section 3.1: the largest absolute row sum, the forward
+## gain, and the largest absolute column sum, the backward gain) and
+## the Python re-implementation's proxy (mHC-poc: log10 of the largest
+## absolute entry). Analytical: no training, the matrices alone. The
+## loops are written out (ask FM13 of X_eTaL-ML, docs/xetal-ML-asks.md:
+## hc:s_inkhorn, hc:a_maxGain, hc:g_ainProxy).
+
+"k:" u_se< "Check"
+"p:" u_se< "Plot"
+
+### Data
+
+## The settings: S streams, L layers, the paper's count of Sinkhorn
+## rounds, and the shift c added to every logit (the slider; 0 is the
+## paper's and the Python's start).
+S := 4
+L := 48
+tmax := 20
+shift := 0.00
+ones := S r_eshape 1.0
+logits := shift + (2.0 * f_loat (r_ange S) '= t_able r_ange S) - 1.0
+## HC's table: the exponential of the logits, as it is. mHC's: the
+## same projected by tmax rounds of Sinkhorn-Knopp.
+HC := e_xp logits
+HM := tmax '{ M -> R := M / ('+ r_/_2 M) '* t_able ones; R / ones '* t_able '+ r_/_1 R } p_ower HC
+r_avel logits
+r_avel HC
+r_avel HM
+'+ r_/_2 HC
+'+ r_/_2 HM
+
+### The products, layer by layer
+
+## The table applied at every layer: after k layers the carried state
+## has been multiplied by H k times, the composite mapping H^k. After
+## every layer, the product and its three measures: the forward gain
+## (the largest absolute row sum), the backward gain (the largest
+## absolute column sum) and the proxy (log10 of the largest absolute
+## entry). HC first, then mHC.
+I := (S c_at S) r_eshape 1.0 0.0 0.0 0.0 0.0
+(_, PHC, fHC, bHC, qHC) := L '{ (P, Ps, f, b, q) ->
+  Q := HC '+ '* i_nner P
+  (Q, Ps c_at r_avel Q, f c_at 'm_ax r_/ a_bs '+ r_/_2 Q, b c_at 'm_ax r_/ a_bs '+ r_/_1 Q, q c_at (l_og 'm_ax r_/ r_avel a_bs Q) / l_og 10.0)
+} p_ower (I, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0)
+(_, PHM, fHM, bHM, qHM) := L '{ (P, Ps, f, b, q) ->
+  Q := HM '+ '* i_nner P
+  (Q, Ps c_at r_avel Q, f c_at 'm_ax r_/ a_bs '+ r_/_2 Q, b c_at 'm_ax r_/ a_bs '+ r_/_1 Q, q c_at (l_og 'm_ax r_/ r_avel a_bs Q) / l_og 10.0)
+} p_ower (I, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0, 0 r_eshape 0.0)
+PHC
+PHM
+fHC
+bHC
+qHC
+fHM
+bHM
+qHM
+## The arithmetic behind HC's line: every row of HC sums to the same
+## s, so every row of H^k sums to s^k, and log10 of the forward gain
+## after k layers is k log10 s, a straight line.
+s := 1 s_elect '+ r_/_2 HC
+depths := f_loat r_ange L
+depths * (l_og s) / l_og 10.0
+## The same arithmetic at every shift the page's slider offers, -2 to
+## 1 by a quarter: shifting every logit by c multiplies HC's table by
+## e^c, so its row sum is e^c times the row sum at no shift; and the
+## forward gain after L layers is that to the power L.
+shifts := (0.25 * f_loat r_ange 13) - 2.25
+sweep := (e_xp shifts) * 1 s_elect '+ r_/_2 e_xp logits - shift
+sweep
+sweep ^ f_loat L
+## The two measures on a log scale, layer by layer: HC's and mHC's
+## forward gain and HC's and mHC's proxy.
+_ := ("The gain by depth" "layer" "log10" "HC, forward gain" "mHC, forward gain" "HC, proxy" "mHC, proxy") p:c_hart! '{ k -> k s_elect (4 c_at L) r_eshape ((l_og fHC c_at fHM) / l_og 10.0) c_at qHC c_at qHM } m_ap r_ange 4
+
+### Checked
+
+## HC's forward gain is s^k at every depth; mHC's forward and
+## backward gains are 1; mHC's largest entry tends to 1/S, the four
+## streams averaged.
+c1 := "HC's forward gain is its row sum to the power of the depth" k:t_est k:t_rue ('m_ax r_/ a_bs (fHC / s ^ depths) - 1.0) < 0.000000001
+c2 := "mHC's forward gain is 1 at every depth" k:t_est k:t_rue ('m_ax r_/ a_bs fHM - 1.0) < 0.000000001
+c3 := "mHC's backward gain is 1 at every depth" k:t_est k:t_rue ('m_ax r_/ a_bs bHM - 1.0) < 0.000000001
+c4 := "mHC's largest entry after 48 layers is 1 / S" k:t_est k:t_rue (a_bs (L s_elect qHM) - (l_og 1.0 / f_loat S) / l_og 10.0) < 0.000001
+k:r_eport c1 k:a_nd c2 k:a_nd c3 k:a_nd c4

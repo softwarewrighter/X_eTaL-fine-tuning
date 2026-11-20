@@ -536,7 +536,7 @@ FM13 does.
 | 1 | mhc-plan | DONE (2026-11-15): the paper's later sections read at source; the toy timed; the five questions decided with the user; ask FM13 written with its signatures (and FM14 noted for Saga 4); the steps below confirmed; Saga 1 archived, this saga started |
 | 2 | residual-streams | DONE (2026-11-17): lesson D1, demos/residual-streams, live. Two lists a hundredth apart through 48 small layers (a block 8 -> 16 -> 8, GELU, tables fixed by a formula) with the blocks replacing the list and adding to it, at three weight scales as presets: the gap between the two after every layer (replaced: 0.09 after one layer, 0 to the last digit by layer 24; added to: 1.0 to 1.6 throughout at scale 0.2; both past 1 at 0.8), X_eTaL's chart, the run quoted at five depths; the stream state as a 4 x 8 table, the three mixing tables from the logits 2I - 1 with HC's and mHC's `H_res` and their row and column sums (3.82 and 1.0, printed); the second layer stepped through in nine stages as a Flow pipeline, HC's or mHC's table chosen by a radio, checked against the matrix products (0); ten glossary entries, four built-in words explained; a side track's lesson number is the number within its track (`lesson = 1`, shown as D1 by the catalog, `track = depth`, catalog order after the lessons); the WebAssembly factor measured at 1.1 (0.60 s against 0.66 s); seven native tests, the browser walk (372 controls); the cold read found 35 things (HC and mHC unexpanded, the gap undefined, logits, softmax, the diagonal and the exponential unexplained, the preset labels stating results, the summary claiming the unquoted, row sums and column sums conflated, a glossary sum wrong), each fixed: four more glossary entries, the list quoted as numbers, a worked line of each mixing, the totals of X and R printed by the program, the presets named by their setting. Found on the way: for the symmetric start 2I - 1 the Sinkhorn projection is the softmax table itself, so mHC's `H_res` equals `H_pre`; the page says so |
 | 3 | sinkhorn | DONE (2026-11-17): lesson D2, demos/sinkhorn, live. A positive 4 x 4 from three starts as data; one round as a Flow pipeline of two equations with row 1 worked; twenty rounds stepped through (every table and sum after each half round, X_eTaL's chart of the distances from 1, the count to a millionth: 1 round from the paper's start, 11 from a lopsided one, more than 20 from a nearly split one, where four of eight checks report FAIL: the paper's 20 is a cut, not a guarantee); the three properties checked by the Check library (largest singular value 1 by power iteration written out, FL2; the product of two; a mix of permutation tables by a greedy search over Combinatorics' 24 orderings); the Python's `sinkhorn_doubly_stochastic` beside the loop, line for line; four glossary entries; cold read |
-| 4 | gain-by-depth | lesson D3, the gain by depth, analytical: products of `H_res` across depth for HC and mHC, the paper's Amax and the Python's proxy of each, the Python's table beside the toy's, a slider on the starting logits |
+| 4 | gain-by-depth | DONE (2026-11-20): lesson D3, demos/gain-by-depth, live; HC's forward gain s^k checked at every depth (3.82^48 at the start), mHC's 1; the proxy 6.39, 13.37, 27.35 against the Python's trained 7.0, 14.4, 27.3 (within one power of ten); the slider is a shift c of every logit (HC's row sum crosses 1 between -1.5 and -1.25; mHC's table the same at every c); glossary gain, composite mapping, forward and backward gain, the proxy; cold read. Planned as: lesson D3, the gain by depth, analytical: products of `H_res` across depth for HC and mHC, the paper's Amax and the Python's proxy of each, the Python's table beside the toy's, a slider on the starting logits |
 | 5 | training-at-depth | experiment D4, the three schemes trained at 12, 24, 48 layers on the toy task, offline by X_eTaL and replayed, a short live run on the page: loss, gradient norm and both gains per step; the final losses beside the Python's |
 | 6 | dynamic-mixing | lesson D5, the paper's own input-dependent `H` (gated projection plus bias; sigmoid, 2 sigmoid, Sinkhorn of exp), the toy rerun with it |
 | 7 | mhc-compared | summary D6: the three schemes at equal depth, width and steps; the paper's and the Python's figures quoted as theirs; the X_eTaL program beside the Python, function for function |
@@ -550,6 +550,17 @@ pace, the level, the order, how much X_eTaL shows, the words); its
 steps are one page each, in the curriculum's order, each read cold
 again before it is done. Not planned further until that example is
 given.
+
+Found by the depth track's cold reads (2026-11-17 to 2026-11-20), in
+the shared shell (`shared/lesson`), so every page has them; left for
+this saga, since changing the shell mid-step changes every page:
+"How much to show" printed twice beside the mode switch; a section's
+number running into its title in the page's text ("1Two tables");
+one built-in reading for `r_/`, `r_/_1` and `r_/_2` (rows and
+columns not told apart) and for `t_able` with any function; a heat
+map's legend rounding a small scale to "0 0 0 0 0", and a signed
+scale shown for a table with no negative numbers; mathematics read
+twice by a screen reader (KaTeX's text and its markup).
 
 ## Later -- applied  [NOT PLANNED YET]
 
