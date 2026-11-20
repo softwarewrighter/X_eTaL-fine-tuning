@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/residual-streams/residual-streams.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/gain-by-depth/</h3>
+<ul>
+<li><a href="demos-gain-by-depth-gain-by-depth.xtl.html">gain-by-depth.xtl</a></li>
+</ul>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/residual-streams/</h3>
+<ul>
+<li><a href="demos-residual-streams-residual-streams.xtl.html">residual-streams.xtl</a></li>
+</ul>
+<h3>demos/sinkhorn/</h3>
+<ul>
+<li><a href="demos-sinkhorn-sinkhorn.xtl.html">sinkhorn.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Check/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">Check.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">Check.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Combinatorics/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Combinatorics-src-Combinatorics.xtl.html">Combinatorics.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Activations/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">Activations.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/NN/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-NN-src-NN.xtl.html">NN.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Data</a></li>
+<li class="item"><a href="#L">L</a></li>
+<li class="item"><a href="#D">D</a></li>
+<li class="item"><a href="#F">F</a></li>
+<li class="item"><a href="#scale">scale</a></li>
+<li class="item"><a href="#S">S</a></li>
+<li class="item"><a href="#mhc">mhc</a></li>
+<li class="item"><a href="#n1">n1</a></li>
+<li class="item"><a href="#n2">n2</a></li>
+<li class="item"><a href="#k1">k1</a></li>
+<li class="item"><a href="#k2">k2</a></li>
+<li class="item"><a href="#W1s">W1s</a></li>
+<li class="item"><a href="#W2s">W2s</a></li>
+<li class="item"><a href="#x0">x0</a></li>
+<li class="item"><a href="#gap">gap</a></li>
+<li class="item"><a href="#x1">x1</a></li>
+<li><a href="#section-2">Part 1: through 48 layers, with and without the skip</a></li>
+<li class="item"><a href="#plainSize">plainSize</a></li>
+<li class="item"><a href="#plainGap">plainGap</a></li>
+<li class="item"><a href="#skipSize">skipSize</a></li>
+<li class="item"><a href="#skipGap">skipGap</a></li>
+<li class="item"><a href="#_">_</a></li>
+<li><a href="#section-3">Part 2: four streams, and one layer of Hyper-Connections</a></li>
+<li class="item"><a href="#ones">ones</a></li>
+<li class="item"><a href="#logits">logits</a></li>
+<li class="item"><a href="#Hpre">Hpre</a></li>
+<li class="item"><a href="#Hpost">Hpost</a></li>
+<li class="item"><a href="#HresHC">HresHC</a></li>
+<li class="item"><a href="#HresM">HresM</a></li>
+<li class="item"><a href="#Hres">Hres</a></li>
+<li class="item"><a href="#X0">X0</a></li>
+<li class="item"><a href="#m0">m0</a></li>
+<li class="item"><a href="#f0">f0</a></li>
+<li class="item"><a href="#X">X</a></li>
+<li><a href="#section-4">One layer, stage by stage</a></li>
+<li class="item"><a href="#W1">W1</a></li>
+<li class="item"><a href="#W2">W2</a></li>
+<li class="item"><a href="#layer">layer</a></li>
+<li class="item"><a href="#m1">m1</a></li>
+<li class="item"><a href="#f1">f1</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/residual-streams/residual-streams.xtl</h1>
+<div class="doc">
+<p>Residual streams: why a deep network needs a skip connection, and
+what happens when there are four of them. Part 1: a list of 8
+numbers sent through 48 small layers (a block 8 -&gt; 16 -&gt; 8 with
+GELU, its weights fixed by a formula, a different table for every
+layer), once with each layer replacing the list by the block's
+output and once with each layer adding the block's output to the
+list it was given (the residual, or skip, connection); the size of
+the list after every layer, both ways. Part 2: Hyper-Connections
+(Xie and others, arXiv:2512.24880): the list widened to S = 4
+streams, a 4 x 8 table, and one layer of it as a pipeline, stage by
+stage: H_pre mixes the streams, the merge averages them, the block
+runs once on the average, H_post spreads its output back over the
+streams, H_res mixes the carried state, and the two are added. The
+mixing tables start from the logits 2 I - 1 (the Python's start);
+H_res is their exponential (HC) or its Sinkhorn-Knopp projection
+(mHC: rows and columns each summing to 1). The expressions are
+written out here (ask FM13 of X_eTaL-ML, docs/xetal-ML-asks.md).</p>
+</div>
+<p class="meta"><a href="demos-residual-streams-residual-streams.xtl.src.html">source</a> &middot; imports <code><span class="c-error">act:</span></code> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">work/xetal-ml/libs/Activations/src/Activations.xtl</a>; <code><span class="c-error">e:</span></code> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">work/xetal-libraries/libs/Equations/src/Equations.xtl</a> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">work/xetal-libraries/libs/Equations/src/Equations.xtlm</a>; <code><span class="c-error">flow:</span></code> <a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">work/xetal-ml/libs/Flow/src/Flow.xtlm</a>; <code><span class="c-error">nn:</span></code> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html">work/xetal-ml/libs/NN/src/NN.xtl</a>; <code><span class="c-error">p:</span></code> <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">work/xetal-libraries/libs/Plot/src/Plot.xtl</a></p>
+<h2 class="section" id="section-1">Data</h2>
+<div class="item" id="L">
+<h3><a href="#L">L</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L32">line 32</a></div>
+<div class="doc">
+<p>The settings: the depth L, the width D of a list, the block's inner
+width F, the scale of the block's weights (a preset: small, larger,
+too large), the number of streams S, and which H_res the pipeline
+uses (0: HC, the exponential; 1: mHC, its Sinkhorn projection).</p>
+</div>
+<pre class="code">L ← <span class="c-number">48</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#n1">n1</a>, <a href="demos-residual-streams-residual-streams.xtl.html#n2">n2</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>, <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="D">
+<h3><a href="#D">D</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L33">line 33</a></div>
+<pre class="code">D ← <span class="c-number">8</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#n1">n1</a>, <a href="demos-residual-streams-residual-streams.xtl.html#n2">n2</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>, <a href="demos-residual-streams-residual-streams.xtl.html#x0">x0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#x1">x1</a>, <a href="demos-residual-streams-residual-streams.xtl.html#m0">m0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.html#m1">m1</a></div>
+</div>
+<div class="item" id="F">
+<h3><a href="#F">F</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L34">line 34</a></div>
+<pre class="code">F ← <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#n1">n1</a>, <a href="demos-residual-streams-residual-streams.xtl.html#n2">n2</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>, <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a></div>
+</div>
+<div class="item" id="scale">
+<h3><a href="#scale">scale</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L35">line 35</a></div>
+<pre class="code">scale ← <span class="c-number">0.2</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a></div>
+</div>
+<div class="item" id="S">
+<h3><a href="#S">S</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L36">line 36</a></div>
+<pre class="code">S ← <span class="c-number">4</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#ones">ones</a>, <a href="demos-residual-streams-residual-streams.xtl.html#logits">logits</a>, <a href="demos-residual-streams-residual-streams.xtl.html#Hpost">Hpost</a>, <a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a>, <a href="demos-residual-streams-residual-streams.xtl.html#X0">X0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#m0">m0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.html#m1">m1</a></div>
+</div>
+<div class="item" id="mhc">
+<h3><a href="#mhc">mhc</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L37">line 37</a></div>
+<pre class="code">mhc ← <span class="c-number">1</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a></div>
+</div>
+<div class="item" id="n1">
+<h3><a href="#n1">n1</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L42">line 42</a></div>
+<div class="doc">
+<p>The block's weights, a different table for every layer: W1 is
+(D + 1) x F with its bias as the last row, W2 is (F + 1) x D, as
+NN's d_ense wants them; every number from one ripple, times the
+scale.</p>
+</div>
+<pre class="code">n1 ← <a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <a href="builtins.html#-2a" class="c-symbol">×</a> (<a href="demos-residual-streams-residual-streams.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#F">F</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#k1">k1</a></div>
+</div>
+<div class="item" id="n2">
+<h3><a href="#n2">n2</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L43">line 43</a></div>
+<pre class="code">n2 ← <a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <a href="builtins.html#-2a" class="c-symbol">×</a> (<a href="demos-residual-streams-residual-streams.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#k2">k2</a></div>
+</div>
+<div class="item" id="k1">
+<h3><a href="#k1">k1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L44">line 44</a></div>
+<pre class="code">k1 ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-residual-streams-residual-streams.xtl.html#n1">n1</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a></div>
+</div>
+<div class="item" id="k2">
+<h3><a href="#k2">k2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L45">line 45</a></div>
+<pre class="code">k2 ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-residual-streams-residual-streams.xtl.html#n2">n2</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a></div>
+</div>
+<div class="item" id="W1s">
+<h3><a href="#W1s">W1s</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L46">line 46</a></div>
+<pre class="code">W1s ← (<a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-residual-streams-residual-streams.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#F">F</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-residual-streams-residual-streams.xtl.html#scale">scale</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.37</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#k1">k1</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.01</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#k1">k1</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#k1">k1</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#f0">f0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a></div>
+</div>
+<div class="item" id="W2s">
+<h3><a href="#W2s">W2s</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L47">line 47</a></div>
+<pre class="code">W2s ← (<a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-residual-streams-residual-streams.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-residual-streams-residual-streams.xtl.html#scale">scale</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.29</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#k2">k2</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.013</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#k2">k2</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-residual-streams-residual-streams.xtl.html#k2">k2</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#f0">f0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a></div>
+</div>
+<div class="item" id="x0">
+<h3><a href="#x0">x0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L52">line 52</a></div>
+<div class="doc">
+<p>The list sent in, 8 numbers as one row, and a second list that
+differs from it by a hundredth in its first number: the gap between
+the two is what a layer must carry, or the output does not depend
+on the input at all.</p>
+</div>
+<pre class="code">x0 ← (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#x1">x1</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L55">demos/residual-streams/residual-streams.xtl:55</a>, <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#X0">X0</a></div>
+</div>
+<div class="item" id="gap">
+<h3><a href="#gap">gap</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L53">line 53</a></div>
+<pre class="code">gap ← <span class="c-number">0.01</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#x1">x1</a>, <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a></div>
+</div>
+<div class="item" id="x1">
+<h3><a href="#x1">x1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L54">line 54</a></div>
+<pre class="code">x1 ← <a href="demos-residual-streams-residual-streams.xtl.html#x0">x0</a> <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-residual-streams-residual-streams.xtl.html#gap">gap</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-residual-streams-residual-streams.xtl.html#D">D</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.src.html#L56">demos/residual-streams/residual-streams.xtl:56</a>, <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a></div>
+</div>
+<h2 class="section" id="section-2">Part 1: through 48 layers, with and without the skip</h2>
+<div class="item" id="plainSize">
+<h3><a href="#plainSize">plainSize</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L67">line 67</a></div>
+<div class="doc">
+<p>Without the skip each layer replaces the list by the block's
+output; with it, each layer adds the block's output to the list it
+was given. Both lists are sent through; after every layer, the size
+of the first (the square root of the sum of its squares) and the
+gap between the two divided by the gap they started with (1.0 means
+the difference survived as it was, 0 that it is gone). Four lists
+of 48 numbers: plain size, plain gap, skip size, skip gap.</p>
+</div>
+<pre class="code">(_, _, _, <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#plainGap">plainGap</a>) ← <a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <span class="c-quote">'</span>{ (k, x, xb, sizes, gaps) →
+  y ← (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> x <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  yb ← (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> xb <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  (k <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>, y, yb, sizes <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> y <a href="builtins.html#-2a" class="c-symbol">×</a> y, gaps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2a" class="c-symbol">×</a> y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-residual-streams-residual-streams.xtl.html#gap">gap</a>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<span class="c-number">1</span>, <a href="demos-residual-streams-residual-streams.xtl.html#x0">x0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#x1">x1</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L77">demos/residual-streams/residual-streams.xtl:77</a></div>
+</div>
+<div class="item" id="plainGap">
+<h3><a href="#plainGap">plainGap</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L67">line 67</a></div>
+<div class="doc">
+<p>Without the skip each layer replaces the list by the block's
+output; with it, each layer adds the block's output to the list it
+was given. Both lists are sent through; after every layer, the size
+of the first (the square root of the sum of its squares) and the
+gap between the two divided by the gap they started with (1.0 means
+the difference survived as it was, 0 that it is gone). Four lists
+of 48 numbers: plain size, plain gap, skip size, skip gap.</p>
+</div>
+<pre class="code">(_, _, _, <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#plainGap">plainGap</a>) ← <a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <span class="c-quote">'</span>{ (k, x, xb, sizes, gaps) →
+  y ← (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> x <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  yb ← (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> xb <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  (k <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>, y, yb, sizes <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> y <a href="builtins.html#-2a" class="c-symbol">×</a> y, gaps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2a" class="c-symbol">×</a> y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-residual-streams-residual-streams.xtl.html#gap">gap</a>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<span class="c-number">1</span>, <a href="demos-residual-streams-residual-streams.xtl.html#x0">x0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#x1">x1</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#plainSize">plainSize</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L78">demos/residual-streams/residual-streams.xtl:78</a>, <a href="demos-residual-streams-residual-streams.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="skipSize">
+<h3><a href="#skipSize">skipSize</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L72">line 72</a></div>
+<pre class="code">(_, _, _, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipGap">skipGap</a>) ← <a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <span class="c-quote">'</span>{ (k, x, xb, sizes, gaps) →
+  y ← x <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> x <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  yb ← xb <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> xb <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  (k <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>, y, yb, sizes <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> y <a href="builtins.html#-2a" class="c-symbol">×</a> y, gaps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2a" class="c-symbol">×</a> y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-residual-streams-residual-streams.xtl.html#gap">gap</a>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<span class="c-number">1</span>, <a href="demos-residual-streams-residual-streams.xtl.html#x0">x0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#x1">x1</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L79">demos/residual-streams/residual-streams.xtl:79</a></div>
+</div>
+<div class="item" id="skipGap">
+<h3><a href="#skipGap">skipGap</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L72">line 72</a></div>
+<pre class="code">(_, _, _, <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.html#skipGap">skipGap</a>) ← <a href="demos-residual-streams-residual-streams.xtl.html#L">L</a> <span class="c-quote">'</span>{ (k, x, xb, sizes, gaps) →
+  y ← x <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> x <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  yb ← xb <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> xb <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a>
+  (k <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>, y, yb, sizes <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> y <a href="builtins.html#-2a" class="c-symbol">×</a> y, gaps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2a" class="c-symbol">×</a> y <a href="builtins.html#-2d" class="c-symbol">−</a> yb) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-residual-streams-residual-streams.xtl.html#gap">gap</a>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<span class="c-number">1</span>, <a href="demos-residual-streams-residual-streams.xtl.html#x0">x0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#x1">x1</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#skipSize">skipSize</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L80">demos/residual-streams/residual-streams.xtl:80</a>, <a href="demos-residual-streams-residual-streams.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="_">
+<h3><a href="#_">_</a> <span class="type">: Char</span></h3>
+<div class="meta">function &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L83">line 83</a></div>
+<div class="doc">
+<p>The gaps as one chart, a layer a point, on a log scale (a gap of 0
+is drawn at the floor, 10^-12: a log scale has no 0).</p>
+</div>
+<pre class="code">_ ← (<span class="c-string">&quot;The gap after each layer&quot;</span> <span class="c-string">&quot;layer&quot;</span> <span class="c-string">&quot;log10 of the gap share&quot;</span> <span class="c-string">&quot;replaced&quot;</span> <span class="c-string">&quot;added to&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ k → k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> (<span class="c-number">2</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#L">L</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> (<a href="demos-residual-streams-residual-streams.xtl.html#plainGap">plainGap</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#skipGap">skipGap</a>) <a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <span class="c-number">1e-12</span>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">2</span></pre>
+</div>
+<h2 class="section" id="section-3">Part 2: four streams, and one layer of Hyper-Connections</h2>
+<div class="item" id="ones">
+<h3><a href="#ones">ones</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L94">line 94</a></div>
+<div class="doc">
+<p>The mixing tables start from the logits 2 I - 1: 1 on the diagonal,
+-1 off it. H_pre and H_post are their row softmax (NN's): each row
+sums to 1. H_res is their exponential (HC: e on the diagonal, 1/e
+off it, every row summing to 3.82) or, for mHC, that exponential
+projected by 20 steps of Sinkhorn-Knopp: every row divided by its
+sum, then every column by its sum, 20 times over, until rows and
+columns each sum to 1 (the paper's eq. 9).</p>
+</div>
+<pre class="code">ones ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#HresM">HresM</a></div>
+</div>
+<div class="item" id="logits">
+<h3><a href="#logits">logits</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L95">line 95</a></div>
+<pre class="code">logits ← (<span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a>) <span class="c-symbol">'</span><a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#Hpre">Hpre</a>, <a href="demos-residual-streams-residual-streams.xtl.html#Hpost">Hpost</a>, <a href="demos-residual-streams-residual-streams.xtl.html#HresHC">HresHC</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L101">demos/residual-streams/residual-streams.xtl:101</a></div>
+</div>
+<div class="item" id="Hpre">
+<h3><a href="#Hpre">Hpre</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L96">line 96</a></div>
+<pre class="code">Hpre ← <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.s_oftmax" class="c-libfunc">ⁿⁿs̲oftmax</a> <a href="demos-residual-streams-residual-streams.xtl.html#logits">logits</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.src.html#L102">demos/residual-streams/residual-streams.xtl:102</a>, <a href="demos-residual-streams-residual-streams.xtl.html#m0">m0</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L129">demos/residual-streams/residual-streams.xtl:129</a>, <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.html#m1">m1</a></div>
+</div>
+<div class="item" id="Hpost">
+<h3><a href="#Hpost">Hpost</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L97">line 97</a></div>
+<pre class="code">Hpost ← <a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.s_oftmax" class="c-libfunc">ⁿⁿs̲oftmax</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-residual-streams-residual-streams.xtl.html#logits">logits</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.src.html#L103">demos/residual-streams/residual-streams.xtl:103</a>, <a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L159">demos/residual-streams/residual-streams.xtl:159</a></div>
+</div>
+<div class="item" id="HresHC">
+<h3><a href="#HresHC">HresHC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L98">line 98</a></div>
+<pre class="code">HresHC ← <a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> <a href="demos-residual-streams-residual-streams.xtl.html#logits">logits</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#HresM">HresM</a>, <a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L104">demos/residual-streams/residual-streams.xtl:104</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L109">demos/residual-streams/residual-streams.xtl:109</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L110">demos/residual-streams/residual-streams.xtl:110</a></div>
+</div>
+<div class="item" id="HresM">
+<h3><a href="#HresM">HresM</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L99">line 99</a></div>
+<pre class="code">HresM ← <span class="c-number">20</span> <span class="c-quote">'</span>{ M → R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-residual-streams-residual-streams.xtl.html#ones">ones</a>◆ R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-residual-streams-residual-streams.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> <a href="demos-residual-streams-residual-streams.xtl.html#HresHC">HresHC</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L105">demos/residual-streams/residual-streams.xtl:105</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L111">demos/residual-streams/residual-streams.xtl:111</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L112">demos/residual-streams/residual-streams.xtl:112</a></div>
+</div>
+<div class="item" id="Hres">
+<h3><a href="#Hres">Hres</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L100">line 100</a></div>
+<pre class="code">Hres ← (<a href="demos-residual-streams-residual-streams.xtl.html#mhc">mhc</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> (<span class="c-number">2</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-residual-streams-residual-streams.xtl.html#HresHC">HresHC</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-residual-streams-residual-streams.xtl.html#HresM">HresM</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L130">demos/residual-streams/residual-streams.xtl:130</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L132">demos/residual-streams/residual-streams.xtl:132</a>, <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L159">demos/residual-streams/residual-streams.xtl:159</a></div>
+</div>
+<div class="item" id="X0">
+<h3><a href="#X0">X0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L118">line 118</a></div>
+<div class="doc">
+<p>The stream state: the list repeated over the four streams, a
+stream a row (the paper's and the Python's start). The first layer
+is run outside the pipeline: all four streams start the same, and
+H_post hands most of the block's output to the first, so after it
+the streams differ, which is the state the pipeline below mixes.</p>
+</div>
+<pre class="code">X0 ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#r_eplicate" class="c-builtin">r̲eplicate</a> <a href="demos-residual-streams-residual-streams.xtl.html#x0">x0</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#m0">m0</a>, <a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L122">demos/residual-streams/residual-streams.xtl:122</a></div>
+</div>
+<div class="item" id="m0">
+<h3><a href="#m0">m0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L119">line 119</a></div>
+<pre class="code">m0 ← (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> (<a href="demos-residual-streams-residual-streams.xtl.html#Hpre">Hpre</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-residual-streams-residual-streams.xtl.html#X0">X0</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#f0">f0</a></div>
+</div>
+<div class="item" id="f0">
+<h3><a href="#f0">f0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L120">line 120</a></div>
+<pre class="code">f0 ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> <a href="demos-residual-streams-residual-streams.xtl.html#m0">m0</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#X">X</a></div>
+</div>
+<div class="item" id="X">
+<h3><a href="#X">X</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L121">line 121</a></div>
+<pre class="code">X ← (<a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-residual-streams-residual-streams.xtl.html#X0">X0</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-residual-streams-residual-streams.xtl.html#Hpost">Hpost</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-residual-streams-residual-streams.xtl.html#f0">f0</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.src.html#L123">demos/residual-streams/residual-streams.xtl:123</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L129">demos/residual-streams/residual-streams.xtl:129</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L130">demos/residual-streams/residual-streams.xtl:130</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L131">demos/residual-streams/residual-streams.xtl:131</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L132">demos/residual-streams/residual-streams.xtl:132</a>, <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.html#m1">m1</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L159">demos/residual-streams/residual-streams.xtl:159</a></div>
+</div>
+<h2 class="section" id="section-4">One layer, stage by stage</h2>
+<div class="item" id="W1">
+<h3><a href="#W1">W1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L142">line 142</a></div>
+<div class="doc">
+<p>The second layer as a pipeline: P, the streams mixed by H_pre (a
+row of P is a weighted sum of the rows of X); m, the merge, the
+mean of the streams; z and h, the block's inner layer and its GELU;
+f, the block's output, a list of 8; Fs, that list handed to each
+stream by H_post's weights; R, the carried state mixed by H_res;
+X2, the new state, R + Fs.</p>
+</div>
+<pre class="code">W1 ← <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1s">W1s</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.html#f1">f1</a></div>
+</div>
+<div class="item" id="W2">
+<h3><a href="#W2">W2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L143">line 143</a></div>
+<pre class="code">W2 ← <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2s">W2s</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#layer">layer</a>, <a href="demos-residual-streams-residual-streams.xtl.html#f1">f1</a></div>
+</div>
+<div class="item" id="layer">
+<h3><a href="#layer">layer</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L144">line 144</a></div>
+<pre class="code">layer ← @ <span class="c-macro">ᶠˡᵒʷp̲ipe&lt;</span> <span class="c-string">c#&quot;</span></pre>
+<details class="expansion"><summary><code><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.p_ipe-3c" class="c-macro">ᶠˡᵒʷp̲ipe&lt;</a></code> expands to</summary><pre class="code">({ @ →
+  X ← X
+  P ← <span class="c-string">&quot;P[s,j] | S D&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;sum t:=0..3 | Hpre[s,t] * X[t,j]&quot;</span>
+  m ← <span class="c-string">&quot;m[j] | D&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;(sum s:=0..3 | P[s,j]) / 4&quot;</span>
+  z ← <span class="c-string">&quot;z[k] | F&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;(sum j:=0..7 | m[j] * W1[j,k]) + W1[8,k]&quot;</span>
+  h ← <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> z
+  f ← <span class="c-string">&quot;f[j] | D&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;(sum k:=0..15 | h[k] * W2[k,j]) + W2[16,j]&quot;</span>
+  Fs ← <span class="c-string">&quot;Fs[s,j] | S D&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;Hpost[s] * f[j]&quot;</span>
+  R ← <span class="c-string">&quot;R[s,j] | S D&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;sum t:=0..3 | Hres[s,t] * X[t,j]&quot;</span>
+  X2 ← <span class="c-string">&quot;X2[s,j] | S D&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;R[s,j] + Fs[s,j]&quot;</span>
+  X2
+} @)</pre><details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g3:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g2:c̲heck</span> ← { (A, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g1:r̲ank</span> ← { (A, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? A
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+  }
+  g4:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>
+  <span class="c-libfunc">g5:g̲rid</span> ← { k → g4:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g4:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g4:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g4:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (({ @ →
+  g6:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..3&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">3</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g7:g̲rid</span> ← { k → g6:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g6:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g6:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g6:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g1:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#Hpre">Hpre</a>, <span class="c-string">&quot;Hpre&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;Hpre[s,t]&quot;</span>)) <span class="c-libfunc">g3:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#Hpre">Hpre</a>, <span class="c-string">&quot;Hpre&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;t&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#Hpre">Hpre</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#Hpre">Hpre</a>, <span class="c-string">&quot;Hpre&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;s&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g1:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <span class="c-string">&quot;X&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;X[t,j]&quot;</span>)) <span class="c-libfunc">g3:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <span class="c-string">&quot;X&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <span class="c-string">&quot;X&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;t&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">3</span>)))))))
+} @))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g10:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g9:c̲heck</span> ← { (A, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g8:r̲ank</span> ← { (A, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? A
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+  }
+  g11:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>
+  <span class="c-libfunc">g12:g̲rid</span> ← { k → g11:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g11:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g11:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g11:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((({ @ →
+  g13:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..3&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">3</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g14:g̲rid</span> ← { k → g13:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g13:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g13:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> g13:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (
+    ((<span class="c-libfunc">g8:r̲ank</span> (P, <span class="c-string">&quot;P&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;P[s,j]&quot;</span>)) <span class="c-libfunc">g10:a̲t</span> ((
+      ((P, <span class="c-string">&quot;P&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">1</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> P) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((P, <span class="c-string">&quot;P&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;s&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">2</span>))))))
+} @) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">4</span>))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g17:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g16:c̲heck</span> ← { (A, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g15:r̲ank</span> ← { (A, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? A
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+  }
+  g18:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#F">F</a>
+  <span class="c-libfunc">g19:g̲rid</span> ← { k → g18:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g18:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g18:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g18:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((({ @ →
+  g20:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#F">F</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..7&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">7</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g21:g̲rid</span> ← { k → g20:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g20:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g20:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> g20:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g15:r̲ank</span> (m, <span class="c-string">&quot;m&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;m[j]&quot;</span>)) <span class="c-libfunc">g17:a̲t</span> (
+      ((m, <span class="c-string">&quot;m&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g21:g̲rid</span> <span class="c-number">2</span>)))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g15:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>, <span class="c-string">&quot;W1&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;W1[j,k]&quot;</span>)) <span class="c-libfunc">g17:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>, <span class="c-string">&quot;W1&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g21:g̲rid</span> <span class="c-number">1</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>, <span class="c-string">&quot;W1&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g21:g̲rid</span> <span class="c-number">2</span>)))))))
+} @) <a href="builtins.html#-2b" class="c-symbol">+</a> 
+    ((<span class="c-libfunc">g15:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>, <span class="c-string">&quot;W1&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;W1[8,k]&quot;</span>)) <span class="c-libfunc">g17:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>, <span class="c-string">&quot;W1&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g19:g̲rid</span> <span class="c-number">1</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>, <span class="c-string">&quot;W1&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;8&quot;</span>) <span class="c-libfunc">g16:c̲heck</span> <span class="c-number">8</span>))))))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g24:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g23:c̲heck</span> ← { (A, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g22:r̲ank</span> ← { (A, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? A
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+  }
+  g25:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>
+  <span class="c-libfunc">g26:g̲rid</span> ← { k → g25:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g25:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g25:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g25:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((({ @ →
+  g27:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..15&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">15</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g28:g̲rid</span> ← { k → g27:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g27:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g27:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> g27:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g22:r̲ank</span> (h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;h[k]&quot;</span>)) <span class="c-libfunc">g24:a̲t</span> (
+      ((h, <span class="c-string">&quot;h&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g28:g̲rid</span> <span class="c-number">2</span>)))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g22:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>, <span class="c-string">&quot;W2&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;W2[k,j]&quot;</span>)) <span class="c-libfunc">g24:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>, <span class="c-string">&quot;W2&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g28:g̲rid</span> <span class="c-number">1</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>, <span class="c-string">&quot;W2&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;k&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g28:g̲rid</span> <span class="c-number">2</span>)))))))
+} @) <a href="builtins.html#-2b" class="c-symbol">+</a> 
+    ((<span class="c-libfunc">g22:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>, <span class="c-string">&quot;W2&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;W2[16,j]&quot;</span>)) <span class="c-libfunc">g24:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>, <span class="c-string">&quot;W2&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g26:g̲rid</span> <span class="c-number">1</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a>, <span class="c-string">&quot;W2&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;16&quot;</span>) <span class="c-libfunc">g23:c̲heck</span> <span class="c-number">16</span>))))))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g31:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g30:c̲heck</span> ← { (A, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g29:r̲ank</span> ← { (A, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? A
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+  }
+  g32:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>
+  <span class="c-libfunc">g33:g̲rid</span> ← { k → g32:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g32:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g32:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g32:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g29:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#Hpost">Hpost</a>, <span class="c-string">&quot;Hpost&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;Hpost[s]&quot;</span>)) <span class="c-libfunc">g31:a̲t</span> (
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#Hpost">Hpost</a>, <span class="c-string">&quot;Hpost&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;s&quot;</span>) <span class="c-libfunc">g30:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g33:g̲rid</span> <span class="c-number">1</span>)))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g29:r̲ank</span> (f, <span class="c-string">&quot;f&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;f[j]&quot;</span>)) <span class="c-libfunc">g31:a̲t</span> (
+      ((f, <span class="c-string">&quot;f&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g30:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g33:g̲rid</span> <span class="c-number">2</span>))))))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g36:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g35:c̲heck</span> ← { (A, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g34:r̲ank</span> ← { (A, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? A
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+  }
+  g37:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>
+  <span class="c-libfunc">g38:g̲rid</span> ← { k → g37:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g37:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g37:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g37:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (({ @ →
+  g39:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..3&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">3</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g40:g̲rid</span> ← { k → g39:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g39:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g39:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g39:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g34:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a>, <span class="c-string">&quot;Hres&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;Hres[s,t]&quot;</span>)) <span class="c-libfunc">g36:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a>, <span class="c-string">&quot;Hres&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;t&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#Hres">Hres</a>, <span class="c-string">&quot;Hres&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;s&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+    ((<span class="c-libfunc">g34:r̲ank</span> (<a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <span class="c-string">&quot;X&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;X[t,j]&quot;</span>)) <span class="c-libfunc">g36:a̲t</span> ((
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <span class="c-string">&quot;X&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>, <span class="c-string">&quot;X&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;t&quot;</span>) <span class="c-libfunc">g35:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g40:g̲rid</span> <span class="c-number">3</span>)))))))
+} @))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g43:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g42:c̲heck</span> ← { (A, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g41:r̲ank</span> ← { (A, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? A
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> A
+  }
+  g44:grid ← <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>
+  <span class="c-libfunc">g45:g̲rid</span> ← { k → g44:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g44:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g44:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g44:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g41:r̲ank</span> (R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;R[s,j]&quot;</span>)) <span class="c-libfunc">g43:a̲t</span> ((
+      ((R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g45:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> R) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;s&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g45:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2b" class="c-symbol">+</a> 
+    ((<span class="c-libfunc">g41:r̲ank</span> (Fs, <span class="c-string">&quot;Fs&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;Fs[s,j]&quot;</span>)) <span class="c-libfunc">g43:a̲t</span> ((
+      ((Fs, <span class="c-string">&quot;Fs&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g45:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> Fs) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((Fs, <span class="c-string">&quot;Fs&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;s&quot;</span>) <span class="c-libfunc">g42:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g45:g̲rid</span> <span class="c-number">1</span>)))))))
+} @))</pre></details>
+</details>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.src.html#L154">demos/residual-streams/residual-streams.xtl:154</a>, <a href="demos-residual-streams-residual-streams.xtl.src.html#L159">demos/residual-streams/residual-streams.xtl:159</a></div>
+</div>
+<div class="item" id="m1">
+<h3><a href="#m1">m1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L157">line 157</a></div>
+<div class="doc">
+<p>The same layer by matrix products, as the loop of part 1 would
+write it: how far the pipeline's result is from it (0 to rounding).</p>
+</div>
+<pre class="code">m1 ← (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-residual-streams-residual-streams.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> (<a href="demos-residual-streams-residual-streams.xtl.html#Hpre">Hpre</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-residual-streams-residual-streams.xtl.html#X">X</a>)) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-residual-streams-residual-streams.xtl.html#S">S</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.html#f1">f1</a></div>
+</div>
+<div class="item" id="f1">
+<h3><a href="#f1">f1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-residual-streams-residual-streams.xtl.src.html#L158">line 158</a></div>
+<pre class="code">f1 ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> <a href="demos-residual-streams-residual-streams.xtl.html#m1">m1</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> <a href="demos-residual-streams-residual-streams.xtl.html#W1">W1</a>) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> <a href="demos-residual-streams-residual-streams.xtl.html#W2">W2</a></pre>
+<div class="uses">Used in: <a href="demos-residual-streams-residual-streams.xtl.src.html#L159">demos/residual-streams/residual-streams.xtl:159</a></div>
+</div>
+</main>
+</body>
+</html>
