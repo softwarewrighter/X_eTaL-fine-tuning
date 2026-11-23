@@ -49,6 +49,10 @@ demos:
 new-demo slug title:
     scripts/new-demo.sh "$1" "$2"
 
+# Run a demo's offline trainer, demos/SLUG/train/train.sh (its records go to demos/SLUG/data/): just train training-at-depth
+train slug *runs: xetal
+    demos/{{slug}}/train/train.sh {{runs}}
+
 # Run a demo's program (default SLUG.xtl) with the pinned xetal: just run lora-hello
 run slug file="":
     @scripts/run-demo.sh "$1" ${2:+"$2"}

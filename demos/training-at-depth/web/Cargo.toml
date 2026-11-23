@@ -1,0 +1,16 @@
+[package]
+name = "training-at-depth-web"
+description = "Training at depth: the plain skip, HC and mHC trained on a tiny task at 12, 24 and 48 layers, the gradients written out and checked, the long runs trained offline by X_eTaL and replayed, a short run computed on the page"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget", "Document", "Window"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

@@ -32,3 +32,6 @@ i_ndexOf	where each item on its right is first found among the items on its left
 t_ally	how many items (rows, for a table) a value has
 m_od	the remainder of dividing by the number on its left: 5 m_od 1 2 3 4 5 6 is 1 2 3 4 0 1
 ^	one number raised to the power of another: 3.82 ^ 2 is 3.82 times 3.82
+d_iv	whole-number division, the remainder dropped: 13 d_iv 6 is 2
+n_umbers	the numbers written in a text, read as numbers: n_umbers "1 2.5 3" is 1, 2.5 and 3
+[]N_GET	the text of a file, by its name: here a record an offline run wrote

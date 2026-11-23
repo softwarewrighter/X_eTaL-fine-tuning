@@ -1,0 +1,5 @@
+# A preset of the training-at-depth experiment: a scheme, as its two settings.
+title = "HC"
+setup = "four streams, the carried state mixed by the exponential of its logits"
+streams = 4
+sink = 0.0

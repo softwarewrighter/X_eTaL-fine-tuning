@@ -1,0 +1,44 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: 2 checks, all passed
+found: ok: the gradient written out agrees with central differences
+found: The plain skip did not learn at this depth
+found: html: <svg
+cross-reference links: 0, dead: none
+at ?mode=explorer&scheme=hc&depth=24:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: All three learned at this depth.
+found: four streams, the carried state mixed by the exponential of its logits
+cross-reference links: 0, dead: none
+at ?mode=advanced&scheme=baseline&depth=12:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: The training program
+found: What made the records
+cross-reference links: 51, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 840, without a spoken name: none
+keyboard: 838 controls, reached by Tab: 838
+keyboard: Enter on a word opened "Hyper-Connections"
+touch: a tap on a word opened its explanation

@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "training-at-depth"   # the directory name, demos/<slug>/
+title = "Training at depth"
+summary = "Does the bound on the gain matter once a model is trained? The plain skip, HC and mHC trained with Adam on a tiny task (each of 16 tokens, its successor the target) at 12, 24 and 48 layers, 800 steps each from one start, the gradient written out layer by layer (the Sinkhorn rounds included) and checked against central differences. At 12 and 24 layers all three learn; at 48 the plain skip does not, HC and mHC do, HC with its gain near 10^27.5 throughout; no NaN event in any run. The long runs trained offline by the same program and replayed, a short run computed on the page beginning exactly as its record; the Python's final losses beside, the difference named."
+concepts = ["training written out", "a gradient checked", "offline runs replayed", "measured beside reported"]
+status = "live"              # draft | live | deferred
+order = 140                  # position in the catalog (lower first): the depth track after the lessons
+track = "depth"              # start | lora | variants | subspaces | alternatives | edge | applied | depth (docs/plan.md, Tracks)
+lesson = 4                   # its number in its track (the depth track's D4; docs/plan.md, the curriculum)
+needs = ["FM13"]             # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "dLres := A * dA + (1.0 - sink) * dH"
+why = "One line joins the two schemes' gradients: through the Sinkhorn rounds for mHC, straight through for HC, then through the exponential."

@@ -1,0 +1,32 @@
+#!/usr/bin/env xetal
+## The offline runs of training-at-depth replayed: the records the
+## trainer wrote (train/train.sh, data/SCHEME-L.txt: a row a step of
+## the loss, the gradient size, the forward and backward gains of the
+## composite H_res, its proxy, and 1 for a NaN or infinite step) read
+## back for one depth, the three schemes side by side as charts, and
+## the figures the page quotes. Nothing is trained here; every number
+## was computed by training-at-depth.xtl, offline.
+
+"p:" u_se< "Plot"
+
+## The depth (12, 24 or 48) and the steps each run took.
+depth := "48"
+steps := 800
+base := (steps c_at 6) r_eshape n_umbers []N_GET "data/baseline-" c_at depth c_at ".txt"
+hc := (steps c_at 6) r_eshape n_umbers []N_GET "data/hc-" c_at depth c_at ".txt"
+mhc := (steps c_at 6) r_eshape n_umbers []N_GET "data/mhc-" c_at depth c_at ".txt"
+## Column k of the three records, a scheme a row, in powers of ten.
+## Four charts: the loss, the gradient size, the forward gain, the
+## proxy (already a power of ten).
+_ := ("Loss" "step" "log10 of the loss" "plain skip" "HC" "mHC") p:c_hart! '{ s -> (l_og 1 s_elect_2 d_isclose s) / l_og 10.0 } m_ap (e_nclose base) c_at (e_nclose hc) c_at e_nclose mhc
+_ := ("Gradient size" "step" "log10 of the gradient size" "plain skip" "HC" "mHC") p:c_hart! '{ s -> (l_og 2 s_elect_2 d_isclose s) / l_og 10.0 } m_ap (e_nclose base) c_at (e_nclose hc) c_at e_nclose mhc
+_ := ("Forward gain of the composite" "step" "log10 of the forward gain" "plain skip" "HC" "mHC") p:c_hart! '{ s -> (l_og 3 s_elect_2 d_isclose s) / l_og 10.0 } m_ap (e_nclose base) c_at (e_nclose hc) c_at e_nclose mhc
+_ := ("Proxy of the composite" "step" "log10 of the largest number" "plain skip" "HC" "mHC") p:c_hart! '{ s -> 5 s_elect_2 d_isclose s } m_ap (e_nclose base) c_at (e_nclose hc) c_at e_nclose mhc
+## The figures: for the plain skip, HC and mHC, the loss at the first
+## and the last step, the smallest loss, the gradient size at the last
+## step, the forward gain and the proxy at the last step, and the
+## count of NaN or infinite steps.
+(1 s_elect base) c_at (1 s_elect hc) c_at 1 s_elect mhc
+(steps s_elect base) c_at (steps s_elect hc) c_at steps s_elect mhc
+('m_in r_/ 1 s_elect_2 base) c_at ('m_in r_/ 1 s_elect_2 hc) c_at 'm_in r_/ 1 s_elect_2 mhc
+('+ r_/ 6 s_elect_2 base) c_at ('+ r_/ 6 s_elect_2 hc) c_at '+ r_/ 6 s_elect_2 mhc

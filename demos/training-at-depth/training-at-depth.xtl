@@ -1,0 +1,215 @@
+#!/usr/bin/env xetal
+## Training at depth: the plain skip, Hyper-Connections (HC) and mHC
+## (Xie and others, arXiv:2512.24880) trained on one tiny task, with
+## Adam, from the same start. The task is the Python
+## re-implementation's (mHC-poc), made tiny: each of 16 tokens, its
+## successor the target (token + 1, 16 wrapping round to 1). A token
+## is looked up in an embedding (16 x 8), sent through L layers, the
+## streams averaged and scaled to a size of 1 (RMS), and turned into
+## 16 scores by an unembedding (8 x 16): softmax and cross-entropy.
+## Each layer is lesson D1's: H_pre mixes the S streams, their average
+## goes through a block 8 -> 16 -> 8 with GELU, H_post hands its output
+## back, H_res mixes the carried state. Every weight is trained: the
+## blocks, the embeddings, and each layer's three tables of logits.
+## The scheme is two settings: S = 1 and the projection on is the
+## plain skip (every table is the number 1); S = 4 with H_res the
+## exponential of its logits is HC; with its Sinkhorn projection, mHC.
+## The gradient is written out, layer by layer, the Sinkhorn rounds
+## included, and checked against central differences in the same
+## program; FM13 of X_eTaL-ML (hc:l_ayer, hc:b_ackTop, hc:b_ackBottom,
+## hc:s_inkhornBack) is the ask (docs/xetal-ML-asks.md).
+
+"act:" u_se< "Activations"
+"k:" u_se< "Check"
+"mx:" u_se< "Matrix"
+"nn:" u_se< "NN"
+"op:" u_se< "Optim"
+"p:" u_se< "Plot"
+
+### Settings
+
+## The scheme (S streams; sink 1.0 projects H_res by Sinkhorn-Knopp,
+## 0.0 leaves it the exponential), the depth L, the steps, Adam's
+## rate, the paper's Sinkhorn rounds, and how many gradient entries to
+## check against central differences (0 to 9; the offline runs check
+## none, since the page's run already has).
+S := 4
+sink := 1.0
+L := 12
+steps := 50
+lr := 0.01
+tmax := 20
+checks := 9
+## The vocabulary, the width, the block's inner width, the batch (the
+## whole vocabulary, once each).
+V := 16
+D := 8
+F := 16
+B := 16
+ones := S r_eshape 1.0
+Xin := V nn:o_neHot r_ange V
+Y := V nn:o_neHot 1 + (r_ange V) m_od V
+
+### The start
+
+## Every weight in one list, theta: for each layer, W1 ((D + 1) x F,
+## its bias the last row), W2 ((F + 1) x D), the logits of H_pre (S x
+## S), of H_post (S) and of H_res (S x S); then the embedding E (V x
+## D) and the unembedding U (D x V). The blocks and the embeddings
+## from one ripple, as in lesson D1; the logits 2 I - 1 as the paper's
+## Python starts them (H_post's, the first row of that).
+P := ((D + 1) * F) + ((F + 1) * D) + (2 * S * S) + S
+hw := ((D + 1) * F) + (F + 1) * D
+I2 := (2.0 * f_loat (r_ange S) '= t_able r_ange S) - 1.0
+k1 := f_loat r_ange L * hw
+k2 := f_loat r_ange 2 * V * D
+blocks := (L c_at hw) r_eshape 0.3 * s_in 0.37 * k1 + 0.01 * k1 * k1
+hs := (L c_at (2 * S * S) + S) r_eshape (r_avel I2) c_at (1 s_elect I2) c_at r_avel I2
+theta0 := (r_avel blocks c_at_2 hs) c_at 0.5 * c_os 0.29 * k2 + 0.013 * k2 * k2
+N := t_ally theta0
+
+### The jobs
+
+## A job is a start, a number of steps and a rate. The first job is
+## the training run; the others are for the gradient check: at a point
+## near the start (theta0 nudged by a ripple, so that no gradient is 0
+## by symmetry), one step at rate 0 for the gradient, and one each at
+## that point moved by h, up and down, in each entry checked.
+h := 0.000001
+thc := theta0 + 0.05 * s_in 1.3 * f_loat r_ange N
+## The entries: in layer 1, one of each block table; in layer 2, the
+## first logit of H_pre and of H_post and the middle one of H_res, and
+## one of the first block table; in the last layer, one of the second
+## block table; one of the embedding and one of the unembedding.
+mix := (hw + 1) c_at (hw + (S * S) + 1) c_at hw + (S * S) + S + 1 + (S * S) d_iv 2
+idx := checks t_ake (3 150 c_at P + mix) c_at (P + 20) c_at ((P * L - 1) + 200) c_at ((P * L) + 5) c_at (P * L) + (V * D) + 7
+up := '{ i -> (thc + h * f_loat (r_ange N) = i, 1, 0.0) } m_ap idx
+down := '{ i -> (thc - h * f_loat (r_ange N) = i, 1, 0.0) } m_ap idx
+jobs := ('{ i -> (theta0, steps, lr) } m_ap 1) c_at ('{ i -> (thc, 1, 0.0) } m_ap 1) c_at up c_at down
+
+### One training step, written out
+
+## Each step: the forward pass layer by layer, keeping the state each
+## layer was given and the product of the H_res tables (the composite,
+## lesson D3); the loss; the backward pass from the top down, each
+## layer recomputed from the state it was given; Adam (Optim's). The
+## record of a step: the loss, the size of the gradient (the square
+## root of the sum of its squares), the composite's forward and
+## backward gain and its proxy (lesson D3), and 1 if any number of the
+## loss or the gradient is not a number (NaN) or infinite, else 0.
+runs := '{ jb -> (th0, n, rate) := d_isclose jb
+  (_, _, _, rec, gN) := n '{ (th, m1, v1, rec, gp) ->
+    lay := (L c_at P) r_eshape (L * P) t_ake th
+    E := (V c_at D) r_eshape (V * D) t_ake (L * P) d_rop th
+    U := (D c_at V) r_eshape (V * D) d_rop (L * P) d_rop th
+    ## Forward. The state X is S rows (the streams) of B x D numbers
+    ## (each example's list side by side): every stream starts as the
+    ## embedding.
+    X0 := S r_eplicate (1 c_at B * D) r_eshape r_avel Xin '+ '* i_nner E
+    (_, XL, Xs, Hp) := L '{ (l, X, Xs, Hp) ->
+      w := l s_elect lay
+      W1 := ((D + 1) c_at F) r_eshape ((D + 1) * F) t_ake w
+      W2 := ((F + 1) c_at D) r_eshape ((F + 1) * D) t_ake ((D + 1) * F) d_rop w
+      Hpre := nn:s_oftmax (S c_at S) r_eshape (S * S) t_ake hw d_rop w
+      hpost := r_avel nn:s_oftmax (1 c_at S) r_eshape S t_ake (hw + S * S) d_rop w
+      A := e_xp (S c_at S) r_eshape (hw + S + S * S) d_rop w
+      Hres := (sink * tmax '{ M -> R := M / ('+ r_/_2 M) '* t_able ones; R / ones '* t_able '+ r_/_1 R } p_ower A) + (1.0 - sink) * A
+      m := (B c_at D) r_eshape ((1 c_at S) r_eshape ('+ r_/_1 Hpre) / f_loat S) '+ '* i_nner X
+      f := r_avel (act:g_elu m nn:d_ense W1) nn:d_ense W2
+      (l + 1, (Hres '+ '* i_nner X) + hpost '* t_able f, Xs c_at X, Hres '+ '* i_nner Hp)
+    } p_ower (1, X0, (0 c_at B * D) r_eshape 0.0, f_loat mx:i_dentity S)
+    ## The head: the streams averaged, scaled to size 1, scored, and
+    ## the loss.
+    y := (B c_at D) r_eshape ('+ r_/_1 XL) / f_loat S
+    r := s_qrt 0.00000001 + ('+ r_/_2 y * y) / f_loat D
+    yn := y / r '* t_able D r_eshape 1.0
+    pr := nn:s_oftmax yn '+ '* i_nner U
+    loss := Y nn:c_rossEntropy pr
+    ## Backward through the head: the scores, U, the scaling, the
+    ## average (a quarter of the gradient to each stream).
+    dz := (pr - Y) / f_loat B
+    dU := (o_\ yn) '+ '* i_nner dz
+    dyn := dz '+ '* i_nner o_\ U
+    dy := (dyn - yn * ('+ r_/_2 dyn * yn) '* t_able D r_eshape 1.0 / f_loat D) / r '* t_able D r_eshape 1.0
+    ## Backward through the layers, the last first: G is the gradient
+    ## of the loss by the state a layer handed on; each layer gives the
+    ## gradient by its own weights and by the state it was given.
+    (_, G0, gl) := L '{ (l, G, gl) ->
+      X := (S c_at B * D) r_eshape (S * B * D) t_ake ((l - 1) * S * B * D) d_rop r_avel Xs
+      w := l s_elect lay
+      W1 := ((D + 1) c_at F) r_eshape ((D + 1) * F) t_ake w
+      W2 := ((F + 1) c_at D) r_eshape ((F + 1) * D) t_ake ((D + 1) * F) d_rop w
+      Hpre := nn:s_oftmax (S c_at S) r_eshape (S * S) t_ake hw d_rop w
+      hpost := r_avel nn:s_oftmax (1 c_at S) r_eshape S t_ake (hw + S * S) d_rop w
+      A := e_xp (S c_at S) r_eshape (hw + S + S * S) d_rop w
+      ## The Sinkhorn rounds again, keeping each round's start M and
+      ## its rows-normalized R for the way back.
+      (Hm, Ms, Rs) := tmax '{ (M, Ms, Rs) -> R := M / ('+ r_/_2 M) '* t_able ones; (R / ones '* t_able '+ r_/_1 R, Ms c_at r_avel M, Rs c_at r_avel R) } p_ower (A, 0 r_eshape 0.0, 0 r_eshape 0.0)
+      Hres := (sink * Hm) + (1.0 - sink) * A
+      a := (1 c_at S) r_eshape ('+ r_/_1 Hpre) / f_loat S
+      m := (B c_at D) r_eshape a '+ '* i_nner X
+      z := m nn:d_ense W1
+      h := act:g_elu z
+      f := r_avel h nn:d_ense W2
+      ## X2 = Hres X + hpost f: by Hres, by hpost, by f.
+      dH := G '+ '* i_nner o_\ X
+      dhpost := G '+ '* i_nner f
+      df := (B c_at D) r_eshape hpost '+ '* i_nner G
+      ## The block: f = h W2 + b2, h = GELU(z), z = m W1 + b1.
+      dW2 := ((o_\ h) '+ '* i_nner df) c_at (1 c_at D) r_eshape '+ r_/_1 df
+      dzz := (df '+ '* i_nner o_\ (F c_at D) r_eshape (F * D) t_ake r_avel W2) * act:d_gelu z
+      dW1 := ((o_\ m) '+ '* i_nner dzz) c_at (1 c_at F) r_eshape '+ r_/_1 dzz
+      ## m = a X, a the column means of Hpre: by a, then by Hpre.
+      dm := (1 c_at B * D) r_eshape r_avel dzz '+ '* i_nner o_\ (D c_at F) r_eshape (D * F) t_ake r_avel W1
+      da := dm '+ '* i_nner o_\ X
+      dHpre := S r_eplicate da / f_loat S
+      ## Through the softmaxes to the logits of H_pre and H_post.
+      dLpre := Hpre * dHpre - ('+ r_/_2 Hpre * dHpre) '* t_able ones
+      dlpost := hpost * dhpost - '+ r_/ hpost * dhpost
+      ## Through the Sinkhorn rounds, the last first (each division
+      ## undone in turn), then through the exponential.
+      (_, dA) := tmax '{ (k, dC) ->
+        M := (S c_at S) r_eshape (S * S) t_ake ((k - 1) * S * S) d_rop Ms
+        R := (S c_at S) r_eshape (S * S) t_ake ((k - 1) * S * S) d_rop Rs
+        C := R / ones '* t_able '+ r_/_1 R
+        dR := (dC - ones '* t_able '+ r_/_1 dC * C) / ones '* t_able '+ r_/_1 R
+        (k - 1, (dR - ('+ r_/_2 dR * R) '* t_able ones) / ('+ r_/_2 M) '* t_able ones) } p_ower (tmax, sink * dH)
+      dLres := A * dA + (1.0 - sink) * dH
+      (l - 1, ((o_\ Hres) '+ '* i_nner G) + (o_\ a) '+ '* i_nner dm, (r_avel dW1) c_at (r_avel dW2) c_at (r_avel dLpre) c_at dlpost c_at (r_avel dLres) c_at gl)
+    } p_ower (L, S r_eplicate (1 c_at B * D) r_eshape r_avel dy / f_loat S, 0 r_eshape 0.0)
+    ## The embedding: every stream started as it.
+    dE := (o_\ Xin) '+ '* i_nner (B c_at D) r_eshape '+ r_/_1 G0
+    g := gl c_at (r_avel dE) c_at r_avel dU
+    ## Adam's step, and the record.
+    (th2, m2, v2) := (rate, f_loat 1 + (t_ally rec) d_iv 6) op:a_dam (th, m1, v1, g)
+    bad := f_loat 0 < '+ r_/ (g c_at loss) != g c_at loss
+    (th2, m2, v2, rec c_at loss c_at (s_qrt '+ r_/ g * g) c_at ('m_ax r_/ a_bs '+ r_/_2 Hp) c_at ('m_ax r_/ a_bs '+ r_/_1 Hp) c_at ((l_og 'm_ax r_/ r_avel a_bs Hp) / l_og 10.0) c_at bad, g)
+  } p_ower (th0, 0.0 * th0, 0.0 * th0, 0 r_eshape 0.0, 0.0 * th0)
+  (rec, gN) } m_ap jobs
+
+### The run
+
+## The training run's record, a row a step: loss, gradient size,
+## forward gain, backward gain, proxy, NaN or infinite. Then its loss
+## and gradient size as one chart, in powers of ten.
+(record, _) := d_isclose 1 s_elect runs
+rows := (steps c_at 6) r_eshape record
+r_avel rows
+_ := ("Loss and gradient size, each step" "step" "log10" "loss" "gradient size") p:c_hart! '{ k -> (l_og k s_elect_2 rows) / l_og 10.0 } m_ap 1 2
+'+ r_/ 6 s_elect_2 rows
+
+### Checked
+
+## The gradient written out against central differences: for each
+## entry checked, (loss(up) - loss(down)) / 2h beside the written-out
+## gradient's entry. Then the checks, each within a thousandth of the
+## larger of the two (or 1e-8).
+(_, g0) := d_isclose 2 s_elect runs
+(_, firsts) := (t_ally runs) '{ (k, ls) -> (rk, _) := d_isclose k s_elect runs; (k + 1, ls c_at 1 s_elect rk) } p_ower (1, 0 r_eshape 0.0)
+written := idx s_elect g0
+central := ((checks t_ake 2 d_rop firsts) - checks t_ake (2 + checks) d_rop firsts) / 2.0 * h
+written
+central
+c1 := "the gradient written out agrees with central differences" k:t_est k:t_rue (a_bs written - central) <= 0.00000001 m_ax 0.001 * a_bs central
+c2 := "no step's loss or gradient was NaN or infinite" k:t_est k:t_rue 0.0 = '+ r_/ 6 s_elect_2 rows
+k:r_eport c1 k:a_nd c2

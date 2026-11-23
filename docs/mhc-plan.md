@@ -190,6 +190,26 @@ vocabulary of 16); the paper's scale and its MoE models; the dynamic
 arithmetic; the paper's gain measured over the tokens of a real
 sequence (the toy has no sequence: its Amax is over its batch).
 
+## Measured in step 5 (2026-11-22)
+
+The toy as built: lesson D1's layer (a bare MLP block; H_post a
+softmax of four logits; the streams averaged, then scaled to size 1
+(RMS) before the unembedding, in place of the Python's final
+LayerNorm), every weight trained with Adam at rate 0.01, 800 steps,
+float64. The cost: about 7 ms per layer per training step natively,
+not the planned 2.4 (the Sinkhorn rounds recomputed and
+differentiated in every layer), so 278 s a run at 48 layers and 8.6
+minutes for the nine on three cores; the page's run of 50 steps at
+12 layers takes about 6 s in Chrome. Final losses (guessing evenly,
+2.77): 12 layers 0.0028, 0.0029, 0.0029; 24 layers 0.0030, 0.0029,
+0.0027; 48 layers 2.7726, 0.0027, 0.0027 (plain skip, HC, mHC). The
+plain skip at 48 layers has its gradient swing in the first two
+hundred steps and then fall to 3e-7. No NaN event in any run. HC's
+composite gain stays near the analytical 10^27.5 through training and
+does not stop it learning, unlike the Python's run (5.54 at 48
+layers); not explained here (candidates named on the page: 32-bit
+numbers there, the blocks' own skips and LayerNorms, the task).
+
 ## Decided (with the user, 2026-11-15)
 
 1. **Placement**: the mHC saga runs now, before Saga 2 (the user,
@@ -259,7 +279,7 @@ out, and the timing program above is the shape of them.
 | 2 | residual-streams | DONE (2026-11-17), live: lesson D1, "why a skip connection, and what if there were four?" The ordinary residual on a tiny block; the signal through 12, 24, 48 random layers with and without it (measured, forward only); then the stream state of HC as a 4 x 8 table, `H_pre`, the merge, the block, `H_post'`, `H_res` stepped through as a Flow pipeline with every number shown; the paper's identity-mapping property named: what a product of `H_res` across depth must keep. Measures the page's X_eTaL time against the command line's (the WebAssembly factor), for step 5's budget |
 | 3 | sinkhorn | DONE (2026-11-17), live: lesson D2: "a matrix whose rows and columns each sum to 1". A positive 4 x 4; one row normalization, one column normalization, shown; the iteration stepped through, the row and column sums converging (measured, with the count of iterations to a tolerance); the three properties checked in the program (largest singular value at most 1, FL2 or written out; closure; the convex combination of permutations, as an aside); the Python's `sinkhorn_doubly_stochastic` (`mlx/src/mhc.py`; the plan first named it `make_doubly_stochastic`) beside the X_eTaL `p_ower` loop, line for line. Measured: one round from `exp(2 I - 1)`, 11 rounds to a millionth from a lopsided start, more than 20 from a nearly split one (2.5e-4 off at round 20) |
 | 4 | gain-by-depth | DONE (2026-11-20), live: lesson D3: the gain by depth, analytical. `exp(2 I - 1)` and its Sinkhorn projection; products across 12, 24, 48 layers; two measures of each product, named: the paper's Amax (largest row sum: the `3.82^L` line for HC, exactly 1 for mHC) and the Python's proxy (largest entry: 10^6.39, 10^13.37, 10^27.35 against 10^-0.602, the limit 1/S); the Python's table (7.0, 14.4, 27.3 against -0.5, -0.6, -0.6) set beside, the differences being what training moved; a slider on the starting logits (how far from the identity before HC's gain is unbounded: at every setting, by the arithmetic). Built with the slider as a shift c of every logit: HC's row sum is 3.82 e^c, so its gain grows above c = -1.34 and fades below it, while mHC's table is the same at every c; moving the diagonal or the off-diagonal alone keeps HC's row sum above 1 at every setting |
-| 5 | training-at-depth | experiment D4: the three schemes trained at depths 12, 24, 48 on the toy task (incrementing tokens, vocabulary 16, MLP block) with Adam, from the same seed (ask FM13 or its workaround): trained offline by X_eTaL (`just train`, the record committed as data with its seed, steps and X_eTaL commit) and replayed; a short live run (12 layers, about 100 steps) computed on the page; the loss, the gradient norm, both gains per step as X_eTaL's charts; the final losses in a table beside the Python's, each marked measured here or the Python's; NaN events counted; what the toy reproduces of the Python's result and what it cannot (the task, the scale) |
+| 5 | training-at-depth | DONE (2026-11-22), live: experiment D4: the three schemes trained at depths 12, 24, 48 on the toy task (incrementing tokens, vocabulary 16, MLP block) with Adam, from the same seed (ask FM13 or its workaround): trained offline by X_eTaL (`just train`, the record committed as data with its seed, steps and X_eTaL commit) and replayed; a short live run (12 layers, about 100 steps) computed on the page; the loss, the gradient norm, both gains per step as X_eTaL's charts; the final losses in a table beside the Python's, each marked measured here or the Python's; NaN events counted; what the toy reproduces of the Python's result and what it cannot (the task, the scale) |
 | 6 | dynamic-mixing | lesson D5: the paper's own `H`: a gated projection of the layer's input plus a static bias (`alpha` from 0.01), sigmoid for `H_pre`, `2 sigmoid` for `H_post`, Sinkhorn of `exp` for `H_res`; the gradient through the projection; the toy of step 5 rerun with it (offline, replayed); what changes (measured) |
 | 7 | mhc-compared | summary D6: baseline, HC, mHC at equal depth, equal width and equal steps, with the paper's and the Python's reported figures quoted as theirs beside the toy's; what the toy showed (the bound is arithmetic; training at depth follows it on the toy task), what it did not (attention, a sequence, scale, memory cost); the X_eTaL program beside the Python, function for function |
 

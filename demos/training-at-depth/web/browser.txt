@@ -1,0 +1,13 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+2 checks, all passed
+ok: the gradient written out agrees with central differences
+The plain skip did not learn at this depth
+html: <svg
+# HC at 24 layers, Explorer.
+@ ?mode=explorer&scheme=hc&depth=24
+All three learned at this depth.
+four streams, the carried state mixed by the exponential of its logits
+# Advanced: the programs and the trainer.
+@ ?mode=advanced&scheme=baseline&depth=12
+The training program
+What made the records

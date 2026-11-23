@@ -1,0 +1,3 @@
+command = '"$XETAL" run --seed 1 --draw "$XETAL_DRAW" replay.xtl'
+exit_code = 0
+desc = "training-at-depth: replay.xtl run by the pinned xetal CLI"

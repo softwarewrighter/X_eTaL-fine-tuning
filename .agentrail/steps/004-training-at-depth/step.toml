@@ -1,6 +1,6 @@
 number = 4
 slug = "training-at-depth"
-status = "pending"
+status = "in-progress"
 description = "Step training-at-depth (docs/mhc-plan.md step 5 and Timed; docs/plan.md Saga ..."
 role = "production"
 context_files = []
