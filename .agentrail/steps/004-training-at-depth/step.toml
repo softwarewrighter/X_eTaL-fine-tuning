@@ -1,8 +1,9 @@
 number = 4
 slug = "training-at-depth"
-status = "in-progress"
+status = "completed"
 description = "Step training-at-depth (docs/mhc-plan.md step 5 and Timed; docs/plan.md Saga ..."
 role = "production"
 context_files = []
 created_at = "2026-11-15T20:38:28"
-commits = []
+completed_at = "2026-11-22T21:05:18"
+commits = ["59793c2f302f11b6b5fadbc1cac4df7ee9a2ecdc"]
