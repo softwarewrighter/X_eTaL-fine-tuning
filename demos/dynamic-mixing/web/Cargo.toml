@@ -1,0 +1,16 @@
+[package]
+name = "dynamic-mixing-web"
+description = "Dynamic mixing: the mHC paper's own mixing tables, made afresh for each input from a normalized, projected, gated stream state, stepped through on two inputs, with the gradient through the projection, the normalization and the Sinkhorn rounds written out and checked"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget", "Document", "Window"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

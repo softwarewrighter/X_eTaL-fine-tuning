@@ -1,0 +1,163 @@
+#!/usr/bin/env xetal
+## Dynamic mixing: the paper's own mixing tables (Xie and others,
+## arXiv:2512.24880, eq. 7 to 9), made afresh for every input. The
+## stream state X (S = 4 streams of C = 8) is flattened to one list of
+## 32 and scaled to a root-mean-square of 1 (RMS normalization); one
+## projection phi (32 x 24, the paper's fused form, its eq. 14) gives
+## 4 + 4 + 16 numbers; each group is multiplied by a gating factor
+## alpha (the paper starts them at 0.01) and a bias is added; then
+## H_pre = sigmoid, H_post = 2 sigmoid, H_res = Sinkhorn-Knopp of the
+## exponential, 20 rounds. The layer is the paper's eq. 3: the block's
+## input is H_pre X (a weighted sum of the streams), and the new state
+## is H_res X + H_post' f. Part 1: two inputs, their tables, at the
+## gating factor set; the stages of the first input are part 1's
+## printout, which the page steps through. Part 3: the
+## gradient of a probe of the new state by alpha, phi, the biases and
+## the input, written out (through the Sinkhorn rounds, the sigmoids,
+## the projection and the normalization) and checked against central
+## differences. Written out here: ask FM13 of X_eTaL-ML (hc:d_ynamic).
+
+"act:" u_se< "Activations"
+"k:" u_se< "Check"
+"nn:" u_se< "NN"
+
+### Data
+
+## The gating factor (a setting: the paper starts it at 0.01), the
+## streams, the width of a stream, the block's inner width, the rounds.
+alpha := 0.01
+S := 4
+C := 8
+F := 16
+tmax := 20
+ones := S r_eshape 1.0
+## Two stream states, two inputs a layer could be given, each 4 x 8
+## from a ripple (the four streams unlike one another, as after a
+## layer); a probe T to measure the new state by (the loss of part 3 is
+## the sum of the new state's numbers times T's).
+kx := f_loat r_ange S * C
+Xa := (S c_at C) r_eshape c_os 0.3 * kx
+Xb := (S c_at C) r_eshape s_in 0.7 + 0.45 * kx
+T := (S c_at C) r_eshape 0.1 * c_os 1.1 * kx
+## The projection phi (32 x 24: H_pre's 4 columns, H_post's 4, H_res's
+## 16) from one ripple; the biases: the paper states none, so the
+## Python's static start: 0 for H_pre and H_post (sigmoid 0.5, 2
+## sigmoid 1), 2 I - 1 for H_res; the block's two tables as lesson D1's.
+kp := f_loat r_ange (S * C) * (2 * S) + S * S
+phi := ((S * C) c_at (2 * S) + S * S) r_eshape 0.5 * s_in 0.53 * kp + 0.007 * kp * kp
+bpre := S r_eshape 0.0
+bpost := S r_eshape 0.0
+bres := (2.0 * f_loat (r_ange S) '= t_able r_ange S) - 1.0
+k1 := f_loat r_ange (C + 1) * F
+k2 := f_loat r_ange (F + 1) * C
+W1 := ((C + 1) c_at F) r_eshape 0.3 * s_in 0.37 * k1 + 0.01 * k1 * k1
+W2 := ((F + 1) c_at C) r_eshape 0.3 * c_os 0.29 * k2 + 0.013 * k2 * k2
+
+### The layer, for any start
+
+## One lambda for every use (a lambda can be applied only where it is
+## written): given the three gating factors, phi, the three biases and
+## the input, all in one list, it gives the stages of the layer, the
+## probe, and the gradient of the probe by every number of the list.
+## The list: alpha_pre, alpha_post, alpha_res; phi (768); b_pre (4),
+## b_post (4), b_res (16); X (32).
+NP := 3 + ((S * C) * (2 * S) + S * S) + (2 * S) + (S * S) + S * C
+pack := '{ Xb -> (alpha c_at alpha c_at alpha) c_at (r_avel phi) c_at bpre c_at bpost c_at (r_avel bres) c_at r_avel d_isclose Xb } m_ap (e_nclose Xa) c_at e_nclose Xb
+## The jobs: the two inputs; then the first input's list moved by h,
+## up and down, in each entry the check looks at (the three gating
+## factors, a number of phi in H_pre's columns and one in H_res's, a
+## bias of each kind, two numbers of the input).
+h := 0.000001
+idx := 1 2 3 101 258 772 778 781 796 816
+pa := d_isclose 1 s_elect pack
+up := '{ i -> pa + h * f_loat (r_ange NP) = i } m_ap idx
+down := '{ i -> pa - h * f_loat (r_ange NP) = i } m_ap idx
+jobs := pack c_at up c_at down
+outs := '{ pb -> p := d_isclose pb
+  (ap, aq, ar) := (1 s_elect p, 2 s_elect p, 3 s_elect p)
+  ph := ((S * C) c_at (2 * S) + S * S) r_eshape ((S * C) * (2 * S) + S * S) t_ake 3 d_rop p
+  q := (3 + (S * C) * (2 * S) + S * S) d_rop p
+  (bp, bq, br) := (S t_ake q, S t_ake S d_rop q, (S c_at S) r_eshape (S * S) t_ake (2 * S) d_rop q)
+  X := (S c_at C) r_eshape (S * C) t_ake ((2 * S) + S * S) d_rop q
+  ## Forward: flatten, normalize, project, gate, bias, squash.
+  xv := r_avel X
+  r := s_qrt ('+ r_/ xv * xv) / f_loat S * C
+  xn := xv / r
+  pj := xn '+ '* i_nner ph
+  hp := bp + ap * S t_ake pj
+  hq := bq + aq * S t_ake S d_rop pj
+  hr := br + ar * (S c_at S) r_eshape (2 * S) d_rop pj
+  Hpre := act:s_igmoid hp
+  Hpost := 2.0 * act:s_igmoid hq
+  A := e_xp hr
+  (Hres, Ms, Rs) := tmax '{ (M, Ms, Rs) -> R := M / ('+ r_/_2 M) '* t_able ones; (R / ones '* t_able '+ r_/_1 R, Ms c_at r_avel M, Rs c_at r_avel R) } p_ower (A, 0 r_eshape 0.0, 0 r_eshape 0.0)
+  ## The layer: the block's input, the block, the new state, the probe.
+  u := (1 c_at C) r_eshape Hpre '+ '* i_nner X
+  z := u nn:d_ense W1
+  f := r_avel (act:g_elu z) nn:d_ense W2
+  X2 := (Hres '+ '* i_nner X) + Hpost '* t_able f
+  probe := '+ r_/ r_avel X2 * T
+  ## Backward, from the probe: by the new state it is T.
+  dHres := T '+ '* i_nner o_\ X
+  dHpost := T '+ '* i_nner f
+  df := Hpost '+ '* i_nner T
+  du := (((1 c_at C) r_eshape df) '+ '* i_nner o_\ (F c_at C) r_eshape (F * C) t_ake r_avel W2) * act:d_gelu z
+  dpre := r_avel du '+ '* i_nner o_\ (C c_at F) r_eshape (C * F) t_ake r_avel W1
+  dHpre := X '+ '* i_nner dpre
+  ## Through the sigmoids, and the Sinkhorn rounds (lesson D4's way
+  ## back) and the exponential.
+  dhp := dHpre * act:d_sigmoid hp
+  dhq := 2.0 * dHpost * act:d_sigmoid hq
+  (_, dA) := tmax '{ (k, dC) ->
+    M := (S c_at S) r_eshape (S * S) t_ake ((k - 1) * S * S) d_rop Ms
+    R := (S c_at S) r_eshape (S * S) t_ake ((k - 1) * S * S) d_rop Rs
+    Cn := R / ones '* t_able '+ r_/_1 R
+    dR := (dC - ones '* t_able '+ r_/_1 dC * Cn) / ones '* t_able '+ r_/_1 R
+    (k - 1, (dR - ('+ r_/_2 dR * R) '* t_able ones) / ('+ r_/_2 M) '* t_able ones) } p_ower (tmax, dHres)
+  dhr := r_avel A * dA
+  ## Through the gates, the biases and the projection to the
+  ## normalized list, then through the normalization to the input.
+  dpj := (ap * dhp) c_at (aq * dhq) c_at ar * dhr
+  dxn := ph '+ '* i_nner dpj
+  dxv := (dxn - xn * ('+ r_/ dxn * xn) / f_loat S * C) / r
+  dX := (S c_at C) r_eshape (r_avel (o_\ Hres) '+ '* i_nner T) + (r_avel Hpre '* t_able dpre) + dxv
+  grad := ('+ r_/ dhp * S t_ake pj) c_at ('+ r_/ dhq * S t_ake S d_rop pj) c_at ('+ r_/ dhr * (2 * S) d_rop pj) c_at (r_avel xn '* t_able dpj) c_at dhp c_at dhq c_at dhr c_at r_avel dX
+  (xn c_at pj, Hpre c_at Hpost c_at (r_avel Hres) c_at (r_avel u) c_at f c_at r_avel X2, probe, grad) } m_ap jobs
+
+### Part 1: two inputs, their tables
+
+## For each input: the normalized list and the projection (32 + 24),
+## then H_pre (4), H_post (4), H_res (16), the block's input (8), its
+## output (8) and the new state (32).
+(sa, va, qa, ga) := d_isclose 1 s_elect outs
+(sb, vb, qb, gb) := d_isclose 2 s_elect outs
+r_avel Xa
+r_avel Xb
+sa
+va
+sb
+vb
+## How far the two inputs' tables are apart, at the most, in each: the
+## mixing depends on the input by this much at this gating factor.
+'m_ax r_/ a_bs (S t_ake va) - S t_ake vb
+'m_ax r_/ a_bs (S t_ake S d_rop va) - S t_ake S d_rop vb
+'m_ax r_/ a_bs ((S * S) t_ake (2 * S) d_rop va) - (S * S) t_ake (2 * S) d_rop vb
+## H_res's rows and columns for the first input: 1 to within a
+## millionth when twenty rounds are enough (the check below looks at
+## both inputs).
+'+ r_/_2 (S c_at S) r_eshape (S * S) t_ake (2 * S) d_rop va
+'+ r_/_1 (S c_at S) r_eshape (S * S) t_ake (2 * S) d_rop va
+
+### Part 3: the gradient, checked
+
+## The written-out gradient at the entries checked, then the central
+## differences (probe up minus probe down, over 2h); then the check.
+n := t_ally idx
+(_, central) := n '{ (k, cs) -> (_, _, pu, _) := d_isclose (2 + k) s_elect outs; (_, _, pd, _) := d_isclose (2 + n + k) s_elect outs; (k + 1, cs c_at (pu - pd) / 2.0 * h) } p_ower (1, 0 r_eshape 0.0)
+written := idx s_elect ga
+written
+central
+c1 := "the gradient written out agrees with central differences" k:t_est k:t_rue (a_bs written - central) <= 0.00000001 m_ax 0.001 * a_bs central
+sums := '{ vv -> Hr := (S c_at S) r_eshape (S * S) t_ake (2 * S) d_rop d_isclose vv; ('+ r_/_2 Hr) c_at '+ r_/_1 Hr } m_ap (e_nclose va) c_at e_nclose vb
+c2 := "H_res's rows and columns sum to 1 for both inputs" k:t_est k:t_rue 0.000001 > 'm_ax r_/ a_bs 1.0 - (d_isclose 1 s_elect sums) c_at d_isclose 2 s_elect sums
+k:r_eport c1 k:a_nd c2

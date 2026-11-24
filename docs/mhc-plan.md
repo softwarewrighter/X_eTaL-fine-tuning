@@ -210,6 +210,21 @@ does not stop it learning, unlike the Python's run (5.54 at 48
 layers); not explained here (candidates named on the page: 32-bit
 numbers there, the blocks' own skips and LayerNorms, the task).
 
+## Read again at source in step 6 (2026-11-23)
+
+H_pre and H_post are rows of n (1 x n), H_res is n x n (eq. 3: the
+block's input H_pre x_l, the new state H_res x_l + H_post' F). Eq. 7:
+the stream state flattened to 1 x nC, RMSNorm, then alpha (x' phi) + b
+for each, phi_pre and phi_post nC x n, phi_res nC x n^2 reshaped by
+mat(); the fused form (eq. 14 to 16) is one phi of nC x (n^2 + 2n),
+the division by the norm moved after the product. Eq. 8: sigmoid,
+2 sigmoid, Sinkhorn-Knopp. Eq. 9: M(0) = exp, T_r(T_c(...)), t_max 20.
+Not stated: the starting biases, why 2, which alpha table 5's 0.01 is
+(lesson D5 uses it for all three), the order of mat(), a learnable
+RMSNorm gain (said to be absorbed into phi). Eq. 15 has no epsilon
+though table 5 lists 1e-20. Eq. 5 (the original HC) has tanh in place
+of the sigmoids and no Sinkhorn.
+
 ## Decided (with the user, 2026-11-15)
 
 1. **Placement**: the mHC saga runs now, before Saga 2 (the user,
@@ -280,7 +295,8 @@ out, and the timing program above is the shape of them.
 | 3 | sinkhorn | DONE (2026-11-17), live: lesson D2: "a matrix whose rows and columns each sum to 1". A positive 4 x 4; one row normalization, one column normalization, shown; the iteration stepped through, the row and column sums converging (measured, with the count of iterations to a tolerance); the three properties checked in the program (largest singular value at most 1, FL2 or written out; closure; the convex combination of permutations, as an aside); the Python's `sinkhorn_doubly_stochastic` (`mlx/src/mhc.py`; the plan first named it `make_doubly_stochastic`) beside the X_eTaL `p_ower` loop, line for line. Measured: one round from `exp(2 I - 1)`, 11 rounds to a millionth from a lopsided start, more than 20 from a nearly split one (2.5e-4 off at round 20) |
 | 4 | gain-by-depth | DONE (2026-11-20), live: lesson D3: the gain by depth, analytical. `exp(2 I - 1)` and its Sinkhorn projection; products across 12, 24, 48 layers; two measures of each product, named: the paper's Amax (largest row sum: the `3.82^L` line for HC, exactly 1 for mHC) and the Python's proxy (largest entry: 10^6.39, 10^13.37, 10^27.35 against 10^-0.602, the limit 1/S); the Python's table (7.0, 14.4, 27.3 against -0.5, -0.6, -0.6) set beside, the differences being what training moved; a slider on the starting logits (how far from the identity before HC's gain is unbounded: at every setting, by the arithmetic). Built with the slider as a shift c of every logit: HC's row sum is 3.82 e^c, so its gain grows above c = -1.34 and fades below it, while mHC's table is the same at every c; moving the diagonal or the off-diagonal alone keeps HC's row sum above 1 at every setting |
 | 5 | training-at-depth | DONE (2026-11-22), live: experiment D4: the three schemes trained at depths 12, 24, 48 on the toy task (incrementing tokens, vocabulary 16, MLP block) with Adam, from the same seed (ask FM13 or its workaround): trained offline by X_eTaL (`just train`, the record committed as data with its seed, steps and X_eTaL commit) and replayed; a short live run (12 layers, about 100 steps) computed on the page; the loss, the gradient norm, both gains per step as X_eTaL's charts; the final losses in a table beside the Python's, each marked measured here or the Python's; NaN events counted; what the toy reproduces of the Python's result and what it cannot (the task, the scale) |
-| 6 | dynamic-mixing | lesson D5: the paper's own `H`: a gated projection of the layer's input plus a static bias (`alpha` from 0.01), sigmoid for `H_pre`, `2 sigmoid` for `H_post`, Sinkhorn of `exp` for `H_res`; the gradient through the projection; the toy of step 5 rerun with it (offline, replayed); what changes (measured) |
+| 6 | dynamic-mixing | DONE (2026-11-23), live, without the training rerun (split off below, BLOCKED on FM13): lesson D5: the paper's own `H`: a gated projection of the layer's input plus a static bias (`alpha` from 0.01), sigmoid for `H_pre`, `2 sigmoid` for `H_post`, Sinkhorn of `exp` for `H_res`; the gradient through the projection; the toy of step 5 rerun with it (offline, replayed); what changes (measured) |
+| 6a | dynamic-training | BLOCKED on FM13 (reserved in the saga, 2026-11-23): the toy of step 5 rerun with the dynamic H, offline and replayed. Split from step 6 because the batched backward pass (a table per token per layer, the normalization and projection added to step 5's ~40 lines) and the cost (several times step 5's 8.6 minutes) are past what reads as a page's program (rule 3) |
 | 7 | mhc-compared | summary D6: baseline, HC, mHC at equal depth, equal width and equal steps, with the paper's and the Python's reported figures quoted as theirs beside the toy's; what the toy showed (the bound is arithmetic; training at depth follows it on the toy task), what it did not (attention, a sequence, scale, memory cost); the X_eTaL program beside the Python, function for function |
 
 Asks: FM13 (X_eTaL-ML, `docs/xetal-ML-asks.md`, signatures written

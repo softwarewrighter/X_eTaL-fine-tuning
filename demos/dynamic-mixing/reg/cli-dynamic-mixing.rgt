@@ -1,0 +1,3 @@
+command = '"$XETAL" run --seed 1 --draw "$XETAL_DRAW" dynamic-mixing.xtl'
+exit_code = 0
+desc = "dynamic-mixing: dynamic-mixing.xtl run by the pinned xetal CLI"

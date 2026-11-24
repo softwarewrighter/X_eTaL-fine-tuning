@@ -1,6 +1,6 @@
 number = 5
 slug = "dynamic-mixing"
-status = "pending"
+status = "in-progress"
 description = "Step dynamic-mixing (docs/mhc-plan.md step 6 and 'What the paper does'; docs/..."
 role = "production"
 context_files = []

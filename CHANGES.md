@@ -11,6 +11,10 @@ documentation, `plan` saga planning and reordering, `release`
 milestone release, `chore` agentrail bookkeeping (step complete, saga
 archive), `pin` a move of the X_eTaL-ML pin.
 
+## 2026-11-23
+
+- `demo` Dynamic mixing, lesson D5 of the depth track (step dynamic-mixing): demos/dynamic-mixing, live. The paper's eq. 3, 5 and 7 to 9 read again at source (recorded in docs/mhc-plan.md: H_pre and H_post rows of n, the fused projection of eq. 14, what the paper leaves unstated). One dynamic layer: the stream state flattened and RMS-normalized, one projection (32 x 24), a gating factor and a bias per table, sigmoid, twice a sigmoid, Sinkhorn of the exponential; two inputs through it, their tables side by side, a slider on the gating factor (0: the static tables; 0.01: apart by 0.010, 0.020, 0.0055; at 1 and 3 twenty Sinkhorn rounds fall short for one input, which the check reports), the first input in nine stages, and the gradient of a probe through every stage written out and checked against central differences on ten numbers (agreement about 1e-9 at every setting). Glossary: dynamic mixing, gating factor, RMS normalization, bias, sigmoid. Four native tests; CLI and browser baselines blessed (new). Cold read: 24 findings, the page's fixed (the H_res check now covers both inputs as its name says). Scope: training with dynamic tables split off as step dynamic-training, reserved and BLOCKED on FM13 (rule 3: a table set per input per layer, batched, is past a readable program); the ask marked blocker. README, the plan (curriculum D5b, the step rows), mhc-plan, FM13
+
 ## 2026-11-22
 
 - `chore` saga step training-at-depth closed

@@ -1,0 +1,53 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: Stage 1 of 9, the stream state.
+found: 2 checks, all passed
+found: ok: the gradient written out agrees with central differences
+found: the twenty rounds reached it
+cross-reference links: 0, dead: none
+at ?mode=explorer&alpha=1&stage=4:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: At a gating factor of 0 the two inputs make exactly the same tables
+found: Stage 4 of 9, H_pre.
+cross-reference links: 0, dead: none
+at ?mode=advanced&alpha=5&stage=9:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: 2 checks, 1 FAILED
+found: twenty rounds of Sinkhorn-Knopp are not enough
+found: The library functions the program uses
+cross-reference links: 39, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 590, without a spoken name: none
+heat maps: 9, with a legend and a scale note: 9
+sliders: 1, in a label that shows the value: 1
+keyboard: 586 controls, reached by Tab: 586
+keyboard: Enter on a word opened "mixing table"
+keyboard: Next moved "Stage 1 of 9" to "Stage 2 of 9", Back returned
+keyboard: an arrow moved the inspector to "input A, row 1, column 2: 0.825336 (positive, so r"
+touch: a tap on a cell read "input A, row 1, column 4: 0.362358 (positive, so r"
+touch: a tap on a word opened its explanation
+touch: a tap on Next moved "Stage 1 of 9" to "Stage 2 of 9"
+replay: play, pause and step left every number at "Stage 2 of 9" the same (4372 characters)
+replay: 1 sliders moved a notch and back, every number the same after: 1

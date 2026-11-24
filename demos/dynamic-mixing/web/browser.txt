@@ -1,0 +1,14 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+Stage 1 of 9, the stream state.
+2 checks, all passed
+ok: the gradient written out agrees with central differences
+the twenty rounds reached it
+# The gating factor at 0: the static tables.
+@ ?mode=explorer&alpha=1&stage=4
+At a gating factor of 0 the two inputs make exactly the same tables
+Stage 4 of 9, H_pre.
+# At 1: one input's H_res not reached in twenty rounds.
+@ ?mode=advanced&alpha=5&stage=9
+2 checks, 1 FAILED
+twenty rounds of Sinkhorn-Knopp are not enough
+The library functions the program uses

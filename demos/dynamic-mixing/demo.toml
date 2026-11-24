@@ -1,0 +1,13 @@
+# One demo's description: read by scripts/demos.py for the tests, the
+# README's demo list and the live catalog (pages/index.html).
+slug = "dynamic-mixing"      # the directory name, demos/<slug>/
+title = "Dynamic mixing"
+summary = "In the mHC paper the tables that mix the streams are made afresh from each input (its eq. 7 to 9): the stream state flattened and RMS-normalized, one projection, a gating factor and a bias per table, then sigmoid for H_pre, twice a sigmoid for H_post, Sinkhorn-Knopp of the exponential for H_res. Two inputs sent through one layer and their tables set side by side, a slider on the gating factor (at 0 the tables are the earlier pages' static ones; at the paper's 0.01 they differ in the second or third decimal; at 1 twenty Sinkhorn rounds no longer reach a doubly stochastic table for one input), the first input stepped through in nine stages, and the gradient worked out by hand through every stage and checked against central differences. Training with dynamic tables waits on the library (ask FM13)."
+concepts = ["tables made from the input", "a gating factor", "a gradient through a normalization", "what waits, and why"]
+status = "live"              # draft | live | deferred
+order = 150                  # position in the catalog (lower first): the depth track after the lessons
+track = "depth"              # start | lora | variants | subspaces | alternatives | edge | applied | depth (docs/plan.md, Tracks)
+lesson = 5                   # its number in its track (the depth track's D5; docs/plan.md, the curriculum)
+needs = ["FM13"]             # asks (docs/xetal-ML-asks.md, docs/xetal-libraries-asks.md) it waits on or works around
+line = "Hpost := 2.0 * act:s_igmoid hq"
+why = "The paper's H_post in one line: twice a sigmoid of the gated projection plus its bias, each weight between 0 and 2."
