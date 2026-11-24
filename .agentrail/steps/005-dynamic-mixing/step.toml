@@ -1,8 +1,9 @@
 number = 5
 slug = "dynamic-mixing"
-status = "in-progress"
+status = "completed"
 description = "Step dynamic-mixing (docs/mhc-plan.md step 6 and 'What the paper does'; docs/..."
 role = "production"
 context_files = []
 created_at = "2026-11-15T20:38:28"
-commits = []
+completed_at = "2026-11-23T19:58:16"
+commits = ["7bc20589ac92dbd52124ab79b206bca9407f630b"]
