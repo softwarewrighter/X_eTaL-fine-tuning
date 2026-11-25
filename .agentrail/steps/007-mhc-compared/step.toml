@@ -1,8 +1,9 @@
 number = 7
 slug = "mhc-compared"
-status = "in-progress"
+status = "completed"
 description = "Step mhc-compared (docs/mhc-plan.md step 7; docs/plan.md Saga mhc, summary D6..."
 role = "production"
 context_files = []
 created_at = "2026-11-15T20:38:28"
-commits = []
+completed_at = "2026-11-25T14:44:41"
+commits = ["136b5229a88e27557391f59c44f612c953299079"]
