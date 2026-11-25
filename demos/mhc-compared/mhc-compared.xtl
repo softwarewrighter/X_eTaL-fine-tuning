@@ -1,0 +1,128 @@
+#!/usr/bin/env xetal
+## mHC compared: the plain skip, Hyper-Connections (HC) and mHC (Xie
+## and others, arXiv:2512.24880) side by side at equal depth, width and
+## steps. Two parts. At the start, analytical: HC's H_res (the
+## exponential of the logits 2 I - 1) and mHC's (its Sinkhorn-Knopp
+## projection, 20 rounds), their products across 12, 24 and 48 layers,
+## and both gain measures of each product. Then the nine runs of
+## training-at-depth (its records, copied into data/, a row a step of
+## the loss, the gradient size, the composite's forward and backward
+## gains, its proxy, and 1 for a NaN or infinite step), each reduced to
+## the figures the comparison needs; the Python re-implementation's
+## figures (mHC-poc, docs/results.md, quoted in data/python-*.txt) set
+## beside them; and the count of numbers each scheme trains. Nothing
+## is trained here. The lines that mix, project and measure are
+## written out (FM13 of X_eTaL-ML is the ask, docs/xetal-ML-asks.md).
+
+"k:" u_se< "Check"
+"mx:" u_se< "Matrix"
+"p:" u_se< "Plot"
+
+### Settings
+
+## Four streams of width 8, a block 8 -> 16 -> 8, a vocabulary of 16,
+## the depths, the steps of every run, the paper's Sinkhorn rounds;
+## the Python's vocabulary (256), for its loss of guessing evenly.
+S := 4
+D := 8
+F := 16
+V := 16
+depths := 12 24 48
+steps := 800
+tmax := 20
+Vpy := 256
+ones := S r_eshape 1.0
+
+### At the start, analytical
+
+## HC's H_res: the exponential of the logits 2 I - 1 (the Python's
+## StreamMix in its "softplus" mode). mHC's: the same made doubly
+## stochastic by twenty rounds of Sinkhorn-Knopp, a row normalization
+## then a column normalization (sinkhorn_doubly_stochastic).
+I2 := (2.0 * f_loat (r_ange S) '= t_able r_ange S) - 1.0
+A := e_xp I2
+Hm := tmax '{ M -> R := M / ('+ r_/_2 M) '* t_able ones; R / ones '* t_able '+ r_/_1 R } p_ower A
+r_avel A
+r_avel Hm
+## For each depth L, the products of L copies of each table (each layer
+## mixes the product so far, as gain_proxy_from_Hres multiplies them),
+## and four figures in powers of ten: HC's forward gain (the largest
+## row sum, the paper's measure) and its proxy (the largest number, the
+## Python's), then mHC's two.
+(_, start) := 3 '{ (k, acc) ->
+  L := k s_elect depths
+  Pc := L '{ P -> A '+ '* i_nner P } p_ower f_loat mx:i_dentity S
+  Pm := L '{ P -> Hm '+ '* i_nner P } p_ower f_loat mx:i_dentity S
+  (k + 1, acc c_at (l_og ('m_ax r_/ a_bs '+ r_/_2 Pc) c_at ('m_ax r_/ r_avel a_bs Pc) c_at ('m_ax r_/ a_bs '+ r_/_2 Pm) c_at 'm_ax r_/ r_avel a_bs Pm) / l_og 10.0)
+} p_ower (1, 0 r_eshape 0.0)
+start
+
+### The nine runs, from their records
+
+## The runs in order: the plain skip, HC, mHC, each at 12, 24 and 48
+## layers. For each, nine figures: the loss at the last step and the
+## smallest; the gradient size at the last step and the largest; the
+## composite's forward gain at the last step and the largest of any
+## step, its backward gain at the last step (these three in powers of
+## ten); its proxy at the last step; the count of NaN or infinite
+## steps.
+names := "baseline-12" "baseline-24" "baseline-48" "hc-12" "hc-24" "hc-48" "mhc-12" "mhc-24" "mhc-48"
+runs := '{ nm -> (steps c_at 6) r_eshape n_umbers []N_GET "data/" c_at (d_isclose nm) c_at ".txt" } m_ap names
+(_, figures) := 9 '{ (k, acc) ->
+  R := d_isclose k s_elect runs
+  last := steps s_elect R
+  lg := (l_og (3 s_elect last) c_at ('m_ax r_/ 3 s_elect_2 R) c_at 4 s_elect last) / l_og 10.0
+  (k + 1, acc c_at (1 s_elect last) c_at ('m_in r_/ 1 s_elect_2 R) c_at (2 s_elect last) c_at ('m_ax r_/ 2 s_elect_2 R) c_at lg c_at (5 s_elect last) c_at ('+ r_/ 6 s_elect_2 R) c_at 'm_ax r_/ r_avel a_bs 1.0 - 3 4 s_elect_2 R)
+} p_ower (1, 0 r_eshape 0.0)
+table := (9 c_at 10) r_eshape figures
+r_avel table
+## How far mHC's composite came from a forward and backward gain of 1
+## at any step of its three runs.
+off := 'm_ax r_/ 10 s_elect_2 6 d_rop table
+off
+
+### Beside the Python's run
+
+## Its final losses and proxies (docs/results.md of mHC-poc, quoted to
+## the digits it gives), in the same order.
+pyloss := n_umbers []N_GET "data/python-loss.txt"
+pyproxy := n_umbers []N_GET "data/python-proxy.txt"
+pyloss
+pyproxy
+## Two charts by depth. The final loss as a fraction of the loss of
+## guessing evenly (ln 16 here, ln 256 for the Python's), in powers of
+## ten; and the proxy: the toy's at the start (analytical) and after
+## training (measured), the Python's after training (quoted).
+toyloss := (3 c_at 3) r_eshape (1 s_elect_2 table) / l_og f_loat V
+pyfrac := (3 c_at 3) r_eshape pyloss / l_og f_loat Vpy
+_ := ("" "layers" "log10 of the fraction" "plain, here" "HC, here" "mHC, here" "plain, Python" "HC, Python" "mHC, Python") p:f_unctionChart! '{ v -> (2 c_at 3) r_eshape (f_loat depths) c_at (l_og d_isclose v) / l_og 10.0 } m_ap (e_nclose 1 s_elect toyloss) c_at (e_nclose 2 s_elect toyloss) c_at (e_nclose 3 s_elect toyloss) c_at (e_nclose 1 s_elect pyfrac) c_at (e_nclose 2 s_elect pyfrac) c_at e_nclose 3 s_elect pyfrac
+st := (3 c_at 4) r_eshape start
+toyproxy := (3 c_at 3) r_eshape 8 s_elect_2 table
+pyp := (3 c_at 3) r_eshape pyproxy
+_ := ("" "layers" "log10 of the largest number" "HC, start" "HC, here" "HC, Python" "mHC, start" "mHC, here" "mHC, Python") p:f_unctionChart! '{ v -> (2 c_at 3) r_eshape (f_loat depths) c_at d_isclose v } m_ap (e_nclose 2 s_elect_2 st) c_at (e_nclose 2 s_elect toyproxy) c_at (e_nclose 2 s_elect pyp) c_at (e_nclose 4 s_elect_2 st) c_at (e_nclose 3 s_elect toyproxy) c_at e_nclose 3 s_elect pyp
+
+### The numbers trained
+
+## Per layer: the block's two tables with their biases; the static
+## mixing logits (H_pre S x S, H_post S, H_res S x S; for the plain
+## skip, S = 1, three numbers); the paper's dynamic mixing of lesson
+## D5 (a projection S D x (S S + 2 S), as many biases, three gating
+## factors). Then the embedding and the unembedding, and the totals
+## at each depth: the plain skip, HC or mHC, and mHC with dynamic
+## mixing.
+hw := ((D + 1) * F) + (F + 1) * D
+static := (2 * S * S) + S
+dynamic := ((S * D) * (S * S) + 2 * S) + ((S * S) + 2 * S) + 3
+emb := 2 * V * D
+hw c_at 3 c_at static c_at dynamic c_at emb
+(emb + depths * hw + 3) c_at (emb + depths * hw + static) c_at emb + depths * hw + dynamic
+
+### Checked
+
+c1 := "at the start, mHC's product keeps a forward gain of 1 at every depth" k:t_est k:t_rue 0.000000001 > a_bs 3 s_elect_2 st
+c2 := "at the start, HC's forward gain is its row sum to the power of the depth" k:t_est k:t_rue 0.000000001 > a_bs (1 s_elect_2 st) - (f_loat depths) * (l_og 1 s_elect '+ r_/_2 A) / l_og 10.0
+c3 := "mHC's composite kept forward and backward gains within a hundred-thousandth of 1 at every step of its runs" k:t_est k:t_rue off < 0.00001
+c4 := "no step of the nine runs had a NaN event" k:t_est k:t_rue 0.0 = '+ r_/ 9 s_elect_2 table
+c5 := "the plain skip at 48 layers ended within a hundredth of the loss of guessing evenly" k:t_est k:t_rue 0.01 > a_bs (l_og f_loat V) - 1 s_elect 3 s_elect table
+c6 := "HC and mHC ended with a loss under a hundredth at every depth" k:t_est k:t_rue 0.01 > 1 s_elect_2 3 d_rop table
+k:r_eport c1 k:a_nd c2 k:a_nd c3 k:a_nd c4 k:a_nd c5 k:a_nd c6

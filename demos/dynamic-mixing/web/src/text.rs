@@ -74,7 +74,7 @@ pub const SUMMARY: [&str; 4] = [
     "**What was not shown.** Training with dynamic tables, which waits on the library; the paper's models and its measured results for its dynamic mixing.",
 ];
 
-pub const NEXT: &str = "The last page of this track sets the plain skip, HC and mHC side by side, the toy's measurements beside the Python's and the paper's, and the X_eTaL programs beside the Python's functions. It is being built; the catalog lists what is live.";
+pub const NEXT: &str = "The last page of this track, mHC compared, sets the plain skip, HC and mHC side by side, the toy's measurements beside the Python's and the paper's, and the X_eTaL programs beside the Python's functions.";
 
 pub const CODE: [&str; 2] = [
     "This part is for readers who want to see the code. Nothing above depends on it. Lesson 1 says how to read X_eTaL as the page draws it. The layer is one lambda (a function written in place, between braces) mapped over a list of jobs: the two inputs, then the first input's numbers nudged up and down for the check, since a lambda can be applied only where it is written. The layer and its gradient are written out because the library does not have them yet (ask FM13 of X_eTaL-ML).",

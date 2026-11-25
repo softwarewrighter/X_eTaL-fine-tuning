@@ -1,0 +1,16 @@
+[package]
+name = "mhc-compared-web"
+description = "mHC compared: the plain skip, HC and mHC side by side at equal depth, width and steps, from the nine recorded runs of training-at-depth and the analytical start, beside the Python re-implementation's figures and the paper's, each marked measured, analytical or quoted"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+
+[dependencies]
+lesson = { path = "../../../shared/lesson" }
+microscope = { path = "../../../work/xetal-ml/shared/microscope" }
+yew = { version = "0.21", features = ["csr"] }
+web-sys = { version = "0.3", features = ["HtmlInputElement", "Element", "EventTarget", "Document", "Window"] }
+console_error_panic_hook = "0.1"
+
+[workspace]

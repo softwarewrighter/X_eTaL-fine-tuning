@@ -1,6 +1,6 @@
 number = 7
 slug = "mhc-compared"
-status = "pending"
+status = "in-progress"
 description = "Step mhc-compared (docs/mhc-plan.md step 7; docs/plan.md Saga mhc, summary D6..."
 role = "production"
 context_files = []

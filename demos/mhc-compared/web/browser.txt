@@ -1,0 +1,13 @@
+# Text the page shows only after X_eTaL has run (scripts/browser-check.py).
+6 checks, all passed
+ok: no step of the nine runs had a NaN event
+The plain skip did not learn at this depth
+html: <svg
+# At 24 layers, Explorer.
+@ ?mode=explorer&depth=24
+At 24 layers the loss after 800 steps is
+# Advanced: the program, the Python beside it, the data.
+@ ?mode=advanced&depth=12
+The Python beside the X_eTaL
+sinkhorn_doubly_stochastic
+What made the records

@@ -1,0 +1,5 @@
+# The offline runs of training-at-depth: train/train.sh, from training-at-depth.xtl.
+steps = 800
+xetal_ml = bd178decb091c9eae9427c06c89f4410c4e02ec0
+xetal_libraries = bf9e200b6fc6785356e02f496086afaed29720e1
+program = fe890c9911d208472dcdb22d218fe8904d5eb146

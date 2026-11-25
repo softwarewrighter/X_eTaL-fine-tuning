@@ -1,0 +1,3 @@
+command = "scripts/browser-check.sh mhc-compared"
+exit_code = 0
+desc = "mhc-compared: the built page run in headless Chrome shows X_eTaL's results"

@@ -1,0 +1,47 @@
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: 6 checks, all passed
+found: ok: no step of the nine runs had a NaN event
+found: The plain skip did not learn at this depth
+found: html: <svg
+cross-reference links: 0, dead: none
+at ?mode=explorer&depth=24:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: At 24 layers the loss after 800 steps is
+cross-reference links: 0, dead: none
+at ?mode=advanced&depth=12:
+page: loaded
+frame: question
+frame: background
+frame: rationale
+frame: purpose
+frame: summary
+frame: next
+errors: none
+found: The Python beside the X_eTaL
+found: sinkhorn_doubly_stochastic
+found: What made the records
+cross-reference links: 41, dead: none
+walk: loaded
+keyboard: an arrow changed how much is shown, and back
+walk: at the deepest mode, everything shown
+controls: 460, without a spoken name: none
+heat maps: 2, with a legend and a scale note: 2
+keyboard: 458 controls, reached by Tab: 458
+keyboard: Enter on a word opened "stream"
+keyboard: an arrow moved the inspector to "HC's H_res, row 1, column 2: 0.367879 (positive, s"
+touch: a tap on a cell read "HC's H_res, row 1, column 4: 0.367879 (positive, s"
+touch: a tap on a word opened its explanation

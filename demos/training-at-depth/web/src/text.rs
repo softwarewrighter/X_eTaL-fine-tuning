@@ -58,7 +58,7 @@ pub const SUMMARY: [&str; 4] = [
     "**What was not shown.** Anything about attention, sequences or real text; a model of any size; more than one start and one task; the paper's own mixing, which depends on the input (the next page).",
 ];
 
-pub const NEXT: &str = "The next page of this track, dynamic mixing, makes the mixing tables depend on the token itself, as the paper's do, and trains the same three ways again. It is being built; the catalog lists what is live.";
+pub const NEXT: &str = "The next page of this track, Dynamic mixing, makes the mixing tables depend on the input itself, as the paper's do, for one layer with its gradient checked (training with such tables waits on the library); the last, mHC compared, sets the three kinds of connection side by side with the Python's and the paper's figures.";
 
 pub const CODE: [&str; 3] = [
     "This part is for readers who want to see the code. Nothing above depends on it. Lesson 1 says how to read X_eTaL as the page draws it. The training program is long because the backward pass is written out by hand, layer by layer, the Sinkhorn rounds included: the machine-learning library does not yet have a Hyper-Connections layer with its gradient. A lambda (a function written in place, between braces) can be applied only where it is written, so the training run and the gradient check are one lambda applied to a list of jobs.",

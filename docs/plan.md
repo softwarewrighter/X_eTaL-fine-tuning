@@ -240,7 +240,7 @@ an integer) is settled by the first of them.
 | D4 | training-at-depth | what the bound does to training | baseline, HC and mHC trained at three depths; loss, gradient norm and gain per step | mhc |
 | D5 | dynamic-mixing | the paper's own mixing, which depends on the input | two inputs through one layer, the gating factor as a slider, the gradient checked | mhc |
 | D5b | dynamic-training | training with dynamic mixing (waits on FM13) | lesson D4's runs with the dynamic H | mhc |
-| D6 | mhc-compared | what the toy showed and what it could not | the three schemes side by side with the paper's and the Python's figures | mhc |
+| D6 | mhc-compared | what the toy showed and what it could not | the three schemes side by side with the paper's and the Python's figures (live 2026-11-25) | mhc |
 
 Each lesson is framed (principle 1): the question, the background,
 the rationale and the purpose first; a prediction, one small
@@ -503,7 +503,7 @@ strong controls (an averaged and a shared adapter) to be honest.
 Research methods are reimplemented from their papers and cited
 (X_eTaL-ML's A8), at toy scale; each page says what the toy omits.
 
-## Saga mhc -- mHC in X_eTaL  [ACTIVE, started 2026-11-15]
+## Saga mhc -- mHC in X_eTaL  [DONE 2026-11-25, started 2026-11-15; step 6a reserved for FM13]
 
 A side track (the user, 2026-11-11): DeepSeek's Manifold-Constrained
 Hyper-Connections (Xie and others, arXiv:2512.24880) re-implemented in
@@ -541,9 +541,11 @@ FM13 does.
 | 5 | training-at-depth | DONE (2026-11-22): experiment D4, demos/training-at-depth, live. The backward pass written out in one program (about 40 lines, the Sinkhorn rounds included) and checked against central differences on nine weights (agreement to 1e-3 relative); the training run and the check one lambda mapped over jobs (a bound lambda cannot be applied twice); nine offline runs, 800 steps, by `just train` (new recipe, `train/train.sh`, 8.6 minutes, records and `data/runs.txt` committed), replayed by `replay.xtl`; a 50-step run on the page (12 layers, about 6 s in Chrome) equal to its record's first 50 steps. Measured: all learn at 12 and 24; at 48 the plain skip does not, HC and mHC do; no NaN event; the Python's HC failure not reproduced, named |
 | 6 | dynamic-mixing | DONE (2026-11-23): lesson D5, demos/dynamic-mixing, live: the paper's eq. 7 to 9 read at source again; two inputs through one dynamic layer, a slider on the gating factor (0: the static tables; 0.01: apart by 0.010, 0.020, 0.0055; at 1 and 3 twenty Sinkhorn rounds fall short for one input), nine stages, the gradient through the Sinkhorn rounds, sigmoids, projection and RMS normalization checked by central differences on ten numbers. The training rerun split off (rule 3: the batched backward pass is past readable) into step 6a |
 | 6a | dynamic-training | BLOCKED on FM13, reserved: lesson D4's training at depth rerun with the dynamic H, using X_eTaL-ML's layer and gradient once landed and pinned |
-| 7 | mhc-compared | summary D6: the three schemes at equal depth, width and steps; the paper's and the Python's figures quoted as theirs; the X_eTaL program beside the Python, function for function |
+| 7 | mhc-compared | DONE (2026-11-25): summary D6, demos/mhc-compared, live. The starting tables' products worked out in the program (HC's forward gain 10^6.99, 10^13.97, 10^27.95; mHC's 1, proxy -0.602); the nine records of D4 copied into its data/ and reduced to ten figures each (mHC's gains within 3.0e-6 of 1 at every step of every depth, checked at 1e-5; HC's after training 10^6.93, 10^14.01, 10^28.13; no NaN); the Python's losses and proxies (its docs/results.md) as data, charted beside the toy's by depth (losses as a fraction of guessing evenly); the paper's table 4 at 27B, the 0.021 loss gap, the gains 3000 and 1.6 and the 6.7% quoted; the numbers trained (per layer: block 280, static mixing 36, the paper's dynamic mixing 795 at this width); the Python's functions beside the X_eTaL lines (this page's, or D4's at its commit); six checks. Cold read: 17 findings, the page's fixed ("exactly 1" said only of exact tables, H_res explained, powers of ten and e-notation glossed); two are the shared shell's (below) |
 
-## Saga edit -- the Saga 1 pages rewritten  [PLANNED, after the mHC saga]
+What the saga learned (2026-11-25): the bound mHC keeps is arithmetic, exact for exactly doubly stochastic tables and within a rounding error after twenty Sinkhorn rounds; on the toy task training kept both gains where the arithmetic put them, and the gain alone did not decide which scheme learned (HC learned at 48 layers with a gain of 10^28, the plain skip did not with a gain of 1), which differs from the Python's run and is not explained here. Writing FM13 out cost about 40 lines of backward pass in D4 and 45 in D5, readable with a comment per derivative; the batched dynamic training (6a) was past readable and waits. The pin did not move: FM13 has not landed.
+
+## Saga edit -- the Saga 1 pages rewritten  [NEXT, waits on one example from the user]
 
 The user's reading at Saga 1's close (2026-11-14): the pages "need a
 lot of editing/improvements". A saga of its own, planned with the
@@ -562,7 +564,7 @@ one built-in reading for `r_/`, `r_/_1` and `r_/_2` (rows and
 columns not told apart) and for `t_able` with any function; a heat
 map's legend rounding a small scale to "0 0 0 0 0", and a signed
 scale shown for a table with no negative numbers; mathematics read
-twice by a screen reader (KaTeX's text and its markup).
+twice by a screen reader (KaTeX's text and its markup); a heat map's numbers rounded to two decimals showing 0.096 as "0.1" beside "0.71" (seen again on D6, 2026-11-25); the Plot library's chart legend overlapping the chart's title when a chart has six series (D6 drops the title and captions the chart; an ask of X_eTaL-libraries if it recurs).
 
 ## Later -- applied  [NOT PLANNED YET]
 

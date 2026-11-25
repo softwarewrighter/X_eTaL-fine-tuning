@@ -1,0 +1,3 @@
+command = '"$XETAL" run --seed 1 --draw "$XETAL_DRAW" mhc-compared.xtl'
+exit_code = 0
+desc = "mhc-compared: mhc-compared.xtl run by the pinned xetal CLI"

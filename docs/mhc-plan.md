@@ -225,6 +225,35 @@ RMSNorm gain (said to be absorbed into phi). Eq. 15 has no epsilon
 though table 5 lists 1e-20. Eq. 5 (the original HC) has tanh in place
 of the sigmoids and no Sinkhorn.
 
+## What was learned (the saga's close, 2026-11-25)
+
+Done: D1 to D6 live; step 6a (training with the dynamic H) reserved
+for FM13.
+
+- The bound is arithmetic. A product of exactly doubly stochastic
+  tables keeps every row and column sum at 1 at any depth; twenty
+  Sinkhorn rounds reach that within a rounding error from `exp(2I - 1)`
+  (one round), within 3.0e-6 through training (D4's records, D6's
+  check), and fall short when the logits are far apart (D2's split
+  start, D5 at gating factors 1 and 3). HC's starting forward gain is
+  3.82^L exactly.
+- On the toy task, training kept both gains where the arithmetic put
+  them (HC's after 800 steps 10^6.93, 10^14.01, 10^28.13 against
+  10^6.99, 10^13.97, 10^27.95 at the start) and the gain did not
+  decide who learned: HC learned at 48 layers, the plain skip (gain 1)
+  did not. The Python's run differs on both; the candidates (32-bit
+  numbers, its blocks' own skips and LayerNorms, attention and its
+  task) are named, not tested.
+- The paper's figures (27B benchmarks, the 0.021 loss gap, the gains
+  3000 and 1.6, the 6.7% time) have nothing at toy scale to be set
+  against; D6 quotes them and says so.
+- Writing FM13 out: the Sinkhorn loop one line, the gains one line
+  each, the static training step about 40 lines (D4), one dynamic
+  layer with its gradient about 45 (D5), all readable with a comment
+  per derivative; the batched dynamic training was not, and waits.
+- The shared shell's findings from the cold reads are listed under
+  Saga edit in `docs/plan.md`.
+
 ## Decided (with the user, 2026-11-15)
 
 1. **Placement**: the mHC saga runs now, before Saga 2 (the user,
@@ -297,7 +326,7 @@ out, and the timing program above is the shape of them.
 | 5 | training-at-depth | DONE (2026-11-22), live: experiment D4: the three schemes trained at depths 12, 24, 48 on the toy task (incrementing tokens, vocabulary 16, MLP block) with Adam, from the same seed (ask FM13 or its workaround): trained offline by X_eTaL (`just train`, the record committed as data with its seed, steps and X_eTaL commit) and replayed; a short live run (12 layers, about 100 steps) computed on the page; the loss, the gradient norm, both gains per step as X_eTaL's charts; the final losses in a table beside the Python's, each marked measured here or the Python's; NaN events counted; what the toy reproduces of the Python's result and what it cannot (the task, the scale) |
 | 6 | dynamic-mixing | DONE (2026-11-23), live, without the training rerun (split off below, BLOCKED on FM13): lesson D5: the paper's own `H`: a gated projection of the layer's input plus a static bias (`alpha` from 0.01), sigmoid for `H_pre`, `2 sigmoid` for `H_post`, Sinkhorn of `exp` for `H_res`; the gradient through the projection; the toy of step 5 rerun with it (offline, replayed); what changes (measured) |
 | 6a | dynamic-training | BLOCKED on FM13 (reserved in the saga, 2026-11-23): the toy of step 5 rerun with the dynamic H, offline and replayed. Split from step 6 because the batched backward pass (a table per token per layer, the normalization and projection added to step 5's ~40 lines) and the cost (several times step 5's 8.6 minutes) are past what reads as a page's program (rule 3) |
-| 7 | mhc-compared | summary D6: baseline, HC, mHC at equal depth, equal width and equal steps, with the paper's and the Python's reported figures quoted as theirs beside the toy's; what the toy showed (the bound is arithmetic; training at depth follows it on the toy task), what it did not (attention, a sequence, scale, memory cost); the X_eTaL program beside the Python, function for function |
+| 7 | mhc-compared | DONE (2026-11-25), live: summary D6: baseline, HC, mHC at equal depth, equal width and equal steps, with the paper's and the Python's reported figures quoted as theirs beside the toy's; what the toy showed (the bound is arithmetic; training at depth follows it on the toy task), what it did not (attention, a sequence, scale, memory cost); the X_eTaL program beside the Python, function for function |
 
 Asks: FM13 (X_eTaL-ML, `docs/xetal-ML-asks.md`, signatures written
 2026-11-15): stream mixing, Sinkhorn-Knopp with its gradient, the HC
