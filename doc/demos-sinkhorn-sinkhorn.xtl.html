@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/sinkhorn/sinkhorn.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/dynamic-mixing/</h3>
+<ul>
+<li><a href="demos-dynamic-mixing-dynamic-mixing.xtl.html">dynamic-mixing.xtl</a></li>
+</ul>
+<h3>demos/gain-by-depth/</h3>
+<ul>
+<li><a href="demos-gain-by-depth-gain-by-depth.xtl.html">gain-by-depth.xtl</a></li>
+</ul>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/mhc-compared/</h3>
+<ul>
+<li><a href="demos-mhc-compared-mhc-compared.xtl.html">mhc-compared.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/residual-streams/</h3>
+<ul>
+<li><a href="demos-residual-streams-residual-streams.xtl.html">residual-streams.xtl</a></li>
+</ul>
+<h3>demos/sinkhorn/</h3>
+<ul>
+<li><a href="demos-sinkhorn-sinkhorn.xtl.html">sinkhorn.xtl</a></li>
+</ul>
+<h3>demos/training-at-depth/</h3>
+<ul>
+<li><a href="demos-training-at-depth-replay.xtl.html">replay.xtl</a></li>
+<li><a href="demos-training-at-depth-training-at-depth.xtl.html">training-at-depth.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Check/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">Check.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">Check.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Combinatorics/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Combinatorics-src-Combinatorics.xtl.html">Combinatorics.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Activations/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">Activations.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/NN/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-NN-src-NN.xtl.html">NN.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Data</a></li>
+<li class="item"><a href="#S">S</a></li>
+<li class="item"><a href="#logits">logits</a></li>
+<li class="item"><a href="#tmax">tmax</a></li>
+<li class="item"><a href="#tol">tol</a></li>
+<li class="item"><a href="#ones">ones</a></li>
+<li class="item"><a href="#A">A</a></li>
+<li><a href="#section-2">Part 1: one round, as a pipeline</a></li>
+<li class="item"><a href="#round">round</a></li>
+<li><a href="#section-3">Part 2: the rounds</a></li>
+<li class="item"><a href="#H">H</a></li>
+<li class="item"><a href="#Rs">Rs</a></li>
+<li class="item"><a href="#Cs">Cs</a></li>
+<li class="item"><a href="#rowsR">rowsR</a></li>
+<li class="item"><a href="#colsR">colsR</a></li>
+<li class="item"><a href="#rowsC">rowsC</a></li>
+<li class="item"><a href="#colsC">colsC</a></li>
+<li class="item"><a href="#colOff">colOff</a></li>
+<li class="item"><a href="#rowOff">rowOff</a></li>
+<li class="item"><a href="#_">_</a></li>
+<li><a href="#section-4">Part 3: three properties of the result, checked</a></li>
+<li class="item"><a href="#u0">u0</a></li>
+<li class="item"><a href="#sigmas">sigmas</a></li>
+<li class="item"><a href="#sigA">sigA</a></li>
+<li class="item"><a href="#sigH">sigH</a></li>
+<li class="item"><a href="#v">v</a></li>
+<li class="item"><a href="#Hv">Hv</a></li>
+<li class="item"><a href="#B0">B0</a></li>
+<li class="item"><a href="#B">B</a></li>
+<li class="item"><a href="#HB">HB</a></li>
+<li class="item"><a href="#perms">perms</a></li>
+<li class="item"><a href="#idx">idx</a></li>
+<li class="item"><a href="#rest">rest</a></li>
+<li class="item"><a href="#picks">picks</a></li>
+<li class="item"><a href="#ws">ws</a></li>
+<li class="item"><a href="#c1">c1</a></li>
+<li class="item"><a href="#c2">c2</a></li>
+<li class="item"><a href="#c3">c3</a></li>
+<li class="item"><a href="#c4">c4</a></li>
+<li class="item"><a href="#c5">c5</a></li>
+<li class="item"><a href="#c6">c6</a></li>
+<li class="item"><a href="#c7">c7</a></li>
+<li class="item"><a href="#c8">c8</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/sinkhorn/sinkhorn.xtl</h1>
+<div class="doc">
+<p>Sinkhorn-Knopp: a table whose rows and columns each sum to 1. mHC
+(Xie and others, arXiv:2512.24880) makes its carried-state mixing
+table from a positive 4 x 4 by dividing every row by its sum, then
+every column by its sum, twenty times over (its eq. 9, t_max = 20).
+Part 1: a positive 4 x 4 (the exponential of a table of logits: the
+paper's and the Python's start 2 I - 1, or a start set up as data),
+its row and column sums, and one round of the two divisions as a
+pipeline with every number. Part 2: the twenty rounds, the tables
+and their sums after every half round, how far the sums are from 1
+after each round, and the count of rounds to within a millionth.
+Part 3: the three properties the paper states of the result
+(section 4.1), checked by the Check library: its largest singular
+value is at most 1 (a list multiplied by it does not grow; power
+iteration written out, ask FL2 of X_eTaL-libraries), the product of
+two such tables is one too, and it is a weighted mix of permutation
+tables (Birkhoff), found by a greedy search over the 24 orderings.
+The Sinkhorn loop is written out here (ask FM13 of X_eTaL-ML,
+docs/xetal-ML-asks.md).</p>
+</div>
+<p class="meta"><a href="demos-sinkhorn-sinkhorn.xtl.src.html">source</a> &middot; imports <code><span class="c-string">cb</span><span class="c-string">:</span></code> <a href="work-xetal-libraries-libs-Combinatorics-src-Combinatorics.xtl.html">work/xetal-libraries/libs/Combinatorics/src/Combinatorics.xtl</a>; <code><span class="c-error">e:</span></code> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">work/xetal-libraries/libs/Equations/src/Equations.xtl</a> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">work/xetal-libraries/libs/Equations/src/Equations.xtlm</a>; <code><span class="c-error">flow:</span></code> <a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">work/xetal-ml/libs/Flow/src/Flow.xtlm</a>; <code><span class="c-error">k:</span></code> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">work/xetal-libraries/libs/Check/src/Check.xtl</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">work/xetal-libraries/libs/Check/src/Check.xtlm</a>; <code><span class="c-error">p:</span></code> <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">work/xetal-libraries/libs/Plot/src/Plot.xtl</a></p>
+<h2 class="section" id="section-1">Data</h2>
+<div class="item" id="S">
+<h3><a href="#S">S</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L33">line 33</a></div>
+<div class="doc">
+<p>The settings: S streams, so S x S tables; the logits the positive
+start is the exponential of (a preset: the paper's 2 I - 1, 1 on
+the diagonal and -1 off it, is the program's own); the paper's
+count of rounds; and the tolerance a sum counts as 1 within.</p>
+</div>
+<pre class="code">S ← <span class="c-number">4</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#logits">logits</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#round">round</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L88">demos/sinkhorn/sinkhorn.xtl:88</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#u0">u0</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#B0">B0</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#idx">idx</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a></div>
+</div>
+<div class="item" id="logits">
+<h3><a href="#logits">logits</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L34">line 34</a></div>
+<pre class="code">logits ← (<a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">-1.0</span> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L40">demos/sinkhorn/sinkhorn.xtl:40</a></div>
+</div>
+<div class="item" id="tmax">
+<h3><a href="#tmax">tmax</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L35">line 35</a></div>
+<pre class="code">tmax ← <span class="c-number">20</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#_">_</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L88">demos/sinkhorn/sinkhorn.xtl:88</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#B">B</a></div>
+</div>
+<div class="item" id="tol">
+<h3><a href="#tol">tol</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L36">line 36</a></div>
+<pre class="code">tol ← <span class="c-number">0.000001</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L81">demos/sinkhorn/sinkhorn.xtl:81</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c1">c1</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c2">c2</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c3">c3</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c4">c4</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c5">c5</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c6">c6</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c7">c7</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c8">c8</a></div>
+</div>
+<div class="item" id="ones">
+<h3><a href="#ones">ones</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L37">line 37</a></div>
+<pre class="code">ones ← <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#B">B</a></div>
+</div>
+<div class="item" id="A">
+<h3><a href="#A">A</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L39">line 39</a></div>
+<div class="doc">
+<p>The start: positive, whatever the logits, since e to any power is.</p>
+</div>
+<pre class="code">A ← <a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#logits">logits</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L41">demos/sinkhorn/sinkhorn.xtl:41</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L42">demos/sinkhorn/sinkhorn.xtl:42</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L43">demos/sinkhorn/sinkhorn.xtl:43</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#round">round</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#sigmas">sigmas</a></div>
+</div>
+<h2 class="section" id="section-2">Part 1: one round, as a pipeline</h2>
+<div class="item" id="round">
+<h3><a href="#round">round</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L51">line 51</a></div>
+<div class="doc">
+<p>A round is two divisions. R: every row of A divided by its sum, so
+that each row of R sums to 1. C: every column of R divided by its
+sum, so that each column of C sums to 1, which can undo the rows a
+little. Each is one equation written as text, run as written.</p>
+</div>
+<pre class="code">round ← @ <span class="c-macro">ᶠˡᵒʷp̲ipe&lt;</span> <span class="c-string">c#&quot;</span></pre>
+<details class="expansion"><summary><code><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html#m.p_ipe-3c" class="c-macro">ᶠˡᵒʷp̲ipe&lt;</a></code> expands to</summary><pre class="code">({ @ →
+  A ← A
+  R ← <span class="c-string">&quot;R[i,j] | S S&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;A[i,j] / (sum t:=0..3 | A[i,t])&quot;</span>
+  C ← <span class="c-string">&quot;C[i,j] | S S&quot;</span> <a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a> <span class="c-string">&quot;R[i,j] / (sum t:=0..3 | R[t,j])&quot;</span>
+  C
+} @)</pre><details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g3:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g2:c̲heck</span> ← { (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g1:r̲ank</span> ← { (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>
+  }
+  g4:grid ← <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>
+  <span class="c-libfunc">g5:g̲rid</span> ← { k → g4:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g4:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g4:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g4:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g1:r̲ank</span> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;A[i,j]&quot;</span>)) <span class="c-libfunc">g3:a̲t</span> ((
+      ((<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g5:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g5:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2f" class="c-symbol">÷</a> ({ @ →
+  g6:grid ← <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..3&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">3</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g7:g̲rid</span> ← { k → g6:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g6:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g6:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g6:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (
+    ((<span class="c-libfunc">g1:r̲ank</span> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;A[i,t]&quot;</span>)) <span class="c-libfunc">g3:a̲t</span> ((
+      ((<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;t&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">3</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-string">&quot;A&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g2:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g7:g̲rid</span> <span class="c-number">1</span>))))))
+} @)))
+} @))</pre></details>
+<details class="expansion"><summary><code><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html#m.e_q-3c" class="c-macro">ᵉe̲q&lt;</a></code> expands to</summary><pre class="code">(({ @ →
+  <span class="c-libfunc">g10:a̲t</span> ← { A i → (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> i) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A }
+  <span class="c-libfunc">g9:c̲heck</span> ← { (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, name, k, from) e →
+    n ← k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>
+    bad ← <a href="builtins.html#w_here" class="c-builtin">w̲here</a> <a href="builtins.html#n_ot" class="c-builtin">n̲ot</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> e) <a href="builtins.html#-26" class="c-symbol">∧</a> e <a href="builtins.html#-3c" class="c-symbol">&lt;</a> n
+    <span class="c-number">0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> bad ? e
+    <span class="c-string">&quot;index&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axis &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> k) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;: index &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> (<a href="builtins.html#f_irst" class="c-builtin">f̲irst</a> bad) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> e) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; is outside 0..&quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> n <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; (from &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> from <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot;)&quot;</span>
+  }
+  <span class="c-libfunc">g8:r̲ank</span> ← { (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, name, q, ref) →
+    (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> q ? <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>
+    <span class="c-string">&quot;rank&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> ref <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; indexes &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> q) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; axes, but &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> name <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-string">&quot; has rank &quot;</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#f_ormat" class="c-builtin">f̲ormat</a> <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>
+  }
+  g11:grid ← <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>
+  <span class="c-libfunc">g12:g̲rid</span> ← { k → g11:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g11:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g11:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  g11:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((
+    ((<span class="c-libfunc">g8:r̲ank</span> (R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;R[i,j]&quot;</span>)) <span class="c-libfunc">g10:a̲t</span> ((
+      ((R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g12:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> R) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;i&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g12:g̲rid</span> <span class="c-number">1</span>))))) <a href="builtins.html#-2f" class="c-symbol">÷</a> ({ @ →
+  g13:grid ← <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ({ v → (<span class="c-number">0</span> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> v) ? v◆ <span class="c-string">&quot;bad-equation&quot;</span> <a href="builtins.html#-5b-5dS_IGNAL" class="c-builtin">⎕S̲IGNAL</a> <span class="c-string">&quot;sum's range runs low..high: 0..3&quot;</span> } (<span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">3</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">0</span>))
+  <span class="c-libfunc">g14:g̲rid</span> ← { k → g13:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#o_ffsets" class="c-builtin">o̲ffsets</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> g13:grid) <span class="c-builtin">'</span><a href="builtins.html#l_eft" class="c-builtin">l̲eft</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> (<span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> k <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> g13:grid) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span> }
+  <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₃</a> g13:grid <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (
+    ((<span class="c-libfunc">g8:r̲ank</span> (R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;R[t,j]&quot;</span>)) <span class="c-libfunc">g10:a̲t</span> ((
+      ((R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">2</span>, <span class="c-string">&quot;j&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">2</span>)) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#s_hape" class="c-builtin">s̲hape</a> R) <a href="builtins.html#-2a" class="c-symbol">×</a> 
+      ((R, <span class="c-string">&quot;R&quot;</span>, <span class="c-number">1</span>, <span class="c-string">&quot;t&quot;</span>) <span class="c-libfunc">g9:c̲heck</span> (<span class="c-number">0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-libfunc">g14:g̲rid</span> <span class="c-number">3</span>))))))
+} @)))
+} @))</pre></details>
+</details>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L55">demos/sinkhorn/sinkhorn.xtl:55</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L88">demos/sinkhorn/sinkhorn.xtl:88</a></div>
+</div>
+<h2 class="section" id="section-3">Part 2: the rounds</h2>
+<div class="item" id="H">
+<h3><a href="#H">H</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L87">demos/sinkhorn/sinkhorn.xtl:87</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#sigmas">sigmas</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Hv">Hv</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#HB">HB</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c1">c1</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c2">c2</a></div>
+</div>
+<div class="item" id="Rs">
+<h3><a href="#Rs">Rs</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L70">demos/sinkhorn/sinkhorn.xtl:70</a></div>
+</div>
+<div class="item" id="Cs">
+<h3><a href="#Cs">Cs</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L71">demos/sinkhorn/sinkhorn.xtl:71</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L88">demos/sinkhorn/sinkhorn.xtl:88</a></div>
+</div>
+<div class="item" id="rowsR">
+<h3><a href="#rowsR">rowsR</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L72">demos/sinkhorn/sinkhorn.xtl:72</a></div>
+</div>
+<div class="item" id="colsR">
+<h3><a href="#colsR">colsR</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L73">demos/sinkhorn/sinkhorn.xtl:73</a></div>
+</div>
+<div class="item" id="rowsC">
+<h3><a href="#rowsC">rowsC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L74">demos/sinkhorn/sinkhorn.xtl:74</a></div>
+</div>
+<div class="item" id="colsC">
+<h3><a href="#colsC">colsC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L75">demos/sinkhorn/sinkhorn.xtl:75</a></div>
+</div>
+<div class="item" id="colOff">
+<h3><a href="#colOff">colOff</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L76">demos/sinkhorn/sinkhorn.xtl:76</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="rowOff">
+<h3><a href="#rowOff">rowOff</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L65">line 65</a></div>
+<div class="doc">
+<p>The same two divisions tmax times over, from A, keeping after every
+half round the table and its row and column sums, and after every
+round how far the farthest column sum was from 1 before the column
+step and how far the farthest row sum is from 1 after it: the row
+step makes the rows sum to 1 and the column step the columns, so
+what is left over is what the next round has to fix.</p>
+</div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a>) ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a>, co, ro) →
+  R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>
+  C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+  (C, <a href="demos-sinkhorn-sinkhorn.xtl.html#Rs">Rs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#Cs">Cs</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsR">rowsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsR">colsR</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, <a href="demos-sinkhorn-sinkhorn.xtl.html#rowsC">rowsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C, <a href="demos-sinkhorn-sinkhorn.xtl.html#colsC">colsC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> C, co <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>, ro <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> C) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L77">demos/sinkhorn/sinkhorn.xtl:77</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L81">demos/sinkhorn/sinkhorn.xtl:81</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="_">
+<h3><a href="#_">_</a> <span class="type">: Char</span></h3>
+<div class="meta">function &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L84">line 84</a></div>
+<div class="doc">
+<p>The distances as one chart, a round a point, on a log scale (a
+distance of 0 is drawn at the floor, 10^-16).</p>
+</div>
+<pre class="code">_ ← (<span class="c-string">&quot;Distance from 1&quot;</span> <span class="c-string">&quot;round&quot;</span> <span class="c-string">&quot;log10 of the largest distance&quot;</span> <span class="c-string">&quot;rows&quot;</span> <span class="c-string">&quot;columns&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ k → k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> (<span class="c-number">2</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#rowOff">rowOff</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#colOff">colOff</a>) <a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <span class="c-number">1e-16</span>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">2</span></pre>
+</div>
+<h2 class="section" id="section-4">Part 3: three properties of the result, checked</h2>
+<div class="item" id="u0">
+<h3><a href="#u0">u0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L97">line 97</a></div>
+<div class="doc">
+<p>1. Its largest singular value is at most 1, so multiplying a list
+by it does not make the list longer. The largest singular value by
+power iteration on H' H (as X_eTaL-ML's lora-explorer writes it;
+ask FL2's workaround), for the start A and for H; then a list v,
+H v, and their sizes.</p>
+</div>
+<pre class="code">u0 ← <span class="c-number">1.0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.1</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#sigmas">sigmas</a></div>
+</div>
+<div class="item" id="sigmas">
+<h3><a href="#sigmas">sigmas</a> <span class="type">: Box Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L98">line 98</a></div>
+<pre class="code">sigmas ← <span class="c-quote">'</span>{ Mb → M ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> Mb
+  G ← (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> M
+  x ← <span class="c-number">300</span> <span class="c-quote">'</span>{ y → m ← G <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> y
+    m <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> m <a href="builtins.html#-2a" class="c-symbol">×</a> m } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#u0">u0</a>
+  <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> x <a href="builtins.html#-2a" class="c-symbol">×</a> G <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> x } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#A">A</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#sigA">sigA</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#sigH">sigH</a></div>
+</div>
+<div class="item" id="sigA">
+<h3><a href="#sigA">sigA</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L103">line 103</a></div>
+<pre class="code">sigA ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#sigmas">sigmas</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L105">demos/sinkhorn/sinkhorn.xtl:105</a></div>
+</div>
+<div class="item" id="sigH">
+<h3><a href="#sigH">sigH</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L104">line 104</a></div>
+<pre class="code">sigH ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#sigmas">sigmas</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L105">demos/sinkhorn/sinkhorn.xtl:105</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c3">c3</a></div>
+</div>
+<div class="item" id="v">
+<h3><a href="#v">v</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L106">line 106</a></div>
+<pre class="code">v ← <span class="c-number">1.0</span> <span class="c-number">-2.0</span> <span class="c-number">0.5</span> <span class="c-number">3.0</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#Hv">Hv</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L108">demos/sinkhorn/sinkhorn.xtl:108</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L110">demos/sinkhorn/sinkhorn.xtl:110</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c4">c4</a></div>
+</div>
+<div class="item" id="Hv">
+<h3><a href="#Hv">Hv</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L107">line 107</a></div>
+<pre class="code">Hv ← <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#v">v</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L109">demos/sinkhorn/sinkhorn.xtl:109</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L110">demos/sinkhorn/sinkhorn.xtl:110</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c4">c4</a></div>
+</div>
+<div class="item" id="B0">
+<h3><a href="#B0">B0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L114">line 114</a></div>
+<div class="doc">
+<p>2. The product of two such tables is one too: a second table, B,
+projected from a start set up here (the numbers 2 3 4 5 1 2 ...),
+and the product H B with its row and column sums.</p>
+</div>
+<pre class="code">B0 ← (<a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#m_od" class="c-builtin">m̲od</a> <span class="c-number">5</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#B">B</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L117">demos/sinkhorn/sinkhorn.xtl:117</a></div>
+</div>
+<div class="item" id="B">
+<h3><a href="#B">B</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L115">line 115</a></div>
+<pre class="code">B ← <a href="demos-sinkhorn-sinkhorn.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ M → R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a>◆ R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#B0">B0</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#HB">HB</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L118">demos/sinkhorn/sinkhorn.xtl:118</a></div>
+</div>
+<div class="item" id="HB">
+<h3><a href="#HB">HB</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L116">line 116</a></div>
+<pre class="code">HB ← <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#B">B</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L119">demos/sinkhorn/sinkhorn.xtl:119</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L120">demos/sinkhorn/sinkhorn.xtl:120</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L121">demos/sinkhorn/sinkhorn.xtl:121</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c5">c5</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c6">c6</a></div>
+</div>
+<div class="item" id="perms">
+<h3><a href="#perms">perms</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L130">line 130</a></div>
+<div class="doc">
+<p>3. It is a weighted mix of permutation tables (a permutation table
+has one 1 in each row and each column and 0 elsewhere): Birkhoff's
+theorem, shown on this one table and not proved. Found greedily:
+among the 24 orderings of 4, the one whose smallest entry along it
+in what is left of H is largest; that entry is the weight; the
+ordering's table times the weight is taken off; ten times, the most
+a 4 x 4 can need. The weights, the orderings picked, and what is
+left of H at the end.</p>
+</div>
+<pre class="code">perms ← <a href="work-xetal-libraries-libs-Combinatorics-src-Combinatorics.xtl.html#l.p_ermutations" class="c-libfunc">ᶜᵇp̲ermutations</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#idx">idx</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L139">demos/sinkhorn/sinkhorn.xtl:139</a></div>
+</div>
+<div class="item" id="idx">
+<h3><a href="#idx">idx</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L131">line 131</a></div>
+<pre class="code">idx ← <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>) <a href="builtins.html#r_eplicate" class="c-builtin">r̲eplicate</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a></div>
+</div>
+<div class="item" id="rest">
+<h3><a href="#rest">rest</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L132">line 132</a></div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a>) ← <span class="c-number">10</span> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a>) →
+  mins ← <span class="c-builtin">'</span><a href="builtins.html#m_in" class="c-builtin">m̲in</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> ((<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#idx">idx</a>) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> M)
+  best ← mins <a href="builtins.html#i_ndexOf" class="c-builtin">i̲ndexOf</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> mins
+  (M <a href="builtins.html#-2d" class="c-symbol">−</a> (best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> mins) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>) <span class="c-symbol">'</span><a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> best, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> mins)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L140">demos/sinkhorn/sinkhorn.xtl:140</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c8">c8</a></div>
+</div>
+<div class="item" id="picks">
+<h3><a href="#picks">picks</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L132">line 132</a></div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a>) ← <span class="c-number">10</span> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a>) →
+  mins ← <span class="c-builtin">'</span><a href="builtins.html#m_in" class="c-builtin">m̲in</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> ((<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#idx">idx</a>) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> M)
+  best ← mins <a href="builtins.html#i_ndexOf" class="c-builtin">i̲ndexOf</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> mins
+  (M <a href="builtins.html#-2d" class="c-symbol">−</a> (best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> mins) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>) <span class="c-symbol">'</span><a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> best, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> mins)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L139">demos/sinkhorn/sinkhorn.xtl:139</a></div>
+</div>
+<div class="item" id="ws">
+<h3><a href="#ws">ws</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L132">line 132</a></div>
+<pre class="code">(<a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a>) ← <span class="c-number">10</span> <span class="c-quote">'</span>{ (M, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a>) →
+  mins ← <span class="c-builtin">'</span><a href="builtins.html#m_in" class="c-builtin">m̲in</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> ((<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#idx">idx</a>) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> M)
+  best ← mins <a href="builtins.html#i_ndexOf" class="c-builtin">i̲ndexOf</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> mins
+  (M <a href="builtins.html#-2d" class="c-symbol">−</a> (best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> mins) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#perms">perms</a>) <span class="c-symbol">'</span><a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#S">S</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#picks">picks</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> best, <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> best <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> mins)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L137">demos/sinkhorn/sinkhorn.xtl:137</a>, <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L138">demos/sinkhorn/sinkhorn.xtl:138</a>, <a href="demos-sinkhorn-sinkhorn.xtl.html#c7">c7</a></div>
+</div>
+<div class="item" id="c1">
+<h3><a href="#c1">c1</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L143">line 143</a></div>
+<div class="doc">
+<p>The checks, each within the tolerance, as the Check library
+reports them: a line each, then the count.</p>
+</div>
+<pre class="code">c1 ← <span class="c-string">&quot;every row of H sums to 1&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+<div class="item" id="c2">
+<h3><a href="#c2">c2</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L144">line 144</a></div>
+<pre class="code">c2 ← <span class="c-string">&quot;every column of H sums to 1&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#H">H</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+<div class="item" id="c3">
+<h3><a href="#c3">c3</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L145">line 145</a></div>
+<pre class="code">c3 ← <span class="c-string">&quot;the largest singular value of H is at most 1&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#sigH">sigH</a> <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> <span class="c-number">1.0</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+<div class="item" id="c4">
+<h3><a href="#c4">c4</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L146">line 146</a></div>
+<pre class="code">c4 ← <span class="c-string">&quot;H v is no longer than v&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#Hv">Hv</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#Hv">Hv</a>) <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#v">v</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#v">v</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+<div class="item" id="c5">
+<h3><a href="#c5">c5</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L147">line 147</a></div>
+<pre class="code">c5 ← <span class="c-string">&quot;every row of H B sums to 1&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#HB">HB</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+<div class="item" id="c6">
+<h3><a href="#c6">c6</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L148">line 148</a></div>
+<pre class="code">c6 ← <span class="c-string">&quot;every column of H B sums to 1&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#HB">HB</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+<div class="item" id="c7">
+<h3><a href="#c7">c7</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L149">line 149</a></div>
+<pre class="code">c7 ← <span class="c-string">&quot;the weights of the permutation tables sum to 1&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#ws">ws</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+<div class="item" id="c8">
+<h3><a href="#c8">c8</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L150">line 150</a></div>
+<pre class="code">c8 ← <span class="c-string">&quot;nothing of H is left after the permutation tables found&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#rest">rest</a>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <a href="demos-sinkhorn-sinkhorn.xtl.html#tol">tol</a></pre>
+<div class="uses">Used in: <a href="demos-sinkhorn-sinkhorn.xtl.src.html#L151">demos/sinkhorn/sinkhorn.xtl:151</a></div>
+</div>
+</main>
+</body>
+</html>

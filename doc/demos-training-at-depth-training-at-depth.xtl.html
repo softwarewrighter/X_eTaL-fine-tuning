@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/training-at-depth/training-at-depth.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/dynamic-mixing/</h3>
+<ul>
+<li><a href="demos-dynamic-mixing-dynamic-mixing.xtl.html">dynamic-mixing.xtl</a></li>
+</ul>
+<h3>demos/gain-by-depth/</h3>
+<ul>
+<li><a href="demos-gain-by-depth-gain-by-depth.xtl.html">gain-by-depth.xtl</a></li>
+</ul>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/mhc-compared/</h3>
+<ul>
+<li><a href="demos-mhc-compared-mhc-compared.xtl.html">mhc-compared.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/residual-streams/</h3>
+<ul>
+<li><a href="demos-residual-streams-residual-streams.xtl.html">residual-streams.xtl</a></li>
+</ul>
+<h3>demos/sinkhorn/</h3>
+<ul>
+<li><a href="demos-sinkhorn-sinkhorn.xtl.html">sinkhorn.xtl</a></li>
+</ul>
+<h3>demos/training-at-depth/</h3>
+<ul>
+<li><a href="demos-training-at-depth-replay.xtl.html">replay.xtl</a></li>
+<li><a href="demos-training-at-depth-training-at-depth.xtl.html">training-at-depth.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Check/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">Check.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">Check.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Combinatorics/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Combinatorics-src-Combinatorics.xtl.html">Combinatorics.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Activations/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">Activations.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/NN/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-NN-src-NN.xtl.html">NN.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Settings</a></li>
+<li class="item"><a href="#S">S</a></li>
+<li class="item"><a href="#sink">sink</a></li>
+<li class="item"><a href="#L">L</a></li>
+<li class="item"><a href="#steps">steps</a></li>
+<li class="item"><a href="#lr">lr</a></li>
+<li class="item"><a href="#tmax">tmax</a></li>
+<li class="item"><a href="#checks">checks</a></li>
+<li class="item"><a href="#V">V</a></li>
+<li class="item"><a href="#D">D</a></li>
+<li class="item"><a href="#F">F</a></li>
+<li class="item"><a href="#B">B</a></li>
+<li class="item"><a href="#ones">ones</a></li>
+<li class="item"><a href="#Xin">Xin</a></li>
+<li class="item"><a href="#Y">Y</a></li>
+<li><a href="#section-2">The start</a></li>
+<li class="item"><a href="#P">P</a></li>
+<li class="item"><a href="#hw">hw</a></li>
+<li class="item"><a href="#I2">I2</a></li>
+<li class="item"><a href="#k1">k1</a></li>
+<li class="item"><a href="#k2">k2</a></li>
+<li class="item"><a href="#blocks">blocks</a></li>
+<li class="item"><a href="#hs">hs</a></li>
+<li class="item"><a href="#theta0">theta0</a></li>
+<li class="item"><a href="#N">N</a></li>
+<li><a href="#section-3">The jobs</a></li>
+<li class="item"><a href="#h">h</a></li>
+<li class="item"><a href="#thc">thc</a></li>
+<li class="item"><a href="#mix">mix</a></li>
+<li class="item"><a href="#idx">idx</a></li>
+<li class="item"><a href="#up">up</a></li>
+<li class="item"><a href="#down">down</a></li>
+<li class="item"><a href="#jobs">jobs</a></li>
+<li><a href="#section-4">One training step, written out</a></li>
+<li class="item"><a href="#runs">runs</a></li>
+<li><a href="#section-5">The run</a></li>
+<li class="item"><a href="#record">record</a></li>
+<li class="item"><a href="#rows">rows</a></li>
+<li class="item"><a href="#_">_</a></li>
+<li><a href="#section-6">Checked</a></li>
+<li class="item"><a href="#g0">g0</a></li>
+<li class="item"><a href="#firsts">firsts</a></li>
+<li class="item"><a href="#written">written</a></li>
+<li class="item"><a href="#central">central</a></li>
+<li class="item"><a href="#c1">c1</a></li>
+<li class="item"><a href="#c2">c2</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/training-at-depth/training-at-depth.xtl</h1>
+<div class="doc">
+<p>Training at depth: the plain skip, Hyper-Connections (HC) and mHC
+(Xie and others, arXiv:2512.24880) trained on one tiny task, with
+Adam, from the same start. The task is the Python
+re-implementation's (mHC-poc), made tiny: each of 16 tokens, its
+successor the target (token + 1, 16 wrapping round to 1). A token
+is looked up in an embedding (16 x 8), sent through L layers, the
+streams averaged and scaled to a size of 1 (RMS), and turned into
+16 scores by an unembedding (8 x 16): softmax and cross-entropy.
+Each layer is lesson D1's: H_pre mixes the S streams, their average
+goes through a block 8 -&gt; 16 -&gt; 8 with GELU, H_post hands its output
+back, H_res mixes the carried state. Every weight is trained: the
+blocks, the embeddings, and each layer's three tables of logits.
+The scheme is two settings: S = 1 and the projection on is the
+plain skip (every table is the number 1); S = 4 with H_res the
+exponential of its logits is HC; with its Sinkhorn projection, mHC.
+The gradient is written out, layer by layer, the Sinkhorn rounds
+included, and checked against central differences in the same
+program; FM13 of X_eTaL-ML (hc:l_ayer, hc:b_ackTop, hc:b_ackBottom,
+hc:s_inkhornBack) is the ask (docs/xetal-ML-asks.md).</p>
+</div>
+<p class="meta"><a href="demos-training-at-depth-training-at-depth.xtl.src.html">source</a> &middot; imports <code><span class="c-error">act:</span></code> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">work/xetal-ml/libs/Activations/src/Activations.xtl</a>; <code><span class="c-error">k:</span></code> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">work/xetal-libraries/libs/Check/src/Check.xtl</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">work/xetal-libraries/libs/Check/src/Check.xtlm</a>; <code><span class="c-error">mx:</span></code> <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">work/xetal-libraries/libs/Matrix/src/Matrix.xtl</a>; <code><span class="c-error">nn:</span></code> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html">work/xetal-ml/libs/NN/src/NN.xtl</a>; <code><span class="c-error">op:</span></code> <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">work/xetal-ml/libs/Optim/src/Optim.xtl</a>; <code><span class="c-error">p:</span></code> <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">work/xetal-libraries/libs/Plot/src/Plot.xtl</a></p>
+<h2 class="section" id="section-1">Settings</h2>
+<div class="item" id="S">
+<h3><a href="#S">S</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L36">line 36</a></div>
+<div class="doc">
+<p>The scheme (S streams; sink 1.0 projects H_res by Sinkhorn-Knopp,
+0.0 leaves it the exponential), the depth L, the steps, Adam's
+rate, the paper's Sinkhorn rounds, and how many gradient entries to
+check against central differences (0 to 9; the offline runs check
+none, since the page's run already has).</p>
+</div>
+<pre class="code">S ← <span class="c-number">4</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#I2">I2</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#hs">hs</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#mix">mix</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="sink">
+<h3><a href="#sink">sink</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L37">line 37</a></div>
+<pre class="code">sink ← <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="L">
+<h3><a href="#L">L</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L38">line 38</a></div>
+<pre class="code">L ← <span class="c-number">12</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#k1">k1</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#blocks">blocks</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#hs">hs</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="steps">
+<h3><a href="#steps">steps</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L39">line 39</a></div>
+<pre class="code">steps ← <span class="c-number">50</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#jobs">jobs</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#rows">rows</a></div>
+</div>
+<div class="item" id="lr">
+<h3><a href="#lr">lr</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L40">line 40</a></div>
+<pre class="code">lr ← <span class="c-number">0.01</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="tmax">
+<h3><a href="#tmax">tmax</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L41">line 41</a></div>
+<pre class="code">tmax ← <span class="c-number">20</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="checks">
+<h3><a href="#checks">checks</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L42">line 42</a></div>
+<pre class="code">checks ← <span class="c-number">9</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#central">central</a></div>
+</div>
+<div class="item" id="V">
+<h3><a href="#V">V</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L45">line 45</a></div>
+<div class="doc">
+<p>The vocabulary, the width, the block's inner width, the batch (the
+whole vocabulary, once each).</p>
+</div>
+<pre class="code">V ← <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#Xin">Xin</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#Y">Y</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#k2">k2</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="D">
+<h3><a href="#D">D</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L46">line 46</a></div>
+<pre class="code">D ← <span class="c-number">8</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#k2">k2</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="F">
+<h3><a href="#F">F</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L47">line 47</a></div>
+<pre class="code">F ← <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="B">
+<h3><a href="#B">B</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L48">line 48</a></div>
+<pre class="code">B ← <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="ones">
+<h3><a href="#ones">ones</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L49">line 49</a></div>
+<pre class="code">ones ← <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="Xin">
+<h3><a href="#Xin">Xin</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L50">line 50</a></div>
+<pre class="code">Xin ← <a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.o_neHot" class="c-libfunc">ⁿⁿo̲neHot</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="Y">
+<h3><a href="#Y">Y</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L51">line 51</a></div>
+<pre class="code">Y ← <a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.o_neHot" class="c-libfunc">ⁿⁿo̲neHot</a> <span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a>) <a href="builtins.html#m_od" class="c-builtin">m̲od</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<h2 class="section" id="section-2">The start</h2>
+<div class="item" id="P">
+<h3><a href="#P">P</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L61">line 61</a></div>
+<div class="doc">
+<p>Every weight in one list, theta: for each layer, W1 ((D + 1) x F,
+its bias the last row), W2 ((F + 1) x D), the logits of H_pre (S x
+S), of H_post (S) and of H_res (S x S); then the embedding E (V x
+D) and the unembedding U (D x V). The blocks and the embeddings
+from one ripple, as in lesson D1; the logits 2 I - 1 as the paper's
+Python starts them (H_post's, the first row of that).</p>
+</div>
+<pre class="code">P ← ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="hw">
+<h3><a href="#hw">hw</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L62">line 62</a></div>
+<pre class="code">hw ← ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#k1">k1</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#blocks">blocks</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#mix">mix</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<div class="item" id="I2">
+<h3><a href="#I2">I2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L63">line 63</a></div>
+<pre class="code">I2 ← (<span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <span class="c-symbol">'</span><a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#hs">hs</a></div>
+</div>
+<div class="item" id="k1">
+<h3><a href="#k1">k1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L64">line 64</a></div>
+<pre class="code">k1 ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#blocks">blocks</a></div>
+</div>
+<div class="item" id="k2">
+<h3><a href="#k2">k2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L65">line 65</a></div>
+<pre class="code">k2 ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#theta0">theta0</a></div>
+</div>
+<div class="item" id="blocks">
+<h3><a href="#blocks">blocks</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L66">line 66</a></div>
+<pre class="code">blocks ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.37</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#k1">k1</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.01</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#k1">k1</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#k1">k1</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#theta0">theta0</a></div>
+</div>
+<div class="item" id="hs">
+<h3><a href="#hs">hs</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L67">line 67</a></div>
+<pre class="code">hs ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#I2">I2</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#I2">I2</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#I2">I2</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#theta0">theta0</a></div>
+</div>
+<div class="item" id="theta0">
+<h3><a href="#theta0">theta0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L68">line 68</a></div>
+<pre class="code">theta0 ← (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#blocks">blocks</a> <a href="builtins.html#c_at" class="c-builtin">c̲at₂</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#hs">hs</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.29</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#k2">k2</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.013</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#k2">k2</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#k2">k2</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#N">N</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#thc">thc</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="N">
+<h3><a href="#N">N</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L69">line 69</a></div>
+<pre class="code">N ← <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#theta0">theta0</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#thc">thc</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#up">up</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#down">down</a></div>
+</div>
+<h2 class="section" id="section-3">The jobs</h2>
+<div class="item" id="h">
+<h3><a href="#h">h</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L78">line 78</a></div>
+<div class="doc">
+<p>A job is a start, a number of steps and a rate. The first job is
+the training run; the others are for the gradient check: at a point
+near the start (theta0 nudged by a ripple, so that no gradient is 0
+by symmetry), one step at rate 0 for the gradient, and one each at
+that point moved by h, up and down, in each entry checked.</p>
+</div>
+<pre class="code">h ← <span class="c-number">0.000001</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#up">up</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#down">down</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#central">central</a></div>
+</div>
+<div class="item" id="thc">
+<h3><a href="#thc">thc</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L79">line 79</a></div>
+<pre class="code">thc ← <a href="demos-training-at-depth-training-at-depth.xtl.html#theta0">theta0</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.05</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">1.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#N">N</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#up">up</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#down">down</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="mix">
+<h3><a href="#mix">mix</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L84">line 84</a></div>
+<div class="doc">
+<p>The entries: in layer 1, one of each block table; in layer 2, the
+first logit of H_pre and of H_post and the middle one of H_res, and
+one of the first block table; in the last layer, one of the second
+block table; one of the embedding and one of the unembedding.</p>
+</div>
+<pre class="code">mix ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#d_iv" class="c-builtin">d̲iv</a> <span class="c-number">2</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a></div>
+</div>
+<div class="item" id="idx">
+<h3><a href="#idx">idx</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L85">line 85</a></div>
+<pre class="code">idx ← <a href="demos-training-at-depth-training-at-depth.xtl.html#checks">checks</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> (<span class="c-number">3</span> <span class="c-number">150</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#mix">mix</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">20</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">200</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">5</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">7</span></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#up">up</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#down">down</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#written">written</a></div>
+</div>
+<div class="item" id="up">
+<h3><a href="#up">up</a> <span class="type">: Box (Float, Int, Float)</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L86">line 86</a></div>
+<pre class="code">up ← <span class="c-quote">'</span>{ i → (<a href="demos-training-at-depth-training-at-depth.xtl.html#thc">thc</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#h">h</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#N">N</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> i, <span class="c-number">1</span>, <span class="c-number">0.0</span>) } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="down">
+<h3><a href="#down">down</a> <span class="type">: Box (Float, Int, Float)</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L87">line 87</a></div>
+<pre class="code">down ← <span class="c-quote">'</span>{ i → (<a href="demos-training-at-depth-training-at-depth.xtl.html#thc">thc</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#h">h</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#N">N</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> i, <span class="c-number">1</span>, <span class="c-number">0.0</span>) } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="jobs">
+<h3><a href="#jobs">jobs</a> <span class="type">: Box (Float, Int, Float)</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L88">line 88</a></div>
+<pre class="code">jobs ← (<span class="c-quote">'</span>{ i → (<a href="demos-training-at-depth-training-at-depth.xtl.html#theta0">theta0</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#steps">steps</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#lr">lr</a>) } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-quote">'</span>{ i → (<a href="demos-training-at-depth-training-at-depth.xtl.html#thc">thc</a>, <span class="c-number">1</span>, <span class="c-number">0.0</span>) } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#up">up</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#down">down</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></div>
+</div>
+<h2 class="section" id="section-4">One training step, written out</h2>
+<div class="item" id="runs">
+<h3><a href="#runs">runs</a> <span class="type">: Box (Float, Float)</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L100">line 100</a></div>
+<div class="doc">
+<p>Each step: the forward pass layer by layer, keeping the state each
+layer was given and the product of the H_res tables (the composite,
+lesson D3); the loss; the backward pass from the top down, each
+layer recomputed from the state it was given; Adam (Optim's). The
+record of a step: the loss, the size of the gradient (the square
+root of the sum of its squares), the composite's forward and
+backward gain and its proxy (lesson D3), and 1 if any number of the
+loss or the gradient is not a number (NaN) or infinite, else 0.</p>
+</div>
+<pre class="code">runs ← <span class="c-quote">'</span>{ jb → (th0, n, rate) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> jb
+  (_, _, _, rec, gN) ← n <span class="c-quote">'</span>{ (th, m1, v1, rec, gp) →
+    lay ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> th
+    E ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> th
+    U ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#V">V</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#P">P</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> th
+    <span class="c-doc">⍝│</span><span class="c-doc"> Forward. The state X is S rows (the streams) of B x D numbers</span>
+    <span class="c-doc">⍝│</span><span class="c-doc"> (each example's list side by side): every stream starts as the</span>
+    <span class="c-doc">⍝│</span><span class="c-doc"> embedding.</span>
+    X0 ← <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#r_eplicate" class="c-builtin">r̲eplicate</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#Xin">Xin</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> E
+    (_, XL, Xs, Hp) ← <a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (l, X, Xs, Hp) →
+      w ← l <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> lay
+      W1 ← ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> w
+      W2 ← ((<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      Hpre ← <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.s_oftmax" class="c-libfunc">ⁿⁿs̲oftmax</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      hpost ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.s_oftmax" class="c-libfunc">ⁿⁿs̲oftmax</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      A ← <a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      Hres ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#sink">sink</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ M → R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a>◆ R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> A) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#sink">sink</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> A
+      m ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Hpre) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> X
+      f ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> m <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> W1) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> W2
+      (l <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>, (Hres <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> X) <a href="builtins.html#-2b" class="c-symbol">+</a> hpost <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> f, Xs <a href="builtins.html#c_at" class="c-builtin">c̲at</a> X, Hres <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> Hp)
+    } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<span class="c-number">1</span>, X0, (<span class="c-number">0</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html#l.i_dentity" class="c-libfunc">ᵐˣi̲dentity</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>)
+    <span class="c-doc">⍝│</span><span class="c-doc"> The head: the streams averaged, scaled to size 1, scored, and</span>
+    <span class="c-doc">⍝│</span><span class="c-doc"> the loss.</span>
+    y ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> XL) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>
+    r ← <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-number">0.00000001</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> y <a href="builtins.html#-2a" class="c-symbol">×</a> y) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>
+    yn ← y <a href="builtins.html#-2f" class="c-symbol">÷</a> r <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span>
+    pr ← <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.s_oftmax" class="c-libfunc">ⁿⁿs̲oftmax</a> yn <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> U
+    loss ← <a href="demos-training-at-depth-training-at-depth.xtl.html#Y">Y</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.c_rossEntropy" class="c-libfunc">ⁿⁿc̲rossEntropy</a> pr
+    <span class="c-doc">⍝│</span><span class="c-doc"> Backward through the head: the scores, U, the scaling, the</span>
+    <span class="c-doc">⍝│</span><span class="c-doc"> average (a quarter of the gradient to each stream).</span>
+    dz ← (pr <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#Y">Y</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a>
+    dU ← (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> yn) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> dz
+    dyn ← dz <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> U
+    dy ← (dyn <a href="builtins.html#-2d" class="c-symbol">−</a> yn <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> dyn <a href="builtins.html#-2a" class="c-symbol">×</a> yn) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span> <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> r <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span>
+    <span class="c-doc">⍝│</span><span class="c-doc"> Backward through the layers, the last first: G is the gradient</span>
+    <span class="c-doc">⍝│</span><span class="c-doc"> of the loss by the state a layer handed on; each layer gives the</span>
+    <span class="c-doc">⍝│</span><span class="c-doc"> gradient by its own weights and by the state it was given.</span>
+    (_, G0, gl) ← <a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (l, G, gl) →
+      X ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((l <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Xs
+      w ← l <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> lay
+      W1 ← ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> w
+      W2 ← ((<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      Hpre ← <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.s_oftmax" class="c-libfunc">ⁿⁿs̲oftmax</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      hpost ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.s_oftmax" class="c-libfunc">ⁿⁿs̲oftmax</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      A ← <a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#hw">hw</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> w
+      <span class="c-doc">⍝│</span><span class="c-doc"> The Sinkhorn rounds again, keeping each round's start M and</span>
+      <span class="c-doc">⍝│</span><span class="c-doc"> its rows-normalized R for the way back.</span>
+      (Hm, Ms, Rs) ← <a href="demos-training-at-depth-training-at-depth.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, Ms, Rs) → R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a>◆ (R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, Ms <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> M, Rs <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (A, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)
+      Hres ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#sink">sink</a> <a href="builtins.html#-2a" class="c-symbol">×</a> Hm) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#sink">sink</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> A
+      a ← (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Hpre) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>
+      m ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> a <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> X
+      z ← m <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> W1
+      h ← <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> z
+      f ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> h <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> W2
+      <span class="c-doc">⍝│</span><span class="c-doc"> X2 = Hres X + hpost f: by Hres, by hpost, by f.</span>
+      dH ← G <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> X
+      dhpost ← G <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> f
+      df ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> hpost <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> G
+      <span class="c-doc">⍝│</span><span class="c-doc"> The block: f = h W2 + b2, h = GELU(z), z = m W1 + b1.</span>
+      dW2 ← ((<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> h) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> df) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> df
+      dzz ← (df <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> W2) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.d_gelu" class="c-libfunc">ᵃᶜᵗd̲gelu</a> z
+      dW1 ← ((<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> m) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> dzz) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> dzz
+      <span class="c-doc">⍝│</span><span class="c-doc"> m = a X, a the column means of Hpre: by a, then by Hpre.</span>
+      dm ← (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dzz <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#F">F</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> W1
+      da ← dm <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> X
+      dHpre ← <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#r_eplicate" class="c-builtin">r̲eplicate</a> da <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>
+      <span class="c-doc">⍝│</span><span class="c-doc"> Through the softmaxes to the logits of H_pre and H_post.</span>
+      dLpre ← Hpre <a href="builtins.html#-2a" class="c-symbol">×</a> dHpre <a href="builtins.html#-2d" class="c-symbol">−</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Hpre <a href="builtins.html#-2a" class="c-symbol">×</a> dHpre) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a>
+      dlpost ← hpost <a href="builtins.html#-2a" class="c-symbol">×</a> dhpost <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> hpost <a href="builtins.html#-2a" class="c-symbol">×</a> dhpost
+      <span class="c-doc">⍝│</span><span class="c-doc"> Through the Sinkhorn rounds, the last first (each division</span>
+      <span class="c-doc">⍝│</span><span class="c-doc"> undone in turn), then through the exponential.</span>
+      (_, dA) ← <a href="demos-training-at-depth-training-at-depth.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (k, dC) →
+        M ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((k <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> Ms
+        R ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((k <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> Rs
+        C ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+        dR ← (dC <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> dC <a href="builtins.html#-2a" class="c-symbol">×</a> C) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+        (k <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>, (dR <a href="builtins.html#-2d" class="c-symbol">−</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> dR <a href="builtins.html#-2a" class="c-symbol">×</a> R) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#ones">ones</a>) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#tmax">tmax</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#sink">sink</a> <a href="builtins.html#-2a" class="c-symbol">×</a> dH)
+      dLres ← A <a href="builtins.html#-2a" class="c-symbol">×</a> dA <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#sink">sink</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> dH
+      (l <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>, ((<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> Hres) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> G) <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> a) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> dm, (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dW1) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dW2) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dLpre) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> dlpost <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dLres) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> gl)
+    } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#L">L</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a> <a href="builtins.html#r_eplicate" class="c-builtin">r̲eplicate</a> (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dy <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#S">S</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)
+    <span class="c-doc">⍝│</span><span class="c-doc"> The embedding: every stream started as it.</span>
+    dE ← (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#Xin">Xin</a>) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> (<a href="demos-training-at-depth-training-at-depth.xtl.html#B">B</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#D">D</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> G0
+    g ← gl <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dE) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dU
+    <span class="c-doc">⍝│</span><span class="c-doc"> Adam's step, and the record.</span>
+    (th2, m2, v2) ← (rate, <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <span class="c-number">1</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> rec) <a href="builtins.html#d_iv" class="c-builtin">d̲iv</a> <span class="c-number">6</span>) <a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html#l.a_dam" class="c-libfunc">ᵒᵖa̲dam</a> (th, m1, v1, g)
+    bad ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <span class="c-number">0</span> <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> (g <a href="builtins.html#c_at" class="c-builtin">c̲at</a> loss) <a href="builtins.html#-21-3d" class="c-symbol">≠</a> g <a href="builtins.html#c_at" class="c-builtin">c̲at</a> loss
+    (th2, m2, v2, rec <a href="builtins.html#c_at" class="c-builtin">c̲at</a> loss <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> g <a href="builtins.html#-2a" class="c-symbol">×</a> g) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Hp) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Hp) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ((<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Hp) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> bad, g)
+  } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (th0, <span class="c-number">0.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> th0, <span class="c-number">0.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> th0, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> th0)
+  (rec, gN) } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#jobs">jobs</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#record">record</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#g0">g0</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#firsts">firsts</a></div>
+</div>
+<h2 class="section" id="section-5">The run</h2>
+<div class="item" id="record">
+<h3><a href="#record">record</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L195">line 195</a></div>
+<div class="doc">
+<p>The training run's record, a row a step: loss, gradient size,
+forward gain, backward gain, proxy, NaN or infinite. Then its loss
+and gradient size as one chart, in powers of ten.</p>
+</div>
+<pre class="code">(<a href="demos-training-at-depth-training-at-depth.xtl.html#record">record</a>, _) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#record">record</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#rows">rows</a></div>
+</div>
+<div class="item" id="rows">
+<h3><a href="#rows">rows</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L196">line 196</a></div>
+<pre class="code">rows ← (<a href="demos-training-at-depth-training-at-depth.xtl.html#steps">steps</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">6</span>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#record">record</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L197">demos/training-at-depth/training-at-depth.xtl:197</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#_">_</a>, <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L199">demos/training-at-depth/training-at-depth.xtl:199</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#c2">c2</a></div>
+</div>
+<div class="item" id="_">
+<h3><a href="#_">_</a> <span class="type">: Char</span></h3>
+<div class="meta">function &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L198">line 198</a></div>
+<pre class="code">_ ← (<span class="c-string">&quot;Loss and gradient size, each step&quot;</span> <span class="c-string">&quot;step&quot;</span> <span class="c-string">&quot;log10&quot;</span> <span class="c-string">&quot;loss&quot;</span> <span class="c-string">&quot;gradient size&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ k → (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect₂</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#rows">rows</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <span class="c-number">1</span> <span class="c-number">2</span></pre>
+</div>
+<h2 class="section" id="section-6">Checked</h2>
+<div class="item" id="g0">
+<h3><a href="#g0">g0</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L207">line 207</a></div>
+<div class="doc">
+<p>The gradient written out against central differences: for each
+entry checked, (loss(up) - loss(down)) / 2h beside the written-out
+gradient's entry. Then the checks, each within a thousandth of the
+larger of the two (or 1e-8).</p>
+</div>
+<pre class="code">(_, <a href="demos-training-at-depth-training-at-depth.xtl.html#g0">g0</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#g0">g0</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#written">written</a></div>
+</div>
+<div class="item" id="firsts">
+<h3><a href="#firsts">firsts</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L208">line 208</a></div>
+<pre class="code">(_, <a href="demos-training-at-depth-training-at-depth.xtl.html#firsts">firsts</a>) ← (<a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a>) <span class="c-quote">'</span>{ (k, ls) → (rk, _) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#runs">runs</a>◆ (k <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>, ls <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> rk) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<span class="c-number">1</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.html#firsts">firsts</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#central">central</a></div>
+</div>
+<div class="item" id="written">
+<h3><a href="#written">written</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L209">line 209</a></div>
+<pre class="code">written ← <a href="demos-training-at-depth-training-at-depth.xtl.html#idx">idx</a> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#g0">g0</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L211">demos/training-at-depth/training-at-depth.xtl:211</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#c1">c1</a></div>
+</div>
+<div class="item" id="central">
+<h3><a href="#central">central</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L210">line 210</a></div>
+<pre class="code">central ← ((<a href="demos-training-at-depth-training-at-depth.xtl.html#checks">checks</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <span class="c-number">2</span> <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#firsts">firsts</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#checks">checks</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> (<span class="c-number">2</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#checks">checks</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#firsts">firsts</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#h">h</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L212">demos/training-at-depth/training-at-depth.xtl:212</a>, <a href="demos-training-at-depth-training-at-depth.xtl.html#c1">c1</a></div>
+</div>
+<div class="item" id="c1">
+<h3><a href="#c1">c1</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L213">line 213</a></div>
+<pre class="code">c1 ← <span class="c-string">&quot;the gradient written out agrees with central differences&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#written">written</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#central">central</a>) <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> <span class="c-number">0.00000001</span> <a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <span class="c-number">0.001</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#central">central</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L215">demos/training-at-depth/training-at-depth.xtl:215</a></div>
+</div>
+<div class="item" id="c2">
+<h3><a href="#c2">c2</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L214">line 214</a></div>
+<pre class="code">c2 ← <span class="c-string">&quot;no step's loss or gradient was NaN or infinite&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> <span class="c-number">0.0</span> <a href="builtins.html#-3d" class="c-symbol">=</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <span class="c-number">6</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect₂</a> <a href="demos-training-at-depth-training-at-depth.xtl.html#rows">rows</a></pre>
+<div class="uses">Used in: <a href="demos-training-at-depth-training-at-depth.xtl.src.html#L215">demos/training-at-depth/training-at-depth.xtl:215</a></div>
+</div>
+</main>
+</body>
+</html>

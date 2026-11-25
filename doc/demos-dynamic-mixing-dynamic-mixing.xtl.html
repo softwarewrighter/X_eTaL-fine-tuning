@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/dynamic-mixing/dynamic-mixing.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/dynamic-mixing/</h3>
+<ul>
+<li><a href="demos-dynamic-mixing-dynamic-mixing.xtl.html">dynamic-mixing.xtl</a></li>
+</ul>
+<h3>demos/gain-by-depth/</h3>
+<ul>
+<li><a href="demos-gain-by-depth-gain-by-depth.xtl.html">gain-by-depth.xtl</a></li>
+</ul>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/mhc-compared/</h3>
+<ul>
+<li><a href="demos-mhc-compared-mhc-compared.xtl.html">mhc-compared.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/residual-streams/</h3>
+<ul>
+<li><a href="demos-residual-streams-residual-streams.xtl.html">residual-streams.xtl</a></li>
+</ul>
+<h3>demos/sinkhorn/</h3>
+<ul>
+<li><a href="demos-sinkhorn-sinkhorn.xtl.html">sinkhorn.xtl</a></li>
+</ul>
+<h3>demos/training-at-depth/</h3>
+<ul>
+<li><a href="demos-training-at-depth-replay.xtl.html">replay.xtl</a></li>
+<li><a href="demos-training-at-depth-training-at-depth.xtl.html">training-at-depth.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Check/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">Check.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">Check.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Combinatorics/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Combinatorics-src-Combinatorics.xtl.html">Combinatorics.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Activations/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">Activations.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/NN/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-NN-src-NN.xtl.html">NN.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Data</a></li>
+<li class="item"><a href="#alpha">alpha</a></li>
+<li class="item"><a href="#S">S</a></li>
+<li class="item"><a href="#C">C</a></li>
+<li class="item"><a href="#F">F</a></li>
+<li class="item"><a href="#tmax">tmax</a></li>
+<li class="item"><a href="#ones">ones</a></li>
+<li class="item"><a href="#kx">kx</a></li>
+<li class="item"><a href="#Xa">Xa</a></li>
+<li class="item"><a href="#Xb">Xb</a></li>
+<li class="item"><a href="#T">T</a></li>
+<li class="item"><a href="#kp">kp</a></li>
+<li class="item"><a href="#phi">phi</a></li>
+<li class="item"><a href="#bpre">bpre</a></li>
+<li class="item"><a href="#bpost">bpost</a></li>
+<li class="item"><a href="#bres">bres</a></li>
+<li class="item"><a href="#k1">k1</a></li>
+<li class="item"><a href="#k2">k2</a></li>
+<li class="item"><a href="#W1">W1</a></li>
+<li class="item"><a href="#W2">W2</a></li>
+<li><a href="#section-2">The layer, for any start</a></li>
+<li class="item"><a href="#NP">NP</a></li>
+<li class="item"><a href="#pack">pack</a></li>
+<li class="item"><a href="#h">h</a></li>
+<li class="item"><a href="#idx">idx</a></li>
+<li class="item"><a href="#pa">pa</a></li>
+<li class="item"><a href="#up">up</a></li>
+<li class="item"><a href="#down">down</a></li>
+<li class="item"><a href="#jobs">jobs</a></li>
+<li class="item"><a href="#outs">outs</a></li>
+<li><a href="#section-3">Part 1: two inputs, their tables</a></li>
+<li class="item"><a href="#sa">sa</a></li>
+<li class="item"><a href="#va">va</a></li>
+<li class="item"><a href="#qa">qa</a></li>
+<li class="item"><a href="#ga">ga</a></li>
+<li class="item"><a href="#sb">sb</a></li>
+<li class="item"><a href="#vb">vb</a></li>
+<li class="item"><a href="#qb">qb</a></li>
+<li class="item"><a href="#gb">gb</a></li>
+<li><a href="#section-4">Part 3: the gradient, checked</a></li>
+<li class="item"><a href="#n">n</a></li>
+<li class="item"><a href="#central">central</a></li>
+<li class="item"><a href="#written">written</a></li>
+<li class="item"><a href="#c1">c1</a></li>
+<li class="item"><a href="#sums">sums</a></li>
+<li class="item"><a href="#c2">c2</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/dynamic-mixing/dynamic-mixing.xtl</h1>
+<div class="doc">
+<p>Dynamic mixing: the paper's own mixing tables (Xie and others,
+arXiv:2512.24880, eq. 7 to 9), made afresh for every input. The
+stream state X (S = 4 streams of C = 8) is flattened to one list of
+32 and scaled to a root-mean-square of 1 (RMS normalization); one
+projection phi (32 x 24, the paper's fused form, its eq. 14) gives
+4 + 4 + 16 numbers; each group is multiplied by a gating factor
+alpha (the paper starts them at 0.01) and a bias is added; then
+H_pre = sigmoid, H_post = 2 sigmoid, H_res = Sinkhorn-Knopp of the
+exponential, 20 rounds. The layer is the paper's eq. 3: the block's
+input is H_pre X (a weighted sum of the streams), and the new state
+is H_res X + H_post' f. Part 1: two inputs, their tables, at the
+gating factor set; the stages of the first input are part 1's
+printout, which the page steps through. Part 3: the
+gradient of a probe of the new state by alpha, phi, the biases and
+the input, written out (through the Sinkhorn rounds, the sigmoids,
+the projection and the normalization) and checked against central
+differences. Written out here: ask FM13 of X_eTaL-ML (hc:d_ynamic).</p>
+</div>
+<p class="meta"><a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html">source</a> &middot; imports <code><span class="c-error">act:</span></code> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">work/xetal-ml/libs/Activations/src/Activations.xtl</a>; <code><span class="c-error">k:</span></code> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">work/xetal-libraries/libs/Check/src/Check.xtl</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">work/xetal-libraries/libs/Check/src/Check.xtlm</a>; <code><span class="c-error">nn:</span></code> <a href="work-xetal-ml-libs-NN-src-NN.xtl.html">work/xetal-ml/libs/NN/src/NN.xtl</a></p>
+<h2 class="section" id="section-1">Data</h2>
+<div class="item" id="alpha">
+<h3><a href="#alpha">alpha</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L28">line 28</a></div>
+<div class="doc">
+<p>The gating factor (a setting: the paper starts it at 0.01), the
+streams, the width of a stream, the block's inner width, the rounds.</p>
+</div>
+<pre class="code">alpha ← <span class="c-number">0.01</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a></div>
+</div>
+<div class="item" id="S">
+<h3><a href="#S">S</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L29">line 29</a></div>
+<pre class="code">S ← <span class="c-number">4</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kx">kx</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xa">Xa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xb">Xb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kp">kp</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#phi">phi</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#bpre">bpre</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#bpost">bpost</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#bres">bres</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#NP">NP</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L142">demos/dynamic-mixing/dynamic-mixing.xtl:142</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L143">demos/dynamic-mixing/dynamic-mixing.xtl:143</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L144">demos/dynamic-mixing/dynamic-mixing.xtl:144</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L148">demos/dynamic-mixing/dynamic-mixing.xtl:148</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L149">demos/dynamic-mixing/dynamic-mixing.xtl:149</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sums">sums</a></div>
+</div>
+<div class="item" id="C">
+<h3><a href="#C">C</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L30">line 30</a></div>
+<pre class="code">C ← <span class="c-number">8</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kx">kx</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xa">Xa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xb">Xb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kp">kp</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#phi">phi</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k1">k1</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k2">k2</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W1">W1</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W2">W2</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#NP">NP</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<div class="item" id="F">
+<h3><a href="#F">F</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L31">line 31</a></div>
+<pre class="code">F ← <span class="c-number">16</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k1">k1</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k2">k2</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W1">W1</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W2">W2</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<div class="item" id="tmax">
+<h3><a href="#tmax">tmax</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L32">line 32</a></div>
+<pre class="code">tmax ← <span class="c-number">20</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<div class="item" id="ones">
+<h3><a href="#ones">ones</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L33">line 33</a></div>
+<pre class="code">ones ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<div class="item" id="kx">
+<h3><a href="#kx">kx</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L38">line 38</a></div>
+<div class="doc">
+<p>Two stream states, two inputs a layer could be given, each 4 x 8
+from a ripple (the four streams unlike one another, as after a
+layer); a probe T to measure the new state by (the loss of part 3 is
+the sum of the new state's numbers times T's).</p>
+</div>
+<pre class="code">kx ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xa">Xa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xb">Xb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a></div>
+</div>
+<div class="item" id="Xa">
+<h3><a href="#Xa">Xa</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L39">line 39</a></div>
+<pre class="code">Xa ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kx">kx</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L134">demos/dynamic-mixing/dynamic-mixing.xtl:134</a></div>
+</div>
+<div class="item" id="Xb">
+<h3><a href="#Xb">Xb</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L40">line 40</a></div>
+<pre class="code">Xb ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.7</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.45</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kx">kx</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L135">demos/dynamic-mixing/dynamic-mixing.xtl:135</a></div>
+</div>
+<div class="item" id="T">
+<h3><a href="#T">T</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L41">line 41</a></div>
+<pre class="code">T ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.1</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">1.1</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kx">kx</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<div class="item" id="kp">
+<h3><a href="#kp">kp</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L46">line 46</a></div>
+<div class="doc">
+<p>The projection phi (32 x 24: H_pre's 4 columns, H_post's 4, H_res's
+16) from one ripple; the biases: the paper states none, so the
+Python's static start: 0 for H_pre and H_post (sigmoid 0.5, 2
+sigmoid 1), 2 I - 1 for H_res; the block's two tables as lesson D1's.</p>
+</div>
+<pre class="code">kp ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#phi">phi</a></div>
+</div>
+<div class="item" id="phi">
+<h3><a href="#phi">phi</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L47">line 47</a></div>
+<pre class="code">phi ← ((<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.5</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.53</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kp">kp</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.007</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kp">kp</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#kp">kp</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a></div>
+</div>
+<div class="item" id="bpre">
+<h3><a href="#bpre">bpre</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L48">line 48</a></div>
+<pre class="code">bpre ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a></div>
+</div>
+<div class="item" id="bpost">
+<h3><a href="#bpost">bpost</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L49">line 49</a></div>
+<pre class="code">bpost ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a></div>
+</div>
+<div class="item" id="bres">
+<h3><a href="#bres">bres</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L50">line 50</a></div>
+<pre class="code">bres ← (<span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <span class="c-symbol">'</span><a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a></div>
+</div>
+<div class="item" id="k1">
+<h3><a href="#k1">k1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L51">line 51</a></div>
+<pre class="code">k1 ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W1">W1</a></div>
+</div>
+<div class="item" id="k2">
+<h3><a href="#k2">k2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L52">line 52</a></div>
+<pre class="code">k2 ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W2">W2</a></div>
+</div>
+<div class="item" id="W1">
+<h3><a href="#W1">W1</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L53">line 53</a></div>
+<pre class="code">W1 ← ((<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#s_in" class="c-builtin">s̲in</a> <span class="c-number">0.37</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k1">k1</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.01</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k1">k1</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k1">k1</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<div class="item" id="W2">
+<h3><a href="#W2">W2</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L54">line 54</a></div>
+<pre class="code">W2 ← ((<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.3</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#c_os" class="c-builtin">c̲os</a> <span class="c-number">0.29</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k2">k2</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">0.013</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k2">k2</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#k2">k2</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<h2 class="section" id="section-2">The layer, for any start</h2>
+<div class="item" id="NP">
+<h3><a href="#NP">NP</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L64">line 64</a></div>
+<div class="doc">
+<p>One lambda for every use (a lambda can be applied only where it is
+written): given the three gating factors, phi, the three biases and
+the input, all in one list, it gives the stages of the layer, the
+probe, and the gradient of the probe by every number of the list.
+The list: alpha_pre, alpha_post, alpha_res; phi (768); b_pre (4),
+b_post (4), b_res (16); X (32).</p>
+</div>
+<pre class="code">NP ← <span class="c-number">3</span> <a href="builtins.html#-2b" class="c-symbol">+</a> ((<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#up">up</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#down">down</a></div>
+</div>
+<div class="item" id="pack">
+<h3><a href="#pack">pack</a> <span class="type">: Box Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L65">line 65</a></div>
+<pre class="code">pack ← <span class="c-quote">'</span>{ Xb → (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#alpha">alpha</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#alpha">alpha</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#alpha">alpha</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#phi">phi</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#bpre">bpre</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#bpost">bpost</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#bres">bres</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> Xb } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xa">Xa</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#Xb">Xb</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pa">pa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="h">
+<h3><a href="#h">h</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L70">line 70</a></div>
+<div class="doc">
+<p>The jobs: the two inputs; then the first input's list moved by h,
+up and down, in each entry the check looks at (the three gating
+factors, a number of phi in H_pre's columns and one in H_res's, a
+bias of each kind, two numbers of the input).</p>
+</div>
+<pre class="code">h ← <span class="c-number">0.000001</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#up">up</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#down">down</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#central">central</a></div>
+</div>
+<div class="item" id="idx">
+<h3><a href="#idx">idx</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L71">line 71</a></div>
+<pre class="code">idx ← <span class="c-number">1</span> <span class="c-number">2</span> <span class="c-number">3</span> <span class="c-number">101</span> <span class="c-number">258</span> <span class="c-number">772</span> <span class="c-number">778</span> <span class="c-number">781</span> <span class="c-number">796</span> <span class="c-number">816</span></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#up">up</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#down">down</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#n">n</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#written">written</a></div>
+</div>
+<div class="item" id="pa">
+<h3><a href="#pa">pa</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L72">line 72</a></div>
+<pre class="code">pa ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#up">up</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#down">down</a></div>
+</div>
+<div class="item" id="up">
+<h3><a href="#up">up</a> <span class="type">: Box Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L73">line 73</a></div>
+<pre class="code">up ← <span class="c-quote">'</span>{ i → <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pa">pa</a> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#h">h</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#NP">NP</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> i } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#idx">idx</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="down">
+<h3><a href="#down">down</a> <span class="type">: Box Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L74">line 74</a></div>
+<pre class="code">down ← <span class="c-quote">'</span>{ i → <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pa">pa</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#h">h</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#NP">NP</a>) <a href="builtins.html#-3d" class="c-symbol">=</a> i } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#idx">idx</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#jobs">jobs</a></div>
+</div>
+<div class="item" id="jobs">
+<h3><a href="#jobs">jobs</a> <span class="type">: Box Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L75">line 75</a></div>
+<pre class="code">jobs ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#pack">pack</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#up">up</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#down">down</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></div>
+</div>
+<div class="item" id="outs">
+<h3><a href="#outs">outs</a> <span class="type">: Box (Float, Float, Float, Float)</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L76">line 76</a></div>
+<pre class="code">outs ← <span class="c-quote">'</span>{ pb → p ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> pb
+  (ap, aq, ar) ← (<span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> p, <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> p, <span class="c-number">3</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> p)
+  ph ← ((<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <span class="c-number">3</span> <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> p
+  q ← (<span class="c-number">3</span> <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> p
+  (bp, bq, br) ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> q, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> q, (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> q)
+  X ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> q
+  <span class="c-doc">⍝│</span><span class="c-doc"> Forward: flatten, normalize, project, gate, bias, squash.</span>
+  xv ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> X
+  r ← <a href="builtins.html#s_qrt" class="c-builtin">s̲qrt</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> xv <a href="builtins.html#-2a" class="c-symbol">×</a> xv) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>
+  xn ← xv <a href="builtins.html#-2f" class="c-symbol">÷</a> r
+  pj ← xn <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> ph
+  hp ← bp <a href="builtins.html#-2b" class="c-symbol">+</a> ap <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> pj
+  hq ← bq <a href="builtins.html#-2b" class="c-symbol">+</a> aq <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> pj
+  hr ← br <a href="builtins.html#-2b" class="c-symbol">+</a> ar <a href="builtins.html#-2a" class="c-symbol">×</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> pj
+  Hpre ← <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.s_igmoid" class="c-libfunc">ᵃᶜᵗs̲igmoid</a> hp
+  Hpost ← <span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.s_igmoid" class="c-libfunc">ᵃᶜᵗs̲igmoid</a> hq
+  A ← <a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> hr
+  (Hres, Ms, Rs) ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (M, Ms, Rs) → R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a>◆ (R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R, Ms <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> M, Rs <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> R) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (A, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)
+  <span class="c-doc">⍝│</span><span class="c-doc"> The layer: the block's input, the block, the new state, the probe.</span>
+  u ← (<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> Hpre <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> X
+  z ← u <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W1">W1</a>
+  f ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.g_elu" class="c-libfunc">ᵃᶜᵗg̲elu</a> z) <a href="work-xetal-ml-libs-NN-src-NN.xtl.html#l.d_ense" class="c-libfunc">ⁿⁿd̲ense</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W2">W2</a>
+  X2 ← (Hres <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> X) <a href="builtins.html#-2b" class="c-symbol">+</a> Hpost <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> f
+  probe ← <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> X2 <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a>
+  <span class="c-doc">⍝│</span><span class="c-doc"> Backward, from the probe: by the new state it is T.</span>
+  dHres ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> X
+  dHpost ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> f
+  df ← Hpost <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a>
+  du ← (((<span class="c-number">1</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> df) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W2">W2</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.d_gelu" class="c-libfunc">ᵃᶜᵗd̲gelu</a> z
+  dpre ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> du <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#F">F</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#W1">W1</a>
+  dHpre ← X <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> dpre
+  <span class="c-doc">⍝│</span><span class="c-doc"> Through the sigmoids, and the Sinkhorn rounds (lesson D4's way</span>
+  <span class="c-doc">⍝│</span><span class="c-doc"> back) and the exponential.</span>
+  dhp ← dHpre <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.d_sigmoid" class="c-libfunc">ᵃᶜᵗd̲sigmoid</a> hp
+  dhq ← <span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> dHpost <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html#l.d_sigmoid" class="c-libfunc">ᵃᶜᵗd̲sigmoid</a> hq
+  (_, dA) ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ (k, dC) →
+    M ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((k <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> Ms
+    R ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> ((k <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>) <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> Rs
+    Cn ← R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+    dR ← (dC <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> dC <a href="builtins.html#-2a" class="c-symbol">×</a> Cn) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R
+    (k <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1</span>, (dR <a href="builtins.html#-2d" class="c-symbol">−</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> dR <a href="builtins.html#-2a" class="c-symbol">×</a> R) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ones">ones</a>) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#tmax">tmax</a>, dHres)
+  dhr ← <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> A <a href="builtins.html#-2a" class="c-symbol">×</a> dA
+  <span class="c-doc">⍝│</span><span class="c-doc"> Through the gates, the biases and the projection to the</span>
+  <span class="c-doc">⍝│</span><span class="c-doc"> normalized list, then through the normalization to the input.</span>
+  dpj ← (ap <a href="builtins.html#-2a" class="c-symbol">×</a> dhp) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (aq <a href="builtins.html#-2a" class="c-symbol">×</a> dhq) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> ar <a href="builtins.html#-2a" class="c-symbol">×</a> dhr
+  dxn ← ph <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> dpj
+  dxv ← (dxn <a href="builtins.html#-2d" class="c-symbol">−</a> xn <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> dxn <a href="builtins.html#-2a" class="c-symbol">×</a> xn) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> r
+  dX ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#C">C</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> (<a href="builtins.html#o_-5c" class="c-builtin">o̲\</a> Hres) <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#T">T</a>) <a href="builtins.html#-2b" class="c-symbol">+</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Hpre <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> dpre) <a href="builtins.html#-2b" class="c-symbol">+</a> dxv
+  grad ← (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> dhp <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> pj) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> dhq <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> pj) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> dhr <a href="builtins.html#-2a" class="c-symbol">×</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> pj) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> xn <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> dpj) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> dhp <a href="builtins.html#c_at" class="c-builtin">c̲at</a> dhq <a href="builtins.html#c_at" class="c-builtin">c̲at</a> dhr <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> dX
+  (xn <a href="builtins.html#c_at" class="c-builtin">c̲at</a> pj, Hpre <a href="builtins.html#c_at" class="c-builtin">c̲at</a> Hpost <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Hres) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> u) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> X2, probe, grad) } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#jobs">jobs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#central">central</a></div>
+</div>
+<h2 class="section" id="section-3">Part 1: two inputs, their tables</h2>
+<div class="item" id="sa">
+<h3><a href="#sa">sa</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L132">line 132</a></div>
+<div class="doc">
+<p>For each input: the normalized list and the projection (32 + 24),
+then H_pre (4), H_post (4), H_res (16), the block's input (8), its
+output (8) and the new state (32).</p>
+</div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#va">va</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qa">qa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ga">ga</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L136">demos/dynamic-mixing/dynamic-mixing.xtl:136</a></div>
+</div>
+<div class="item" id="va">
+<h3><a href="#va">va</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L132">line 132</a></div>
+<div class="doc">
+<p>For each input: the normalized list and the projection (32 + 24),
+then H_pre (4), H_post (4), H_res (16), the block's input (8), its
+output (8) and the new state (32).</p>
+</div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#va">va</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qa">qa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ga">ga</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L137">demos/dynamic-mixing/dynamic-mixing.xtl:137</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L142">demos/dynamic-mixing/dynamic-mixing.xtl:142</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L143">demos/dynamic-mixing/dynamic-mixing.xtl:143</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L144">demos/dynamic-mixing/dynamic-mixing.xtl:144</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L148">demos/dynamic-mixing/dynamic-mixing.xtl:148</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L149">demos/dynamic-mixing/dynamic-mixing.xtl:149</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sums">sums</a></div>
+</div>
+<div class="item" id="qa">
+<h3><a href="#qa">qa</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L132">line 132</a></div>
+<div class="doc">
+<p>For each input: the normalized list and the projection (32 + 24),
+then H_pre (4), H_post (4), H_res (16), the block's input (8), its
+output (8) and the new state (32).</p>
+</div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#va">va</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qa">qa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ga">ga</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a></div>
+</div>
+<div class="item" id="ga">
+<h3><a href="#ga">ga</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L132">line 132</a></div>
+<div class="doc">
+<p>For each input: the normalized list and the projection (32 + 24),
+then H_pre (4), H_post (4), H_res (16), the block's input (8), its
+output (8) and the new state (32).</p>
+</div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#va">va</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qa">qa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ga">ga</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sa">sa</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#written">written</a></div>
+</div>
+<div class="item" id="sb">
+<h3><a href="#sb">sb</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L133">line 133</a></div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#vb">vb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qb">qb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#gb">gb</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L138">demos/dynamic-mixing/dynamic-mixing.xtl:138</a></div>
+</div>
+<div class="item" id="vb">
+<h3><a href="#vb">vb</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L133">line 133</a></div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#vb">vb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qb">qb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#gb">gb</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L139">demos/dynamic-mixing/dynamic-mixing.xtl:139</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L142">demos/dynamic-mixing/dynamic-mixing.xtl:142</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L143">demos/dynamic-mixing/dynamic-mixing.xtl:143</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L144">demos/dynamic-mixing/dynamic-mixing.xtl:144</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sums">sums</a></div>
+</div>
+<div class="item" id="qb">
+<h3><a href="#qb">qb</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L133">line 133</a></div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#vb">vb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qb">qb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#gb">gb</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a></div>
+</div>
+<div class="item" id="gb">
+<h3><a href="#gb">gb</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L133">line 133</a></div>
+<pre class="code">(<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#vb">vb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#qb">qb</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#gb">gb</a>) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sb">sb</a></div>
+</div>
+<h2 class="section" id="section-4">Part 3: the gradient, checked</h2>
+<div class="item" id="n">
+<h3><a href="#n">n</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L155">line 155</a></div>
+<div class="doc">
+<p>The written-out gradient at the entries checked, then the central
+differences (probe up minus probe down, over 2h); then the check.</p>
+</div>
+<pre class="code">n ← <a href="builtins.html#t_ally" class="c-builtin">t̲ally</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#idx">idx</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#central">central</a></div>
+</div>
+<div class="item" id="central">
+<h3><a href="#central">central</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L156">line 156</a></div>
+<pre class="code">(_, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#central">central</a>) ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#n">n</a> <span class="c-quote">'</span>{ (k, cs) → (_, _, pu, _) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> (<span class="c-number">2</span> <a href="builtins.html#-2b" class="c-symbol">+</a> k) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a>◆ (_, _, pd, _) ← <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> (<span class="c-number">2</span> <a href="builtins.html#-2b" class="c-symbol">+</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#n">n</a> <a href="builtins.html#-2b" class="c-symbol">+</a> k) <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#outs">outs</a>◆ (k <a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-number">1</span>, cs <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (pu <a href="builtins.html#-2d" class="c-symbol">−</a> pd) <a href="builtins.html#-2f" class="c-symbol">÷</a> <span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#h">h</a>) } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<span class="c-number">1</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#central">central</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L159">demos/dynamic-mixing/dynamic-mixing.xtl:159</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#c1">c1</a></div>
+</div>
+<div class="item" id="written">
+<h3><a href="#written">written</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L157">line 157</a></div>
+<pre class="code">written ← <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#idx">idx</a> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#ga">ga</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L158">demos/dynamic-mixing/dynamic-mixing.xtl:158</a>, <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#c1">c1</a></div>
+</div>
+<div class="item" id="c1">
+<h3><a href="#c1">c1</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L160">line 160</a></div>
+<pre class="code">c1 ← <span class="c-string">&quot;the gradient written out agrees with central differences&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#written">written</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#central">central</a>) <a href="builtins.html#-3c-3d" class="c-symbol">≤</a> <span class="c-number">0.00000001</span> <a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <span class="c-number">0.001</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#central">central</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L163">demos/dynamic-mixing/dynamic-mixing.xtl:163</a></div>
+</div>
+<div class="item" id="sums">
+<h3><a href="#sums">sums</a> <span class="type">: Box Float</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L161">line 161</a></div>
+<pre class="code">sums ← <span class="c-quote">'</span>{ vv → Hr ← (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> (<a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#t_ake" class="c-builtin">t̲ake</a> (<span class="c-number">2</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#S">S</a>) <a href="builtins.html#d_rop" class="c-builtin">d̲rop</a> <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> vv◆ (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Hr) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Hr } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> (<a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#va">va</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#e_nclose" class="c-builtin">e̲nclose</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#vb">vb</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#c2">c2</a></div>
+</div>
+<div class="item" id="c2">
+<h3><a href="#c2">c2</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L162">line 162</a></div>
+<pre class="code">c2 ← <span class="c-string">&quot;H_res's rows and columns sum to 1 for both inputs&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> <span class="c-number">0.000001</span> <a href="builtins.html#-3e" class="c-symbol">&gt;</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-number">1.0</span> <a href="builtins.html#-2d" class="c-symbol">−</a> (<a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sums">sums</a>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#d_isclose" class="c-builtin">d̲isclose</a> <span class="c-number">2</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-dynamic-mixing-dynamic-mixing.xtl.html#sums">sums</a></pre>
+<div class="uses">Used in: <a href="demos-dynamic-mixing-dynamic-mixing.xtl.src.html#L163">demos/dynamic-mixing/dynamic-mixing.xtl:163</a></div>
+</div>
+</main>
+</body>
+</html>

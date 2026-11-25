@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demos/gain-by-depth/gain-by-depth.xtl - X_eTaL doc</title>
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+<script defer src="search-index.js"></script>
+<script defer src="search.js"></script>
+</head>
+<body>
+<nav class="side">
+<a class="home" href="index.html">X_eTaL doc</a>
+<input id="search" type="search" autocomplete="off" placeholder="Search: a name, or a type" title="A name (mean finds m_ean), or a type: Num a =&gt; a -&gt; a -&gt; a finds +, m_ax ...">
+<h2>Files</h2>
+<h3>demos/dynamic-mixing/</h3>
+<ul>
+<li><a href="demos-dynamic-mixing-dynamic-mixing.xtl.html">dynamic-mixing.xtl</a></li>
+</ul>
+<h3>demos/gain-by-depth/</h3>
+<ul>
+<li><a href="demos-gain-by-depth-gain-by-depth.xtl.html">gain-by-depth.xtl</a></li>
+</ul>
+<h3>demos/landscape/</h3>
+<ul>
+<li><a href="demos-landscape-landscape.xtl.html">landscape.xtl</a></li>
+</ul>
+<h3>demos/lora-hello/</h3>
+<ul>
+<li><a href="demos-lora-hello-lora-hello.xtl.html">lora-hello.xtl</a></li>
+</ul>
+<h3>demos/lora-lab/</h3>
+<ul>
+<li><a href="demos-lora-lab-lora-lab.xtl.html">lora-lab.xtl</a></li>
+</ul>
+<h3>demos/lora-training/</h3>
+<ul>
+<li><a href="demos-lora-training-lora-training.xtl.html">lora-training.xtl</a></li>
+</ul>
+<h3>demos/lora-vs-fa/</h3>
+<ul>
+<li><a href="demos-lora-vs-fa-lora-vs-fa.xtl.html">lora-vs-fa.xtl</a></li>
+</ul>
+<h3>demos/mhc-compared/</h3>
+<ul>
+<li><a href="demos-mhc-compared-mhc-compared.xtl.html">mhc-compared.xtl</a></li>
+</ul>
+<h3>demos/rank-and-scaling/</h3>
+<ul>
+<li><a href="demos-rank-and-scaling-rank-and-scaling.xtl.html">rank-and-scaling.xtl</a></li>
+</ul>
+<h3>demos/residual-streams/</h3>
+<ul>
+<li><a href="demos-residual-streams-residual-streams.xtl.html">residual-streams.xtl</a></li>
+</ul>
+<h3>demos/sinkhorn/</h3>
+<ul>
+<li><a href="demos-sinkhorn-sinkhorn.xtl.html">sinkhorn.xtl</a></li>
+</ul>
+<h3>demos/training-at-depth/</h3>
+<ul>
+<li><a href="demos-training-at-depth-replay.xtl.html">replay.xtl</a></li>
+<li><a href="demos-training-at-depth-training-at-depth.xtl.html">training-at-depth.xtl</a></li>
+</ul>
+<h3>demos/welcome/</h3>
+<ul>
+<li><a href="demos-welcome-welcome.xtl.html">welcome.xtl</a></li>
+</ul>
+<h3>std/</h3>
+<ul>
+<li><a href="std-Svg.xtl.html">Svg.xtl</a></li>
+<li><a href="std-System.xtlm.html">System.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Check/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">Check.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">Check.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Combinatorics/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Combinatorics-src-Combinatorics.xtl.html">Combinatorics.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Equations/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtl.html">Equations.xtl</a></li>
+<li><a href="work-xetal-libraries-libs-Equations-src-Equations.xtlm.html">Equations.xtlm</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Format/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Format-src-Format.xtl.html">Format.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Lists/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Lists-src-Lists.xtl.html">Lists.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Matrix/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Matrix-src-Matrix.xtl.html">Matrix.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Plot/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">Plot.xtl</a></li>
+</ul>
+<h3>work/xetal-libraries/libs/Strings/src/</h3>
+<ul>
+<li><a href="work-xetal-libraries-libs-Strings-src-Strings.xtl.html">Strings.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Activations/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Activations-src-Activations.xtl.html">Activations.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Flow/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Flow-src-Flow.xtlm.html">Flow.xtlm</a></li>
+</ul>
+<h3>work/xetal-ml/libs/LoRA/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-LoRA-src-LoRA.xtl.html">LoRA.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/NN/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-NN-src-NN.xtl.html">NN.xtl</a></li>
+</ul>
+<h3>work/xetal-ml/libs/Optim/src/</h3>
+<ul>
+<li><a href="work-xetal-ml-libs-Optim-src-Optim.xtl.html">Optim.xtl</a></li>
+</ul>
+<ul>
+<li><a href="builtins.html">built-ins</a></li>
+</ul>
+<h2>On this page</h2>
+<ul>
+<li><a href="#section-1">Data</a></li>
+<li class="item"><a href="#S">S</a></li>
+<li class="item"><a href="#L">L</a></li>
+<li class="item"><a href="#tmax">tmax</a></li>
+<li class="item"><a href="#shift">shift</a></li>
+<li class="item"><a href="#ones">ones</a></li>
+<li class="item"><a href="#logits">logits</a></li>
+<li class="item"><a href="#HC">HC</a></li>
+<li class="item"><a href="#HM">HM</a></li>
+<li><a href="#section-2">The products, layer by layer</a></li>
+<li class="item"><a href="#I">I</a></li>
+<li class="item"><a href="#PHC">PHC</a></li>
+<li class="item"><a href="#fHC">fHC</a></li>
+<li class="item"><a href="#bHC">bHC</a></li>
+<li class="item"><a href="#qHC">qHC</a></li>
+<li class="item"><a href="#PHM">PHM</a></li>
+<li class="item"><a href="#fHM">fHM</a></li>
+<li class="item"><a href="#bHM">bHM</a></li>
+<li class="item"><a href="#qHM">qHM</a></li>
+<li class="item"><a href="#s">s</a></li>
+<li class="item"><a href="#depths">depths</a></li>
+<li class="item"><a href="#shifts">shifts</a></li>
+<li class="item"><a href="#sweep">sweep</a></li>
+<li class="item"><a href="#_">_</a></li>
+<li><a href="#section-3">Checked</a></li>
+<li class="item"><a href="#c1">c1</a></li>
+<li class="item"><a href="#c2">c2</a></li>
+<li class="item"><a href="#c3">c3</a></li>
+<li class="item"><a href="#c4">c4</a></li>
+</ul>
+</nav>
+<main>
+<button class="theme" title="Light or dark">theme</button>
+<section id="results"></section>
+<h1><span class="kind">program</span>demos/gain-by-depth/gain-by-depth.xtl</h1>
+<div class="doc">
+<p>The gain by depth: what a mixing table does when it is applied at
+every one of 48 layers. HC's carried-state table, the exponential of
+the logits 2 I - 1 (moved by a shift c, a setting), and mHC's, its
+Sinkhorn-Knopp projection (Xie and others, arXiv:2512.24880, eq. 9),
+each multiplied by itself once per layer; after every layer the
+product is measured two ways, each named: the paper's Amax Gain
+Magnitude (section 3.1: the largest absolute row sum, the forward
+gain, and the largest absolute column sum, the backward gain) and
+the Python re-implementation's proxy (mHC-poc: log10 of the largest
+absolute entry). Analytical: no training, the matrices alone. The
+loops are written out (ask FM13 of X_eTaL-ML, docs/xetal-ML-asks.md:
+hc:s_inkhorn, hc:a_maxGain, hc:g_ainProxy).</p>
+</div>
+<p class="meta"><a href="demos-gain-by-depth-gain-by-depth.xtl.src.html">source</a> &middot; imports <code><span class="c-error">k:</span></code> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html">work/xetal-libraries/libs/Check/src/Check.xtl</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtlm.html">work/xetal-libraries/libs/Check/src/Check.xtlm</a>; <code><span class="c-error">p:</span></code> <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html">work/xetal-libraries/libs/Plot/src/Plot.xtl</a></p>
+<h2 class="section" id="section-1">Data</h2>
+<div class="item" id="S">
+<h3><a href="#S">S</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L23">line 23</a></div>
+<div class="doc">
+<p>The settings: S streams, L layers, the paper's count of Sinkhorn
+rounds, and the shift c added to every logit (the slider; 0 is the
+paper's and the Python's start).</p>
+</div>
+<pre class="code">S ← <span class="c-number">4</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#ones">ones</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#logits">logits</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c4">c4</a></div>
+</div>
+<div class="item" id="L">
+<h3><a href="#L">L</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L24">line 24</a></div>
+<pre class="code">L ← <span class="c-number">48</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#depths">depths</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L77">demos/gain-by-depth/gain-by-depth.xtl:77</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#_">_</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c4">c4</a></div>
+</div>
+<div class="item" id="tmax">
+<h3><a href="#tmax">tmax</a> <span class="type">: Int</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L25">line 25</a></div>
+<pre class="code">tmax ← <span class="c-number">20</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HM">HM</a></div>
+</div>
+<div class="item" id="shift">
+<h3><a href="#shift">shift</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L26">line 26</a></div>
+<pre class="code">shift ← <span class="c-number">0.00</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#logits">logits</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#sweep">sweep</a></div>
+</div>
+<div class="item" id="ones">
+<h3><a href="#ones">ones</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L27">line 27</a></div>
+<pre class="code">ones ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#S">S</a> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HM">HM</a></div>
+</div>
+<div class="item" id="logits">
+<h3><a href="#logits">logits</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L28">line 28</a></div>
+<pre class="code">logits ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#shift">shift</a> <a href="builtins.html#-2b" class="c-symbol">+</a> (<span class="c-number">2.0</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> (<a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#S">S</a>) <span class="c-symbol">'</span><a href="builtins.html#-3d" class="c-symbol">=</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#S">S</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HC">HC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L33">demos/gain-by-depth/gain-by-depth.xtl:33</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#sweep">sweep</a></div>
+</div>
+<div class="item" id="HC">
+<h3><a href="#HC">HC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L31">line 31</a></div>
+<div class="doc">
+<p>HC's table: the exponential of the logits, as it is. mHC's: the
+same projected by tmax rounds of Sinkhorn-Knopp.</p>
+</div>
+<pre class="code">HC ← <a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#logits">logits</a></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HM">HM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L34">demos/gain-by-depth/gain-by-depth.xtl:34</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L36">demos/gain-by-depth/gain-by-depth.xtl:36</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#s">s</a></div>
+</div>
+<div class="item" id="HM">
+<h3><a href="#HM">HM</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L32">line 32</a></div>
+<pre class="code">HM ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#tmax">tmax</a> <span class="c-quote">'</span>{ M → R ← M <a href="builtins.html#-2f" class="c-symbol">÷</a> (<span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> M) <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#ones">ones</a>◆ R <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#ones">ones</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#t_able" class="c-builtin">t̲able</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> R } <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HC">HC</a></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L35">demos/gain-by-depth/gain-by-depth.xtl:35</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L37">demos/gain-by-depth/gain-by-depth.xtl:37</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a></div>
+</div>
+<h2 class="section" id="section-2">The products, layer by layer</h2>
+<div class="item" id="I">
+<h3><a href="#I">I</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L47">line 47</a></div>
+<div class="doc">
+<p>The table applied at every layer: after k layers the carried state
+has been multiplied by H k times, the composite mapping H^k. After
+every layer, the product and its three measures: the forward gain
+(the largest absolute row sum), the backward gain (the largest
+absolute column sum) and the proxy (log10 of the largest absolute
+entry). HC first, then mHC.</p>
+</div>
+<pre class="code">I ← (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#S">S</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#S">S</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">1.0</span> <span class="c-number">0.0</span> <span class="c-number">0.0</span> <span class="c-number">0.0</span> <span class="c-number">0.0</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a></div>
+</div>
+<div class="item" id="PHC">
+<h3><a href="#PHC">PHC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L48">line 48</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHC">fHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHC">bHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHC">qHC</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HC">HC</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L56">demos/gain-by-depth/gain-by-depth.xtl:56</a></div>
+</div>
+<div class="item" id="fHC">
+<h3><a href="#fHC">fHC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L48">line 48</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHC">fHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHC">bHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHC">qHC</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HC">HC</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L58">demos/gain-by-depth/gain-by-depth.xtl:58</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#_">_</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c1">c1</a></div>
+</div>
+<div class="item" id="bHC">
+<h3><a href="#bHC">bHC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L48">line 48</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHC">fHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHC">bHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHC">qHC</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HC">HC</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L59">demos/gain-by-depth/gain-by-depth.xtl:59</a></div>
+</div>
+<div class="item" id="qHC">
+<h3><a href="#qHC">qHC</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L48">line 48</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHC">fHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHC">bHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHC">qHC</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HC">HC</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHC">PHC</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L60">demos/gain-by-depth/gain-by-depth.xtl:60</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#_">_</a></div>
+</div>
+<div class="item" id="PHM">
+<h3><a href="#PHM">PHM</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L52">line 52</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHM">fHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHM">bHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHM">qHM</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HM">HM</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L57">demos/gain-by-depth/gain-by-depth.xtl:57</a></div>
+</div>
+<div class="item" id="fHM">
+<h3><a href="#fHM">fHM</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L52">line 52</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHM">fHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHM">bHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHM">qHM</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HM">HM</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L61">demos/gain-by-depth/gain-by-depth.xtl:61</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#_">_</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c2">c2</a></div>
+</div>
+<div class="item" id="bHM">
+<h3><a href="#bHM">bHM</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L52">line 52</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHM">fHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHM">bHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHM">qHM</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HM">HM</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L62">demos/gain-by-depth/gain-by-depth.xtl:62</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c3">c3</a></div>
+</div>
+<div class="item" id="qHM">
+<h3><a href="#qHM">qHM</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L52">line 52</a></div>
+<pre class="code">(_, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHM">fHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHM">bHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHM">qHM</a>) ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <span class="c-quote">'</span>{ (P, Ps, f, b, q) →
+  Q ← <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HM">HM</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <span class="c-symbol">'</span><a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#i_nner" class="c-builtin">i̲nner</a> P
+  (Q, Ps <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> Q, f <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> Q, b <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₁</a> Q, q <a href="builtins.html#c_at" class="c-builtin">c̲at</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#r_avel" class="c-builtin">r̲avel</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> Q) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>)
+} <a href="builtins.html#p_ower" class="c-builtin">p̲ower</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#I">I</a>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>, <span class="c-number">0</span> <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> <span class="c-number">0.0</span>)</pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#PHM">PHM</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L63">demos/gain-by-depth/gain-by-depth.xtl:63</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#_">_</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c4">c4</a></div>
+</div>
+<div class="item" id="s">
+<h3><a href="#s">s</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L67">line 67</a></div>
+<div class="doc">
+<p>The arithmetic behind HC's line: every row of HC sums to the same
+s, so every row of H^k sums to s^k, and log10 of the forward gain
+after k layers is k log10 s, a straight line.</p>
+</div>
+<pre class="code">s ← <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#HC">HC</a></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L69">demos/gain-by-depth/gain-by-depth.xtl:69</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c1">c1</a></div>
+</div>
+<div class="item" id="depths">
+<h3><a href="#depths">depths</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L68">line 68</a></div>
+<pre class="code">depths ← <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L69">demos/gain-by-depth/gain-by-depth.xtl:69</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.html#c1">c1</a></div>
+</div>
+<div class="item" id="shifts">
+<h3><a href="#shifts">shifts</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L74">line 74</a></div>
+<div class="doc">
+<p>The same arithmetic at every shift the page's slider offers, -2 to
+1 by a quarter: shifting every logit by c multiplies HC's table by
+e^c, so its row sum is e^c times the row sum at no shift; and the
+forward gain after L layers is that to the power L.</p>
+</div>
+<pre class="code">shifts ← (<span class="c-number">0.25</span> <a href="builtins.html#-2a" class="c-symbol">×</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">13</span>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">2.25</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.html#sweep">sweep</a></div>
+</div>
+<div class="item" id="sweep">
+<h3><a href="#sweep">sweep</a> <span class="type">: Float</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L75">line 75</a></div>
+<pre class="code">sweep ← (<a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#shifts">shifts</a>) <a href="builtins.html#-2a" class="c-symbol">×</a> <span class="c-number">1</span> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <span class="c-symbol">'</span><a href="builtins.html#-2b" class="c-symbol">+</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/₂</a> <a href="builtins.html#e_xp" class="c-builtin">e̲xp</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#logits">logits</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#shift">shift</a></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L76">demos/gain-by-depth/gain-by-depth.xtl:76</a>, <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L77">demos/gain-by-depth/gain-by-depth.xtl:77</a></div>
+</div>
+<div class="item" id="_">
+<h3><a href="#_">_</a> <span class="type">: Char</span></h3>
+<div class="meta">function &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L80">line 80</a></div>
+<div class="doc">
+<p>The two measures on a log scale, layer by layer: HC's and mHC's
+forward gain and HC's and mHC's proxy.</p>
+</div>
+<pre class="code">_ ← (<span class="c-string">&quot;The gain by depth&quot;</span> <span class="c-string">&quot;layer&quot;</span> <span class="c-string">&quot;log10&quot;</span> <span class="c-string">&quot;HC, forward gain&quot;</span> <span class="c-string">&quot;mHC, forward gain&quot;</span> <span class="c-string">&quot;HC, proxy&quot;</span> <span class="c-string">&quot;mHC, proxy&quot;</span>) <a href="work-xetal-libraries-libs-Plot-src-Plot.xtl.html#l.c_hart-21" class="c-libfunc">ᵖc̲hart!</a> <span class="c-quote">'</span>{ k → k <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> (<span class="c-number">4</span> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a>) <a href="builtins.html#r_eshape" class="c-builtin">r̲eshape</a> ((<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHC">fHC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHM">fHM</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>) <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHC">qHC</a> <a href="builtins.html#c_at" class="c-builtin">c̲at</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHM">qHM</a> } <a href="builtins.html#m_ap" class="c-builtin">m̲ap</a> <a href="builtins.html#r_ange" class="c-builtin">r̲ange</a> <span class="c-number">4</span></pre>
+</div>
+<h2 class="section" id="section-3">Checked</h2>
+<div class="item" id="c1">
+<h3><a href="#c1">c1</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L87">line 87</a></div>
+<div class="doc">
+<p>HC's forward gain is s^k at every depth; mHC's forward and
+backward gains are 1; mHC's largest entry tends to 1/S, the four
+streams averaged.</p>
+</div>
+<pre class="code">c1 ← <span class="c-string">&quot;HC's forward gain is its row sum to the power of the depth&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHC">fHC</a> <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#s">s</a> <a href="builtins.html#-5e" class="c-symbol">^</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#depths">depths</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <span class="c-number">0.000000001</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L91">demos/gain-by-depth/gain-by-depth.xtl:91</a></div>
+</div>
+<div class="item" id="c2">
+<h3><a href="#c2">c2</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L88">line 88</a></div>
+<pre class="code">c2 ← <span class="c-string">&quot;mHC's forward gain is 1 at every depth&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#fHM">fHM</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <span class="c-number">0.000000001</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L91">demos/gain-by-depth/gain-by-depth.xtl:91</a></div>
+</div>
+<div class="item" id="c3">
+<h3><a href="#c3">c3</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L89">line 89</a></div>
+<pre class="code">c3 ← <span class="c-string">&quot;mHC's backward gain is 1 at every depth&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<span class="c-builtin">'</span><a href="builtins.html#m_ax" class="c-builtin">m̲ax</a> <a href="builtins.html#r_-2f" class="c-builtin">r̲/</a> <a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#bHM">bHM</a> <a href="builtins.html#-2d" class="c-symbol">−</a> <span class="c-number">1.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <span class="c-number">0.000000001</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L91">demos/gain-by-depth/gain-by-depth.xtl:91</a></div>
+</div>
+<div class="item" id="c4">
+<h3><a href="#c4">c4</a> <span class="type">: Char</span></h3>
+<div class="meta">value &middot; <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L90">line 90</a></div>
+<pre class="code">c4 ← <span class="c-string">&quot;mHC's largest entry after 48 layers is 1 / S&quot;</span> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_est" class="c-libfunc">ᵏt̲est</a> <a href="work-xetal-libraries-libs-Check-src-Check.xtl.html#l.t_rue" class="c-libfunc">ᵏt̲rue</a> (<a href="builtins.html#a_bs" class="c-builtin">a̲bs</a> (<a href="demos-gain-by-depth-gain-by-depth.xtl.html#L">L</a> <a href="builtins.html#s_elect" class="c-builtin">s̲elect</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#qHM">qHM</a>) <a href="builtins.html#-2d" class="c-symbol">−</a> (<a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">1.0</span> <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#f_loat" class="c-builtin">f̲loat</a> <a href="demos-gain-by-depth-gain-by-depth.xtl.html#S">S</a>) <a href="builtins.html#-2f" class="c-symbol">÷</a> <a href="builtins.html#l_og" class="c-builtin">l̲og</a> <span class="c-number">10.0</span>) <a href="builtins.html#-3c" class="c-symbol">&lt;</a> <span class="c-number">0.000001</span></pre>
+<div class="uses">Used in: <a href="demos-gain-by-depth-gain-by-depth.xtl.src.html#L91">demos/gain-by-depth/gain-by-depth.xtl:91</a></div>
+</div>
+</main>
+</body>
+</html>
